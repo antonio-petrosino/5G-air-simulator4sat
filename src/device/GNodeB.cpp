@@ -64,7 +64,7 @@ GNodeB::GNodeB (int idElement,
                       cell,
                       posx,
                       posy,
-                      25) // default value for urban macro-cell scenario
+                      600) // default value for LEO satellite 600 km
 {}
 
 GNodeB::GNodeB (int idElement,
@@ -75,10 +75,11 @@ GNodeB::GNodeB (int idElement,
 {
   SetIDNetworkNode (idElement);
   SetNodeType(NetworkNode::TYPE_GNODEB);
-  SetCell (cell);
+  SetCell (cell); // associa la cella al gNodeB
 
   CartesianCoordinates *position = new CartesianCoordinates(posx, posy, posz);
-  Mobility* m = new ConstantPosition ();
+  Mobility* m = new ConstantPosition (); // non è fissa la posizione
+  //Mobility* m = new SatelliteMovement(); // tutte le antenne seguiranno il movimento satellitare
   m->SetAbsolutePosition (position);
   SetMobilityModel (m);
   delete position;
@@ -96,6 +97,48 @@ GNodeB::GNodeB (int idElement,
   classifier->SetDevice (this);
   SetClassifier (classifier);
 }
+
+GNodeB::GNodeB (int idElement,
+                Cell *cell,
+                double posx,
+                double posy,
+                double posz,
+				string type)
+{
+
+	  SetIDNetworkNode (idElement);
+	  SetNodeType(NetworkNode::TYPE_GNODEB);
+	  SetCell (cell); // associa la cella al gNodeB
+
+	  CartesianCoordinates *position = new CartesianCoordinates(posx, posy, posz);
+	  if( type == "sat"){
+		  cout << "Riconosciuto lo scenario satellitare, preparazione modello di mobilità satellitare." << endl;
+		  Mobility* m = new SatelliteMovement(); // movimento satellitare
+		  m->SetAbsolutePosition (position);
+		  SetMobilityModel (m);
+		  delete position;
+	  }else{
+		  Mobility* m = new ConstantPosition (); // posizione fissa
+		  m->SetAbsolutePosition (position);
+		  SetMobilityModel (m);
+		  delete position;
+	  }
+
+
+	  m_userEquipmentRecords = new UserEquipmentRecords;
+
+	  GnbPhy *phy = new GnbPhy ();
+	  phy->SetDevice(this);
+	  SetPhy (phy);
+
+	  ProtocolStack *stack = new ProtocolStack (this);
+	  SetProtocolStack (stack);
+
+	  Classifier *classifier = new Classifier ();
+	  classifier->SetDevice (this);
+	  SetClassifier (classifier);
+}
+
 
 GNodeB::~GNodeB()
 {

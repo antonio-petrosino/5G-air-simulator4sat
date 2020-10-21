@@ -323,7 +323,7 @@ BandwidthManager::CreateNbIoTspectrum (int nbOfNbIoTcarriers, double spacing,
     {
       m_tones = tones;
     }
-  float rubw = m_tones * spacing / 1000; // [MHz]
+  float rubw = m_tones * spacing / 1000; // [kHz -> MHz]
 
   vector<int> rbs = GetNbIoTrb ();
 

@@ -42,3 +42,4 @@
 
 #Fast Fading Traces
 src/channel/propagation-model/FastFadingRealization/*
+/Default/

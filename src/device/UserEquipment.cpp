@@ -82,6 +82,14 @@ UserEquipment::UserEquipment (int idElement,
     {
       m = new LinearMovement ();
     }
+  else if (model == Mobility::SATELLITE)
+    {
+      m = new SatelliteMovement ();
+    }
+  else if (model == Mobility::UE_SATELLITE)
+    {
+      m = new Ue_SatelliteMovement ();
+    }
   else
     {
       cout << "ERROR: incorrect Mobility Model"<< endl;
@@ -190,6 +198,15 @@ DEBUG_LOG_END
           NetworkManager::Init()->HandoverProcedure(time, this, targetNode, newTargetNode);
         }
     }
+  else
+  {
+	 // gestire detach
+	  	  //	  if(distanza < distanza_decisa){
+	  	  //		  stato = attach;
+	  	  //	  }else{
+	  	  //		  stato = detach;
+	  	  //	  }
+  }
 
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate

@@ -92,6 +92,7 @@ DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG_TAB)
 DEBUG_LOG_END
 
   double shift = timeInterval * (GetSpeed()*(1000.0/3600.0));
+	// è espresso in metri al secondo se la velocita e data in km/h
 
   double shift_y =
     shift * sin (GetSpeedDirection());

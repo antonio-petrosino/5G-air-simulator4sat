@@ -127,21 +127,21 @@ int seed;
         std::cout << it->first << " " << it->second << "\n";
     }    
         
-    int etilt; //degrees
+    //int etilt; //degrees
     double carrierFreq; //MHz
-    double txPower = 23; // dBm    
-    double antennaHeight = 600; // m    
-    double antennaGain = 0; // 8 dBi
+    double txPower = 33; // dBm
+    double antennaHeight = 600; // km
+    double antennaGain = 8; // 8 dBi
     
     double antennaAttenuation = 20; // dB???
     double horizontalBeamwidth3db = 65; //degrees??
-    double UENoiseFigure = 9; // dB
+    double UENoiseFigure = 6; // dB
     
     int channelModel = 1;
     //int nbCell = 20; // number of sites in the simulation
     //int nbActiveCell = 1; // number of sites with active users
     //int nbSector = 3; // number of sectors per site
-    double BSNoiseFigure = 7; // dB
+    double BSNoiseFigure = 3; // dB
     bool handover = false;
     //double indoorUeFraction = 0;
     //double minDist = 0.025; // in km
@@ -150,17 +150,17 @@ int seed;
     //int ueRx = nbRx;
     
     //double vBeamWidth = 65;
-    double BSFeederLoss = 2;
+    double BSFeederLoss = 0; // 2
     
     if(environment=="suburban" || environment=="urban")
     {        
-        etilt = 14;
+        //etilt = 14;
         channelModel = 4;
         carrierFreq = 2000;
     }
     else if(environment=="rural")
     {        
-        etilt = 10;
+        //etilt = 10;
         channelModel = 4;
         carrierFreq = 2000;
     }
@@ -274,7 +274,7 @@ int seed;
     // The simulator handles only UPLINK case
     
     //Create GNodeB
-    GNodeB* gnb = new GNodeB (1, cell, 0, 0);
+    GNodeB* gnb = new GNodeB (1, cell, 0, 0, 600, "sat"); // scenario satellitare a 600km
     gnb->SetRandomAccessType(m_GnbRandomAccessType);
     gnb->GetPhy ()->SetDlChannel (dlCh);
     gnb->GetPhy ()->SetUlChannel (ulCh);
@@ -308,7 +308,7 @@ int seed;
     double posX = 0;
     double posY = 0;
 
-    int nbOfZones;
+    int nbOfZones; // divisione in livelli di MCS visto che non e' presente un feedback del CQI
     if (tones==1)
     {
         nbOfZones=11;
@@ -318,7 +318,7 @@ int seed;
         nbOfZones=14;
     }
     
-    int zone;
+    int zone; // l'intera cella viene divisa in porzioni
     double zoneWidth = radius*1000 / nbOfZones;
     double edges[nbOfZones+1];
     for (int i=0; i <= nbOfZones; i++)
@@ -332,13 +332,13 @@ int seed;
     std::uniform_real_distribution<> spaDis(0.0, zoneWidth);
     std::uniform_int_distribution<> zoneDis(0, nbOfZones-1);
     std::uniform_int_distribution<> sig(1, 2);
-    std::uniform_real_distribution<> timeDis(0.0, (double) CBR_interval);
+    std::uniform_real_distribution<> timeDis(0.0, (double) CBR_interval); // intervallo all interno del quale l UE trasmette
 
     cout << "CBR interval is " << (double) CBR_interval << endl;
 
     for (int i = 0; i < nbUE; i++)
     {
-    zone = zoneDis(gen);
+    zone = zoneDis(gen); // le UE vengono assegnate in modo uniforme a tutte le zone
     cout << "ZONE " << zone;
     low = edges[nbOfZones - 1 - zone];
     cout << " LOW EDGE " << low;
@@ -358,7 +358,7 @@ int seed;
                                      cell,
                                      gnb,
                                      0, //handover false!
-                                     Mobility::CONSTANT_POSITION);
+                                     Mobility::UE_SATELLITE);
 
     cout << "Created UE - id " << idUE << " position " << posX << " " << posY << endl;
 
@@ -384,12 +384,15 @@ int seed;
     // register ue to the gnb
     gnb->RegisterUserEquipment (ue);
 
-
+    // propagation loss model da inserire
     gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
 
     DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
     CartesianCoordinates* userPosition = ue->GetMobilityModel()->GetAbsolutePosition();
     CartesianCoordinates* cellPosition = cell->GetCellCenterPosition();
+
+    // get position della gnb??
+
     double distance = userPosition->GetDistance(cellPosition)/1000;
 
     double zoneWidth = (double) (radius/nbOfZones);
@@ -417,7 +420,7 @@ int seed;
     DEBUG_LOG_END
 
     //CREATE UPLINK APPLICATION FOR THIS UE
-    double start_time = .001 + timeDis(gen);
+    double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
     double duration_time = flow_duration - 0.001;
 
     // *** cbr application

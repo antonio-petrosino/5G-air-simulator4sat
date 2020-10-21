@@ -19,18 +19,19 @@
  * Author: Telematics Lab <telematics-dev@poliba.it>
  */
 
-#ifndef CONSTANTPOSITION_H_
-#define CONSTANTPOSITION_H_
+#ifndef SATELLITE_H_
+#define SATELLITE_H_
 
 #include "Mobility.h"
 
-class ConstantPosition: public Mobility
+class SatelliteMovement :public Mobility
 {
 public:
-  ConstantPosition();
-  virtual ~ConstantPosition();
+  SatelliteMovement();
+  virtual ~SatelliteMovement();
 
-  virtual void UpdatePosition (double time);
+  void
+  UpdatePosition (double time);
 };
 
-#endif /* CONSTANTPOSITION_H_ */
+#endif /* SATELLITE_H_ */

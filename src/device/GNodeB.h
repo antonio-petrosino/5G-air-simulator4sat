@@ -118,6 +118,7 @@ public:
   GNodeB (int idElement, Cell *cell);
   GNodeB (int idElement, Cell *cell, double posx, double posy);
   GNodeB (int idElement, Cell *cell, double posx, double posy, double posz);
+  GNodeB (int idElement, Cell *cell, double posx, double posy, double posz, string type);
 
   virtual ~GNodeB();
 
