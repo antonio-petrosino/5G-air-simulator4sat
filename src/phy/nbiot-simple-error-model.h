@@ -20,30 +20,19 @@
  * Author: Giancarlo Sciddurlo  <giancarlo.sciddurlo@poliba.it>
  */
 
-#ifndef SATELLITE_COORDINATE_H_
-#define SATELLITE_COORDINATE_H_
+#ifndef NBIOT_SIMPLE_ERRORMODEL_H_
+#define NBIOT_SIMPLE_ERRORMODEL_H_
 
-#include "iostream"
-#include <cmath>
+#include "error-model.h"
+#include <vector>
 
-double
-GetSatPosition (double time)
+class NBIoTSimpleErrorModel : public ErrorModel
 {
-	// metà_raggio_satellite [COSTANTE] - radius [INPUT]+ (velocità_relativa [calcolata in base ai 2 minuti] * tempo_visibilità_satellite_[modulo3000]])
-	// metri, metri, m/s, secondi
+public:
+  NBIoTSimpleErrorModel() = default;
+  virtual ~NBIoTSimpleErrorModel() = default;
 
-	// modello basato su:
-	// area 				= 30 ettari
-	// altezza satellite 	= 500km
-	// tempo visibilità		= 120 secondi
-	// periodicità sat.		= 1 ogni 48 min
-
-	double mod = 3000.0; // dipende dal tempo di visibilità + prossimo passaggio satellite
-	double newPosition = 0.0;
-	newPosition = -300000 -309 +(5000 * (fmod(time,mod)));
-
-	// da un bordo cella all'altro ci mette 125 ms circa
-	return newPosition;
+  virtual bool CheckForPhysicalError (vector<int> channels, vector<int> mcs, vector<double> m_sinr);
 };
 
-#endif /* SATELLITE_COORDINATE_H_ */
+#endif /* NBIOT_SIMPLE_ERRORMODEL_H_ */

@@ -47,6 +47,7 @@ public:
     CHANNEL_MODEL_MACROCELL_URBAN_IMT_3D,
     CHANNEL_MODEL_MACROCELL_RURAL_IMT,
     CHANNEL_MODEL_3GPP_CASE1,
+	CHANNEL_MODEL_SATELLITE
   };
 
   ChannelRealization (NetworkNode* src, NetworkNode* dst, ChannelModel model, bool MBSFNRealization = false);

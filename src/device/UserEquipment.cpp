@@ -28,11 +28,12 @@
 #include "Gateway.h"
 #include "../phy/ue-phy.h"
 #include "CqiManager/cqi-manager.h"
+#include "../core/spectrum/bandwidth-manager.h"
 #include "../core/eventScheduler/simulator.h"
 #include "../componentManagers/NetworkManager.h"
 #include "../protocolStack/rrc/ho/handover-entity.h"
 #include "../protocolStack/rrc/ho/ho-manager.h"
-#include "../core/spectrum/bandwidth-manager.h"
+
 
 UserEquipment::UserEquipment (int idElement,
                               double posx,
@@ -218,19 +219,35 @@ DEBUG_LOG_END
 //	  }
 	  //cout << "Distanza UE dalla gNB: " << distance << endl;
 
-
 	  // gestire detach per simulare visibilità/non visibilità
 
 	  if(distance > 583000)
-	  { // la visibilità inizia quando il dispositivo è a meno di 600km dalla gNB
+	  { // la visibilità inizia quando il dispositivo è a meno di 583km dalla gNB
 		  if(GetNodeState() != UserEquipment::STATE_DETACHED){
+
+DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
+		cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
+		Print();
+DEBUG_LOG_END
+cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
+
 			  SetNodeState (UserEquipment::STATE_DETACHED);
+			  //double detachTime = ue->GetProtocolStack()->GetRrcEntity()->GetHandoverEntity()->GetDetachTime();
+			  //Simulator::Init()->Schedule(detachTime, &NetworkNode::MakeActive, ue);
+			  //Simulator::Init()->Schedule(0.01, &NetworkNode::MakeActive(), this);
 		  }
 	  }
 	  else
 	  {
 		  if(GetNodeState() == UserEquipment::STATE_DETACHED){
-			  SetNodeState (UserEquipment::STATE_ACTIVE); // o idle??
+DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
+		cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+		Print();
+DEBUG_LOG_END
+cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+
+			  //SetNodeState (UserEquipment::STATE_ACTIVE); // o idle??
+				MakeActive();
 		  }
 	  }
   }

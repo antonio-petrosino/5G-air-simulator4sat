@@ -1,0 +1,49 @@
+   5G-air-simulator CHANGELOG
+===================================================
+
+This file contains 5G-air-simulator changelog for 
+satellite scenario implementation.
+
+====================================================
+- File aggiunti:
+---------------------------------------------------
+1) Scenario -> nb-cell-sat.h 
+//Descrizione dello scenario satellitare
+
+2) Mobility -> Satellite.h/cpp
+			-> Ue_Satellite.h/cpp
+//Implementazione mobilità base station
+
+3) Mobility -> SatelliteCoordinate.h
+// Definizione delle coord. sat. con scenario:
+	// area 				= 30 ettari
+	// altezza satellite 	= 500km
+	// tempo visibilità		= 120 secondi
+	// periodicità sat.		= 1 ogni 48 min
+====================================================
+- Modifiche a file esistenti:
+----------------------------------------------------
+1) Device -> UserEquipment.cpp -> UpdateUserPosition()
+//Gestione distanza UE -> gNB
+	//Solo nel caso satellitare:
+	//	Detach if distanza > distanza_massima_da_satellite
+	//	else 
+	//	Attach
+	
+2) Device -> NetworkNode -> MakeActive()
+// Check sulla distanza fra UE e gNB prima dell'awake
+// forzato
+
+3) Phy -> nbiot-simple-error-model.h/cpp
+// Definizione per lo scenario di riferimento
+
+4) Phy -> BLERTrace -> BLERvsSINR_NBIoT_SAT.h
+// Gestione delle curve BLER di riferimento
+
+5) core -> Bandwidth-manager.h/cpp 
+// Modifica Low-High freq.
+// aggiunta metodo bool GetNBIoTenabled()
+
+6) channel -> channel-realization.h/cpp
+// Aggiunta def: CHANNEL_MODEL_SATELLITE
+// da inserire m_pathLoss output del D1

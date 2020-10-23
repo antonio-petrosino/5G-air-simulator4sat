@@ -60,6 +60,7 @@ ChannelRealization::ChannelRealization (NetworkNode* src, NetworkNode* dst, Chan
   switch(model)
     {
       case CHANNEL_MODEL_MACROCELL_URBAN:
+      case CHANNEL_MODEL_SATELLITE:
 
       case CHANNEL_MODEL_MACROCELL_SUB_URBAN:
       case CHANNEL_MODEL_MACROCELL_RURAL:
@@ -172,6 +173,10 @@ DEBUG_LOG_END
                 m_indoorDistance = (double)rand()/RAND_MAX*25;
               }
             break;
+
+        case CHANNEL_MODEL_SATELLITE:
+        	m_isLosType = true;
+        	m_shadowingStddev = 4;
 
         case CHANNEL_MODEL_MACROCELL_RURAL_IMT:
             losProbability = min(1.00, exp(-(distance-10)/1000));
@@ -526,6 +531,16 @@ ChannelRealization::GetPathLoss (void)
          */
         m_pathLoss = 128.1 + (37.6 * log10 (distance * 0.001));
         break;
+
+      case CHANNEL_MODEL_SATELLITE:
+              /*
+               * According to  ---  insert standard 3gpp ---
+               * the Path Loss Model For Satellite Environment is
+               * ...
+               */
+              m_pathLoss = 69.55 + 26.16*log10(f) - 13.82*log10(Henb) + (44.9-6.55*log10(Henb))*log10(distance * 0.001) - 4.78*pow(log10(f),2) + 18.33*log10(f) - 40.94;
+              m_pathLoss = 0.0;
+              break;
 
 
       case CHANNEL_MODEL_MACROCELL_RURAL:

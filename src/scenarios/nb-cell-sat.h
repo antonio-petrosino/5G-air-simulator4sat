@@ -41,7 +41,7 @@
 #include "../utility/RandomVariable.h"
 #include "../channel/propagation-model/channel-realization.h"
 #include "../phy/wideband-cqi-eesm-error-model.h"
-#include "../phy/simple-error-model.h"
+#include "../phy/nbiot-simple-error-model.h"
 #include "../load-parameters.h"
 
 #include "../device/UserEquipment.h"
@@ -67,6 +67,8 @@
 
 static void nbCell_Satellite (int argc, char *argv[])
 {
+	// ./5G-air-simulator nbCell-Sat rural 0 100 0.3 50 5 1 15 1 60 256 4 1 1 3 1 12 48 320 8 256 > TracingTest.txt
+
     string environment(argv[2]); // "suburban" or "rural"
     int schedUL = atoi(argv[3]);
     double dur = atoi(argv[4]); // [s]
@@ -152,7 +154,7 @@ int seed;
     //double vBeamWidth = 65;
     double BSFeederLoss = 0; // 2
     
-    if(environment=="suburban" || environment=="urban")
+    if(environment=="suburban" || environment=="urban" || environment == "sat")
     {        
         //etilt = 14;
         channelModel = 4;
@@ -163,6 +165,10 @@ int seed;
         //etilt = 10;
         channelModel = 4;
         carrierFreq = 2000;
+    }
+    else if(environment == "sat"){
+    	channelModel = 5;
+    	carrierFreq = 2000;
     }
     else
     {
@@ -187,6 +193,9 @@ int seed;
           model = ChannelRealization::CHANNEL_MODEL_MACROCELL_RURAL;
           break;
         case 4:
+          model = ChannelRealization::CHANNEL_MODEL_SATELLITE;
+          break;
+        case 5:
           model = ChannelRealization::CHANNEL_MODEL_MACROCELL_URBAN_IMT_3D;
           break;
         default:
@@ -194,6 +203,8 @@ int seed;
           break;
     }
     
+    cout << "Modello scelto: "<< model << endl;
+
     // define simulation times
     double duration = dur; //+ 1;
     double flow_duration = duration;
@@ -274,7 +285,7 @@ int seed;
     // The simulator handles only UPLINK case
     
     //Create GNodeB
-    GNodeB* gnb = new GNodeB (1, cell, 0, 0, 500000, "sat"); // scenario satellitare a 600km
+    GNodeB* gnb = new GNodeB (1, cell, -300310, 0, 500000, "sat"); // scenario satellitare a 500km
     gnb->SetRandomAccessType(m_GnbRandomAccessType);
     gnb->GetPhy ()->SetDlChannel (dlCh);
     gnb->GetPhy ()->SetUlChannel (ulCh);
@@ -287,7 +298,9 @@ int seed;
     gnb->SetULScheduler(uplink_scheduler_type);
 
     networkManager->GetGNodeBContainer ()->push_back (gnb);
-    cout << "Created gNB - id 1 position (0;0)"<< endl;
+    //cout << "Created gNB - id 1 position (0;0)"<< endl;
+
+    cout << "Created gNB - id 1 - Out of visibility"<< endl;
 
     GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) gnb->GetMacEntity()->GetRandomAccessManager();
 
@@ -363,8 +376,22 @@ int seed;
     cout << "Created UE - id " << idUE << " position " << posX << " " << posY << endl;
 
     ue->SetRandomAccessType(m_UeRandomAccessType);
+
+    ue->SetTimePositionUpdate (0.001); // trigger per la mobilità
+
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);
+
+////////////////////////////
+// esempio di error model
+    //WidebandCqiEesmErrorModel *errorModel = new WidebandCqiEesmErrorModel ();
+    //NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
+    //ue->GetPhy ()->SetErrorModel (errorModel);
+
+    //ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
+    //c_ul->disableFastFading();
+    //gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
+////////////////////////////
 
     double propDist = distance/(1000*radius);
     std::map<double, int>::iterator it;

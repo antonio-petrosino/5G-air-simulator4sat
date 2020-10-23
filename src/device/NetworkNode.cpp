@@ -22,6 +22,7 @@
 
 
 #include "NetworkNode.h"
+#include "../core/spectrum/bandwidth-manager.h"
 #include "../core/eventScheduler/simulator.h"
 #include "../componentManagers/NetworkManager.h"
 #include "../load-parameters.h"
@@ -157,6 +158,19 @@ NetworkNode::SetNodeState (NodeState state)
 void
 NetworkNode::MakeActive (void)
 {
+	if(((UserEquipment*)this)->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
+		//cout << "Ho invocato il MakeActive"<< endl;
+	    CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
+	    CartesianCoordinates* gnbPos = ((UserEquipment*)this)->GetTargetNode()->GetMobilityModel()->GetAbsolutePosition();
+	    double distance = uePos->GetDistance3D (gnbPos);
+
+	    if(distance > 583000)
+	    	  {
+	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
+	    		  return;
+	    	  }
+	}
+
   if(GetNodeType()==TYPE_UE)
     {
       if(((UserEquipment*)this)->GetTargetNode()->GetDLScheduler()!=nullptr)
