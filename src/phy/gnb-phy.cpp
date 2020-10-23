@@ -109,6 +109,9 @@ GnbPhy::StartTx (shared_ptr<PacketBurst> p)
 void
 GnbPhy::StartRx (shared_ptr<PacketBurst> p, TransmittedSignal* txSignal)
 {
+
+//cout << "StartRX gnb-phy #113"<<endl;
+
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy rx" << endl;
 DEBUG_LOG_END

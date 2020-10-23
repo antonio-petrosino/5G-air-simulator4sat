@@ -59,9 +59,11 @@ ChannelRealization::ChannelRealization (NetworkNode* src, NetworkNode* dst, Chan
 
   switch(model)
     {
+  	  case CHANNEL_MODEL_SATELLITE:
+	 	m_penetrationLossMean = 0;
+    	m_penetrationLossStdDev = 0;
+    	break;
       case CHANNEL_MODEL_MACROCELL_URBAN:
-      case CHANNEL_MODEL_SATELLITE:
-
       case CHANNEL_MODEL_MACROCELL_SUB_URBAN:
       case CHANNEL_MODEL_MACROCELL_RURAL:
       case CHANNEL_MODEL_MICROCELL:
@@ -135,8 +137,13 @@ DEBUG_LOG_END
     CartesianCoordinates* gnbPos = gnb->GetMobilityModel()->GetWrapAroundPosition(uePos);
     double distance = uePos->GetDistance (gnbPos);
 
+
     switch (m_channelModel){
 
+    	case CHANNEL_MODEL_SATELLITE:
+    		m_isLosType = true;
+    		m_shadowingStddev = 8;
+    		break;
         case CHANNEL_MODEL_MACROCELL_URBAN_IMT:
             losProbability = min(18/distance, 1.0) * (1 - exp(-distance/63)) + exp(-distance/63);
             randomProb = ((double) rand() / RAND_MAX);
@@ -149,7 +156,6 @@ DEBUG_LOG_END
                 m_shadowingStddev = 6;
             }
             break;
-
 
         case CHANNEL_MODEL_MACROCELL_URBAN_IMT_3D: // TODO use correct los formula, see [36.873]
             losProbability = min(18/distance, 1.0) * (1 - exp(-distance/63)) + exp(-distance/63);
@@ -173,10 +179,6 @@ DEBUG_LOG_END
                 m_indoorDistance = (double)rand()/RAND_MAX*25;
               }
             break;
-
-        case CHANNEL_MODEL_SATELLITE:
-        	m_isLosType = true;
-        	m_shadowingStddev = 4;
 
         case CHANNEL_MODEL_MACROCELL_RURAL_IMT:
             losProbability = min(1.00, exp(-(distance-10)/1000));
@@ -206,12 +208,14 @@ DEBUG_LOG_END
         }
       m_shadowing = GetGaussianRandomVariable(0,m_shadowingStddev);
 
-
   m_fastFading = nullptr;
   if (ue->GetTargetNode()==gnb || isMbsfnRealization() == true)
     {
-      enableFastFading();
+	  if(ue->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() != true){
+		  enableFastFading();
+	  }
     }
+
 }
 
 
@@ -366,7 +370,10 @@ ChannelRealization::ShortTermUpdate(void)
 
     switch (m_channelModel)
       {
-
+     case CHANNEL_MODEL_SATELLITE:
+    	 shadowing_correlation_distance = 37;
+    	 m_shadowingStddev = 4;
+    	 break;
       case CHANNEL_MODEL_MACROCELL_URBAN_IMT:
         if (m_isLosType)
           {
@@ -455,6 +462,7 @@ ChannelRealization::GetSamplingPeriod (void)
 double
 ChannelRealization::GetPathLoss (void)
 {
+  //cout << "Richiamo #462 ChannelReal::GetPathLoss() check" << endl;
   ShortTermUpdate();
   NetworkNode* src = GetSourceNode ();
   NetworkNode* dst = GetDestinationNode ();
@@ -538,7 +546,7 @@ ChannelRealization::GetPathLoss (void)
                * the Path Loss Model For Satellite Environment is
                * ...
                */
-              m_pathLoss = 69.55 + 26.16*log10(f) - 13.82*log10(Henb) + (44.9-6.55*log10(Henb))*log10(distance * 0.001) - 4.78*pow(log10(f),2) + 18.33*log10(f) - 40.94;
+              //m_pathLoss = 69.55 + 26.16*log10(f) - 13.82*log10(Henb) + (44.9-6.55*log10(Henb))*log10(distance * 0.001) - 4.78*pow(log10(f),2) + 18.33*log10(f) - 40.94;
               m_pathLoss = 0.0;
               break;
 
@@ -1080,6 +1088,9 @@ DEBUG_LOG_END
               //ATTENZIONE double l = GetFastFading ()->at(i).at (j)[index] - GetPathLoss () - GetPenetrationLoss () - GetShadowing ();
               l = - GetPathLoss ();
               break;
+            case CHANNEL_MODEL_SATELLITE:
+            	l = - GetPathLoss();
+            	break;
             }
 
           loss.at (i).push_back (l);
@@ -1094,7 +1105,6 @@ DEBUG_LOG_START_2(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL,SIM_ENV_TEST_GET_LOSS)
 DEBUG_LOG_END
         }
     }
-
   return loss;
 }
 

@@ -30,6 +30,7 @@
 
 #include "iostream"
 
+// i valori non rispecchiano il nostro scenario
 static double BLER_NBIoT_SAT [15][16] =
 {
   {
@@ -80,6 +81,7 @@ static double BLER_NBIoT_SAT [15][16] =
 
 };
 
+// i valori non rispecchiano il nostro scenario
 static double SINR_NBIoT_SAT [15][16] =
 {
   {
@@ -137,14 +139,14 @@ GetBLER_SAT (double SINR, int MCS)
 {
   int index = -1;
   double BLER = 0.0;
-  int CQI = MCS;
+  int MCS_ = MCS;
   double R = 0.0;
 
-  if ( SINR <= SINR_NBIoT_SAT [CQI-1] [0] )
+  if ( SINR <= SINR_NBIoT_SAT [MCS_-1] [0] )
     {
       BLER = 1.0;
     }
-  else if (SINR >= SINR_NBIoT_SAT [CQI-1] [15])
+  else if (SINR >= SINR_NBIoT_SAT [MCS_-1] [15])
     {
       BLER = 0.0;
     }
@@ -152,19 +154,19 @@ GetBLER_SAT (double SINR, int MCS)
     {
       for (int i=0; i<15; i++)
         {
-          if (SINR >= SINR_NBIoT_SAT [CQI-1] [i] && SINR < SINR_NBIoT_SAT [CQI-1] [i+1])
+          if (SINR >= SINR_NBIoT_SAT [MCS_-1] [i] && SINR < SINR_NBIoT_SAT [MCS_-1] [i+1])
             {
               index = i;
-              //cout << SINR_15_CQI_TU [CQI-1] [i] << " - " << SINR_15_CQI_TU [CQI-1] [i+1] << endl;
+              //cout << SINR_15_CQI_TU [MCS_-1] [i] << " - " << SINR_15_CQI_TU [MCS_-1] [i+1] << endl;
             }
         }
     }
 
   if (index != -1)
     {
-      R = (SINR - SINR_NBIoT_SAT [CQI-1] [index]) / ( SINR_NBIoT_SAT [CQI-1] [index + 1] - SINR_NBIoT_SAT [CQI-1] [index] );
+      R = (SINR - SINR_NBIoT_SAT [MCS_-1] [index]) / ( SINR_NBIoT_SAT [MCS_-1] [index + 1] - SINR_NBIoT_SAT [MCS_-1] [index] );
 
-      BLER = BLER_NBIoT_SAT [CQI-1] [index] + R * ( BLER_NBIoT_SAT [CQI-1] [index + 1] - BLER_NBIoT_SAT [CQI-1] [index] );
+      BLER = BLER_NBIoT_SAT [MCS_-1] [index] + R * ( BLER_NBIoT_SAT [MCS_-1] [index + 1] - BLER_NBIoT_SAT [MCS_-1] [index] );
     }
 
 
@@ -173,11 +175,11 @@ GetBLER_SAT (double SINR, int MCS)
     {
 DEBUG_LOG_START_1(SIM_ENV_BLER_DEBUG)
       cout << "SINR " << SINR << " "
-                << "CQI " << CQI << " "
-                << "SINRprec " << SINR_NBIoT_SAT [CQI-1] [index] << " "
-                << "SINRsucc " << SINR_NBIoT_SAT [CQI-1] [index+1] << " "
-                << "BLERprec " << BLER_NBIoT_SAT [CQI-1] [index] << " "
-                << "BLERsucc " << BLER_NBIoT_SAT [CQI-1] [index + 1] << " "
+                << "CQI " << MCS_ << " "
+                << "SINRprec " << SINR_NBIoT_SAT [MCS_-1] [index] << " "
+                << "SINRsucc " << SINR_NBIoT_SAT [MCS_-1] [index+1] << " "
+                << "BLERprec " << BLER_NBIoT_SAT [MCS_-1] [index] << " "
+                << "BLERsucc " << BLER_NBIoT_SAT [MCS_-1] [index + 1] << " "
                 << "R " << R << " "
                 << "BLER " << BLER << " "
                 << endl;

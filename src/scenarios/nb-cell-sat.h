@@ -194,6 +194,7 @@ int seed;
           break;
         case 4:
           model = ChannelRealization::CHANNEL_MODEL_SATELLITE;
+          cout << "Modello scelto: NB-IoT SATELLITARE " << endl;
           break;
         case 5:
           model = ChannelRealization::CHANNEL_MODEL_MACROCELL_URBAN_IMT_3D;
@@ -203,7 +204,7 @@ int seed;
           break;
     }
     
-    cout << "Modello scelto: "<< model << endl;
+
 
     // define simulation times
     double duration = dur; //+ 1;
@@ -382,17 +383,6 @@ int seed;
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);
 
-////////////////////////////
-// esempio di error model
-    //WidebandCqiEesmErrorModel *errorModel = new WidebandCqiEesmErrorModel ();
-    //NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
-    //ue->GetPhy ()->SetErrorModel (errorModel);
-
-    //ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
-    //c_ul->disableFastFading();
-    //gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
-////////////////////////////
-
     double propDist = distance/(1000*radius);
     std::map<double, int>::iterator it;
     it = ceProb.upper_bound(propDist);
@@ -411,14 +401,23 @@ int seed;
     // register ue to the gnb
     gnb->RegisterUserEquipment (ue);
 
-    // propagation loss model da inserire
-    gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
+    ////////////////////////////
+    // ERROR model
+        NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
+        ue->GetPhy ()->SetErrorModel (errorModel);
+
+        ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
+        c_ul->disableFastFading();
+        gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
+
+        // propagation loss model da inserire
+        //gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
+
+    ////////////////////////////
 
     DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
     CartesianCoordinates* userPosition = ue->GetMobilityModel()->GetAbsolutePosition();
     CartesianCoordinates* cellPosition = cell->GetCellCenterPosition();
-
-    // get position della gnb??
 
     double distance = userPosition->GetDistance(cellPosition)/1000;
 

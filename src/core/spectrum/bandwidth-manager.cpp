@@ -23,10 +23,14 @@
 #include <stdio.h>
 #include <iostream>
 
-#define UL_LOW_FREQUENCY_BAND_1 1920    //MHz
-#define UL_HIGH_FREQUENCY_BAND_1 1980   //MHz
-#define DL_LOW_FREQUENCY_BAND_1 2110    //MHz
-#define DL_HIGH_FREQUENCY_BAND_1 2170   //MHz
+//#define UL_LOW_FREQUENCY_BAND_1 1920    //MHz
+//#define UL_HIGH_FREQUENCY_BAND_1 1980   //MHz
+#define UL_LOW_FREQUENCY_BAND_1 1980    //MHz
+#define UL_HIGH_FREQUENCY_BAND_1 2010   //MHz
+//#define DL_LOW_FREQUENCY_BAND_1 2110    //MHz
+//#define DL_HIGH_FREQUENCY_BAND_1 2170   //MHz
+#define DL_LOW_FREQUENCY_BAND_1 2170    //MHz
+#define DL_HIGH_FREQUENCY_BAND_1 2200   //MHz
 
 // first element is the bandwidth in MHz, second one is the corresponding number of RBs
 const static map<double, int> RBs_for_BW =

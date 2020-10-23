@@ -72,20 +72,13 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
       int mcs_ = mcs.at (i);
       double sinr_ = sinr.at (channels.at (i));
 
+      //inizialmente mcs e sinr potrebbero essere costanti
+      //int mcs_ = ??;
+      //int sinr_ = ??;
 
       double bler;
-
+      cout << "Richiamo #80 nbiot-simple-error-model.cpp check" << endl;
       bler = GetBLER_SAT (sinr_, mcs_);
-
-
-//      if (_channel_TU_)
-//        {
-//          bler = BLER_NBIoT_SAT (sinr_, mcs_);
-//        }
-//      else
-//        {
-//          bler = BLER_NBIoT_SAT (sinr_, mcs_);
-//        }
 
 //DEBUG_LOG_START_1(SIM_ENV_BLER_DEBUG)
 //      cout <<"Get BLER for ch " << channels.at(i)<<

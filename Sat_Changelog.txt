@@ -10,14 +10,14 @@ satellite scenario implementation.
 1) Scenario -> nb-cell-sat.h 
 //Descrizione dello scenario satellitare
 
-2) Mobility -> Satellite.h/cpp
-			-> Ue_Satellite.h/cpp
+2) Mobility  -> Satellite.h/cpp
+	     -> Ue_Satellite.h/cpp
 //Implementazione mobilità base station
 
 3) Mobility -> SatelliteCoordinate.h
 // Definizione delle coord. sat. con scenario:
-	// area 				= 30 ettari
-	// altezza satellite 	= 500km
+	// area 			= 30 ettari
+	// altezza satellite 		= 500km
 	// tempo visibilità		= 120 secondi
 	// periodicità sat.		= 1 ogni 48 min
 ====================================================
@@ -26,9 +26,9 @@ satellite scenario implementation.
 1) Device -> UserEquipment.cpp -> UpdateUserPosition()
 //Gestione distanza UE -> gNB
 	//Solo nel caso satellitare:
-	//	Detach if distanza > distanza_massima_da_satellite
+	//	DETACH if distanza > distanza_massima_da_satellite
 	//	else 
-	//	Attach
+	//	ATTACH
 	
 2) Device -> NetworkNode -> MakeActive()
 // Check sulla distanza fra UE e gNB prima dell'awake
