@@ -402,15 +402,16 @@ int seed;
 
     ////////////////////////////
 //    // ERROR model
-//        NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
-//        ue->GetPhy ()->SetErrorModel (errorModel);
-//
-//        ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
-//        c_ul->disableFastFading();
-//        gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
-//
-//        // propagation loss model da inserire
-        gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
+        NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
+       // ue->GetPhy ()->SetErrorModel (errorModel);
+
+        ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
+        c_ul->disableFastFading();
+        gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
+       // gnb->GetPhy ()->SetErrorModel (errorModel);
+
+        // propagation loss model da inserire
+//        gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
 
     ////////////////////////////
 

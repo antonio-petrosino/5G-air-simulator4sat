@@ -50,7 +50,7 @@ GnbPhy::GnbPhy()
   SetTxSignal (nullptr);
   SetErrorModel (nullptr);
   SetInterference (nullptr);
-  SetTxPower(43); //dBm
+  SetTxPower(33); //dBm
   SetTxAntennas(1);
   SetRxAntennas(1);
   GetAntennaParameters ()->SetType(Phy::AntennaParameters::ANTENNA_TYPE_OMNIDIRECTIONAL);
@@ -94,8 +94,6 @@ GnbPhy::DoSetBandwidthManager (void)
 void
 GnbPhy::StartTx (shared_ptr<PacketBurst> p)
 {
-  //cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy tx" << endl;
-
   if (FrameManager::Init()->MbsfnEnabled()==true && FrameManager::Init()->isMbsfnSubframe()==true)
     {
       GetDlMcChannel ()->StartTx (p, GetTxSignal (), GetDevice ());
@@ -109,9 +107,6 @@ GnbPhy::StartTx (shared_ptr<PacketBurst> p)
 void
 GnbPhy::StartRx (shared_ptr<PacketBurst> p, TransmittedSignal* txSignal)
 {
-
-//cout << "StartRX gnb-phy #113"<<endl;
-
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy rx" << endl;
 DEBUG_LOG_END
@@ -137,24 +132,23 @@ DEBUG_LOG_END
 
   //CHECK FOR PHY ERROR
   bool phyError = false;
-  /*
   if (GetErrorModel() != nullptr)
     {
     vector<int> cqi; //compute the CQI
     phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
-    if (_PHY_TRACING_)
-      {
-        if (phyError)
-          {
-            cout << "**** YES PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
-          }
-        else
-          {
-            cout << "**** NO PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
-          }
-      }
+//    if (_PHY_TRACING_)
+//      {
+//        if (phyError)
+//          {
+//            cout << "**** YES PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
+//          }
+//        else
+//          {
+//            cout << "**** NO PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
+//          }
+//      }
     }
-    */
+
 
   if (!phyError && p->GetNPackets() > 0)
     {

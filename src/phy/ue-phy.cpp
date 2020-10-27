@@ -128,6 +128,7 @@ DEBUG_LOG_END
 void
 UePhy::StartRx (shared_ptr<PacketBurst> p, ReceivedSignal* rxSignal)
 {
+	//cout << "StartRX #131 ue-phy.cpp" << endl;
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy rx" << endl;
 DEBUG_LOG_END
