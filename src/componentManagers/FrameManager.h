@@ -60,6 +60,7 @@ private:
   int m_nbSubframes;
   unsigned long m_TTICounter;
   int m_TTILength;
+  int m_NRep;
 
   FrameManager();
   static FrameManager *ptr;
@@ -98,6 +99,12 @@ public:
 
   int
   GetSubFrameType (int nbSubFrame);
+
+  int
+  GetNRep(void) const;
+  void
+  SetNRep(int _nRep);
+
 
   void
   UpdateNbFrames (void);

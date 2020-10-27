@@ -179,7 +179,7 @@ void
 UserEquipment::UpdateUserPosition (double time)
 {
   GetMobilityModel ()->UpdatePosition (time);
-
+  //cout << "Aggiornamento posizione UE... time: "<< time <<endl;
   SetIndoorFlag(NetworkManager::Init()->CheckIndoorUsers(this));
 
   if (GetMobilityModel ()->GetHandover () == true)
@@ -207,7 +207,9 @@ DEBUG_LOG_END
 
 	  CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
 	  CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
+
 	  double distance = uePos->GetDistance3D (gnbPos);
+	  double maxSatelliteRange = GetTargetNode ()-> GetPhy ()->GetmaxSatelliteRange ();
 
 	  //print di DEBUG
 //	  if(GetIDNetworkNode()==2){
@@ -221,7 +223,7 @@ DEBUG_LOG_END
 
 	  // gestire detach per simulare visibilità/non visibilità
 
-	  if(distance > 583000)
+	  if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
 	  { // la visibilità inizia quando il dispositivo è a meno di 583km dalla gNB
 		  if(GetNodeState() != UserEquipment::STATE_DETACHED){
 
@@ -229,12 +231,13 @@ DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 		cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 		Print();
 DEBUG_LOG_END
-cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 
+			  cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 			  SetNodeState (UserEquipment::STATE_DETACHED);
 			  //double detachTime = ue->GetProtocolStack()->GetRrcEntity()->GetHandoverEntity()->GetDetachTime();
 			  //Simulator::Init()->Schedule(detachTime, &NetworkNode::MakeActive, ue);
 			  //Simulator::Init()->Schedule(0.01, &NetworkNode::MakeActive(), this);
+			  //cout<<"Stato attuale del dispositivo:"<<GetNodeState() << " UE id: "<< GetIDNetworkNode () << endl;
 		  }
 	  }
 	  else
@@ -244,20 +247,40 @@ DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 		cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
 		Print();
 DEBUG_LOG_END
-cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+				cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
 
-			  //SetNodeState (UserEquipment::STATE_ACTIVE); // o idle??
+
+			    //SetNodeState (UserEquipment::STATE_ACTIVE); // o idle??
 				MakeActive();
+				Simulator::Init()->Schedule(0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+				//cout<<"Stato attuale del dispositivo:"<<GetNodeState() << " UE id: "<< GetIDNetworkNode () << endl;
 		  }
 	  }
   }
-
+// inserire uno shift dal secondo 150 al secondo 3000 per esempio
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate
-    Simulator::Init()->Schedule(m_timePositionUpdate,
-                              &UserEquipment::UpdateUserPosition,
-                              this,
-                              Simulator::Init ()->Now());
+
+//	  cout << "Periodicità: " << fmod(time, 3000.0) << endl;
+//	  cout << "time: " << time << endl;
+//	if(fmod(time, 3000.0) < 160.0){
+//    Simulator::Init()->Schedule(m_timePositionUpdate,
+//                              &UserEquipment::UpdateUserPosition,
+//                              this,
+//                              Simulator::Init ()->Now());
+//	}else{
+//
+//	Simulator::Init()->Schedule(3000.1 - fmod(time,3000.0) ,
+//	                            &UserEquipment::UpdateUserPosition,
+//	                            this,
+//	                            Simulator::Init ()->Now());
+//	cout <<"Simulatore: schedulato fra " << 3000.1 - fmod(time,3000.0) << " sec." <<endl;
+//	}
+
+	  Simulator::Init()->Schedule(m_timePositionUpdate,
+	                                &UserEquipment::UpdateUserPosition,
+	                                this,
+	                                Simulator::Init ()->Now());
   }
 }
 

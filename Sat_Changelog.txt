@@ -47,3 +47,21 @@ satellite scenario implementation.
 6) channel -> channel-realization.h/cpp
 // Aggiunta def: CHANNEL_MODEL_SATELLITE
 // da inserire m_pathLoss output del D1
+
+6a) channel -> RadioChannel.cpp
+// inserita estensione 0.001 x NRep
+
+7) protocolStack -> mac -> random-access -> ue-nb-iot-random-accss.h/cpp
+// StartRaProcedure() -> è stato inserito un controllo sulla distanza dalla BS
+// ReStartRaProcedure() -> è stato inserito un controllo sulla distanza dalla BS
+
+8) protocolStack -> mac -> packet-scheduler -> packet-scheduler ->
+nb-roundrobin-uplink-packet-scheduler.cpp
+// RUsAllocation() -> ttiLength * NRep <-> ttiLength
+
+9) componentManager -> FrameManager.cpp 
+// NRep come variabile globale
+
+10) src -> phy -> phy.h/cpp
+// inserita variabile globale 
+// m_maxSatelliteRange -> metri di visibilità

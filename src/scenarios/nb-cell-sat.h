@@ -135,8 +135,8 @@ int seed;
     double antennaHeight = 500000; // m
     double antennaGain = 8; // 8 dBi
     
-    double antennaAttenuation = 20; // dB???
-    double horizontalBeamwidth3db = 65; //degrees??
+    //double antennaAttenuation = 20; // dB???
+    //double horizontalBeamwidth3db = 65; //degrees??
     double UENoiseFigure = 6; // dB
     
     int channelModel = 1;
@@ -235,6 +235,7 @@ int seed;
 
   // SET FRAME STRUCTURE
   frameManager->SetFrameStructure(FrameManager::FRAME_STRUCTURE_FDD);
+  frameManager->SetNRep(1);
 
   //Define Application Container
   CBR CBRApplication[nbUE];
@@ -294,13 +295,13 @@ int seed;
     gnb->GetPhy ()->SetCarrierFrequency(carrierFreq);
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
+    gnb->GetPhy ()->SetmaxSatelliteRange(583000);
     ulCh->AddDevice (gnb);
     gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);
     gnb->SetULScheduler(uplink_scheduler_type);
 
     networkManager->GetGNodeBContainer ()->push_back (gnb);
     //cout << "Created gNB - id 1 position (0;0)"<< endl;
-
     cout << "Created gNB - id 1 - Out of visibility"<< endl;
 
     GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) gnb->GetMacEntity()->GetRandomAccessManager();
@@ -312,9 +313,7 @@ int seed;
     gnbRam->SetResPeriodicity(rachPeriod);
     gnbRam->SetTimeOffset(rachOffset);
     gnbRam->SetBackoff(boWindow);
-    
-    
-    
+
     //Create UEs
     int idUE = 2;
     double speedDirection = 0; // How can I simulate gNB movement
@@ -378,7 +377,7 @@ int seed;
 
     ue->SetRandomAccessType(m_UeRandomAccessType);
 
-    ue->SetTimePositionUpdate (0.001); // trigger per la mobilità
+    ue->SetTimePositionUpdate (0.05); // trigger per la mobilità
 
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);
@@ -402,16 +401,16 @@ int seed;
     gnb->RegisterUserEquipment (ue);
 
     ////////////////////////////
-    // ERROR model
-        NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
-        ue->GetPhy ()->SetErrorModel (errorModel);
-
-        ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
-        c_ul->disableFastFading();
-        gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
-
-        // propagation loss model da inserire
-        //gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
+//    // ERROR model
+//        NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
+//        ue->GetPhy ()->SetErrorModel (errorModel);
+//
+//        ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
+//        c_ul->disableFastFading();
+//        gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
+//
+//        // propagation loss model da inserire
+        gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
 
     ////////////////////////////
 

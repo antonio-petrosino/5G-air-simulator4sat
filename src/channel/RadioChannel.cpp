@@ -52,8 +52,9 @@ RadioChannel::StartTx (shared_ptr<PacketBurst> p, TransmittedSignal* txSignal, N
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "RadioChannel::StartTx ch " << GetChannelId () << endl;
 DEBUG_LOG_END
-
-  Simulator::Init()->Schedule(0.001,
+  int _NRep = FrameManager::Init()->GetNRep();
+  Simulator::Init()->Schedule(0.001 * _NRep, // 1 ms dello slot -> 1ms x NRep
+  //Simulator::Init()->Schedule(0.001, // 1 ms dello slot -> 1ms x NRep
                               &RadioChannel::StartRx,
                               this,
                               p,
@@ -98,7 +99,7 @@ DEBUG_LOG_END
       //DELIVERY THE BURST OF PACKETS
       if(dst->GetNodeType() != NetworkNode::TYPE_MULTICAST_DESTINATION)
         {
-          dst->GetPhy ()->StartRx (p->Copy (), rxSignal);
+          dst->GetPhy ()->StartRx (p->Copy (), rxSignal); // chiama startrx gnb
         }
       else
         {

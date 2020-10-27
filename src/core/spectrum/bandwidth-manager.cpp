@@ -48,6 +48,7 @@ const static map<double, int> RBs_for_BW =
 #define NB_IOT_ALLOWED_RBs_FOR_10_MHz 8
 #define NB_IOT_ALLOWED_RBs_FOR_15_MHz 13
 #define NB_IOT_ALLOWED_RBs_FOR_20_MHz 18
+#define NB_IOT_ALLOWED_RBs_FOR_30_MHz 20 // da rivedee il 20
 
 BandwidthManager::BandwidthManager (double ulBw, double dlBw, int ulOffset,
                                     int dlOffset, bool tddTrue)

@@ -36,7 +36,9 @@ FrameManager::FrameManager()
   m_frameStructure = FrameManager::FRAME_STRUCTURE_FDD; //Default Value
   m_TDDFrameConfiguration = 1; //Default Value
   m_MBSFNPattern = 0; //No MBSFN by default
+  m_NRep = 1;
   Simulator::Init()->Schedule(0.0, &FrameManager::Start, this);
+
 }
 
 void
@@ -389,6 +391,19 @@ FrameManager::getTTILength() const
 
 
 int
+FrameManager::GetNRep() const
+{
+	return m_NRep;
+}
+
+void
+FrameManager::SetNRep(int NRep)
+{
+	m_NRep = NRep;
+	cout << "Settato il numero di ripetizioni a: " << NRep << endl;
+}
+
+int
 FrameManager::GetCoverShiftIndex(void)
 {
   // Assuming 3 cover shift with periodic repetition in time domain
@@ -401,3 +416,5 @@ FrameManager::GetCoverShiftIndex(void)
     }
   return index;
 }
+
+

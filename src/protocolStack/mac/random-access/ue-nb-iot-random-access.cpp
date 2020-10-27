@@ -22,6 +22,7 @@
 #include "ue-nb-iot-random-access.h"
 #include "enb-nb-iot-random-access.h"
 #include "../../../componentManagers/FrameManager.h"
+#include "../../../core/spectrum/bandwidth-manager.h"
 #include "../../../device/UserEquipment.h"
 #include "../../../flows/radio-bearer.h"
 
@@ -60,7 +61,24 @@ UeNbIoTRandomAccess::StartRaProcedure()
     DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_NB)
     cout << "UE " << m_macEntity ->GetDevice()->GetIDNetworkNode() << " StartRaProcedure() " << endl;
     DEBUG_LOG_END
-    
+
+	//cout<< "UeNbIoTRandomAccess::StartRaProcedure() Invoked." << endl;
+
+    UserEquipment* _device = ((UserEquipment*)m_macEntity->GetDevice());
+    double maxSatelliteRange = _device-> GetTargetNode ()-> GetPhy ()-> GetmaxSatelliteRange ();
+
+	if(_device->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
+	    CartesianCoordinates* uePos  = _device->GetMobilityModel()->GetAbsolutePosition();
+	    CartesianCoordinates* gnbPos = _device->GetTargetNode()->GetMobilityModel()->GetAbsolutePosition();
+	    double distance = uePos->GetDistance3D (gnbPos);
+
+	    if(distance > maxSatelliteRange)
+	    	  {
+	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
+	    		  return;
+	    	  }
+	}
+
     if ((m_macEntity->GetDevice()->GetNodeState()!= NetworkNode::STATE_ACTIVE))
     {
         if (m_RaProcedureActive == false)
@@ -72,7 +90,6 @@ UeNbIoTRandomAccess::StartRaProcedure()
             << " T " << Simulator::Init()->Now()
             << endl;
             DEBUG_LOG_END
-            
             SendMessage1();
         }
     }
@@ -87,19 +104,34 @@ UeNbIoTRandomAccess::StartRaProcedure()
 void
 UeNbIoTRandomAccess::ReStartRaProcedure()
 {
-    
     DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_NB)
     cout << "ReStartRaProcedure() " << endl;
     DEBUG_LOG_END
     
     if (m_RaProcedureActive == true)
     {
+    	cout<< "UeNbIoTRandomAccess::ReStartRaProcedure() Invoked." << endl;
+        UserEquipment* ue = (UserEquipment*)m_macEntity->GetDevice();
+        GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) ue->GetTargetNode()->GetMacEntity()->GetRandomAccessManager();
+
+        double maxSatelliteRange = ue-> GetTargetNode ()-> GetPhy ()-> GetmaxSatelliteRange ();
+
+    	if(ue->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
+    	    CartesianCoordinates* uePos  = ue->GetMobilityModel()->GetAbsolutePosition();
+    	    CartesianCoordinates* gnbPos = ue->GetTargetNode()->GetMobilityModel()->GetAbsolutePosition();
+    	    double distance = uePos->GetDistance3D (gnbPos);
+
+    	    if(distance > maxSatelliteRange)
+    	    	  {
+    	    		  cout <<"Ma la UE è troppo lontana."<<endl;
+    	    		  return;
+    	    	  }
+    	}
+
         m_RaProcedureActive = false;
         m_nbFailedAttempts++;
         m_nbFailedAttemptsCE++;
-        
-        UserEquipment* ue = (UserEquipment*)m_macEntity->GetDevice();
-        GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) ue->GetTargetNode()->GetMacEntity()->GetRandomAccessManager();
+
         //		GNodeB* gnb = (GNodeB*)ue->GetTargetNode();
         //		GnbMacEntity* gnbMac = (GnbMacEntity*)gnb->GetProtocolStack()->GetMacEntity();
         //		GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) gnbMac->GetRandomAccessManager();

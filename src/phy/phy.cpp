@@ -39,6 +39,7 @@ Phy::Phy()
   m_bandwidthManager = nullptr;
   m_carrierFrequency = 2000;
   m_txSignal = nullptr;
+  m_maxSatelliteRange = 0.0;
   m_antennaParameters = new AntennaParameters ();
   SetNoiseFigure(2.5);
   m_averageBuildingHeight = 10;
@@ -51,6 +52,8 @@ Phy::Phy()
   m_antennaParameters->SetVerticalBeamwidth3db(10);
   m_antennaParameters->SetMaxHorizontalAttenuation(20);
   m_antennaParameters->SetMaxVerticalAttenuation(20);
+  //m_antennaParameters->SetmaxSatelliteRange(0);
+  //m_maxSatelliteRange = 0.0; // definizione della visibilità
 
   m_waveform = WAVEFORM_TYPE_OFDM;
   m_useSrtaPi = false;
@@ -81,6 +84,18 @@ NetworkNode*
 Phy::GetDevice (void)
 {
   return m_device;
+}
+
+double
+Phy::GetmaxSatelliteRange(void) const
+{
+  return m_maxSatelliteRange;
+}
+
+void
+Phy::SetmaxSatelliteRange(double msr)
+{
+	m_maxSatelliteRange = msr;
 }
 
 void

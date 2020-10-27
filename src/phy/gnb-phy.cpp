@@ -122,7 +122,7 @@ DEBUG_LOG_END
   vector<double> rxSignalValues = txSignal->GetValues().at(0);
 
   double interference = 0;
-  double noise_interference = 10. * log10 (pow(10., GetThermalNoise()/10) + interference); // dB
+  double noise_interference = 10. * log10 (pow(10., GetThermalNoise()/10) + interference); // dB - solo noise nel nostro caso
 
   int chId = 0;
   for ( auto power : rxSignalValues ) // transmission power for the current sub channel [dB]

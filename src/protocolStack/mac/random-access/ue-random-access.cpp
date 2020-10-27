@@ -109,6 +109,7 @@ UeRandomAccess::checkRAProcedureTimeout()
 DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS)
   cout << "checkRAProcedureTimeout() "  << endl;
 DEBUG_LOG_END
+cout << "checkRAProcedureTimeout() "  << endl;
 
   double timeNow = Simulator::Init()->Now();
 

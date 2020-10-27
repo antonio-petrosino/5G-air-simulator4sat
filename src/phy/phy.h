@@ -92,6 +92,9 @@ public:
   void SetAverageBuildingHeight(double height);
   double GetAverageBuildingHeight(void);
 
+  void SetmaxSatelliteRange(double msr);
+  double GetmaxSatelliteRange(void) const;
+
   Interference* GetInterference (void);
   ErrorModel* GetErrorModel (void);
 
@@ -115,6 +118,7 @@ public:
     double m_maxHorizontalAttenuation; // in dB
     double m_maxVerticalAttenuation; // in dB
     double m_feederLoss;
+    double m_maxSatelliteRange; // in metri
 
     void SetEtilt(int etilt);
     double GetEtilt(void);
@@ -167,7 +171,7 @@ private:
 
   BandwidthManager* m_bandwidthManager; //Description of the UL and DL available BandwidthManager
   double m_carrierFrequency; // MHz
-
+  double m_maxSatelliteRange;
   double m_txPower;
   TransmittedSignal* m_txSignal;
   double m_noiseFigure;
