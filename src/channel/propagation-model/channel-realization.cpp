@@ -547,7 +547,7 @@ ChannelRealization::GetPathLoss (void)
                * ...
                */
               //m_pathLoss = 69.55 + 26.16*log10(f) - 13.82*log10(Henb) + (44.9-6.55*log10(Henb))*log10(distance * 0.001) - 4.78*pow(log10(f),2) + 18.33*log10(f) - 40.94;
-              m_pathLoss = 145.0;
+              m_pathLoss = 143.0;
               break;
 
 

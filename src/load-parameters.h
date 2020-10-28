@@ -69,10 +69,12 @@ static bool _MAC_TRACING_ = false;
 static bool _PHY_TRACING_ = true;
 
 /* activate uplink */
-static bool UPLINK = false;
+//static bool UPLINK = false;
+static bool UPLINK = true;
 
 /* tests */
 static bool _TEST_BLER_ = false;
+//static bool _TEST_BLER_ = true;
 
 /* channel model type*/
 static bool _channel_TU_ = false;

@@ -1,0 +1,2886 @@
+Visualizza prob.
+1 0
+Modello scelto: NB-IoT SATELLITARE 
+Simulation with SEED = 5
+Duration: 20000 flow: 20000
+Settato il numero di ripetizioni a: 1
+FDD abilitato
+TTI Length: 8ms 
+Scheduler NB RR 
+Riconosciuto lo scenario satellitare, preparazione modello di mobilità satellitare.
+Created gNB - id 1 - Out of visibility
+CBR interval is 600
+ZONE 2 LOW EDGE 218 DISTANCE 241.747
+Created UE - id 2 position -170.941 170.941
+CREATED CBR APPLICATION, ID 0
+ZONE 10 LOW EDGE 0 DISTANCE 2.44966
+Created UE - id 3 position -1.73217 1.73217
+CREATED CBR APPLICATION, ID 1
+ZONE 5 LOW EDGE 136 DISTANCE 144.095
+Created UE - id 4 position -101.89 101.89
+CREATED CBR APPLICATION, ID 2
+ZONE 7 LOW EDGE 81 DISTANCE 103.349
+Created UE - id 5 position 73.079 73.079
+CREATED CBR APPLICATION, ID 3
+ZONE 9 LOW EDGE 27 DISTANCE 34.4751
+Created UE - id 6 position 24.3776 24.3776
+CREATED CBR APPLICATION, ID 4
+ZONE 9 LOW EDGE 27 DISTANCE 41.2821
+Created UE - id 7 position -29.1908 29.1908
+CREATED CBR APPLICATION, ID 5
+ZONE 2 LOW EDGE 218 DISTANCE 225.764
+Created UE - id 8 position 159.639 159.639
+CREATED CBR APPLICATION, ID 6
+ZONE 9 LOW EDGE 27 DISTANCE 51.3385
+Created UE - id 9 position 36.3018 -36.3018
+CREATED CBR APPLICATION, ID 7
+ZONE 10 LOW EDGE 0 DISTANCE 5.13858
+Created UE - id 10 position -3.63353 3.63353
+CREATED CBR APPLICATION, ID 8
+ZONE 7 LOW EDGE 81 DISTANCE 104.001
+Created UE - id 11 position -73.5399 -73.5399
+CREATED CBR APPLICATION, ID 9
+ZONE 6 LOW EDGE 109 DISTANCE 109.045
+Created UE - id 12 position -77.1063 -77.1063
+CREATED CBR APPLICATION, ID 10
+ZONE 10 LOW EDGE 0 DISTANCE 0.156411
+Created UE - id 13 position 0.110599 -0.110599
+CREATED CBR APPLICATION, ID 11
+ZONE 9 LOW EDGE 27 DISTANCE 52.1659
+Created UE - id 14 position -36.8869 36.8869
+CREATED CBR APPLICATION, ID 12
+ZONE 6 LOW EDGE 109 DISTANCE 110.759
+Created UE - id 15 position 78.3186 78.3186
+CREATED CBR APPLICATION, ID 13
+ZONE 6 LOW EDGE 109 DISTANCE 130.023
+Created UE - id 16 position 91.9404 91.9404
+CREATED CBR APPLICATION, ID 14
+ZONE 10 LOW EDGE 0 DISTANCE 8.48127
+Created UE - id 17 position 5.99716 5.99716
+CREATED CBR APPLICATION, ID 15
+ZONE 10 LOW EDGE 0 DISTANCE 17.23
+Created UE - id 18 position 12.1834 -12.1834
+CREATED CBR APPLICATION, ID 16
+ZONE 4 LOW EDGE 163 DISTANCE 173.47
+Created UE - id 19 position -122.662 122.662
+CREATED CBR APPLICATION, ID 17
+ZONE 10 LOW EDGE 0 DISTANCE 22.4948
+Created UE - id 20 position -15.9063 15.9063
+CREATED CBR APPLICATION, ID 18
+ZONE 4 LOW EDGE 163 DISTANCE 178.446
+Created UE - id 21 position -126.18 126.18
+CREATED CBR APPLICATION, ID 19
+ZONE 0 LOW EDGE 272 DISTANCE 277.145
+Created UE - id 22 position -195.971 195.971
+CREATED CBR APPLICATION, ID 20
+ZONE 1 LOW EDGE 245 DISTANCE 249.82
+Created UE - id 23 position 176.649 176.649
+CREATED CBR APPLICATION, ID 21
+ZONE 5 LOW EDGE 136 DISTANCE 151.914
+Created UE - id 24 position -107.419 -107.419
+CREATED CBR APPLICATION, ID 22
+ZONE 0 LOW EDGE 272 DISTANCE 294.129
+Created UE - id 25 position -207.98 -207.98
+CREATED CBR APPLICATION, ID 23
+ZONE 1 LOW EDGE 245 DISTANCE 255.457
+Created UE - id 26 position -180.635 -180.635
+CREATED CBR APPLICATION, ID 24
+ZONE 0 LOW EDGE 272 DISTANCE 276.164
+Created UE - id 27 position 195.277 195.277
+CREATED CBR APPLICATION, ID 25
+ZONE 1 LOW EDGE 245 DISTANCE 258.046
+Created UE - id 28 position -182.466 -182.466
+CREATED CBR APPLICATION, ID 26
+ZONE 4 LOW EDGE 163 DISTANCE 189.475
+Created UE - id 29 position -133.979 -133.979
+CREATED CBR APPLICATION, ID 27
+ZONE 6 LOW EDGE 109 DISTANCE 120.22
+Created UE - id 30 position 85.0081 -85.0081
+CREATED CBR APPLICATION, ID 28
+ZONE 6 LOW EDGE 109 DISTANCE 129.401
+Created UE - id 31 position 91.5001 -91.5001
+CREATED CBR APPLICATION, ID 29
+ZONE 7 LOW EDGE 81 DISTANCE 90.0559
+Created UE - id 32 position 63.6791 63.6791
+CREATED CBR APPLICATION, ID 30
+ZONE 8 LOW EDGE 54 DISTANCE 76.6422
+Created UE - id 33 position 54.1942 54.1942
+CREATED CBR APPLICATION, ID 31
+ZONE 3 LOW EDGE 190 DISTANCE 192.257
+Created UE - id 34 position -135.946 -135.946
+CREATED CBR APPLICATION, ID 32
+ZONE 7 LOW EDGE 81 DISTANCE 84.4923
+Created UE - id 35 position -59.7451 59.7451
+CREATED CBR APPLICATION, ID 33
+ZONE 8 LOW EDGE 54 DISTANCE 73.365
+Created UE - id 36 position -51.8769 -51.8769
+CREATED CBR APPLICATION, ID 34
+ZONE 6 LOW EDGE 109 DISTANCE 118.11
+Created UE - id 37 position 83.516 83.516
+CREATED CBR APPLICATION, ID 35
+ZONE 2 LOW EDGE 218 DISTANCE 224.04
+Created UE - id 38 position -158.421 158.421
+CREATED CBR APPLICATION, ID 36
+ZONE 2 LOW EDGE 218 DISTANCE 228.39
+Created UE - id 39 position 161.496 -161.496
+CREATED CBR APPLICATION, ID 37
+ZONE 2 LOW EDGE 218 DISTANCE 219.729
+Created UE - id 40 position -155.372 155.372
+CREATED CBR APPLICATION, ID 38
+ZONE 1 LOW EDGE 245 DISTANCE 247.782
+Created UE - id 41 position 175.208 175.208
+CREATED CBR APPLICATION, ID 39
+ZONE 8 LOW EDGE 54 DISTANCE 76.0987
+Created UE - id 42 position -53.8099 -53.8099
+CREATED CBR APPLICATION, ID 40
+ZONE 9 LOW EDGE 27 DISTANCE 31.6486
+Created UE - id 43 position -22.3789 -22.3789
+CREATED CBR APPLICATION, ID 41
+ZONE 3 LOW EDGE 190 DISTANCE 212.519
+Created UE - id 44 position 150.274 -150.274
+CREATED CBR APPLICATION, ID 42
+ZONE 1 LOW EDGE 245 DISTANCE 271.734
+Created UE - id 45 position -192.145 -192.145
+CREATED CBR APPLICATION, ID 43
+ZONE 7 LOW EDGE 81 DISTANCE 87.5962
+Created UE - id 46 position -61.9398 61.9398
+CREATED CBR APPLICATION, ID 44
+ZONE 9 LOW EDGE 27 DISTANCE 42.7088
+Created UE - id 47 position -30.1997 -30.1997
+CREATED CBR APPLICATION, ID 45
+ZONE 4 LOW EDGE 163 DISTANCE 180.261
+Created UE - id 48 position -127.464 -127.464
+CREATED CBR APPLICATION, ID 46
+ZONE 3 LOW EDGE 190 DISTANCE 215.766
+Created UE - id 49 position 152.57 -152.57
+CREATED CBR APPLICATION, ID 47
+ZONE 6 LOW EDGE 109 DISTANCE 129.416
+Created UE - id 50 position -91.5107 -91.5107
+CREATED CBR APPLICATION, ID 48
+ZONE 7 LOW EDGE 81 DISTANCE 102.396
+Created UE - id 51 position 72.4047 -72.4047
+CREATED CBR APPLICATION, ID 49
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 2 distanza:583165
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 3 distanza:583252
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 4 distanza:583200
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 5 distanza:583291
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 6 distanza:583265
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 7 distanza:583238
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 8 distanza:583335
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 9 distanza:583272
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 10 distanza:583251
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 11 distanza:583215
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 12 distanza:583213
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 13 distanza:583253
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 14 distanza:583234
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 15 distanza:583293
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 16 distanza:583300
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 17 distanza:583256
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 18 distanza:583259
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 19 distanza:583190
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 20 distanza:583245
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 21 distanza:583188
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 22 distanza:583152
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 23 distanza:583344
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 24 distanza:583198
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 25 distanza:583146
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 26 distanza:583160
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 27 distanza:583354
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 28 distanza:583159
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 29 distanza:583184
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 30 distanza:583297
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 31 distanza:583300
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 32 distanza:583286
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 33 distanza:583281
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 34 distanza:583183
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 35 distanza:583222
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 36 distanza:583226
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 37 distanza:583296
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 38 distanza:583171
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 39 distanza:583336
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 40 distanza:583173
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 41 distanza:583343
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 42 distanza:583225
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 43 distanza:583241
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 44 distanza:583330
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 45 distanza:583154
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 46 distanza:583221
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 47 distanza:583237
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 48 distanza:583187
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 49 distanza:583332
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 50 distanza:583206
+Procedura di !!!! DETACH !!!! avviata a tempo: 0 UE id: 51 distanza:583290
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 2 distanza:582905
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 3 distanza:582992
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 4 distanza:582941
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 7 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 10 distanza:582991
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 11 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 12 distanza:582953
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 13 distanza:582993
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 14 distanza:582974
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 17 distanza:582996
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 18 distanza:582999
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 19 distanza:582930
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 20 distanza:582985
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 21 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 22 distanza:582892
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 24 distanza:582938
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 25 distanza:582886
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 26 distanza:582900
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 28 distanza:582899
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 29 distanza:582924
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 34 distanza:582923
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 35 distanza:582962
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 36 distanza:582966
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 38 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 40 distanza:582913
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 42 distanza:582965
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 43 distanza:582982
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 45 distanza:582894
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 46 distanza:582961
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 47 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 48 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.101 UE id: 50 distanza:582946
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 5 distanza:582645
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 6 distanza:582620
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 8 distanza:582690
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 9 distanza:582626
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 15 distanza:582648
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 16 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 23 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 27 distanza:582708
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 30 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 31 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 32 distanza:582640
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 33 distanza:582636
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 37 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 39 distanza:582691
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 41 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 44 distanza:582685
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 49 distanza:582686
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 0.251 UE id: 51 distanza:582645
+TX CBR ID 0 B 14 SIZE 261 SRC 16 DST 1 T 17.468
+RACH INFO CLASS 0 SF 17608 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 0 B 14 SIZE 256 SRC 16 DST 1 D 0.34
+TX CBR ID 1 B 15 SIZE 261 SRC 17 DST 1 T 37.328
+RACH INFO CLASS 0 SF 37448 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1 B 15 SIZE 256 SRC 17 DST 1 D 0.24
+TX CBR ID 2 B 2 SIZE 261 SRC 4 DST 1 T 48.446
+RACH INFO CLASS 0 SF 48648 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 2 B 2 SIZE 256 SRC 4 DST 1 D 0.434
+TX CBR ID 3 B 38 SIZE 261 SRC 40 DST 1 T 51.043
+RACH INFO CLASS 0 SF 51208 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 3 B 38 SIZE 256 SRC 40 DST 1 D 0.661
+TX CBR ID 4 B 45 SIZE 261 SRC 47 DST 1 T 57.189
+RACH INFO CLASS 0 SF 57288 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 4 B 45 SIZE 256 SRC 47 DST 1 D 0.235
+TX CBR ID 5 B 25 SIZE 261 SRC 27 DST 1 T 70.506
+RACH INFO CLASS 0 SF 70728 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 5 B 25 SIZE 256 SRC 27 DST 1 D 1.126
+TX CBR ID 6 B 19 SIZE 261 SRC 21 DST 1 T 94.22
+RACH INFO CLASS 0 SF 94408 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 6 B 19 SIZE 256 SRC 21 DST 1 D 0.476
+TX CBR ID 7 B 17 SIZE 261 SRC 19 DST 1 T 117.08
+RACH INFO CLASS 0 SF 117128 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 7 B 17 SIZE 256 SRC 19 DST 1 D 0.344
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 2 distanza:583025
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 19 distanza:583001
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 21 distanza:583002
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 22 distanza:583038
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 25 distanza:583045
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 26 distanza:583030
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 28 distanza:583031
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 29 distanza:583006
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 34 distanza:583007
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 38 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 40 distanza:583017
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 45 distanza:583036
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.001 UE id: 48 distanza:583003
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 3 distanza:583324
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 4 distanza:583376
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 5 distanza:583286
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 6 distanza:583311
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 7 distanza:583339
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 8 distanza:583241
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 9 distanza:583305
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 10 distanza:583325
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 11 distanza:583361
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 12 distanza:583363
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 13 distanza:583323
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 14 distanza:583342
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 15 distanza:583283
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 16 distanza:583276
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 17 distanza:583320
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 18 distanza:583317
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 20 distanza:583332
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 23 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 24 distanza:583379
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 27 distanza:583223
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 30 distanza:583280
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 31 distanza:583276
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 32 distanza:583291
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 33 distanza:583296
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 35 distanza:583354
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 36 distanza:583350
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 37 distanza:583280
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 39 distanza:583240
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 41 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 42 distanza:583351
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 43 distanza:583335
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 44 distanza:583246
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 46 distanza:583355
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 47 distanza:583339
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 49 distanza:583245
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 50 distanza:583371
+Procedura di !!!! DETACH !!!! avviata a tempo: 120.151 UE id: 51 distanza:583286
+TX CBR ID 8 B 8 SIZE 261 SRC 10 DST 1 T 122.734
+Procedura di !!!! DETACH !!!! avviata a tempo: 127.401 UE id: 19 distanza:602864
+TX CBR ID 9 B 20 SIZE 261 SRC 22 DST 1 T 146.576
+TX CBR ID 10 B 4 SIZE 261 SRC 6 DST 1 T 177.649
+TX CBR ID 11 B 6 SIZE 261 SRC 8 DST 1 T 196.539
+TX CBR ID 12 B 13 SIZE 261 SRC 15 DST 1 T 204.917
+TX CBR ID 13 B 41 SIZE 261 SRC 43 DST 1 T 210.417
+TX CBR ID 14 B 23 SIZE 261 SRC 25 DST 1 T 211.635
+TX CBR ID 15 B 1 SIZE 261 SRC 3 DST 1 T 212.484
+TX CBR ID 16 B 18 SIZE 261 SRC 20 DST 1 T 216.63
+TX CBR ID 17 B 47 SIZE 261 SRC 49 DST 1 T 256.603
+TX CBR ID 18 B 12 SIZE 261 SRC 14 DST 1 T 281.694
+TX CBR ID 19 B 27 SIZE 261 SRC 29 DST 1 T 291.66
+TX CBR ID 20 B 26 SIZE 261 SRC 28 DST 1 T 308.844
+TX CBR ID 21 B 44 SIZE 261 SRC 46 DST 1 T 326.54
+TX CBR ID 22 B 7 SIZE 261 SRC 9 DST 1 T 336.803
+TX CBR ID 23 B 9 SIZE 261 SRC 11 DST 1 T 337.914
+TX CBR ID 24 B 16 SIZE 261 SRC 18 DST 1 T 339.65
+TX CBR ID 25 B 29 SIZE 261 SRC 31 DST 1 T 353.963
+TX CBR ID 26 B 33 SIZE 261 SRC 35 DST 1 T 363.187
+TX CBR ID 27 B 10 SIZE 261 SRC 12 DST 1 T 383.878
+TX CBR ID 28 B 35 SIZE 261 SRC 37 DST 1 T 386.956
+TX CBR ID 29 B 32 SIZE 261 SRC 34 DST 1 T 396.508
+TX CBR ID 30 B 11 SIZE 261 SRC 13 DST 1 T 400.236
+TX CBR ID 31 B 37 SIZE 261 SRC 39 DST 1 T 405.227
+TX CBR ID 32 B 49 SIZE 261 SRC 51 DST 1 T 421.333
+TX CBR ID 33 B 43 SIZE 261 SRC 45 DST 1 T 423.733
+TX CBR ID 34 B 5 SIZE 261 SRC 7 DST 1 T 439.124
+TX CBR ID 35 B 3 SIZE 261 SRC 5 DST 1 T 458.625
+TX CBR ID 36 B 34 SIZE 261 SRC 36 DST 1 T 460.4
+TX CBR ID 37 B 28 SIZE 261 SRC 30 DST 1 T 480.842
+TX CBR ID 38 B 36 SIZE 261 SRC 38 DST 1 T 486.19
+TX CBR ID 39 B 39 SIZE 261 SRC 41 DST 1 T 492.002
+TX CBR ID 40 B 31 SIZE 261 SRC 33 DST 1 T 512.979
+TX CBR ID 41 B 40 SIZE 261 SRC 42 DST 1 T 548.842
+TX CBR ID 42 B 0 SIZE 261 SRC 2 DST 1 T 551.168
+TX CBR ID 43 B 30 SIZE 261 SRC 32 DST 1 T 552.883
+TX CBR ID 44 B 22 SIZE 261 SRC 24 DST 1 T 566.125
+TX CBR ID 45 B 21 SIZE 261 SRC 23 DST 1 T 573.63
+TX CBR ID 46 B 24 SIZE 261 SRC 26 DST 1 T 576.663
+TX CBR ID 47 B 46 SIZE 261 SRC 48 DST 1 T 576.728
+TX CBR ID 48 B 42 SIZE 261 SRC 44 DST 1 T 591.902
+TX CBR ID 49 B 48 SIZE 261 SRC 50 DST 1 T 596.103
+TX CBR ID 50 B 14 SIZE 261 SRC 16 DST 1 T 617.468
+TX CBR ID 51 B 15 SIZE 261 SRC 17 DST 1 T 637.328
+TX CBR ID 52 B 2 SIZE 261 SRC 4 DST 1 T 648.446
+TX CBR ID 53 B 38 SIZE 261 SRC 40 DST 1 T 651.043
+TX CBR ID 54 B 45 SIZE 261 SRC 47 DST 1 T 657.189
+TX CBR ID 55 B 25 SIZE 261 SRC 27 DST 1 T 670.506
+TX CBR ID 56 B 19 SIZE 261 SRC 21 DST 1 T 694.22
+TX CBR ID 57 B 17 SIZE 261 SRC 19 DST 1 T 717.08
+TX CBR ID 58 B 8 SIZE 261 SRC 10 DST 1 T 722.734
+TX CBR ID 59 B 20 SIZE 261 SRC 22 DST 1 T 746.576
+TX CBR ID 60 B 4 SIZE 261 SRC 6 DST 1 T 777.649
+TX CBR ID 61 B 6 SIZE 261 SRC 8 DST 1 T 796.539
+TX CBR ID 62 B 13 SIZE 261 SRC 15 DST 1 T 804.917
+TX CBR ID 63 B 41 SIZE 261 SRC 43 DST 1 T 810.417
+TX CBR ID 64 B 23 SIZE 261 SRC 25 DST 1 T 811.635
+TX CBR ID 65 B 1 SIZE 261 SRC 3 DST 1 T 812.484
+TX CBR ID 66 B 18 SIZE 261 SRC 20 DST 1 T 816.63
+TX CBR ID 67 B 47 SIZE 261 SRC 49 DST 1 T 856.603
+TX CBR ID 68 B 12 SIZE 261 SRC 14 DST 1 T 881.694
+TX CBR ID 69 B 27 SIZE 261 SRC 29 DST 1 T 891.66
+TX CBR ID 70 B 26 SIZE 261 SRC 28 DST 1 T 908.844
+TX CBR ID 71 B 44 SIZE 261 SRC 46 DST 1 T 926.54
+TX CBR ID 72 B 7 SIZE 261 SRC 9 DST 1 T 936.803
+TX CBR ID 73 B 9 SIZE 261 SRC 11 DST 1 T 937.914
+TX CBR ID 74 B 16 SIZE 261 SRC 18 DST 1 T 939.65
+TX CBR ID 75 B 29 SIZE 261 SRC 31 DST 1 T 953.963
+TX CBR ID 76 B 33 SIZE 261 SRC 35 DST 1 T 963.187
+TX CBR ID 77 B 10 SIZE 261 SRC 12 DST 1 T 983.878
+TX CBR ID 78 B 35 SIZE 261 SRC 37 DST 1 T 986.956
+TX CBR ID 79 B 32 SIZE 261 SRC 34 DST 1 T 996.508
+TX CBR ID 80 B 11 SIZE 261 SRC 13 DST 1 T 1000.24
+TX CBR ID 81 B 37 SIZE 261 SRC 39 DST 1 T 1005.23
+TX CBR ID 82 B 49 SIZE 261 SRC 51 DST 1 T 1021.33
+TX CBR ID 83 B 43 SIZE 261 SRC 45 DST 1 T 1023.73
+TX CBR ID 84 B 5 SIZE 261 SRC 7 DST 1 T 1039.12
+TX CBR ID 85 B 3 SIZE 261 SRC 5 DST 1 T 1058.62
+TX CBR ID 86 B 34 SIZE 261 SRC 36 DST 1 T 1060.4
+TX CBR ID 87 B 28 SIZE 261 SRC 30 DST 1 T 1080.84
+TX CBR ID 88 B 36 SIZE 261 SRC 38 DST 1 T 1086.19
+TX CBR ID 89 B 39 SIZE 261 SRC 41 DST 1 T 1092
+TX CBR ID 90 B 31 SIZE 261 SRC 33 DST 1 T 1112.98
+TX CBR ID 91 B 40 SIZE 261 SRC 42 DST 1 T 1148.84
+TX CBR ID 92 B 0 SIZE 261 SRC 2 DST 1 T 1151.17
+TX CBR ID 93 B 30 SIZE 261 SRC 32 DST 1 T 1152.88
+TX CBR ID 94 B 22 SIZE 261 SRC 24 DST 1 T 1166.12
+TX CBR ID 95 B 21 SIZE 261 SRC 23 DST 1 T 1173.63
+TX CBR ID 96 B 24 SIZE 261 SRC 26 DST 1 T 1176.66
+TX CBR ID 97 B 46 SIZE 261 SRC 48 DST 1 T 1176.73
+TX CBR ID 98 B 42 SIZE 261 SRC 44 DST 1 T 1191.9
+TX CBR ID 99 B 48 SIZE 261 SRC 50 DST 1 T 1196.1
+TX CBR ID 100 B 14 SIZE 261 SRC 16 DST 1 T 1217.47
+TX CBR ID 101 B 15 SIZE 261 SRC 17 DST 1 T 1237.33
+TX CBR ID 102 B 2 SIZE 261 SRC 4 DST 1 T 1248.45
+TX CBR ID 103 B 38 SIZE 261 SRC 40 DST 1 T 1251.04
+TX CBR ID 104 B 45 SIZE 261 SRC 47 DST 1 T 1257.19
+TX CBR ID 105 B 25 SIZE 261 SRC 27 DST 1 T 1270.51
+TX CBR ID 106 B 19 SIZE 261 SRC 21 DST 1 T 1294.22
+TX CBR ID 107 B 17 SIZE 261 SRC 19 DST 1 T 1317.08
+TX CBR ID 108 B 8 SIZE 261 SRC 10 DST 1 T 1322.73
+TX CBR ID 109 B 20 SIZE 261 SRC 22 DST 1 T 1346.58
+TX CBR ID 110 B 4 SIZE 261 SRC 6 DST 1 T 1377.65
+TX CBR ID 111 B 6 SIZE 261 SRC 8 DST 1 T 1396.54
+TX CBR ID 112 B 13 SIZE 261 SRC 15 DST 1 T 1404.92
+TX CBR ID 113 B 41 SIZE 261 SRC 43 DST 1 T 1410.42
+TX CBR ID 114 B 23 SIZE 261 SRC 25 DST 1 T 1411.63
+TX CBR ID 115 B 1 SIZE 261 SRC 3 DST 1 T 1412.48
+TX CBR ID 116 B 18 SIZE 261 SRC 20 DST 1 T 1416.63
+TX CBR ID 117 B 47 SIZE 261 SRC 49 DST 1 T 1456.6
+TX CBR ID 118 B 12 SIZE 261 SRC 14 DST 1 T 1481.69
+TX CBR ID 119 B 27 SIZE 261 SRC 29 DST 1 T 1491.66
+TX CBR ID 120 B 26 SIZE 261 SRC 28 DST 1 T 1508.84
+TX CBR ID 121 B 44 SIZE 261 SRC 46 DST 1 T 1526.54
+TX CBR ID 122 B 7 SIZE 261 SRC 9 DST 1 T 1536.8
+TX CBR ID 123 B 9 SIZE 261 SRC 11 DST 1 T 1537.91
+TX CBR ID 124 B 16 SIZE 261 SRC 18 DST 1 T 1539.65
+TX CBR ID 125 B 29 SIZE 261 SRC 31 DST 1 T 1553.96
+TX CBR ID 126 B 33 SIZE 261 SRC 35 DST 1 T 1563.19
+TX CBR ID 127 B 10 SIZE 261 SRC 12 DST 1 T 1583.88
+TX CBR ID 128 B 35 SIZE 261 SRC 37 DST 1 T 1586.96
+TX CBR ID 129 B 32 SIZE 261 SRC 34 DST 1 T 1596.51
+TX CBR ID 130 B 11 SIZE 261 SRC 13 DST 1 T 1600.24
+TX CBR ID 131 B 37 SIZE 261 SRC 39 DST 1 T 1605.23
+TX CBR ID 132 B 49 SIZE 261 SRC 51 DST 1 T 1621.33
+TX CBR ID 133 B 43 SIZE 261 SRC 45 DST 1 T 1623.73
+TX CBR ID 134 B 5 SIZE 261 SRC 7 DST 1 T 1639.12
+TX CBR ID 135 B 3 SIZE 261 SRC 5 DST 1 T 1658.62
+TX CBR ID 136 B 34 SIZE 261 SRC 36 DST 1 T 1660.4
+TX CBR ID 137 B 28 SIZE 261 SRC 30 DST 1 T 1680.84
+TX CBR ID 138 B 36 SIZE 261 SRC 38 DST 1 T 1686.19
+TX CBR ID 139 B 39 SIZE 261 SRC 41 DST 1 T 1692
+TX CBR ID 140 B 31 SIZE 261 SRC 33 DST 1 T 1712.98
+TX CBR ID 141 B 40 SIZE 261 SRC 42 DST 1 T 1748.84
+TX CBR ID 142 B 0 SIZE 261 SRC 2 DST 1 T 1751.17
+TX CBR ID 143 B 30 SIZE 261 SRC 32 DST 1 T 1752.88
+TX CBR ID 144 B 22 SIZE 261 SRC 24 DST 1 T 1766.12
+TX CBR ID 145 B 21 SIZE 261 SRC 23 DST 1 T 1773.63
+TX CBR ID 146 B 24 SIZE 261 SRC 26 DST 1 T 1776.66
+TX CBR ID 147 B 46 SIZE 261 SRC 48 DST 1 T 1776.73
+TX CBR ID 148 B 42 SIZE 261 SRC 44 DST 1 T 1791.9
+TX CBR ID 149 B 48 SIZE 261 SRC 50 DST 1 T 1796.1
+TX CBR ID 150 B 14 SIZE 261 SRC 16 DST 1 T 1817.47
+TX CBR ID 151 B 15 SIZE 261 SRC 17 DST 1 T 1837.33
+TX CBR ID 152 B 2 SIZE 261 SRC 4 DST 1 T 1848.45
+TX CBR ID 153 B 38 SIZE 261 SRC 40 DST 1 T 1851.04
+TX CBR ID 154 B 45 SIZE 261 SRC 47 DST 1 T 1857.19
+TX CBR ID 155 B 25 SIZE 261 SRC 27 DST 1 T 1870.51
+TX CBR ID 156 B 19 SIZE 261 SRC 21 DST 1 T 1894.22
+TX CBR ID 157 B 17 SIZE 261 SRC 19 DST 1 T 1917.08
+TX CBR ID 158 B 8 SIZE 261 SRC 10 DST 1 T 1922.73
+TX CBR ID 159 B 20 SIZE 261 SRC 22 DST 1 T 1946.58
+TX CBR ID 160 B 4 SIZE 261 SRC 6 DST 1 T 1977.65
+TX CBR ID 161 B 6 SIZE 261 SRC 8 DST 1 T 1996.54
+TX CBR ID 162 B 13 SIZE 261 SRC 15 DST 1 T 2004.92
+TX CBR ID 163 B 41 SIZE 261 SRC 43 DST 1 T 2010.42
+TX CBR ID 164 B 23 SIZE 261 SRC 25 DST 1 T 2011.63
+TX CBR ID 165 B 1 SIZE 261 SRC 3 DST 1 T 2012.48
+TX CBR ID 166 B 18 SIZE 261 SRC 20 DST 1 T 2016.63
+TX CBR ID 167 B 47 SIZE 261 SRC 49 DST 1 T 2056.6
+TX CBR ID 168 B 12 SIZE 261 SRC 14 DST 1 T 2081.69
+TX CBR ID 169 B 27 SIZE 261 SRC 29 DST 1 T 2091.66
+TX CBR ID 170 B 26 SIZE 261 SRC 28 DST 1 T 2108.84
+TX CBR ID 171 B 44 SIZE 261 SRC 46 DST 1 T 2126.54
+TX CBR ID 172 B 7 SIZE 261 SRC 9 DST 1 T 2136.8
+TX CBR ID 173 B 9 SIZE 261 SRC 11 DST 1 T 2137.91
+TX CBR ID 174 B 16 SIZE 261 SRC 18 DST 1 T 2139.65
+TX CBR ID 175 B 29 SIZE 261 SRC 31 DST 1 T 2153.96
+TX CBR ID 176 B 33 SIZE 261 SRC 35 DST 1 T 2163.19
+TX CBR ID 177 B 10 SIZE 261 SRC 12 DST 1 T 2183.88
+TX CBR ID 178 B 35 SIZE 261 SRC 37 DST 1 T 2186.96
+TX CBR ID 179 B 32 SIZE 261 SRC 34 DST 1 T 2196.51
+TX CBR ID 180 B 11 SIZE 261 SRC 13 DST 1 T 2200.24
+TX CBR ID 181 B 37 SIZE 261 SRC 39 DST 1 T 2205.23
+TX CBR ID 182 B 49 SIZE 261 SRC 51 DST 1 T 2221.33
+TX CBR ID 183 B 43 SIZE 261 SRC 45 DST 1 T 2223.73
+TX CBR ID 184 B 5 SIZE 261 SRC 7 DST 1 T 2239.12
+TX CBR ID 185 B 3 SIZE 261 SRC 5 DST 1 T 2258.62
+TX CBR ID 186 B 34 SIZE 261 SRC 36 DST 1 T 2260.4
+TX CBR ID 187 B 28 SIZE 261 SRC 30 DST 1 T 2280.84
+TX CBR ID 188 B 36 SIZE 261 SRC 38 DST 1 T 2286.19
+TX CBR ID 189 B 39 SIZE 261 SRC 41 DST 1 T 2292
+TX CBR ID 190 B 31 SIZE 261 SRC 33 DST 1 T 2312.98
+TX CBR ID 191 B 40 SIZE 261 SRC 42 DST 1 T 2348.84
+TX CBR ID 192 B 0 SIZE 261 SRC 2 DST 1 T 2351.17
+TX CBR ID 193 B 30 SIZE 261 SRC 32 DST 1 T 2352.88
+TX CBR ID 194 B 22 SIZE 261 SRC 24 DST 1 T 2366.12
+TX CBR ID 195 B 21 SIZE 261 SRC 23 DST 1 T 2373.63
+TX CBR ID 196 B 24 SIZE 261 SRC 26 DST 1 T 2376.66
+TX CBR ID 197 B 46 SIZE 261 SRC 48 DST 1 T 2376.73
+TX CBR ID 198 B 42 SIZE 261 SRC 44 DST 1 T 2391.9
+TX CBR ID 199 B 48 SIZE 261 SRC 50 DST 1 T 2396.1
+TX CBR ID 200 B 14 SIZE 261 SRC 16 DST 1 T 2417.47
+TX CBR ID 201 B 15 SIZE 261 SRC 17 DST 1 T 2437.33
+TX CBR ID 202 B 2 SIZE 261 SRC 4 DST 1 T 2448.45
+TX CBR ID 203 B 38 SIZE 261 SRC 40 DST 1 T 2451.04
+TX CBR ID 204 B 45 SIZE 261 SRC 47 DST 1 T 2457.19
+TX CBR ID 205 B 25 SIZE 261 SRC 27 DST 1 T 2470.51
+TX CBR ID 206 B 19 SIZE 261 SRC 21 DST 1 T 2494.22
+TX CBR ID 207 B 17 SIZE 261 SRC 19 DST 1 T 2517.08
+TX CBR ID 208 B 8 SIZE 261 SRC 10 DST 1 T 2522.73
+TX CBR ID 209 B 20 SIZE 261 SRC 22 DST 1 T 2546.58
+TX CBR ID 210 B 4 SIZE 261 SRC 6 DST 1 T 2577.65
+TX CBR ID 211 B 6 SIZE 261 SRC 8 DST 1 T 2596.54
+TX CBR ID 212 B 13 SIZE 261 SRC 15 DST 1 T 2604.92
+TX CBR ID 213 B 41 SIZE 261 SRC 43 DST 1 T 2610.42
+TX CBR ID 214 B 23 SIZE 261 SRC 25 DST 1 T 2611.64
+TX CBR ID 215 B 1 SIZE 261 SRC 3 DST 1 T 2612.48
+TX CBR ID 216 B 18 SIZE 261 SRC 20 DST 1 T 2616.63
+TX CBR ID 217 B 47 SIZE 261 SRC 49 DST 1 T 2656.6
+TX CBR ID 218 B 12 SIZE 261 SRC 14 DST 1 T 2681.69
+TX CBR ID 219 B 27 SIZE 261 SRC 29 DST 1 T 2691.66
+TX CBR ID 220 B 26 SIZE 261 SRC 28 DST 1 T 2708.84
+TX CBR ID 221 B 44 SIZE 261 SRC 46 DST 1 T 2726.54
+TX CBR ID 222 B 7 SIZE 261 SRC 9 DST 1 T 2736.8
+TX CBR ID 223 B 9 SIZE 261 SRC 11 DST 1 T 2737.91
+TX CBR ID 224 B 16 SIZE 261 SRC 18 DST 1 T 2739.65
+TX CBR ID 225 B 29 SIZE 261 SRC 31 DST 1 T 2753.96
+TX CBR ID 226 B 33 SIZE 261 SRC 35 DST 1 T 2763.19
+TX CBR ID 227 B 10 SIZE 261 SRC 12 DST 1 T 2783.88
+TX CBR ID 228 B 35 SIZE 261 SRC 37 DST 1 T 2786.96
+TX CBR ID 229 B 32 SIZE 261 SRC 34 DST 1 T 2796.51
+TX CBR ID 230 B 11 SIZE 261 SRC 13 DST 1 T 2800.24
+TX CBR ID 231 B 37 SIZE 261 SRC 39 DST 1 T 2805.23
+TX CBR ID 232 B 49 SIZE 261 SRC 51 DST 1 T 2821.33
+TX CBR ID 233 B 43 SIZE 261 SRC 45 DST 1 T 2823.73
+TX CBR ID 234 B 5 SIZE 261 SRC 7 DST 1 T 2839.12
+TX CBR ID 235 B 3 SIZE 261 SRC 5 DST 1 T 2858.62
+TX CBR ID 236 B 34 SIZE 261 SRC 36 DST 1 T 2860.4
+TX CBR ID 237 B 28 SIZE 261 SRC 30 DST 1 T 2880.84
+TX CBR ID 238 B 36 SIZE 261 SRC 38 DST 1 T 2886.19
+TX CBR ID 239 B 39 SIZE 261 SRC 41 DST 1 T 2892
+TX CBR ID 240 B 31 SIZE 261 SRC 33 DST 1 T 2912.98
+TX CBR ID 241 B 40 SIZE 261 SRC 42 DST 1 T 2948.84
+TX CBR ID 242 B 0 SIZE 261 SRC 2 DST 1 T 2951.17
+TX CBR ID 243 B 30 SIZE 261 SRC 32 DST 1 T 2952.88
+TX CBR ID 244 B 22 SIZE 261 SRC 24 DST 1 T 2966.12
+TX CBR ID 245 B 21 SIZE 261 SRC 23 DST 1 T 2973.63
+TX CBR ID 246 B 24 SIZE 261 SRC 26 DST 1 T 2976.66
+TX CBR ID 247 B 46 SIZE 261 SRC 48 DST 1 T 2976.73
+TX CBR ID 248 B 42 SIZE 261 SRC 44 DST 1 T 2991.9
+TX CBR ID 249 B 48 SIZE 261 SRC 50 DST 1 T 2996.1
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 2 distanza:582777
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 3 distanza:582864
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 4 distanza:582812
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 5 distanza:582902
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 6 distanza:582877
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 7 distanza:582850
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 8 distanza:582947
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 9 distanza:582883
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 10 distanza:582863
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 11 distanza:582827
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 12 distanza:582825
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 13 distanza:582865
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 14 distanza:582846
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 15 distanza:582905
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 16 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 17 distanza:582868
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 18 distanza:582871
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 19 distanza:582802
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 20 distanza:582856
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 21 distanza:582800
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 22 distanza:582764
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 23 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 24 distanza:582809
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 25 distanza:582758
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 26 distanza:582772
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 27 distanza:582965
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 28 distanza:582771
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 29 distanza:582796
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 30 distanza:582908
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 31 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 32 distanza:582897
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 33 distanza:582892
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 34 distanza:582795
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 35 distanza:582834
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 36 distanza:582838
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 37 distanza:582907
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 38 distanza:582783
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 39 distanza:582948
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 40 distanza:582785
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 41 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 42 distanza:582837
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 43 distanza:582853
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 44 distanza:582942
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 45 distanza:582766
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 46 distanza:582833
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 47 distanza:582849
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 48 distanza:582799
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 49 distanza:582943
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 50 distanza:582818
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 3000.15 UE id: 51 distanza:582902
+TX CBR ID 250 B 14 SIZE 261 SRC 16 DST 1 T 3017.47
+RACH INFO CLASS 0 SF 3017608 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 50 B 14 SIZE 256 SRC 16 DST 1 D 2400.4
+RX CBR ID 100 B 14 SIZE 256 SRC 16 DST 1 D 1800.56
+RX CBR ID 150 B 14 SIZE 256 SRC 16 DST 1 D 1200.72
+RX CBR ID 200 B 14 SIZE 256 SRC 16 DST 1 D 600.972
+RX CBR ID 250 B 14 SIZE 256 SRC 16 DST 1 D 1.092
+TX CBR ID 251 B 15 SIZE 261 SRC 17 DST 1 T 3037.33
+RACH INFO CLASS 0 SF 3037448 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 51 B 15 SIZE 256 SRC 17 DST 1 D 2400.29
+RX CBR ID 101 B 15 SIZE 256 SRC 17 DST 1 D 1800.37
+RX CBR ID 151 B 15 SIZE 256 SRC 17 DST 1 D 1200.46
+RX CBR ID 201 B 15 SIZE 256 SRC 17 DST 1 D 600.616
+RX CBR ID 251 B 15 SIZE 256 SRC 17 DST 1 D 0.656
+TX CBR ID 252 B 2 SIZE 261 SRC 4 DST 1 T 3048.45
+RACH INFO CLASS 0 SF 3048648 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 52 B 2 SIZE 256 SRC 4 DST 1 D 2400.45
+RX CBR ID 102 B 2 SIZE 256 SRC 4 DST 1 D 1800.7
+RX CBR ID 152 B 2 SIZE 256 SRC 4 DST 1 D 1200.87
+RX CBR ID 202 B 2 SIZE 256 SRC 4 DST 1 D 601.106
+RX CBR ID 252 B 2 SIZE 256 SRC 4 DST 1 D 1.306
+TX CBR ID 253 B 38 SIZE 261 SRC 40 DST 1 T 3051.04
+RACH INFO CLASS 0 SF 3051208 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 53 B 38 SIZE 256 SRC 40 DST 1 D 2400.67
+RX CBR ID 103 B 38 SIZE 256 SRC 40 DST 1 D 1801.16
+RX CBR ID 153 B 38 SIZE 256 SRC 40 DST 1 D 1201.65
+RX CBR ID 203 B 38 SIZE 256 SRC 40 DST 1 D 602.149
+RX CBR ID 253 B 38 SIZE 256 SRC 40 DST 1 D 2.621
+TX CBR ID 254 B 45 SIZE 261 SRC 47 DST 1 T 3057.19
+RACH INFO CLASS 0 SF 3057288 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 54 B 45 SIZE 256 SRC 47 DST 1 D 2400.28
+RX CBR ID 104 B 45 SIZE 256 SRC 47 DST 1 D 1800.36
+RX CBR ID 154 B 45 SIZE 256 SRC 47 DST 1 D 1200.52
+RX CBR ID 204 B 45 SIZE 256 SRC 47 DST 1 D 600.603
+RX CBR ID 254 B 45 SIZE 256 SRC 47 DST 1 D 0.707
+TX CBR ID 255 B 25 SIZE 261 SRC 27 DST 1 T 3070.51
+RACH INFO CLASS 0 SF 3070728 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 55 B 25 SIZE 256 SRC 27 DST 1 D 2401.13
+RX CBR ID 105 B 25 SIZE 256 SRC 27 DST 1 D 1802.04
+RX CBR ID 155 B 25 SIZE 256 SRC 27 DST 1 D 1202.94
+RX CBR ID 205 B 25 SIZE 256 SRC 27 DST 1 D 603.846
+RX CBR ID 255 B 25 SIZE 256 SRC 27 DST 1 D 4.75
+TX CBR ID 256 B 19 SIZE 261 SRC 21 DST 1 T 3094.22
+RACH INFO CLASS 0 SF 3094408 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 56 B 19 SIZE 256 SRC 21 DST 1 D 2400.53
+RX CBR ID 106 B 19 SIZE 256 SRC 21 DST 1 D 1800.77
+RX CBR ID 156 B 19 SIZE 256 SRC 21 DST 1 D 1201.1
+RX CBR ID 206 B 19 SIZE 256 SRC 21 DST 1 D 601.348
+RX CBR ID 256 B 19 SIZE 256 SRC 21 DST 1 D 1.636
+TX CBR ID 257 B 17 SIZE 261 SRC 19 DST 1 T 3117.08
+RACH INFO CLASS 0 SF 3117128 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 57 B 17 SIZE 256 SRC 19 DST 1 D 2400.38
+RX CBR ID 107 B 17 SIZE 256 SRC 19 DST 1 D 1800.62
+RX CBR ID 157 B 17 SIZE 256 SRC 19 DST 1 D 1200.95
+RX CBR ID 207 B 17 SIZE 256 SRC 19 DST 1 D 601.2
+RX CBR ID 257 B 17 SIZE 256 SRC 19 DST 1 D 1.488
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 2 distanza:583025
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 19 distanza:583001
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 21 distanza:583002
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 22 distanza:583038
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 25 distanza:583045
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 26 distanza:583030
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 28 distanza:583031
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 29 distanza:583006
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 34 distanza:583007
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 38 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 40 distanza:583017
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 45 distanza:583036
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120 UE id: 48 distanza:583003
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 3 distanza:583324
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 4 distanza:583376
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 5 distanza:583286
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 6 distanza:583311
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 7 distanza:583339
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 8 distanza:583241
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 9 distanza:583305
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 10 distanza:583325
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 11 distanza:583361
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 12 distanza:583363
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 13 distanza:583323
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 14 distanza:583342
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 15 distanza:583283
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 16 distanza:583276
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 17 distanza:583320
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 18 distanza:583317
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 20 distanza:583332
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 23 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 24 distanza:583379
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 27 distanza:583223
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 30 distanza:583280
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 31 distanza:583276
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 32 distanza:583291
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 33 distanza:583296
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 35 distanza:583354
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 36 distanza:583350
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 37 distanza:583280
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 39 distanza:583240
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 41 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 42 distanza:583351
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 43 distanza:583335
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 44 distanza:583246
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 46 distanza:583355
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 47 distanza:583339
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 49 distanza:583245
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 50 distanza:583371
+Procedura di !!!! DETACH !!!! avviata a tempo: 3120.15 UE id: 51 distanza:583286
+TX CBR ID 258 B 8 SIZE 261 SRC 10 DST 1 T 3122.73
+Procedura di !!!! DETACH !!!! avviata a tempo: 3128.55 UE id: 19 distanza:605954
+TX CBR ID 259 B 20 SIZE 261 SRC 22 DST 1 T 3146.58
+TX CBR ID 260 B 4 SIZE 261 SRC 6 DST 1 T 3177.65
+TX CBR ID 261 B 6 SIZE 261 SRC 8 DST 1 T 3196.54
+TX CBR ID 262 B 13 SIZE 261 SRC 15 DST 1 T 3204.92
+TX CBR ID 263 B 41 SIZE 261 SRC 43 DST 1 T 3210.42
+TX CBR ID 264 B 23 SIZE 261 SRC 25 DST 1 T 3211.64
+TX CBR ID 265 B 1 SIZE 261 SRC 3 DST 1 T 3212.48
+TX CBR ID 266 B 18 SIZE 261 SRC 20 DST 1 T 3216.63
+TX CBR ID 267 B 47 SIZE 261 SRC 49 DST 1 T 3256.6
+TX CBR ID 268 B 12 SIZE 261 SRC 14 DST 1 T 3281.69
+TX CBR ID 269 B 27 SIZE 261 SRC 29 DST 1 T 3291.66
+TX CBR ID 270 B 26 SIZE 261 SRC 28 DST 1 T 3308.84
+TX CBR ID 271 B 44 SIZE 261 SRC 46 DST 1 T 3326.54
+TX CBR ID 272 B 7 SIZE 261 SRC 9 DST 1 T 3336.8
+TX CBR ID 273 B 9 SIZE 261 SRC 11 DST 1 T 3337.91
+TX CBR ID 274 B 16 SIZE 261 SRC 18 DST 1 T 3339.65
+TX CBR ID 275 B 29 SIZE 261 SRC 31 DST 1 T 3353.96
+TX CBR ID 276 B 33 SIZE 261 SRC 35 DST 1 T 3363.19
+TX CBR ID 277 B 10 SIZE 261 SRC 12 DST 1 T 3383.88
+TX CBR ID 278 B 35 SIZE 261 SRC 37 DST 1 T 3386.96
+TX CBR ID 279 B 32 SIZE 261 SRC 34 DST 1 T 3396.51
+TX CBR ID 280 B 11 SIZE 261 SRC 13 DST 1 T 3400.24
+TX CBR ID 281 B 37 SIZE 261 SRC 39 DST 1 T 3405.23
+TX CBR ID 282 B 49 SIZE 261 SRC 51 DST 1 T 3421.33
+TX CBR ID 283 B 43 SIZE 261 SRC 45 DST 1 T 3423.73
+TX CBR ID 284 B 5 SIZE 261 SRC 7 DST 1 T 3439.12
+TX CBR ID 285 B 3 SIZE 261 SRC 5 DST 1 T 3458.62
+TX CBR ID 286 B 34 SIZE 261 SRC 36 DST 1 T 3460.4
+TX CBR ID 287 B 28 SIZE 261 SRC 30 DST 1 T 3480.84
+TX CBR ID 288 B 36 SIZE 261 SRC 38 DST 1 T 3486.19
+TX CBR ID 289 B 39 SIZE 261 SRC 41 DST 1 T 3492
+TX CBR ID 290 B 31 SIZE 261 SRC 33 DST 1 T 3512.98
+TX CBR ID 291 B 40 SIZE 261 SRC 42 DST 1 T 3548.84
+TX CBR ID 292 B 0 SIZE 261 SRC 2 DST 1 T 3551.17
+TX CBR ID 293 B 30 SIZE 261 SRC 32 DST 1 T 3552.88
+TX CBR ID 294 B 22 SIZE 261 SRC 24 DST 1 T 3566.12
+TX CBR ID 295 B 21 SIZE 261 SRC 23 DST 1 T 3573.63
+TX CBR ID 296 B 24 SIZE 261 SRC 26 DST 1 T 3576.66
+TX CBR ID 297 B 46 SIZE 261 SRC 48 DST 1 T 3576.73
+TX CBR ID 298 B 42 SIZE 261 SRC 44 DST 1 T 3591.9
+TX CBR ID 299 B 48 SIZE 261 SRC 50 DST 1 T 3596.1
+TX CBR ID 300 B 14 SIZE 261 SRC 16 DST 1 T 3617.47
+TX CBR ID 301 B 15 SIZE 261 SRC 17 DST 1 T 3637.33
+TX CBR ID 302 B 2 SIZE 261 SRC 4 DST 1 T 3648.45
+TX CBR ID 303 B 38 SIZE 261 SRC 40 DST 1 T 3651.04
+TX CBR ID 304 B 45 SIZE 261 SRC 47 DST 1 T 3657.19
+TX CBR ID 305 B 25 SIZE 261 SRC 27 DST 1 T 3670.51
+TX CBR ID 306 B 19 SIZE 261 SRC 21 DST 1 T 3694.22
+TX CBR ID 307 B 17 SIZE 261 SRC 19 DST 1 T 3717.08
+TX CBR ID 308 B 8 SIZE 261 SRC 10 DST 1 T 3722.73
+TX CBR ID 309 B 20 SIZE 261 SRC 22 DST 1 T 3746.58
+TX CBR ID 310 B 4 SIZE 261 SRC 6 DST 1 T 3777.65
+TX CBR ID 311 B 6 SIZE 261 SRC 8 DST 1 T 3796.54
+TX CBR ID 312 B 13 SIZE 261 SRC 15 DST 1 T 3804.92
+TX CBR ID 313 B 41 SIZE 261 SRC 43 DST 1 T 3810.42
+TX CBR ID 314 B 23 SIZE 261 SRC 25 DST 1 T 3811.64
+TX CBR ID 315 B 1 SIZE 261 SRC 3 DST 1 T 3812.48
+TX CBR ID 316 B 18 SIZE 261 SRC 20 DST 1 T 3816.63
+TX CBR ID 317 B 47 SIZE 261 SRC 49 DST 1 T 3856.6
+TX CBR ID 318 B 12 SIZE 261 SRC 14 DST 1 T 3881.69
+TX CBR ID 319 B 27 SIZE 261 SRC 29 DST 1 T 3891.66
+TX CBR ID 320 B 26 SIZE 261 SRC 28 DST 1 T 3908.84
+TX CBR ID 321 B 44 SIZE 261 SRC 46 DST 1 T 3926.54
+TX CBR ID 322 B 7 SIZE 261 SRC 9 DST 1 T 3936.8
+TX CBR ID 323 B 9 SIZE 261 SRC 11 DST 1 T 3937.91
+TX CBR ID 324 B 16 SIZE 261 SRC 18 DST 1 T 3939.65
+TX CBR ID 325 B 29 SIZE 261 SRC 31 DST 1 T 3953.96
+TX CBR ID 326 B 33 SIZE 261 SRC 35 DST 1 T 3963.19
+TX CBR ID 327 B 10 SIZE 261 SRC 12 DST 1 T 3983.88
+TX CBR ID 328 B 35 SIZE 261 SRC 37 DST 1 T 3986.96
+TX CBR ID 329 B 32 SIZE 261 SRC 34 DST 1 T 3996.51
+TX CBR ID 330 B 11 SIZE 261 SRC 13 DST 1 T 4000.24
+TX CBR ID 331 B 37 SIZE 261 SRC 39 DST 1 T 4005.23
+TX CBR ID 332 B 49 SIZE 261 SRC 51 DST 1 T 4021.33
+TX CBR ID 333 B 43 SIZE 261 SRC 45 DST 1 T 4023.73
+TX CBR ID 334 B 5 SIZE 261 SRC 7 DST 1 T 4039.12
+TX CBR ID 335 B 3 SIZE 261 SRC 5 DST 1 T 4058.62
+TX CBR ID 336 B 34 SIZE 261 SRC 36 DST 1 T 4060.4
+TX CBR ID 337 B 28 SIZE 261 SRC 30 DST 1 T 4080.84
+TX CBR ID 338 B 36 SIZE 261 SRC 38 DST 1 T 4086.19
+TX CBR ID 339 B 39 SIZE 261 SRC 41 DST 1 T 4092
+TX CBR ID 340 B 31 SIZE 261 SRC 33 DST 1 T 4112.98
+TX CBR ID 341 B 40 SIZE 261 SRC 42 DST 1 T 4148.84
+TX CBR ID 342 B 0 SIZE 261 SRC 2 DST 1 T 4151.17
+TX CBR ID 343 B 30 SIZE 261 SRC 32 DST 1 T 4152.88
+TX CBR ID 344 B 22 SIZE 261 SRC 24 DST 1 T 4166.12
+TX CBR ID 345 B 21 SIZE 261 SRC 23 DST 1 T 4173.63
+TX CBR ID 346 B 24 SIZE 261 SRC 26 DST 1 T 4176.66
+TX CBR ID 347 B 46 SIZE 261 SRC 48 DST 1 T 4176.73
+TX CBR ID 348 B 42 SIZE 261 SRC 44 DST 1 T 4191.9
+TX CBR ID 349 B 48 SIZE 261 SRC 50 DST 1 T 4196.1
+TX CBR ID 350 B 14 SIZE 261 SRC 16 DST 1 T 4217.47
+TX CBR ID 351 B 15 SIZE 261 SRC 17 DST 1 T 4237.33
+TX CBR ID 352 B 2 SIZE 261 SRC 4 DST 1 T 4248.45
+TX CBR ID 353 B 38 SIZE 261 SRC 40 DST 1 T 4251.04
+TX CBR ID 354 B 45 SIZE 261 SRC 47 DST 1 T 4257.19
+TX CBR ID 355 B 25 SIZE 261 SRC 27 DST 1 T 4270.51
+TX CBR ID 356 B 19 SIZE 261 SRC 21 DST 1 T 4294.22
+TX CBR ID 357 B 17 SIZE 261 SRC 19 DST 1 T 4317.08
+TX CBR ID 358 B 8 SIZE 261 SRC 10 DST 1 T 4322.73
+TX CBR ID 359 B 20 SIZE 261 SRC 22 DST 1 T 4346.58
+TX CBR ID 360 B 4 SIZE 261 SRC 6 DST 1 T 4377.65
+TX CBR ID 361 B 6 SIZE 261 SRC 8 DST 1 T 4396.54
+TX CBR ID 362 B 13 SIZE 261 SRC 15 DST 1 T 4404.92
+TX CBR ID 363 B 41 SIZE 261 SRC 43 DST 1 T 4410.42
+TX CBR ID 364 B 23 SIZE 261 SRC 25 DST 1 T 4411.64
+TX CBR ID 365 B 1 SIZE 261 SRC 3 DST 1 T 4412.48
+TX CBR ID 366 B 18 SIZE 261 SRC 20 DST 1 T 4416.63
+TX CBR ID 367 B 47 SIZE 261 SRC 49 DST 1 T 4456.6
+TX CBR ID 368 B 12 SIZE 261 SRC 14 DST 1 T 4481.69
+TX CBR ID 369 B 27 SIZE 261 SRC 29 DST 1 T 4491.66
+TX CBR ID 370 B 26 SIZE 261 SRC 28 DST 1 T 4508.84
+TX CBR ID 371 B 44 SIZE 261 SRC 46 DST 1 T 4526.54
+TX CBR ID 372 B 7 SIZE 261 SRC 9 DST 1 T 4536.8
+TX CBR ID 373 B 9 SIZE 261 SRC 11 DST 1 T 4537.91
+TX CBR ID 374 B 16 SIZE 261 SRC 18 DST 1 T 4539.65
+TX CBR ID 375 B 29 SIZE 261 SRC 31 DST 1 T 4553.96
+TX CBR ID 376 B 33 SIZE 261 SRC 35 DST 1 T 4563.19
+TX CBR ID 377 B 10 SIZE 261 SRC 12 DST 1 T 4583.88
+TX CBR ID 378 B 35 SIZE 261 SRC 37 DST 1 T 4586.96
+TX CBR ID 379 B 32 SIZE 261 SRC 34 DST 1 T 4596.51
+TX CBR ID 380 B 11 SIZE 261 SRC 13 DST 1 T 4600.24
+TX CBR ID 381 B 37 SIZE 261 SRC 39 DST 1 T 4605.23
+TX CBR ID 382 B 49 SIZE 261 SRC 51 DST 1 T 4621.33
+TX CBR ID 383 B 43 SIZE 261 SRC 45 DST 1 T 4623.73
+TX CBR ID 384 B 5 SIZE 261 SRC 7 DST 1 T 4639.12
+TX CBR ID 385 B 3 SIZE 261 SRC 5 DST 1 T 4658.62
+TX CBR ID 386 B 34 SIZE 261 SRC 36 DST 1 T 4660.4
+TX CBR ID 387 B 28 SIZE 261 SRC 30 DST 1 T 4680.84
+TX CBR ID 388 B 36 SIZE 261 SRC 38 DST 1 T 4686.19
+TX CBR ID 389 B 39 SIZE 261 SRC 41 DST 1 T 4692
+TX CBR ID 390 B 31 SIZE 261 SRC 33 DST 1 T 4712.98
+TX CBR ID 391 B 40 SIZE 261 SRC 42 DST 1 T 4748.84
+TX CBR ID 392 B 0 SIZE 261 SRC 2 DST 1 T 4751.17
+TX CBR ID 393 B 30 SIZE 261 SRC 32 DST 1 T 4752.88
+TX CBR ID 394 B 22 SIZE 261 SRC 24 DST 1 T 4766.12
+TX CBR ID 395 B 21 SIZE 261 SRC 23 DST 1 T 4773.63
+TX CBR ID 396 B 24 SIZE 261 SRC 26 DST 1 T 4776.66
+TX CBR ID 397 B 46 SIZE 261 SRC 48 DST 1 T 4776.73
+TX CBR ID 398 B 42 SIZE 261 SRC 44 DST 1 T 4791.9
+TX CBR ID 399 B 48 SIZE 261 SRC 50 DST 1 T 4796.1
+TX CBR ID 400 B 14 SIZE 261 SRC 16 DST 1 T 4817.47
+TX CBR ID 401 B 15 SIZE 261 SRC 17 DST 1 T 4837.33
+TX CBR ID 402 B 2 SIZE 261 SRC 4 DST 1 T 4848.45
+TX CBR ID 403 B 38 SIZE 261 SRC 40 DST 1 T 4851.04
+TX CBR ID 404 B 45 SIZE 261 SRC 47 DST 1 T 4857.19
+TX CBR ID 405 B 25 SIZE 261 SRC 27 DST 1 T 4870.51
+TX CBR ID 406 B 19 SIZE 261 SRC 21 DST 1 T 4894.22
+TX CBR ID 407 B 17 SIZE 261 SRC 19 DST 1 T 4917.08
+TX CBR ID 408 B 8 SIZE 261 SRC 10 DST 1 T 4922.73
+TX CBR ID 409 B 20 SIZE 261 SRC 22 DST 1 T 4946.58
+TX CBR ID 410 B 4 SIZE 261 SRC 6 DST 1 T 4977.65
+TX CBR ID 411 B 6 SIZE 261 SRC 8 DST 1 T 4996.54
+TX CBR ID 412 B 13 SIZE 261 SRC 15 DST 1 T 5004.92
+TX CBR ID 413 B 41 SIZE 261 SRC 43 DST 1 T 5010.42
+TX CBR ID 414 B 23 SIZE 261 SRC 25 DST 1 T 5011.64
+TX CBR ID 415 B 1 SIZE 261 SRC 3 DST 1 T 5012.48
+TX CBR ID 416 B 18 SIZE 261 SRC 20 DST 1 T 5016.63
+TX CBR ID 417 B 47 SIZE 261 SRC 49 DST 1 T 5056.6
+TX CBR ID 418 B 12 SIZE 261 SRC 14 DST 1 T 5081.69
+TX CBR ID 419 B 27 SIZE 261 SRC 29 DST 1 T 5091.66
+TX CBR ID 420 B 26 SIZE 261 SRC 28 DST 1 T 5108.84
+TX CBR ID 421 B 44 SIZE 261 SRC 46 DST 1 T 5126.54
+TX CBR ID 422 B 7 SIZE 261 SRC 9 DST 1 T 5136.8
+TX CBR ID 423 B 9 SIZE 261 SRC 11 DST 1 T 5137.91
+TX CBR ID 424 B 16 SIZE 261 SRC 18 DST 1 T 5139.65
+TX CBR ID 425 B 29 SIZE 261 SRC 31 DST 1 T 5153.96
+TX CBR ID 426 B 33 SIZE 261 SRC 35 DST 1 T 5163.19
+TX CBR ID 427 B 10 SIZE 261 SRC 12 DST 1 T 5183.88
+TX CBR ID 428 B 35 SIZE 261 SRC 37 DST 1 T 5186.96
+TX CBR ID 429 B 32 SIZE 261 SRC 34 DST 1 T 5196.51
+TX CBR ID 430 B 11 SIZE 261 SRC 13 DST 1 T 5200.24
+TX CBR ID 431 B 37 SIZE 261 SRC 39 DST 1 T 5205.23
+TX CBR ID 432 B 49 SIZE 261 SRC 51 DST 1 T 5221.33
+TX CBR ID 433 B 43 SIZE 261 SRC 45 DST 1 T 5223.73
+TX CBR ID 434 B 5 SIZE 261 SRC 7 DST 1 T 5239.12
+TX CBR ID 435 B 3 SIZE 261 SRC 5 DST 1 T 5258.62
+TX CBR ID 436 B 34 SIZE 261 SRC 36 DST 1 T 5260.4
+TX CBR ID 437 B 28 SIZE 261 SRC 30 DST 1 T 5280.84
+TX CBR ID 438 B 36 SIZE 261 SRC 38 DST 1 T 5286.19
+TX CBR ID 439 B 39 SIZE 261 SRC 41 DST 1 T 5292
+TX CBR ID 440 B 31 SIZE 261 SRC 33 DST 1 T 5312.98
+TX CBR ID 441 B 40 SIZE 261 SRC 42 DST 1 T 5348.84
+TX CBR ID 442 B 0 SIZE 261 SRC 2 DST 1 T 5351.17
+TX CBR ID 443 B 30 SIZE 261 SRC 32 DST 1 T 5352.88
+TX CBR ID 444 B 22 SIZE 261 SRC 24 DST 1 T 5366.12
+TX CBR ID 445 B 21 SIZE 261 SRC 23 DST 1 T 5373.63
+TX CBR ID 446 B 24 SIZE 261 SRC 26 DST 1 T 5376.66
+TX CBR ID 447 B 46 SIZE 261 SRC 48 DST 1 T 5376.73
+TX CBR ID 448 B 42 SIZE 261 SRC 44 DST 1 T 5391.9
+TX CBR ID 449 B 48 SIZE 261 SRC 50 DST 1 T 5396.1
+TX CBR ID 450 B 14 SIZE 261 SRC 16 DST 1 T 5417.47
+TX CBR ID 451 B 15 SIZE 261 SRC 17 DST 1 T 5437.33
+TX CBR ID 452 B 2 SIZE 261 SRC 4 DST 1 T 5448.45
+TX CBR ID 453 B 38 SIZE 261 SRC 40 DST 1 T 5451.04
+TX CBR ID 454 B 45 SIZE 261 SRC 47 DST 1 T 5457.19
+TX CBR ID 455 B 25 SIZE 261 SRC 27 DST 1 T 5470.51
+TX CBR ID 456 B 19 SIZE 261 SRC 21 DST 1 T 5494.22
+TX CBR ID 457 B 17 SIZE 261 SRC 19 DST 1 T 5517.08
+TX CBR ID 458 B 8 SIZE 261 SRC 10 DST 1 T 5522.73
+TX CBR ID 459 B 20 SIZE 261 SRC 22 DST 1 T 5546.58
+TX CBR ID 460 B 4 SIZE 261 SRC 6 DST 1 T 5577.65
+TX CBR ID 461 B 6 SIZE 261 SRC 8 DST 1 T 5596.54
+TX CBR ID 462 B 13 SIZE 261 SRC 15 DST 1 T 5604.92
+TX CBR ID 463 B 41 SIZE 261 SRC 43 DST 1 T 5610.42
+TX CBR ID 464 B 23 SIZE 261 SRC 25 DST 1 T 5611.64
+TX CBR ID 465 B 1 SIZE 261 SRC 3 DST 1 T 5612.48
+TX CBR ID 466 B 18 SIZE 261 SRC 20 DST 1 T 5616.63
+TX CBR ID 467 B 47 SIZE 261 SRC 49 DST 1 T 5656.6
+TX CBR ID 468 B 12 SIZE 261 SRC 14 DST 1 T 5681.69
+TX CBR ID 469 B 27 SIZE 261 SRC 29 DST 1 T 5691.66
+TX CBR ID 470 B 26 SIZE 261 SRC 28 DST 1 T 5708.84
+TX CBR ID 471 B 44 SIZE 261 SRC 46 DST 1 T 5726.54
+TX CBR ID 472 B 7 SIZE 261 SRC 9 DST 1 T 5736.8
+TX CBR ID 473 B 9 SIZE 261 SRC 11 DST 1 T 5737.91
+TX CBR ID 474 B 16 SIZE 261 SRC 18 DST 1 T 5739.65
+TX CBR ID 475 B 29 SIZE 261 SRC 31 DST 1 T 5753.96
+TX CBR ID 476 B 33 SIZE 261 SRC 35 DST 1 T 5763.19
+TX CBR ID 477 B 10 SIZE 261 SRC 12 DST 1 T 5783.88
+TX CBR ID 478 B 35 SIZE 261 SRC 37 DST 1 T 5786.96
+TX CBR ID 479 B 32 SIZE 261 SRC 34 DST 1 T 5796.51
+TX CBR ID 480 B 11 SIZE 261 SRC 13 DST 1 T 5800.24
+TX CBR ID 481 B 37 SIZE 261 SRC 39 DST 1 T 5805.23
+TX CBR ID 482 B 49 SIZE 261 SRC 51 DST 1 T 5821.33
+TX CBR ID 483 B 43 SIZE 261 SRC 45 DST 1 T 5823.73
+TX CBR ID 484 B 5 SIZE 261 SRC 7 DST 1 T 5839.12
+TX CBR ID 485 B 3 SIZE 261 SRC 5 DST 1 T 5858.62
+TX CBR ID 486 B 34 SIZE 261 SRC 36 DST 1 T 5860.4
+TX CBR ID 487 B 28 SIZE 261 SRC 30 DST 1 T 5880.84
+TX CBR ID 488 B 36 SIZE 261 SRC 38 DST 1 T 5886.19
+TX CBR ID 489 B 39 SIZE 261 SRC 41 DST 1 T 5892
+TX CBR ID 490 B 31 SIZE 261 SRC 33 DST 1 T 5912.98
+TX CBR ID 491 B 40 SIZE 261 SRC 42 DST 1 T 5948.84
+TX CBR ID 492 B 0 SIZE 261 SRC 2 DST 1 T 5951.17
+TX CBR ID 493 B 30 SIZE 261 SRC 32 DST 1 T 5952.88
+TX CBR ID 494 B 22 SIZE 261 SRC 24 DST 1 T 5966.12
+TX CBR ID 495 B 21 SIZE 261 SRC 23 DST 1 T 5973.63
+TX CBR ID 496 B 24 SIZE 261 SRC 26 DST 1 T 5976.66
+TX CBR ID 497 B 46 SIZE 261 SRC 48 DST 1 T 5976.73
+TX CBR ID 498 B 42 SIZE 261 SRC 44 DST 1 T 5991.9
+TX CBR ID 499 B 48 SIZE 261 SRC 50 DST 1 T 5996.1
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 2 distanza:582777
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 3 distanza:582864
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 4 distanza:582812
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 5 distanza:582902
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 6 distanza:582877
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 7 distanza:582850
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 8 distanza:582947
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 9 distanza:582883
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 10 distanza:582863
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 11 distanza:582827
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 12 distanza:582825
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 13 distanza:582865
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 14 distanza:582846
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 15 distanza:582905
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 16 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 17 distanza:582868
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 18 distanza:582871
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 19 distanza:582802
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 20 distanza:582856
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 21 distanza:582800
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 22 distanza:582764
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 23 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 24 distanza:582809
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 25 distanza:582758
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 26 distanza:582772
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 27 distanza:582965
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 28 distanza:582771
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 29 distanza:582796
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 30 distanza:582908
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 31 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 32 distanza:582897
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 33 distanza:582892
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 34 distanza:582795
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 35 distanza:582834
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 36 distanza:582838
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 37 distanza:582907
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 38 distanza:582783
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 39 distanza:582948
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 40 distanza:582785
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 41 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 42 distanza:582837
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 43 distanza:582853
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 44 distanza:582942
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 45 distanza:582766
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 46 distanza:582833
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 47 distanza:582849
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 48 distanza:582799
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 49 distanza:582943
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 50 distanza:582818
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 6000.15 UE id: 51 distanza:582902
+TX CBR ID 500 B 14 SIZE 261 SRC 16 DST 1 T 6017.47
+RACH INFO CLASS 0 SF 6017608 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 300 B 14 SIZE 256 SRC 16 DST 1 D 2400.39
+RX CBR ID 350 B 14 SIZE 256 SRC 16 DST 1 D 1800.56
+RX CBR ID 400 B 14 SIZE 256 SRC 16 DST 1 D 1200.72
+RX CBR ID 450 B 14 SIZE 256 SRC 16 DST 1 D 600.964
+RX CBR ID 500 B 14 SIZE 256 SRC 16 DST 1 D 1.084
+TX CBR ID 501 B 15 SIZE 261 SRC 17 DST 1 T 6037.33
+RACH INFO CLASS 0 SF 6037448 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 301 B 15 SIZE 256 SRC 17 DST 1 D 2400.3
+RX CBR ID 351 B 15 SIZE 256 SRC 17 DST 1 D 1800.38
+RX CBR ID 401 B 15 SIZE 256 SRC 17 DST 1 D 1200.46
+RX CBR ID 451 B 15 SIZE 256 SRC 17 DST 1 D 600.624
+RX CBR ID 501 B 15 SIZE 256 SRC 17 DST 1 D 0.664
+TX CBR ID 502 B 2 SIZE 261 SRC 4 DST 1 T 6048.45
+RACH INFO CLASS 0 SF 6048648 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 302 B 2 SIZE 256 SRC 4 DST 1 D 2400.45
+RX CBR ID 352 B 2 SIZE 256 SRC 4 DST 1 D 1800.7
+RX CBR ID 402 B 2 SIZE 256 SRC 4 DST 1 D 1200.87
+RX CBR ID 452 B 2 SIZE 256 SRC 4 DST 1 D 601.106
+RX CBR ID 502 B 2 SIZE 256 SRC 4 DST 1 D 1.306
+TX CBR ID 503 B 38 SIZE 261 SRC 40 DST 1 T 6051.04
+RACH INFO CLASS 0 SF 6051208 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 303 B 38 SIZE 256 SRC 40 DST 1 D 2400.67
+RX CBR ID 353 B 38 SIZE 256 SRC 40 DST 1 D 1801.16
+RX CBR ID 403 B 38 SIZE 256 SRC 40 DST 1 D 1201.65
+RX CBR ID 453 B 38 SIZE 256 SRC 40 DST 1 D 602.149
+RX CBR ID 503 B 38 SIZE 256 SRC 40 DST 1 D 2.621
+TX CBR ID 504 B 45 SIZE 261 SRC 47 DST 1 T 6057.19
+RACH INFO CLASS 0 SF 6057288 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 304 B 45 SIZE 256 SRC 47 DST 1 D 2400.28
+RX CBR ID 354 B 45 SIZE 256 SRC 47 DST 1 D 1800.36
+RX CBR ID 404 B 45 SIZE 256 SRC 47 DST 1 D 1200.52
+RX CBR ID 454 B 45 SIZE 256 SRC 47 DST 1 D 600.603
+RX CBR ID 504 B 45 SIZE 256 SRC 47 DST 1 D 0.707
+TX CBR ID 505 B 25 SIZE 261 SRC 27 DST 1 T 6070.51
+RACH INFO CLASS 0 SF 6070728 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 305 B 25 SIZE 256 SRC 27 DST 1 D 2401.13
+RX CBR ID 355 B 25 SIZE 256 SRC 27 DST 1 D 1802.03
+RX CBR ID 405 B 25 SIZE 256 SRC 27 DST 1 D 1202.93
+RX CBR ID 455 B 25 SIZE 256 SRC 27 DST 1 D 603.838
+RX CBR ID 505 B 25 SIZE 256 SRC 27 DST 1 D 4.742
+TX CBR ID 506 B 19 SIZE 261 SRC 21 DST 1 T 6094.22
+RACH INFO CLASS 0 SF 6094408 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 306 B 19 SIZE 256 SRC 21 DST 1 D 2400.52
+RX CBR ID 356 B 19 SIZE 256 SRC 21 DST 1 D 1800.76
+RX CBR ID 406 B 19 SIZE 256 SRC 21 DST 1 D 1201.09
+RX CBR ID 456 B 19 SIZE 256 SRC 21 DST 1 D 601.34
+RX CBR ID 506 B 19 SIZE 256 SRC 21 DST 1 D 1.628
+TX CBR ID 507 B 17 SIZE 261 SRC 19 DST 1 T 6117.08
+RACH INFO CLASS 0 SF 6117128 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 307 B 17 SIZE 256 SRC 19 DST 1 D 2400.39
+RX CBR ID 357 B 17 SIZE 256 SRC 19 DST 1 D 1800.63
+RX CBR ID 407 B 17 SIZE 256 SRC 19 DST 1 D 1200.96
+RX CBR ID 457 B 17 SIZE 256 SRC 19 DST 1 D 601.208
+RX CBR ID 507 B 17 SIZE 256 SRC 19 DST 1 D 1.496
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 2 distanza:583025
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 19 distanza:583001
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 21 distanza:583002
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 22 distanza:583038
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 25 distanza:583045
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 26 distanza:583030
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 28 distanza:583031
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 29 distanza:583006
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 34 distanza:583007
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 38 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 40 distanza:583017
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 45 distanza:583036
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120 UE id: 48 distanza:583003
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 3 distanza:583324
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 4 distanza:583376
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 5 distanza:583286
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 6 distanza:583311
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 7 distanza:583339
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 8 distanza:583241
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 9 distanza:583305
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 10 distanza:583325
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 11 distanza:583361
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 12 distanza:583363
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 13 distanza:583323
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 14 distanza:583342
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 15 distanza:583283
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 16 distanza:583276
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 17 distanza:583320
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 18 distanza:583317
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 20 distanza:583332
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 23 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 24 distanza:583379
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 27 distanza:583223
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 30 distanza:583280
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 31 distanza:583276
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 32 distanza:583291
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 33 distanza:583296
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 35 distanza:583354
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 36 distanza:583350
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 37 distanza:583280
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 39 distanza:583240
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 41 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 42 distanza:583351
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 43 distanza:583335
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 44 distanza:583246
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 46 distanza:583355
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 47 distanza:583339
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 49 distanza:583245
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 50 distanza:583371
+Procedura di !!!! DETACH !!!! avviata a tempo: 6120.15 UE id: 51 distanza:583286
+TX CBR ID 508 B 8 SIZE 261 SRC 10 DST 1 T 6122.73
+Procedura di !!!! DETACH !!!! avviata a tempo: 6128.55 UE id: 19 distanza:605954
+TX CBR ID 509 B 20 SIZE 261 SRC 22 DST 1 T 6146.58
+TX CBR ID 510 B 4 SIZE 261 SRC 6 DST 1 T 6177.65
+TX CBR ID 511 B 6 SIZE 261 SRC 8 DST 1 T 6196.54
+TX CBR ID 512 B 13 SIZE 261 SRC 15 DST 1 T 6204.92
+TX CBR ID 513 B 41 SIZE 261 SRC 43 DST 1 T 6210.42
+TX CBR ID 514 B 23 SIZE 261 SRC 25 DST 1 T 6211.64
+TX CBR ID 515 B 1 SIZE 261 SRC 3 DST 1 T 6212.48
+TX CBR ID 516 B 18 SIZE 261 SRC 20 DST 1 T 6216.63
+TX CBR ID 517 B 47 SIZE 261 SRC 49 DST 1 T 6256.6
+TX CBR ID 518 B 12 SIZE 261 SRC 14 DST 1 T 6281.69
+TX CBR ID 519 B 27 SIZE 261 SRC 29 DST 1 T 6291.66
+TX CBR ID 520 B 26 SIZE 261 SRC 28 DST 1 T 6308.84
+TX CBR ID 521 B 44 SIZE 261 SRC 46 DST 1 T 6326.54
+TX CBR ID 522 B 7 SIZE 261 SRC 9 DST 1 T 6336.8
+TX CBR ID 523 B 9 SIZE 261 SRC 11 DST 1 T 6337.91
+TX CBR ID 524 B 16 SIZE 261 SRC 18 DST 1 T 6339.65
+TX CBR ID 525 B 29 SIZE 261 SRC 31 DST 1 T 6353.96
+TX CBR ID 526 B 33 SIZE 261 SRC 35 DST 1 T 6363.19
+TX CBR ID 527 B 10 SIZE 261 SRC 12 DST 1 T 6383.88
+TX CBR ID 528 B 35 SIZE 261 SRC 37 DST 1 T 6386.96
+TX CBR ID 529 B 32 SIZE 261 SRC 34 DST 1 T 6396.51
+TX CBR ID 530 B 11 SIZE 261 SRC 13 DST 1 T 6400.24
+TX CBR ID 531 B 37 SIZE 261 SRC 39 DST 1 T 6405.23
+TX CBR ID 532 B 49 SIZE 261 SRC 51 DST 1 T 6421.33
+TX CBR ID 533 B 43 SIZE 261 SRC 45 DST 1 T 6423.73
+TX CBR ID 534 B 5 SIZE 261 SRC 7 DST 1 T 6439.12
+TX CBR ID 535 B 3 SIZE 261 SRC 5 DST 1 T 6458.62
+TX CBR ID 536 B 34 SIZE 261 SRC 36 DST 1 T 6460.4
+TX CBR ID 537 B 28 SIZE 261 SRC 30 DST 1 T 6480.84
+TX CBR ID 538 B 36 SIZE 261 SRC 38 DST 1 T 6486.19
+TX CBR ID 539 B 39 SIZE 261 SRC 41 DST 1 T 6492
+TX CBR ID 540 B 31 SIZE 261 SRC 33 DST 1 T 6512.98
+TX CBR ID 541 B 40 SIZE 261 SRC 42 DST 1 T 6548.84
+TX CBR ID 542 B 0 SIZE 261 SRC 2 DST 1 T 6551.17
+TX CBR ID 543 B 30 SIZE 261 SRC 32 DST 1 T 6552.88
+TX CBR ID 544 B 22 SIZE 261 SRC 24 DST 1 T 6566.12
+TX CBR ID 545 B 21 SIZE 261 SRC 23 DST 1 T 6573.63
+TX CBR ID 546 B 24 SIZE 261 SRC 26 DST 1 T 6576.66
+TX CBR ID 547 B 46 SIZE 261 SRC 48 DST 1 T 6576.73
+TX CBR ID 548 B 42 SIZE 261 SRC 44 DST 1 T 6591.9
+TX CBR ID 549 B 48 SIZE 261 SRC 50 DST 1 T 6596.1
+TX CBR ID 550 B 14 SIZE 261 SRC 16 DST 1 T 6617.47
+TX CBR ID 551 B 15 SIZE 261 SRC 17 DST 1 T 6637.33
+TX CBR ID 552 B 2 SIZE 261 SRC 4 DST 1 T 6648.45
+TX CBR ID 553 B 38 SIZE 261 SRC 40 DST 1 T 6651.04
+TX CBR ID 554 B 45 SIZE 261 SRC 47 DST 1 T 6657.19
+TX CBR ID 555 B 25 SIZE 261 SRC 27 DST 1 T 6670.51
+TX CBR ID 556 B 19 SIZE 261 SRC 21 DST 1 T 6694.22
+TX CBR ID 557 B 17 SIZE 261 SRC 19 DST 1 T 6717.08
+TX CBR ID 558 B 8 SIZE 261 SRC 10 DST 1 T 6722.73
+TX CBR ID 559 B 20 SIZE 261 SRC 22 DST 1 T 6746.58
+TX CBR ID 560 B 4 SIZE 261 SRC 6 DST 1 T 6777.65
+TX CBR ID 561 B 6 SIZE 261 SRC 8 DST 1 T 6796.54
+TX CBR ID 562 B 13 SIZE 261 SRC 15 DST 1 T 6804.92
+TX CBR ID 563 B 41 SIZE 261 SRC 43 DST 1 T 6810.42
+TX CBR ID 564 B 23 SIZE 261 SRC 25 DST 1 T 6811.64
+TX CBR ID 565 B 1 SIZE 261 SRC 3 DST 1 T 6812.48
+TX CBR ID 566 B 18 SIZE 261 SRC 20 DST 1 T 6816.63
+TX CBR ID 567 B 47 SIZE 261 SRC 49 DST 1 T 6856.6
+TX CBR ID 568 B 12 SIZE 261 SRC 14 DST 1 T 6881.69
+TX CBR ID 569 B 27 SIZE 261 SRC 29 DST 1 T 6891.66
+TX CBR ID 570 B 26 SIZE 261 SRC 28 DST 1 T 6908.84
+TX CBR ID 571 B 44 SIZE 261 SRC 46 DST 1 T 6926.54
+TX CBR ID 572 B 7 SIZE 261 SRC 9 DST 1 T 6936.8
+TX CBR ID 573 B 9 SIZE 261 SRC 11 DST 1 T 6937.91
+TX CBR ID 574 B 16 SIZE 261 SRC 18 DST 1 T 6939.65
+TX CBR ID 575 B 29 SIZE 261 SRC 31 DST 1 T 6953.96
+TX CBR ID 576 B 33 SIZE 261 SRC 35 DST 1 T 6963.19
+TX CBR ID 577 B 10 SIZE 261 SRC 12 DST 1 T 6983.88
+TX CBR ID 578 B 35 SIZE 261 SRC 37 DST 1 T 6986.96
+TX CBR ID 579 B 32 SIZE 261 SRC 34 DST 1 T 6996.51
+TX CBR ID 580 B 11 SIZE 261 SRC 13 DST 1 T 7000.24
+TX CBR ID 581 B 37 SIZE 261 SRC 39 DST 1 T 7005.23
+TX CBR ID 582 B 49 SIZE 261 SRC 51 DST 1 T 7021.33
+TX CBR ID 583 B 43 SIZE 261 SRC 45 DST 1 T 7023.73
+TX CBR ID 584 B 5 SIZE 261 SRC 7 DST 1 T 7039.12
+TX CBR ID 585 B 3 SIZE 261 SRC 5 DST 1 T 7058.62
+TX CBR ID 586 B 34 SIZE 261 SRC 36 DST 1 T 7060.4
+TX CBR ID 587 B 28 SIZE 261 SRC 30 DST 1 T 7080.84
+TX CBR ID 588 B 36 SIZE 261 SRC 38 DST 1 T 7086.19
+TX CBR ID 589 B 39 SIZE 261 SRC 41 DST 1 T 7092
+TX CBR ID 590 B 31 SIZE 261 SRC 33 DST 1 T 7112.98
+TX CBR ID 591 B 40 SIZE 261 SRC 42 DST 1 T 7148.84
+TX CBR ID 592 B 0 SIZE 261 SRC 2 DST 1 T 7151.17
+TX CBR ID 593 B 30 SIZE 261 SRC 32 DST 1 T 7152.88
+TX CBR ID 594 B 22 SIZE 261 SRC 24 DST 1 T 7166.12
+TX CBR ID 595 B 21 SIZE 261 SRC 23 DST 1 T 7173.63
+TX CBR ID 596 B 24 SIZE 261 SRC 26 DST 1 T 7176.66
+TX CBR ID 597 B 46 SIZE 261 SRC 48 DST 1 T 7176.73
+TX CBR ID 598 B 42 SIZE 261 SRC 44 DST 1 T 7191.9
+TX CBR ID 599 B 48 SIZE 261 SRC 50 DST 1 T 7196.1
+TX CBR ID 600 B 14 SIZE 261 SRC 16 DST 1 T 7217.47
+TX CBR ID 601 B 15 SIZE 261 SRC 17 DST 1 T 7237.33
+TX CBR ID 602 B 2 SIZE 261 SRC 4 DST 1 T 7248.45
+TX CBR ID 603 B 38 SIZE 261 SRC 40 DST 1 T 7251.04
+TX CBR ID 604 B 45 SIZE 261 SRC 47 DST 1 T 7257.19
+TX CBR ID 605 B 25 SIZE 261 SRC 27 DST 1 T 7270.51
+TX CBR ID 606 B 19 SIZE 261 SRC 21 DST 1 T 7294.22
+TX CBR ID 607 B 17 SIZE 261 SRC 19 DST 1 T 7317.08
+TX CBR ID 608 B 8 SIZE 261 SRC 10 DST 1 T 7322.73
+TX CBR ID 609 B 20 SIZE 261 SRC 22 DST 1 T 7346.58
+TX CBR ID 610 B 4 SIZE 261 SRC 6 DST 1 T 7377.65
+TX CBR ID 611 B 6 SIZE 261 SRC 8 DST 1 T 7396.54
+TX CBR ID 612 B 13 SIZE 261 SRC 15 DST 1 T 7404.92
+TX CBR ID 613 B 41 SIZE 261 SRC 43 DST 1 T 7410.42
+TX CBR ID 614 B 23 SIZE 261 SRC 25 DST 1 T 7411.64
+TX CBR ID 615 B 1 SIZE 261 SRC 3 DST 1 T 7412.48
+TX CBR ID 616 B 18 SIZE 261 SRC 20 DST 1 T 7416.63
+TX CBR ID 617 B 47 SIZE 261 SRC 49 DST 1 T 7456.6
+TX CBR ID 618 B 12 SIZE 261 SRC 14 DST 1 T 7481.69
+TX CBR ID 619 B 27 SIZE 261 SRC 29 DST 1 T 7491.66
+TX CBR ID 620 B 26 SIZE 261 SRC 28 DST 1 T 7508.84
+TX CBR ID 621 B 44 SIZE 261 SRC 46 DST 1 T 7526.54
+TX CBR ID 622 B 7 SIZE 261 SRC 9 DST 1 T 7536.8
+TX CBR ID 623 B 9 SIZE 261 SRC 11 DST 1 T 7537.91
+TX CBR ID 624 B 16 SIZE 261 SRC 18 DST 1 T 7539.65
+TX CBR ID 625 B 29 SIZE 261 SRC 31 DST 1 T 7553.96
+TX CBR ID 626 B 33 SIZE 261 SRC 35 DST 1 T 7563.19
+TX CBR ID 627 B 10 SIZE 261 SRC 12 DST 1 T 7583.88
+TX CBR ID 628 B 35 SIZE 261 SRC 37 DST 1 T 7586.96
+TX CBR ID 629 B 32 SIZE 261 SRC 34 DST 1 T 7596.51
+TX CBR ID 630 B 11 SIZE 261 SRC 13 DST 1 T 7600.24
+TX CBR ID 631 B 37 SIZE 261 SRC 39 DST 1 T 7605.23
+TX CBR ID 632 B 49 SIZE 261 SRC 51 DST 1 T 7621.33
+TX CBR ID 633 B 43 SIZE 261 SRC 45 DST 1 T 7623.73
+TX CBR ID 634 B 5 SIZE 261 SRC 7 DST 1 T 7639.12
+TX CBR ID 635 B 3 SIZE 261 SRC 5 DST 1 T 7658.62
+TX CBR ID 636 B 34 SIZE 261 SRC 36 DST 1 T 7660.4
+TX CBR ID 637 B 28 SIZE 261 SRC 30 DST 1 T 7680.84
+TX CBR ID 638 B 36 SIZE 261 SRC 38 DST 1 T 7686.19
+TX CBR ID 639 B 39 SIZE 261 SRC 41 DST 1 T 7692
+TX CBR ID 640 B 31 SIZE 261 SRC 33 DST 1 T 7712.98
+TX CBR ID 641 B 40 SIZE 261 SRC 42 DST 1 T 7748.84
+TX CBR ID 642 B 0 SIZE 261 SRC 2 DST 1 T 7751.17
+TX CBR ID 643 B 30 SIZE 261 SRC 32 DST 1 T 7752.88
+TX CBR ID 644 B 22 SIZE 261 SRC 24 DST 1 T 7766.12
+TX CBR ID 645 B 21 SIZE 261 SRC 23 DST 1 T 7773.63
+TX CBR ID 646 B 24 SIZE 261 SRC 26 DST 1 T 7776.66
+TX CBR ID 647 B 46 SIZE 261 SRC 48 DST 1 T 7776.73
+TX CBR ID 648 B 42 SIZE 261 SRC 44 DST 1 T 7791.9
+TX CBR ID 649 B 48 SIZE 261 SRC 50 DST 1 T 7796.1
+TX CBR ID 650 B 14 SIZE 261 SRC 16 DST 1 T 7817.47
+TX CBR ID 651 B 15 SIZE 261 SRC 17 DST 1 T 7837.33
+TX CBR ID 652 B 2 SIZE 261 SRC 4 DST 1 T 7848.45
+TX CBR ID 653 B 38 SIZE 261 SRC 40 DST 1 T 7851.04
+TX CBR ID 654 B 45 SIZE 261 SRC 47 DST 1 T 7857.19
+TX CBR ID 655 B 25 SIZE 261 SRC 27 DST 1 T 7870.51
+TX CBR ID 656 B 19 SIZE 261 SRC 21 DST 1 T 7894.22
+TX CBR ID 657 B 17 SIZE 261 SRC 19 DST 1 T 7917.08
+TX CBR ID 658 B 8 SIZE 261 SRC 10 DST 1 T 7922.73
+TX CBR ID 659 B 20 SIZE 261 SRC 22 DST 1 T 7946.58
+TX CBR ID 660 B 4 SIZE 261 SRC 6 DST 1 T 7977.65
+TX CBR ID 661 B 6 SIZE 261 SRC 8 DST 1 T 7996.54
+TX CBR ID 662 B 13 SIZE 261 SRC 15 DST 1 T 8004.92
+TX CBR ID 663 B 41 SIZE 261 SRC 43 DST 1 T 8010.42
+TX CBR ID 664 B 23 SIZE 261 SRC 25 DST 1 T 8011.64
+TX CBR ID 665 B 1 SIZE 261 SRC 3 DST 1 T 8012.48
+TX CBR ID 666 B 18 SIZE 261 SRC 20 DST 1 T 8016.63
+TX CBR ID 667 B 47 SIZE 261 SRC 49 DST 1 T 8056.6
+TX CBR ID 668 B 12 SIZE 261 SRC 14 DST 1 T 8081.69
+TX CBR ID 669 B 27 SIZE 261 SRC 29 DST 1 T 8091.66
+TX CBR ID 670 B 26 SIZE 261 SRC 28 DST 1 T 8108.84
+TX CBR ID 671 B 44 SIZE 261 SRC 46 DST 1 T 8126.54
+TX CBR ID 672 B 7 SIZE 261 SRC 9 DST 1 T 8136.8
+TX CBR ID 673 B 9 SIZE 261 SRC 11 DST 1 T 8137.91
+TX CBR ID 674 B 16 SIZE 261 SRC 18 DST 1 T 8139.65
+TX CBR ID 675 B 29 SIZE 261 SRC 31 DST 1 T 8153.96
+TX CBR ID 676 B 33 SIZE 261 SRC 35 DST 1 T 8163.19
+TX CBR ID 677 B 10 SIZE 261 SRC 12 DST 1 T 8183.88
+TX CBR ID 678 B 35 SIZE 261 SRC 37 DST 1 T 8186.96
+TX CBR ID 679 B 32 SIZE 261 SRC 34 DST 1 T 8196.51
+TX CBR ID 680 B 11 SIZE 261 SRC 13 DST 1 T 8200.24
+TX CBR ID 681 B 37 SIZE 261 SRC 39 DST 1 T 8205.23
+TX CBR ID 682 B 49 SIZE 261 SRC 51 DST 1 T 8221.33
+TX CBR ID 683 B 43 SIZE 261 SRC 45 DST 1 T 8223.73
+TX CBR ID 684 B 5 SIZE 261 SRC 7 DST 1 T 8239.12
+TX CBR ID 685 B 3 SIZE 261 SRC 5 DST 1 T 8258.62
+TX CBR ID 686 B 34 SIZE 261 SRC 36 DST 1 T 8260.4
+TX CBR ID 687 B 28 SIZE 261 SRC 30 DST 1 T 8280.84
+TX CBR ID 688 B 36 SIZE 261 SRC 38 DST 1 T 8286.19
+TX CBR ID 689 B 39 SIZE 261 SRC 41 DST 1 T 8292
+TX CBR ID 690 B 31 SIZE 261 SRC 33 DST 1 T 8312.98
+TX CBR ID 691 B 40 SIZE 261 SRC 42 DST 1 T 8348.84
+TX CBR ID 692 B 0 SIZE 261 SRC 2 DST 1 T 8351.17
+TX CBR ID 693 B 30 SIZE 261 SRC 32 DST 1 T 8352.88
+TX CBR ID 694 B 22 SIZE 261 SRC 24 DST 1 T 8366.12
+TX CBR ID 695 B 21 SIZE 261 SRC 23 DST 1 T 8373.63
+TX CBR ID 696 B 24 SIZE 261 SRC 26 DST 1 T 8376.66
+TX CBR ID 697 B 46 SIZE 261 SRC 48 DST 1 T 8376.73
+TX CBR ID 698 B 42 SIZE 261 SRC 44 DST 1 T 8391.9
+TX CBR ID 699 B 48 SIZE 261 SRC 50 DST 1 T 8396.1
+TX CBR ID 700 B 14 SIZE 261 SRC 16 DST 1 T 8417.47
+TX CBR ID 701 B 15 SIZE 261 SRC 17 DST 1 T 8437.33
+TX CBR ID 702 B 2 SIZE 261 SRC 4 DST 1 T 8448.45
+TX CBR ID 703 B 38 SIZE 261 SRC 40 DST 1 T 8451.04
+TX CBR ID 704 B 45 SIZE 261 SRC 47 DST 1 T 8457.19
+TX CBR ID 705 B 25 SIZE 261 SRC 27 DST 1 T 8470.51
+TX CBR ID 706 B 19 SIZE 261 SRC 21 DST 1 T 8494.22
+TX CBR ID 707 B 17 SIZE 261 SRC 19 DST 1 T 8517.08
+TX CBR ID 708 B 8 SIZE 261 SRC 10 DST 1 T 8522.73
+TX CBR ID 709 B 20 SIZE 261 SRC 22 DST 1 T 8546.58
+TX CBR ID 710 B 4 SIZE 261 SRC 6 DST 1 T 8577.65
+TX CBR ID 711 B 6 SIZE 261 SRC 8 DST 1 T 8596.54
+TX CBR ID 712 B 13 SIZE 261 SRC 15 DST 1 T 8604.92
+TX CBR ID 713 B 41 SIZE 261 SRC 43 DST 1 T 8610.42
+TX CBR ID 714 B 23 SIZE 261 SRC 25 DST 1 T 8611.64
+TX CBR ID 715 B 1 SIZE 261 SRC 3 DST 1 T 8612.48
+TX CBR ID 716 B 18 SIZE 261 SRC 20 DST 1 T 8616.63
+TX CBR ID 717 B 47 SIZE 261 SRC 49 DST 1 T 8656.6
+TX CBR ID 718 B 12 SIZE 261 SRC 14 DST 1 T 8681.69
+TX CBR ID 719 B 27 SIZE 261 SRC 29 DST 1 T 8691.66
+TX CBR ID 720 B 26 SIZE 261 SRC 28 DST 1 T 8708.84
+TX CBR ID 721 B 44 SIZE 261 SRC 46 DST 1 T 8726.54
+TX CBR ID 722 B 7 SIZE 261 SRC 9 DST 1 T 8736.8
+TX CBR ID 723 B 9 SIZE 261 SRC 11 DST 1 T 8737.91
+TX CBR ID 724 B 16 SIZE 261 SRC 18 DST 1 T 8739.65
+TX CBR ID 725 B 29 SIZE 261 SRC 31 DST 1 T 8753.96
+TX CBR ID 726 B 33 SIZE 261 SRC 35 DST 1 T 8763.19
+TX CBR ID 727 B 10 SIZE 261 SRC 12 DST 1 T 8783.88
+TX CBR ID 728 B 35 SIZE 261 SRC 37 DST 1 T 8786.96
+TX CBR ID 729 B 32 SIZE 261 SRC 34 DST 1 T 8796.51
+TX CBR ID 730 B 11 SIZE 261 SRC 13 DST 1 T 8800.24
+TX CBR ID 731 B 37 SIZE 261 SRC 39 DST 1 T 8805.23
+TX CBR ID 732 B 49 SIZE 261 SRC 51 DST 1 T 8821.33
+TX CBR ID 733 B 43 SIZE 261 SRC 45 DST 1 T 8823.73
+TX CBR ID 734 B 5 SIZE 261 SRC 7 DST 1 T 8839.12
+TX CBR ID 735 B 3 SIZE 261 SRC 5 DST 1 T 8858.62
+TX CBR ID 736 B 34 SIZE 261 SRC 36 DST 1 T 8860.4
+TX CBR ID 737 B 28 SIZE 261 SRC 30 DST 1 T 8880.84
+TX CBR ID 738 B 36 SIZE 261 SRC 38 DST 1 T 8886.19
+TX CBR ID 739 B 39 SIZE 261 SRC 41 DST 1 T 8892
+TX CBR ID 740 B 31 SIZE 261 SRC 33 DST 1 T 8912.98
+TX CBR ID 741 B 40 SIZE 261 SRC 42 DST 1 T 8948.84
+TX CBR ID 742 B 0 SIZE 261 SRC 2 DST 1 T 8951.17
+TX CBR ID 743 B 30 SIZE 261 SRC 32 DST 1 T 8952.88
+TX CBR ID 744 B 22 SIZE 261 SRC 24 DST 1 T 8966.12
+TX CBR ID 745 B 21 SIZE 261 SRC 23 DST 1 T 8973.63
+TX CBR ID 746 B 24 SIZE 261 SRC 26 DST 1 T 8976.66
+TX CBR ID 747 B 46 SIZE 261 SRC 48 DST 1 T 8976.73
+TX CBR ID 748 B 42 SIZE 261 SRC 44 DST 1 T 8991.9
+TX CBR ID 749 B 48 SIZE 261 SRC 50 DST 1 T 8996.1
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 2 distanza:582905
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 3 distanza:582992
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 4 distanza:582941
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 7 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 10 distanza:582991
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 11 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 12 distanza:582953
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 13 distanza:582993
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 14 distanza:582974
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 17 distanza:582996
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 18 distanza:582999
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 19 distanza:582930
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 20 distanza:582985
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 21 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 22 distanza:582892
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 24 distanza:582938
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 25 distanza:582886
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 26 distanza:582900
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 28 distanza:582899
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 29 distanza:582924
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 34 distanza:582923
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 35 distanza:582962
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 36 distanza:582966
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 38 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 40 distanza:582913
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 42 distanza:582965
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 43 distanza:582982
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 45 distanza:582894
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 46 distanza:582961
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 47 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 48 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.1 UE id: 50 distanza:582946
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 5 distanza:582645
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 6 distanza:582620
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 8 distanza:582690
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 9 distanza:582626
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 15 distanza:582648
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 16 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 23 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 27 distanza:582708
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 30 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 31 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 32 distanza:582640
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 33 distanza:582636
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 37 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 39 distanza:582691
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 41 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 44 distanza:582685
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 49 distanza:582686
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 9000.25 UE id: 51 distanza:582645
+TX CBR ID 750 B 14 SIZE 261 SRC 16 DST 1 T 9017.47
+RACH INFO CLASS 0 SF 9017608 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 550 B 14 SIZE 256 SRC 16 DST 1 D 2400.4
+RX CBR ID 600 B 14 SIZE 256 SRC 16 DST 1 D 1800.56
+RX CBR ID 650 B 14 SIZE 256 SRC 16 DST 1 D 1200.72
+RX CBR ID 700 B 14 SIZE 256 SRC 16 DST 1 D 600.972
+RX CBR ID 750 B 14 SIZE 256 SRC 16 DST 1 D 1.092
+TX CBR ID 751 B 15 SIZE 261 SRC 17 DST 1 T 9037.33
+RACH INFO CLASS 0 SF 9037448 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 551 B 15 SIZE 256 SRC 17 DST 1 D 2400.29
+RX CBR ID 601 B 15 SIZE 256 SRC 17 DST 1 D 1800.37
+RX CBR ID 651 B 15 SIZE 256 SRC 17 DST 1 D 1200.46
+RX CBR ID 701 B 15 SIZE 256 SRC 17 DST 1 D 600.616
+RX CBR ID 751 B 15 SIZE 256 SRC 17 DST 1 D 0.656
+TX CBR ID 752 B 2 SIZE 261 SRC 4 DST 1 T 9048.45
+RACH INFO CLASS 0 SF 9048648 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 552 B 2 SIZE 256 SRC 4 DST 1 D 2400.45
+RX CBR ID 602 B 2 SIZE 256 SRC 4 DST 1 D 1800.7
+RX CBR ID 652 B 2 SIZE 256 SRC 4 DST 1 D 1200.87
+RX CBR ID 702 B 2 SIZE 256 SRC 4 DST 1 D 601.106
+RX CBR ID 752 B 2 SIZE 256 SRC 4 DST 1 D 1.306
+TX CBR ID 753 B 38 SIZE 261 SRC 40 DST 1 T 9051.04
+RACH INFO CLASS 0 SF 9051208 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 553 B 38 SIZE 256 SRC 40 DST 1 D 2400.67
+RX CBR ID 603 B 38 SIZE 256 SRC 40 DST 1 D 1801.16
+RX CBR ID 653 B 38 SIZE 256 SRC 40 DST 1 D 1201.65
+RX CBR ID 703 B 38 SIZE 256 SRC 40 DST 1 D 602.149
+RX CBR ID 753 B 38 SIZE 256 SRC 40 DST 1 D 2.621
+TX CBR ID 754 B 45 SIZE 261 SRC 47 DST 1 T 9057.19
+RACH INFO CLASS 0 SF 9057288 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 554 B 45 SIZE 256 SRC 47 DST 1 D 2400.28
+RX CBR ID 604 B 45 SIZE 256 SRC 47 DST 1 D 1800.36
+RX CBR ID 654 B 45 SIZE 256 SRC 47 DST 1 D 1200.52
+RX CBR ID 704 B 45 SIZE 256 SRC 47 DST 1 D 600.603
+RX CBR ID 754 B 45 SIZE 256 SRC 47 DST 1 D 0.707
+TX CBR ID 755 B 25 SIZE 261 SRC 27 DST 1 T 9070.51
+RACH INFO CLASS 0 SF 9070728 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 555 B 25 SIZE 256 SRC 27 DST 1 D 2401.13
+RX CBR ID 605 B 25 SIZE 256 SRC 27 DST 1 D 1802.03
+RX CBR ID 655 B 25 SIZE 256 SRC 27 DST 1 D 1202.93
+RX CBR ID 705 B 25 SIZE 256 SRC 27 DST 1 D 603.838
+RX CBR ID 755 B 25 SIZE 256 SRC 27 DST 1 D 4.742
+TX CBR ID 756 B 19 SIZE 261 SRC 21 DST 1 T 9094.22
+RACH INFO CLASS 0 SF 9094408 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 556 B 19 SIZE 256 SRC 21 DST 1 D 2400.52
+RX CBR ID 606 B 19 SIZE 256 SRC 21 DST 1 D 1800.76
+RX CBR ID 656 B 19 SIZE 256 SRC 21 DST 1 D 1201.09
+RX CBR ID 706 B 19 SIZE 256 SRC 21 DST 1 D 601.34
+RX CBR ID 756 B 19 SIZE 256 SRC 21 DST 1 D 1.628
+TX CBR ID 757 B 17 SIZE 261 SRC 19 DST 1 T 9117.08
+RACH INFO CLASS 0 SF 9117128 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 557 B 17 SIZE 256 SRC 19 DST 1 D 2400.39
+RX CBR ID 607 B 17 SIZE 256 SRC 19 DST 1 D 1800.63
+RX CBR ID 657 B 17 SIZE 256 SRC 19 DST 1 D 1200.96
+RX CBR ID 707 B 17 SIZE 256 SRC 19 DST 1 D 601.208
+RX CBR ID 757 B 17 SIZE 256 SRC 19 DST 1 D 1.496
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 2 distanza:583025
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 19 distanza:583001
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 21 distanza:583002
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 22 distanza:583038
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 25 distanza:583045
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 26 distanza:583030
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 28 distanza:583031
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 29 distanza:583006
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 34 distanza:583007
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 38 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 40 distanza:583017
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 45 distanza:583036
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120 UE id: 48 distanza:583003
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 3 distanza:583196
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 4 distanza:583247
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 5 distanza:583157
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 6 distanza:583182
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 7 distanza:583210
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 8 distanza:583113
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 9 distanza:583176
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 10 distanza:583197
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 11 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 12 distanza:583234
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 13 distanza:583195
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 14 distanza:583214
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 15 distanza:583154
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 16 distanza:583147
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 17 distanza:583192
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 18 distanza:583188
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 20 distanza:583203
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 23 distanza:583104
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 24 distanza:583250
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 27 distanza:583094
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 30 distanza:583151
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 31 distanza:583148
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 32 distanza:583162
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 33 distanza:583167
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 35 distanza:583226
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 36 distanza:583221
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 37 distanza:583152
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 39 distanza:583112
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 41 distanza:583105
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 42 distanza:583222
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 43 distanza:583206
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 44 distanza:583117
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 46 distanza:583227
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 47 distanza:583210
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 49 distanza:583116
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 50 distanza:583242
+Procedura di !!!! DETACH !!!! avviata a tempo: 9120.1 UE id: 51 distanza:583158
+TX CBR ID 758 B 8 SIZE 261 SRC 10 DST 1 T 9122.73
+Procedura di !!!! DETACH !!!! avviata a tempo: 9128.55 UE id: 19 distanza:605954
+TX CBR ID 759 B 20 SIZE 261 SRC 22 DST 1 T 9146.58
+TX CBR ID 760 B 4 SIZE 261 SRC 6 DST 1 T 9177.65
+TX CBR ID 761 B 6 SIZE 261 SRC 8 DST 1 T 9196.54
+TX CBR ID 762 B 13 SIZE 261 SRC 15 DST 1 T 9204.92
+TX CBR ID 763 B 41 SIZE 261 SRC 43 DST 1 T 9210.42
+TX CBR ID 764 B 23 SIZE 261 SRC 25 DST 1 T 9211.64
+TX CBR ID 765 B 1 SIZE 261 SRC 3 DST 1 T 9212.48
+TX CBR ID 766 B 18 SIZE 261 SRC 20 DST 1 T 9216.63
+TX CBR ID 767 B 47 SIZE 261 SRC 49 DST 1 T 9256.6
+TX CBR ID 768 B 12 SIZE 261 SRC 14 DST 1 T 9281.69
+TX CBR ID 769 B 27 SIZE 261 SRC 29 DST 1 T 9291.66
+TX CBR ID 770 B 26 SIZE 261 SRC 28 DST 1 T 9308.84
+TX CBR ID 771 B 44 SIZE 261 SRC 46 DST 1 T 9326.54
+TX CBR ID 772 B 7 SIZE 261 SRC 9 DST 1 T 9336.8
+TX CBR ID 773 B 9 SIZE 261 SRC 11 DST 1 T 9337.91
+TX CBR ID 774 B 16 SIZE 261 SRC 18 DST 1 T 9339.65
+TX CBR ID 775 B 29 SIZE 261 SRC 31 DST 1 T 9353.96
+TX CBR ID 776 B 33 SIZE 261 SRC 35 DST 1 T 9363.19
+TX CBR ID 777 B 10 SIZE 261 SRC 12 DST 1 T 9383.88
+TX CBR ID 778 B 35 SIZE 261 SRC 37 DST 1 T 9386.96
+TX CBR ID 779 B 32 SIZE 261 SRC 34 DST 1 T 9396.51
+TX CBR ID 780 B 11 SIZE 261 SRC 13 DST 1 T 9400.24
+TX CBR ID 781 B 37 SIZE 261 SRC 39 DST 1 T 9405.23
+TX CBR ID 782 B 49 SIZE 261 SRC 51 DST 1 T 9421.33
+TX CBR ID 783 B 43 SIZE 261 SRC 45 DST 1 T 9423.73
+TX CBR ID 784 B 5 SIZE 261 SRC 7 DST 1 T 9439.12
+TX CBR ID 785 B 3 SIZE 261 SRC 5 DST 1 T 9458.62
+TX CBR ID 786 B 34 SIZE 261 SRC 36 DST 1 T 9460.4
+TX CBR ID 787 B 28 SIZE 261 SRC 30 DST 1 T 9480.84
+TX CBR ID 788 B 36 SIZE 261 SRC 38 DST 1 T 9486.19
+TX CBR ID 789 B 39 SIZE 261 SRC 41 DST 1 T 9492
+TX CBR ID 790 B 31 SIZE 261 SRC 33 DST 1 T 9512.98
+TX CBR ID 791 B 40 SIZE 261 SRC 42 DST 1 T 9548.84
+TX CBR ID 792 B 0 SIZE 261 SRC 2 DST 1 T 9551.17
+TX CBR ID 793 B 30 SIZE 261 SRC 32 DST 1 T 9552.88
+TX CBR ID 794 B 22 SIZE 261 SRC 24 DST 1 T 9566.12
+TX CBR ID 795 B 21 SIZE 261 SRC 23 DST 1 T 9573.63
+TX CBR ID 796 B 24 SIZE 261 SRC 26 DST 1 T 9576.66
+TX CBR ID 797 B 46 SIZE 261 SRC 48 DST 1 T 9576.73
+TX CBR ID 798 B 42 SIZE 261 SRC 44 DST 1 T 9591.9
+TX CBR ID 799 B 48 SIZE 261 SRC 50 DST 1 T 9596.1
+TX CBR ID 800 B 14 SIZE 261 SRC 16 DST 1 T 9617.47
+TX CBR ID 801 B 15 SIZE 261 SRC 17 DST 1 T 9637.33
+TX CBR ID 802 B 2 SIZE 261 SRC 4 DST 1 T 9648.45
+TX CBR ID 803 B 38 SIZE 261 SRC 40 DST 1 T 9651.04
+TX CBR ID 804 B 45 SIZE 261 SRC 47 DST 1 T 9657.19
+TX CBR ID 805 B 25 SIZE 261 SRC 27 DST 1 T 9670.51
+TX CBR ID 806 B 19 SIZE 261 SRC 21 DST 1 T 9694.22
+TX CBR ID 807 B 17 SIZE 261 SRC 19 DST 1 T 9717.08
+TX CBR ID 808 B 8 SIZE 261 SRC 10 DST 1 T 9722.73
+TX CBR ID 809 B 20 SIZE 261 SRC 22 DST 1 T 9746.58
+TX CBR ID 810 B 4 SIZE 261 SRC 6 DST 1 T 9777.65
+TX CBR ID 811 B 6 SIZE 261 SRC 8 DST 1 T 9796.54
+TX CBR ID 812 B 13 SIZE 261 SRC 15 DST 1 T 9804.92
+TX CBR ID 813 B 41 SIZE 261 SRC 43 DST 1 T 9810.42
+TX CBR ID 814 B 23 SIZE 261 SRC 25 DST 1 T 9811.64
+TX CBR ID 815 B 1 SIZE 261 SRC 3 DST 1 T 9812.48
+TX CBR ID 816 B 18 SIZE 261 SRC 20 DST 1 T 9816.63
+TX CBR ID 817 B 47 SIZE 261 SRC 49 DST 1 T 9856.6
+TX CBR ID 818 B 12 SIZE 261 SRC 14 DST 1 T 9881.69
+TX CBR ID 819 B 27 SIZE 261 SRC 29 DST 1 T 9891.66
+TX CBR ID 820 B 26 SIZE 261 SRC 28 DST 1 T 9908.84
+TX CBR ID 821 B 44 SIZE 261 SRC 46 DST 1 T 9926.54
+TX CBR ID 822 B 7 SIZE 261 SRC 9 DST 1 T 9936.8
+TX CBR ID 823 B 9 SIZE 261 SRC 11 DST 1 T 9937.91
+TX CBR ID 824 B 16 SIZE 261 SRC 18 DST 1 T 9939.65
+TX CBR ID 825 B 29 SIZE 261 SRC 31 DST 1 T 9953.96
+TX CBR ID 826 B 33 SIZE 261 SRC 35 DST 1 T 9963.19
+TX CBR ID 827 B 10 SIZE 261 SRC 12 DST 1 T 9983.88
+TX CBR ID 828 B 35 SIZE 261 SRC 37 DST 1 T 9986.96
+TX CBR ID 829 B 32 SIZE 261 SRC 34 DST 1 T 9996.51
+TX CBR ID 830 B 11 SIZE 261 SRC 13 DST 1 T 10000.2
+TX CBR ID 831 B 37 SIZE 261 SRC 39 DST 1 T 10005.2
+TX CBR ID 832 B 49 SIZE 261 SRC 51 DST 1 T 10021.3
+TX CBR ID 833 B 43 SIZE 261 SRC 45 DST 1 T 10023.7
+TX CBR ID 834 B 5 SIZE 261 SRC 7 DST 1 T 10039.1
+TX CBR ID 835 B 3 SIZE 261 SRC 5 DST 1 T 10058.6
+TX CBR ID 836 B 34 SIZE 261 SRC 36 DST 1 T 10060.4
+TX CBR ID 837 B 28 SIZE 261 SRC 30 DST 1 T 10080.8
+TX CBR ID 838 B 36 SIZE 261 SRC 38 DST 1 T 10086.2
+TX CBR ID 839 B 39 SIZE 261 SRC 41 DST 1 T 10092
+TX CBR ID 840 B 31 SIZE 261 SRC 33 DST 1 T 10113
+TX CBR ID 841 B 40 SIZE 261 SRC 42 DST 1 T 10148.8
+TX CBR ID 842 B 0 SIZE 261 SRC 2 DST 1 T 10151.2
+TX CBR ID 843 B 30 SIZE 261 SRC 32 DST 1 T 10152.9
+TX CBR ID 844 B 22 SIZE 261 SRC 24 DST 1 T 10166.1
+TX CBR ID 845 B 21 SIZE 261 SRC 23 DST 1 T 10173.6
+TX CBR ID 846 B 24 SIZE 261 SRC 26 DST 1 T 10176.7
+TX CBR ID 847 B 46 SIZE 261 SRC 48 DST 1 T 10176.7
+TX CBR ID 848 B 42 SIZE 261 SRC 44 DST 1 T 10191.9
+TX CBR ID 849 B 48 SIZE 261 SRC 50 DST 1 T 10196.1
+TX CBR ID 850 B 14 SIZE 261 SRC 16 DST 1 T 10217.5
+TX CBR ID 851 B 15 SIZE 261 SRC 17 DST 1 T 10237.3
+TX CBR ID 852 B 2 SIZE 261 SRC 4 DST 1 T 10248.4
+TX CBR ID 853 B 38 SIZE 261 SRC 40 DST 1 T 10251
+TX CBR ID 854 B 45 SIZE 261 SRC 47 DST 1 T 10257.2
+TX CBR ID 855 B 25 SIZE 261 SRC 27 DST 1 T 10270.5
+TX CBR ID 856 B 19 SIZE 261 SRC 21 DST 1 T 10294.2
+TX CBR ID 857 B 17 SIZE 261 SRC 19 DST 1 T 10317.1
+TX CBR ID 858 B 8 SIZE 261 SRC 10 DST 1 T 10322.7
+TX CBR ID 859 B 20 SIZE 261 SRC 22 DST 1 T 10346.6
+TX CBR ID 860 B 4 SIZE 261 SRC 6 DST 1 T 10377.6
+TX CBR ID 861 B 6 SIZE 261 SRC 8 DST 1 T 10396.5
+TX CBR ID 862 B 13 SIZE 261 SRC 15 DST 1 T 10404.9
+TX CBR ID 863 B 41 SIZE 261 SRC 43 DST 1 T 10410.4
+TX CBR ID 864 B 23 SIZE 261 SRC 25 DST 1 T 10411.6
+TX CBR ID 865 B 1 SIZE 261 SRC 3 DST 1 T 10412.5
+TX CBR ID 866 B 18 SIZE 261 SRC 20 DST 1 T 10416.6
+TX CBR ID 867 B 47 SIZE 261 SRC 49 DST 1 T 10456.6
+TX CBR ID 868 B 12 SIZE 261 SRC 14 DST 1 T 10481.7
+TX CBR ID 869 B 27 SIZE 261 SRC 29 DST 1 T 10491.7
+TX CBR ID 870 B 26 SIZE 261 SRC 28 DST 1 T 10508.8
+TX CBR ID 871 B 44 SIZE 261 SRC 46 DST 1 T 10526.5
+TX CBR ID 872 B 7 SIZE 261 SRC 9 DST 1 T 10536.8
+TX CBR ID 873 B 9 SIZE 261 SRC 11 DST 1 T 10537.9
+TX CBR ID 874 B 16 SIZE 261 SRC 18 DST 1 T 10539.6
+TX CBR ID 875 B 29 SIZE 261 SRC 31 DST 1 T 10554
+TX CBR ID 876 B 33 SIZE 261 SRC 35 DST 1 T 10563.2
+TX CBR ID 877 B 10 SIZE 261 SRC 12 DST 1 T 10583.9
+TX CBR ID 878 B 35 SIZE 261 SRC 37 DST 1 T 10587
+TX CBR ID 879 B 32 SIZE 261 SRC 34 DST 1 T 10596.5
+TX CBR ID 880 B 11 SIZE 261 SRC 13 DST 1 T 10600.2
+TX CBR ID 881 B 37 SIZE 261 SRC 39 DST 1 T 10605.2
+TX CBR ID 882 B 49 SIZE 261 SRC 51 DST 1 T 10621.3
+TX CBR ID 883 B 43 SIZE 261 SRC 45 DST 1 T 10623.7
+TX CBR ID 884 B 5 SIZE 261 SRC 7 DST 1 T 10639.1
+TX CBR ID 885 B 3 SIZE 261 SRC 5 DST 1 T 10658.6
+TX CBR ID 886 B 34 SIZE 261 SRC 36 DST 1 T 10660.4
+TX CBR ID 887 B 28 SIZE 261 SRC 30 DST 1 T 10680.8
+TX CBR ID 888 B 36 SIZE 261 SRC 38 DST 1 T 10686.2
+TX CBR ID 889 B 39 SIZE 261 SRC 41 DST 1 T 10692
+TX CBR ID 890 B 31 SIZE 261 SRC 33 DST 1 T 10713
+TX CBR ID 891 B 40 SIZE 261 SRC 42 DST 1 T 10748.8
+TX CBR ID 892 B 0 SIZE 261 SRC 2 DST 1 T 10751.2
+TX CBR ID 893 B 30 SIZE 261 SRC 32 DST 1 T 10752.9
+TX CBR ID 894 B 22 SIZE 261 SRC 24 DST 1 T 10766.1
+TX CBR ID 895 B 21 SIZE 261 SRC 23 DST 1 T 10773.6
+TX CBR ID 896 B 24 SIZE 261 SRC 26 DST 1 T 10776.7
+TX CBR ID 897 B 46 SIZE 261 SRC 48 DST 1 T 10776.7
+TX CBR ID 898 B 42 SIZE 261 SRC 44 DST 1 T 10791.9
+TX CBR ID 899 B 48 SIZE 261 SRC 50 DST 1 T 10796.1
+TX CBR ID 900 B 14 SIZE 261 SRC 16 DST 1 T 10817.5
+TX CBR ID 901 B 15 SIZE 261 SRC 17 DST 1 T 10837.3
+TX CBR ID 902 B 2 SIZE 261 SRC 4 DST 1 T 10848.4
+TX CBR ID 903 B 38 SIZE 261 SRC 40 DST 1 T 10851
+TX CBR ID 904 B 45 SIZE 261 SRC 47 DST 1 T 10857.2
+TX CBR ID 905 B 25 SIZE 261 SRC 27 DST 1 T 10870.5
+TX CBR ID 906 B 19 SIZE 261 SRC 21 DST 1 T 10894.2
+TX CBR ID 907 B 17 SIZE 261 SRC 19 DST 1 T 10917.1
+TX CBR ID 908 B 8 SIZE 261 SRC 10 DST 1 T 10922.7
+TX CBR ID 909 B 20 SIZE 261 SRC 22 DST 1 T 10946.6
+TX CBR ID 910 B 4 SIZE 261 SRC 6 DST 1 T 10977.6
+TX CBR ID 911 B 6 SIZE 261 SRC 8 DST 1 T 10996.5
+TX CBR ID 912 B 13 SIZE 261 SRC 15 DST 1 T 11004.9
+TX CBR ID 913 B 41 SIZE 261 SRC 43 DST 1 T 11010.4
+TX CBR ID 914 B 23 SIZE 261 SRC 25 DST 1 T 11011.6
+TX CBR ID 915 B 1 SIZE 261 SRC 3 DST 1 T 11012.5
+TX CBR ID 916 B 18 SIZE 261 SRC 20 DST 1 T 11016.6
+TX CBR ID 917 B 47 SIZE 261 SRC 49 DST 1 T 11056.6
+TX CBR ID 918 B 12 SIZE 261 SRC 14 DST 1 T 11081.7
+TX CBR ID 919 B 27 SIZE 261 SRC 29 DST 1 T 11091.7
+TX CBR ID 920 B 26 SIZE 261 SRC 28 DST 1 T 11108.8
+TX CBR ID 921 B 44 SIZE 261 SRC 46 DST 1 T 11126.5
+TX CBR ID 922 B 7 SIZE 261 SRC 9 DST 1 T 11136.8
+TX CBR ID 923 B 9 SIZE 261 SRC 11 DST 1 T 11137.9
+TX CBR ID 924 B 16 SIZE 261 SRC 18 DST 1 T 11139.6
+TX CBR ID 925 B 29 SIZE 261 SRC 31 DST 1 T 11154
+TX CBR ID 926 B 33 SIZE 261 SRC 35 DST 1 T 11163.2
+TX CBR ID 927 B 10 SIZE 261 SRC 12 DST 1 T 11183.9
+TX CBR ID 928 B 35 SIZE 261 SRC 37 DST 1 T 11187
+TX CBR ID 929 B 32 SIZE 261 SRC 34 DST 1 T 11196.5
+TX CBR ID 930 B 11 SIZE 261 SRC 13 DST 1 T 11200.2
+TX CBR ID 931 B 37 SIZE 261 SRC 39 DST 1 T 11205.2
+TX CBR ID 932 B 49 SIZE 261 SRC 51 DST 1 T 11221.3
+TX CBR ID 933 B 43 SIZE 261 SRC 45 DST 1 T 11223.7
+TX CBR ID 934 B 5 SIZE 261 SRC 7 DST 1 T 11239.1
+TX CBR ID 935 B 3 SIZE 261 SRC 5 DST 1 T 11258.6
+TX CBR ID 936 B 34 SIZE 261 SRC 36 DST 1 T 11260.4
+TX CBR ID 937 B 28 SIZE 261 SRC 30 DST 1 T 11280.8
+TX CBR ID 938 B 36 SIZE 261 SRC 38 DST 1 T 11286.2
+TX CBR ID 939 B 39 SIZE 261 SRC 41 DST 1 T 11292
+TX CBR ID 940 B 31 SIZE 261 SRC 33 DST 1 T 11313
+TX CBR ID 941 B 40 SIZE 261 SRC 42 DST 1 T 11348.8
+TX CBR ID 942 B 0 SIZE 261 SRC 2 DST 1 T 11351.2
+TX CBR ID 943 B 30 SIZE 261 SRC 32 DST 1 T 11352.9
+TX CBR ID 944 B 22 SIZE 261 SRC 24 DST 1 T 11366.1
+TX CBR ID 945 B 21 SIZE 261 SRC 23 DST 1 T 11373.6
+TX CBR ID 946 B 24 SIZE 261 SRC 26 DST 1 T 11376.7
+TX CBR ID 947 B 46 SIZE 261 SRC 48 DST 1 T 11376.7
+TX CBR ID 948 B 42 SIZE 261 SRC 44 DST 1 T 11391.9
+TX CBR ID 949 B 48 SIZE 261 SRC 50 DST 1 T 11396.1
+TX CBR ID 950 B 14 SIZE 261 SRC 16 DST 1 T 11417.5
+TX CBR ID 951 B 15 SIZE 261 SRC 17 DST 1 T 11437.3
+TX CBR ID 952 B 2 SIZE 261 SRC 4 DST 1 T 11448.4
+TX CBR ID 953 B 38 SIZE 261 SRC 40 DST 1 T 11451
+TX CBR ID 954 B 45 SIZE 261 SRC 47 DST 1 T 11457.2
+TX CBR ID 955 B 25 SIZE 261 SRC 27 DST 1 T 11470.5
+TX CBR ID 956 B 19 SIZE 261 SRC 21 DST 1 T 11494.2
+TX CBR ID 957 B 17 SIZE 261 SRC 19 DST 1 T 11517.1
+TX CBR ID 958 B 8 SIZE 261 SRC 10 DST 1 T 11522.7
+TX CBR ID 959 B 20 SIZE 261 SRC 22 DST 1 T 11546.6
+TX CBR ID 960 B 4 SIZE 261 SRC 6 DST 1 T 11577.6
+TX CBR ID 961 B 6 SIZE 261 SRC 8 DST 1 T 11596.5
+TX CBR ID 962 B 13 SIZE 261 SRC 15 DST 1 T 11604.9
+TX CBR ID 963 B 41 SIZE 261 SRC 43 DST 1 T 11610.4
+TX CBR ID 964 B 23 SIZE 261 SRC 25 DST 1 T 11611.6
+TX CBR ID 965 B 1 SIZE 261 SRC 3 DST 1 T 11612.5
+TX CBR ID 966 B 18 SIZE 261 SRC 20 DST 1 T 11616.6
+TX CBR ID 967 B 47 SIZE 261 SRC 49 DST 1 T 11656.6
+TX CBR ID 968 B 12 SIZE 261 SRC 14 DST 1 T 11681.7
+TX CBR ID 969 B 27 SIZE 261 SRC 29 DST 1 T 11691.7
+TX CBR ID 970 B 26 SIZE 261 SRC 28 DST 1 T 11708.8
+TX CBR ID 971 B 44 SIZE 261 SRC 46 DST 1 T 11726.5
+TX CBR ID 972 B 7 SIZE 261 SRC 9 DST 1 T 11736.8
+TX CBR ID 973 B 9 SIZE 261 SRC 11 DST 1 T 11737.9
+TX CBR ID 974 B 16 SIZE 261 SRC 18 DST 1 T 11739.6
+TX CBR ID 975 B 29 SIZE 261 SRC 31 DST 1 T 11754
+TX CBR ID 976 B 33 SIZE 261 SRC 35 DST 1 T 11763.2
+TX CBR ID 977 B 10 SIZE 261 SRC 12 DST 1 T 11783.9
+TX CBR ID 978 B 35 SIZE 261 SRC 37 DST 1 T 11787
+TX CBR ID 979 B 32 SIZE 261 SRC 34 DST 1 T 11796.5
+TX CBR ID 980 B 11 SIZE 261 SRC 13 DST 1 T 11800.2
+TX CBR ID 981 B 37 SIZE 261 SRC 39 DST 1 T 11805.2
+TX CBR ID 982 B 49 SIZE 261 SRC 51 DST 1 T 11821.3
+TX CBR ID 983 B 43 SIZE 261 SRC 45 DST 1 T 11823.7
+TX CBR ID 984 B 5 SIZE 261 SRC 7 DST 1 T 11839.1
+TX CBR ID 985 B 3 SIZE 261 SRC 5 DST 1 T 11858.6
+TX CBR ID 986 B 34 SIZE 261 SRC 36 DST 1 T 11860.4
+TX CBR ID 987 B 28 SIZE 261 SRC 30 DST 1 T 11880.8
+TX CBR ID 988 B 36 SIZE 261 SRC 38 DST 1 T 11886.2
+TX CBR ID 989 B 39 SIZE 261 SRC 41 DST 1 T 11892
+TX CBR ID 990 B 31 SIZE 261 SRC 33 DST 1 T 11913
+TX CBR ID 991 B 40 SIZE 261 SRC 42 DST 1 T 11948.8
+TX CBR ID 992 B 0 SIZE 261 SRC 2 DST 1 T 11951.2
+TX CBR ID 993 B 30 SIZE 261 SRC 32 DST 1 T 11952.9
+TX CBR ID 994 B 22 SIZE 261 SRC 24 DST 1 T 11966.1
+TX CBR ID 995 B 21 SIZE 261 SRC 23 DST 1 T 11973.6
+TX CBR ID 996 B 24 SIZE 261 SRC 26 DST 1 T 11976.7
+TX CBR ID 997 B 46 SIZE 261 SRC 48 DST 1 T 11976.7
+TX CBR ID 998 B 42 SIZE 261 SRC 44 DST 1 T 11991.9
+TX CBR ID 999 B 48 SIZE 261 SRC 50 DST 1 T 11996.1
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 2 distanza:582905
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 3 distanza:582992
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 4 distanza:582941
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 7 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 10 distanza:582991
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 11 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 12 distanza:582953
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 13 distanza:582993
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 14 distanza:582974
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 17 distanza:582996
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 18 distanza:582999
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 19 distanza:582930
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 20 distanza:582985
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 21 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 22 distanza:582892
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 24 distanza:582938
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 25 distanza:582886
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 26 distanza:582900
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 28 distanza:582899
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 29 distanza:582924
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 34 distanza:582923
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 35 distanza:582962
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 36 distanza:582966
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 38 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 40 distanza:582913
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 42 distanza:582965
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 43 distanza:582982
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 45 distanza:582894
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 46 distanza:582961
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 47 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 48 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.1 UE id: 50 distanza:582946
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 5 distanza:582645
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 6 distanza:582620
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 8 distanza:582690
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 9 distanza:582626
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 15 distanza:582648
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 16 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 23 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 27 distanza:582708
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 30 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 31 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 32 distanza:582640
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 33 distanza:582636
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 37 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 39 distanza:582691
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 41 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 44 distanza:582685
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 49 distanza:582686
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 12000.3 UE id: 51 distanza:582645
+TX CBR ID 1000 B 14 SIZE 261 SRC 16 DST 1 T 12017.5
+RACH INFO CLASS 0 SF 12017608 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 800 B 14 SIZE 256 SRC 16 DST 1 D 2400.39
+RX CBR ID 850 B 14 SIZE 256 SRC 16 DST 1 D 1800.56
+RX CBR ID 900 B 14 SIZE 256 SRC 16 DST 1 D 1200.72
+RX CBR ID 950 B 14 SIZE 256 SRC 16 DST 1 D 600.964
+RX CBR ID 1000 B 14 SIZE 256 SRC 16 DST 1 D 1.084
+TX CBR ID 1001 B 15 SIZE 261 SRC 17 DST 1 T 12037.3
+RACH INFO CLASS 0 SF 12037448 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 801 B 15 SIZE 256 SRC 17 DST 1 D 2400.29
+RX CBR ID 851 B 15 SIZE 256 SRC 17 DST 1 D 1800.37
+RX CBR ID 901 B 15 SIZE 256 SRC 17 DST 1 D 1200.46
+RX CBR ID 951 B 15 SIZE 256 SRC 17 DST 1 D 600.616
+RX CBR ID 1001 B 15 SIZE 256 SRC 17 DST 1 D 0.656
+TX CBR ID 1002 B 2 SIZE 261 SRC 4 DST 1 T 12048.4
+RACH INFO CLASS 0 SF 12048648 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 802 B 2 SIZE 256 SRC 4 DST 1 D 2400.45
+RX CBR ID 852 B 2 SIZE 256 SRC 4 DST 1 D 1800.7
+RX CBR ID 902 B 2 SIZE 256 SRC 4 DST 1 D 1200.87
+RX CBR ID 952 B 2 SIZE 256 SRC 4 DST 1 D 601.106
+RX CBR ID 1002 B 2 SIZE 256 SRC 4 DST 1 D 1.306
+TX CBR ID 1003 B 38 SIZE 261 SRC 40 DST 1 T 12051
+RACH INFO CLASS 0 SF 12051208 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 803 B 38 SIZE 256 SRC 40 DST 1 D 2400.66
+RX CBR ID 853 B 38 SIZE 256 SRC 40 DST 1 D 1801.16
+RX CBR ID 903 B 38 SIZE 256 SRC 40 DST 1 D 1201.64
+RX CBR ID 953 B 38 SIZE 256 SRC 40 DST 1 D 602.141
+RX CBR ID 1003 B 38 SIZE 256 SRC 40 DST 1 D 2.613
+TX CBR ID 1004 B 45 SIZE 261 SRC 47 DST 1 T 12057.2
+RACH INFO CLASS 0 SF 12057288 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 804 B 45 SIZE 256 SRC 47 DST 1 D 2400.27
+RX CBR ID 854 B 45 SIZE 256 SRC 47 DST 1 D 1800.35
+RX CBR ID 904 B 45 SIZE 256 SRC 47 DST 1 D 1200.52
+RX CBR ID 954 B 45 SIZE 256 SRC 47 DST 1 D 600.595
+RX CBR ID 1004 B 45 SIZE 256 SRC 47 DST 1 D 0.699
+TX CBR ID 1005 B 25 SIZE 261 SRC 27 DST 1 T 12070.5
+RACH INFO CLASS 0 SF 12070728 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 805 B 25 SIZE 256 SRC 27 DST 1 D 2401.13
+RX CBR ID 855 B 25 SIZE 256 SRC 27 DST 1 D 1802.04
+RX CBR ID 905 B 25 SIZE 256 SRC 27 DST 1 D 1202.94
+RX CBR ID 955 B 25 SIZE 256 SRC 27 DST 1 D 603.846
+RX CBR ID 1005 B 25 SIZE 256 SRC 27 DST 1 D 4.75
+TX CBR ID 1006 B 19 SIZE 261 SRC 21 DST 1 T 12094.2
+RACH INFO CLASS 0 SF 12094408 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 806 B 19 SIZE 256 SRC 21 DST 1 D 2400.53
+RX CBR ID 856 B 19 SIZE 256 SRC 21 DST 1 D 1800.77
+RX CBR ID 906 B 19 SIZE 256 SRC 21 DST 1 D 1201.1
+RX CBR ID 956 B 19 SIZE 256 SRC 21 DST 1 D 601.348
+RX CBR ID 1006 B 19 SIZE 256 SRC 21 DST 1 D 1.636
+TX CBR ID 1007 B 17 SIZE 261 SRC 19 DST 1 T 12117.1
+RACH INFO CLASS 0 SF 12117128 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 807 B 17 SIZE 256 SRC 19 DST 1 D 2400.38
+RX CBR ID 857 B 17 SIZE 256 SRC 19 DST 1 D 1800.62
+RX CBR ID 907 B 17 SIZE 256 SRC 19 DST 1 D 1200.95
+RX CBR ID 957 B 17 SIZE 256 SRC 19 DST 1 D 601.2
+RX CBR ID 1007 B 17 SIZE 256 SRC 19 DST 1 D 1.488
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 2 distanza:583025
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 19 distanza:583001
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 21 distanza:583002
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 22 distanza:583038
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 25 distanza:583045
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 26 distanza:583030
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 28 distanza:583031
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 29 distanza:583006
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 34 distanza:583007
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 38 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 40 distanza:583017
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 45 distanza:583036
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120 UE id: 48 distanza:583003
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 3 distanza:583196
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 4 distanza:583247
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 5 distanza:583157
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 6 distanza:583182
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 7 distanza:583210
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 8 distanza:583113
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 9 distanza:583176
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 10 distanza:583197
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 11 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 12 distanza:583234
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 13 distanza:583195
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 14 distanza:583214
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 15 distanza:583154
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 16 distanza:583147
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 17 distanza:583192
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 18 distanza:583188
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 20 distanza:583203
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 23 distanza:583104
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 24 distanza:583250
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 27 distanza:583094
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 30 distanza:583151
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 31 distanza:583148
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 32 distanza:583162
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 33 distanza:583167
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 35 distanza:583226
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 36 distanza:583221
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 37 distanza:583152
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 39 distanza:583112
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 41 distanza:583105
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 42 distanza:583222
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 43 distanza:583206
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 44 distanza:583117
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 46 distanza:583227
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 47 distanza:583210
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 49 distanza:583116
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 50 distanza:583242
+Procedura di !!!! DETACH !!!! avviata a tempo: 12120.1 UE id: 51 distanza:583158
+TX CBR ID 1008 B 8 SIZE 261 SRC 10 DST 1 T 12122.7
+Procedura di !!!! DETACH !!!! avviata a tempo: 12128.6 UE id: 19 distanza:605954
+TX CBR ID 1009 B 20 SIZE 261 SRC 22 DST 1 T 12146.6
+TX CBR ID 1010 B 4 SIZE 261 SRC 6 DST 1 T 12177.6
+TX CBR ID 1011 B 6 SIZE 261 SRC 8 DST 1 T 12196.5
+TX CBR ID 1012 B 13 SIZE 261 SRC 15 DST 1 T 12204.9
+TX CBR ID 1013 B 41 SIZE 261 SRC 43 DST 1 T 12210.4
+TX CBR ID 1014 B 23 SIZE 261 SRC 25 DST 1 T 12211.6
+TX CBR ID 1015 B 1 SIZE 261 SRC 3 DST 1 T 12212.5
+TX CBR ID 1016 B 18 SIZE 261 SRC 20 DST 1 T 12216.6
+TX CBR ID 1017 B 47 SIZE 261 SRC 49 DST 1 T 12256.6
+TX CBR ID 1018 B 12 SIZE 261 SRC 14 DST 1 T 12281.7
+TX CBR ID 1019 B 27 SIZE 261 SRC 29 DST 1 T 12291.7
+TX CBR ID 1020 B 26 SIZE 261 SRC 28 DST 1 T 12308.8
+TX CBR ID 1021 B 44 SIZE 261 SRC 46 DST 1 T 12326.5
+TX CBR ID 1022 B 7 SIZE 261 SRC 9 DST 1 T 12336.8
+TX CBR ID 1023 B 9 SIZE 261 SRC 11 DST 1 T 12337.9
+TX CBR ID 1024 B 16 SIZE 261 SRC 18 DST 1 T 12339.6
+TX CBR ID 1025 B 29 SIZE 261 SRC 31 DST 1 T 12354
+TX CBR ID 1026 B 33 SIZE 261 SRC 35 DST 1 T 12363.2
+TX CBR ID 1027 B 10 SIZE 261 SRC 12 DST 1 T 12383.9
+TX CBR ID 1028 B 35 SIZE 261 SRC 37 DST 1 T 12387
+TX CBR ID 1029 B 32 SIZE 261 SRC 34 DST 1 T 12396.5
+TX CBR ID 1030 B 11 SIZE 261 SRC 13 DST 1 T 12400.2
+TX CBR ID 1031 B 37 SIZE 261 SRC 39 DST 1 T 12405.2
+TX CBR ID 1032 B 49 SIZE 261 SRC 51 DST 1 T 12421.3
+TX CBR ID 1033 B 43 SIZE 261 SRC 45 DST 1 T 12423.7
+TX CBR ID 1034 B 5 SIZE 261 SRC 7 DST 1 T 12439.1
+TX CBR ID 1035 B 3 SIZE 261 SRC 5 DST 1 T 12458.6
+TX CBR ID 1036 B 34 SIZE 261 SRC 36 DST 1 T 12460.4
+TX CBR ID 1037 B 28 SIZE 261 SRC 30 DST 1 T 12480.8
+TX CBR ID 1038 B 36 SIZE 261 SRC 38 DST 1 T 12486.2
+TX CBR ID 1039 B 39 SIZE 261 SRC 41 DST 1 T 12492
+TX CBR ID 1040 B 31 SIZE 261 SRC 33 DST 1 T 12513
+TX CBR ID 1041 B 40 SIZE 261 SRC 42 DST 1 T 12548.8
+TX CBR ID 1042 B 0 SIZE 261 SRC 2 DST 1 T 12551.2
+TX CBR ID 1043 B 30 SIZE 261 SRC 32 DST 1 T 12552.9
+TX CBR ID 1044 B 22 SIZE 261 SRC 24 DST 1 T 12566.1
+TX CBR ID 1045 B 21 SIZE 261 SRC 23 DST 1 T 12573.6
+TX CBR ID 1046 B 24 SIZE 261 SRC 26 DST 1 T 12576.7
+TX CBR ID 1047 B 46 SIZE 261 SRC 48 DST 1 T 12576.7
+TX CBR ID 1048 B 42 SIZE 261 SRC 44 DST 1 T 12591.9
+TX CBR ID 1049 B 48 SIZE 261 SRC 50 DST 1 T 12596.1
+TX CBR ID 1050 B 14 SIZE 261 SRC 16 DST 1 T 12617.5
+TX CBR ID 1051 B 15 SIZE 261 SRC 17 DST 1 T 12637.3
+TX CBR ID 1052 B 2 SIZE 261 SRC 4 DST 1 T 12648.4
+TX CBR ID 1053 B 38 SIZE 261 SRC 40 DST 1 T 12651
+TX CBR ID 1054 B 45 SIZE 261 SRC 47 DST 1 T 12657.2
+TX CBR ID 1055 B 25 SIZE 261 SRC 27 DST 1 T 12670.5
+TX CBR ID 1056 B 19 SIZE 261 SRC 21 DST 1 T 12694.2
+TX CBR ID 1057 B 17 SIZE 261 SRC 19 DST 1 T 12717.1
+TX CBR ID 1058 B 8 SIZE 261 SRC 10 DST 1 T 12722.7
+TX CBR ID 1059 B 20 SIZE 261 SRC 22 DST 1 T 12746.6
+TX CBR ID 1060 B 4 SIZE 261 SRC 6 DST 1 T 12777.6
+TX CBR ID 1061 B 6 SIZE 261 SRC 8 DST 1 T 12796.5
+TX CBR ID 1062 B 13 SIZE 261 SRC 15 DST 1 T 12804.9
+TX CBR ID 1063 B 41 SIZE 261 SRC 43 DST 1 T 12810.4
+TX CBR ID 1064 B 23 SIZE 261 SRC 25 DST 1 T 12811.6
+TX CBR ID 1065 B 1 SIZE 261 SRC 3 DST 1 T 12812.5
+TX CBR ID 1066 B 18 SIZE 261 SRC 20 DST 1 T 12816.6
+TX CBR ID 1067 B 47 SIZE 261 SRC 49 DST 1 T 12856.6
+TX CBR ID 1068 B 12 SIZE 261 SRC 14 DST 1 T 12881.7
+TX CBR ID 1069 B 27 SIZE 261 SRC 29 DST 1 T 12891.7
+TX CBR ID 1070 B 26 SIZE 261 SRC 28 DST 1 T 12908.8
+TX CBR ID 1071 B 44 SIZE 261 SRC 46 DST 1 T 12926.5
+TX CBR ID 1072 B 7 SIZE 261 SRC 9 DST 1 T 12936.8
+TX CBR ID 1073 B 9 SIZE 261 SRC 11 DST 1 T 12937.9
+TX CBR ID 1074 B 16 SIZE 261 SRC 18 DST 1 T 12939.6
+TX CBR ID 1075 B 29 SIZE 261 SRC 31 DST 1 T 12954
+TX CBR ID 1076 B 33 SIZE 261 SRC 35 DST 1 T 12963.2
+TX CBR ID 1077 B 10 SIZE 261 SRC 12 DST 1 T 12983.9
+TX CBR ID 1078 B 35 SIZE 261 SRC 37 DST 1 T 12987
+TX CBR ID 1079 B 32 SIZE 261 SRC 34 DST 1 T 12996.5
+TX CBR ID 1080 B 11 SIZE 261 SRC 13 DST 1 T 13000.2
+TX CBR ID 1081 B 37 SIZE 261 SRC 39 DST 1 T 13005.2
+TX CBR ID 1082 B 49 SIZE 261 SRC 51 DST 1 T 13021.3
+TX CBR ID 1083 B 43 SIZE 261 SRC 45 DST 1 T 13023.7
+TX CBR ID 1084 B 5 SIZE 261 SRC 7 DST 1 T 13039.1
+TX CBR ID 1085 B 3 SIZE 261 SRC 5 DST 1 T 13058.6
+TX CBR ID 1086 B 34 SIZE 261 SRC 36 DST 1 T 13060.4
+TX CBR ID 1087 B 28 SIZE 261 SRC 30 DST 1 T 13080.8
+TX CBR ID 1088 B 36 SIZE 261 SRC 38 DST 1 T 13086.2
+TX CBR ID 1089 B 39 SIZE 261 SRC 41 DST 1 T 13092
+TX CBR ID 1090 B 31 SIZE 261 SRC 33 DST 1 T 13113
+TX CBR ID 1091 B 40 SIZE 261 SRC 42 DST 1 T 13148.8
+TX CBR ID 1092 B 0 SIZE 261 SRC 2 DST 1 T 13151.2
+TX CBR ID 1093 B 30 SIZE 261 SRC 32 DST 1 T 13152.9
+TX CBR ID 1094 B 22 SIZE 261 SRC 24 DST 1 T 13166.1
+TX CBR ID 1095 B 21 SIZE 261 SRC 23 DST 1 T 13173.6
+TX CBR ID 1096 B 24 SIZE 261 SRC 26 DST 1 T 13176.7
+TX CBR ID 1097 B 46 SIZE 261 SRC 48 DST 1 T 13176.7
+TX CBR ID 1098 B 42 SIZE 261 SRC 44 DST 1 T 13191.9
+TX CBR ID 1099 B 48 SIZE 261 SRC 50 DST 1 T 13196.1
+TX CBR ID 1100 B 14 SIZE 261 SRC 16 DST 1 T 13217.5
+TX CBR ID 1101 B 15 SIZE 261 SRC 17 DST 1 T 13237.3
+TX CBR ID 1102 B 2 SIZE 261 SRC 4 DST 1 T 13248.4
+TX CBR ID 1103 B 38 SIZE 261 SRC 40 DST 1 T 13251
+TX CBR ID 1104 B 45 SIZE 261 SRC 47 DST 1 T 13257.2
+TX CBR ID 1105 B 25 SIZE 261 SRC 27 DST 1 T 13270.5
+TX CBR ID 1106 B 19 SIZE 261 SRC 21 DST 1 T 13294.2
+TX CBR ID 1107 B 17 SIZE 261 SRC 19 DST 1 T 13317.1
+TX CBR ID 1108 B 8 SIZE 261 SRC 10 DST 1 T 13322.7
+TX CBR ID 1109 B 20 SIZE 261 SRC 22 DST 1 T 13346.6
+TX CBR ID 1110 B 4 SIZE 261 SRC 6 DST 1 T 13377.6
+TX CBR ID 1111 B 6 SIZE 261 SRC 8 DST 1 T 13396.5
+TX CBR ID 1112 B 13 SIZE 261 SRC 15 DST 1 T 13404.9
+TX CBR ID 1113 B 41 SIZE 261 SRC 43 DST 1 T 13410.4
+TX CBR ID 1114 B 23 SIZE 261 SRC 25 DST 1 T 13411.6
+TX CBR ID 1115 B 1 SIZE 261 SRC 3 DST 1 T 13412.5
+TX CBR ID 1116 B 18 SIZE 261 SRC 20 DST 1 T 13416.6
+TX CBR ID 1117 B 47 SIZE 261 SRC 49 DST 1 T 13456.6
+TX CBR ID 1118 B 12 SIZE 261 SRC 14 DST 1 T 13481.7
+TX CBR ID 1119 B 27 SIZE 261 SRC 29 DST 1 T 13491.7
+TX CBR ID 1120 B 26 SIZE 261 SRC 28 DST 1 T 13508.8
+TX CBR ID 1121 B 44 SIZE 261 SRC 46 DST 1 T 13526.5
+TX CBR ID 1122 B 7 SIZE 261 SRC 9 DST 1 T 13536.8
+TX CBR ID 1123 B 9 SIZE 261 SRC 11 DST 1 T 13537.9
+TX CBR ID 1124 B 16 SIZE 261 SRC 18 DST 1 T 13539.6
+TX CBR ID 1125 B 29 SIZE 261 SRC 31 DST 1 T 13554
+TX CBR ID 1126 B 33 SIZE 261 SRC 35 DST 1 T 13563.2
+TX CBR ID 1127 B 10 SIZE 261 SRC 12 DST 1 T 13583.9
+TX CBR ID 1128 B 35 SIZE 261 SRC 37 DST 1 T 13587
+TX CBR ID 1129 B 32 SIZE 261 SRC 34 DST 1 T 13596.5
+TX CBR ID 1130 B 11 SIZE 261 SRC 13 DST 1 T 13600.2
+TX CBR ID 1131 B 37 SIZE 261 SRC 39 DST 1 T 13605.2
+TX CBR ID 1132 B 49 SIZE 261 SRC 51 DST 1 T 13621.3
+TX CBR ID 1133 B 43 SIZE 261 SRC 45 DST 1 T 13623.7
+TX CBR ID 1134 B 5 SIZE 261 SRC 7 DST 1 T 13639.1
+TX CBR ID 1135 B 3 SIZE 261 SRC 5 DST 1 T 13658.6
+TX CBR ID 1136 B 34 SIZE 261 SRC 36 DST 1 T 13660.4
+TX CBR ID 1137 B 28 SIZE 261 SRC 30 DST 1 T 13680.8
+TX CBR ID 1138 B 36 SIZE 261 SRC 38 DST 1 T 13686.2
+TX CBR ID 1139 B 39 SIZE 261 SRC 41 DST 1 T 13692
+TX CBR ID 1140 B 31 SIZE 261 SRC 33 DST 1 T 13713
+TX CBR ID 1141 B 40 SIZE 261 SRC 42 DST 1 T 13748.8
+TX CBR ID 1142 B 0 SIZE 261 SRC 2 DST 1 T 13751.2
+TX CBR ID 1143 B 30 SIZE 261 SRC 32 DST 1 T 13752.9
+TX CBR ID 1144 B 22 SIZE 261 SRC 24 DST 1 T 13766.1
+TX CBR ID 1145 B 21 SIZE 261 SRC 23 DST 1 T 13773.6
+TX CBR ID 1146 B 24 SIZE 261 SRC 26 DST 1 T 13776.7
+TX CBR ID 1147 B 46 SIZE 261 SRC 48 DST 1 T 13776.7
+TX CBR ID 1148 B 42 SIZE 261 SRC 44 DST 1 T 13791.9
+TX CBR ID 1149 B 48 SIZE 261 SRC 50 DST 1 T 13796.1
+TX CBR ID 1150 B 14 SIZE 261 SRC 16 DST 1 T 13817.5
+TX CBR ID 1151 B 15 SIZE 261 SRC 17 DST 1 T 13837.3
+TX CBR ID 1152 B 2 SIZE 261 SRC 4 DST 1 T 13848.4
+TX CBR ID 1153 B 38 SIZE 261 SRC 40 DST 1 T 13851
+TX CBR ID 1154 B 45 SIZE 261 SRC 47 DST 1 T 13857.2
+TX CBR ID 1155 B 25 SIZE 261 SRC 27 DST 1 T 13870.5
+TX CBR ID 1156 B 19 SIZE 261 SRC 21 DST 1 T 13894.2
+TX CBR ID 1157 B 17 SIZE 261 SRC 19 DST 1 T 13917.1
+TX CBR ID 1158 B 8 SIZE 261 SRC 10 DST 1 T 13922.7
+TX CBR ID 1159 B 20 SIZE 261 SRC 22 DST 1 T 13946.6
+TX CBR ID 1160 B 4 SIZE 261 SRC 6 DST 1 T 13977.6
+TX CBR ID 1161 B 6 SIZE 261 SRC 8 DST 1 T 13996.5
+TX CBR ID 1162 B 13 SIZE 261 SRC 15 DST 1 T 14004.9
+TX CBR ID 1163 B 41 SIZE 261 SRC 43 DST 1 T 14010.4
+TX CBR ID 1164 B 23 SIZE 261 SRC 25 DST 1 T 14011.6
+TX CBR ID 1165 B 1 SIZE 261 SRC 3 DST 1 T 14012.5
+TX CBR ID 1166 B 18 SIZE 261 SRC 20 DST 1 T 14016.6
+TX CBR ID 1167 B 47 SIZE 261 SRC 49 DST 1 T 14056.6
+TX CBR ID 1168 B 12 SIZE 261 SRC 14 DST 1 T 14081.7
+TX CBR ID 1169 B 27 SIZE 261 SRC 29 DST 1 T 14091.7
+TX CBR ID 1170 B 26 SIZE 261 SRC 28 DST 1 T 14108.8
+TX CBR ID 1171 B 44 SIZE 261 SRC 46 DST 1 T 14126.5
+TX CBR ID 1172 B 7 SIZE 261 SRC 9 DST 1 T 14136.8
+TX CBR ID 1173 B 9 SIZE 261 SRC 11 DST 1 T 14137.9
+TX CBR ID 1174 B 16 SIZE 261 SRC 18 DST 1 T 14139.6
+TX CBR ID 1175 B 29 SIZE 261 SRC 31 DST 1 T 14154
+TX CBR ID 1176 B 33 SIZE 261 SRC 35 DST 1 T 14163.2
+TX CBR ID 1177 B 10 SIZE 261 SRC 12 DST 1 T 14183.9
+TX CBR ID 1178 B 35 SIZE 261 SRC 37 DST 1 T 14187
+TX CBR ID 1179 B 32 SIZE 261 SRC 34 DST 1 T 14196.5
+TX CBR ID 1180 B 11 SIZE 261 SRC 13 DST 1 T 14200.2
+TX CBR ID 1181 B 37 SIZE 261 SRC 39 DST 1 T 14205.2
+TX CBR ID 1182 B 49 SIZE 261 SRC 51 DST 1 T 14221.3
+TX CBR ID 1183 B 43 SIZE 261 SRC 45 DST 1 T 14223.7
+TX CBR ID 1184 B 5 SIZE 261 SRC 7 DST 1 T 14239.1
+TX CBR ID 1185 B 3 SIZE 261 SRC 5 DST 1 T 14258.6
+TX CBR ID 1186 B 34 SIZE 261 SRC 36 DST 1 T 14260.4
+TX CBR ID 1187 B 28 SIZE 261 SRC 30 DST 1 T 14280.8
+TX CBR ID 1188 B 36 SIZE 261 SRC 38 DST 1 T 14286.2
+TX CBR ID 1189 B 39 SIZE 261 SRC 41 DST 1 T 14292
+TX CBR ID 1190 B 31 SIZE 261 SRC 33 DST 1 T 14313
+TX CBR ID 1191 B 40 SIZE 261 SRC 42 DST 1 T 14348.8
+TX CBR ID 1192 B 0 SIZE 261 SRC 2 DST 1 T 14351.2
+TX CBR ID 1193 B 30 SIZE 261 SRC 32 DST 1 T 14352.9
+TX CBR ID 1194 B 22 SIZE 261 SRC 24 DST 1 T 14366.1
+TX CBR ID 1195 B 21 SIZE 261 SRC 23 DST 1 T 14373.6
+TX CBR ID 1196 B 24 SIZE 261 SRC 26 DST 1 T 14376.7
+TX CBR ID 1197 B 46 SIZE 261 SRC 48 DST 1 T 14376.7
+TX CBR ID 1198 B 42 SIZE 261 SRC 44 DST 1 T 14391.9
+TX CBR ID 1199 B 48 SIZE 261 SRC 50 DST 1 T 14396.1
+TX CBR ID 1200 B 14 SIZE 261 SRC 16 DST 1 T 14417.5
+TX CBR ID 1201 B 15 SIZE 261 SRC 17 DST 1 T 14437.3
+TX CBR ID 1202 B 2 SIZE 261 SRC 4 DST 1 T 14448.4
+TX CBR ID 1203 B 38 SIZE 261 SRC 40 DST 1 T 14451
+TX CBR ID 1204 B 45 SIZE 261 SRC 47 DST 1 T 14457.2
+TX CBR ID 1205 B 25 SIZE 261 SRC 27 DST 1 T 14470.5
+TX CBR ID 1206 B 19 SIZE 261 SRC 21 DST 1 T 14494.2
+TX CBR ID 1207 B 17 SIZE 261 SRC 19 DST 1 T 14517.1
+TX CBR ID 1208 B 8 SIZE 261 SRC 10 DST 1 T 14522.7
+TX CBR ID 1209 B 20 SIZE 261 SRC 22 DST 1 T 14546.6
+TX CBR ID 1210 B 4 SIZE 261 SRC 6 DST 1 T 14577.6
+TX CBR ID 1211 B 6 SIZE 261 SRC 8 DST 1 T 14596.5
+TX CBR ID 1212 B 13 SIZE 261 SRC 15 DST 1 T 14604.9
+TX CBR ID 1213 B 41 SIZE 261 SRC 43 DST 1 T 14610.4
+TX CBR ID 1214 B 23 SIZE 261 SRC 25 DST 1 T 14611.6
+TX CBR ID 1215 B 1 SIZE 261 SRC 3 DST 1 T 14612.5
+TX CBR ID 1216 B 18 SIZE 261 SRC 20 DST 1 T 14616.6
+TX CBR ID 1217 B 47 SIZE 261 SRC 49 DST 1 T 14656.6
+TX CBR ID 1218 B 12 SIZE 261 SRC 14 DST 1 T 14681.7
+TX CBR ID 1219 B 27 SIZE 261 SRC 29 DST 1 T 14691.7
+TX CBR ID 1220 B 26 SIZE 261 SRC 28 DST 1 T 14708.8
+TX CBR ID 1221 B 44 SIZE 261 SRC 46 DST 1 T 14726.5
+TX CBR ID 1222 B 7 SIZE 261 SRC 9 DST 1 T 14736.8
+TX CBR ID 1223 B 9 SIZE 261 SRC 11 DST 1 T 14737.9
+TX CBR ID 1224 B 16 SIZE 261 SRC 18 DST 1 T 14739.6
+TX CBR ID 1225 B 29 SIZE 261 SRC 31 DST 1 T 14754
+TX CBR ID 1226 B 33 SIZE 261 SRC 35 DST 1 T 14763.2
+TX CBR ID 1227 B 10 SIZE 261 SRC 12 DST 1 T 14783.9
+TX CBR ID 1228 B 35 SIZE 261 SRC 37 DST 1 T 14787
+TX CBR ID 1229 B 32 SIZE 261 SRC 34 DST 1 T 14796.5
+TX CBR ID 1230 B 11 SIZE 261 SRC 13 DST 1 T 14800.2
+TX CBR ID 1231 B 37 SIZE 261 SRC 39 DST 1 T 14805.2
+TX CBR ID 1232 B 49 SIZE 261 SRC 51 DST 1 T 14821.3
+TX CBR ID 1233 B 43 SIZE 261 SRC 45 DST 1 T 14823.7
+TX CBR ID 1234 B 5 SIZE 261 SRC 7 DST 1 T 14839.1
+TX CBR ID 1235 B 3 SIZE 261 SRC 5 DST 1 T 14858.6
+TX CBR ID 1236 B 34 SIZE 261 SRC 36 DST 1 T 14860.4
+TX CBR ID 1237 B 28 SIZE 261 SRC 30 DST 1 T 14880.8
+TX CBR ID 1238 B 36 SIZE 261 SRC 38 DST 1 T 14886.2
+TX CBR ID 1239 B 39 SIZE 261 SRC 41 DST 1 T 14892
+TX CBR ID 1240 B 31 SIZE 261 SRC 33 DST 1 T 14913
+TX CBR ID 1241 B 40 SIZE 261 SRC 42 DST 1 T 14948.8
+TX CBR ID 1242 B 0 SIZE 261 SRC 2 DST 1 T 14951.2
+TX CBR ID 1243 B 30 SIZE 261 SRC 32 DST 1 T 14952.9
+TX CBR ID 1244 B 22 SIZE 261 SRC 24 DST 1 T 14966.1
+TX CBR ID 1245 B 21 SIZE 261 SRC 23 DST 1 T 14973.6
+TX CBR ID 1246 B 24 SIZE 261 SRC 26 DST 1 T 14976.7
+TX CBR ID 1247 B 46 SIZE 261 SRC 48 DST 1 T 14976.7
+TX CBR ID 1248 B 42 SIZE 261 SRC 44 DST 1 T 14991.9
+TX CBR ID 1249 B 48 SIZE 261 SRC 50 DST 1 T 14996.1
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 2 distanza:582905
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 3 distanza:582992
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 4 distanza:582941
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 7 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 10 distanza:582991
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 11 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 12 distanza:582953
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 13 distanza:582993
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 14 distanza:582974
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 17 distanza:582996
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 18 distanza:582999
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 19 distanza:582930
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 20 distanza:582985
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 21 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 22 distanza:582892
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 24 distanza:582938
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 25 distanza:582886
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 26 distanza:582900
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 28 distanza:582899
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 29 distanza:582924
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 34 distanza:582923
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 35 distanza:582962
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 36 distanza:582966
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 38 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 40 distanza:582913
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 42 distanza:582965
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 43 distanza:582982
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 45 distanza:582894
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 46 distanza:582961
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 47 distanza:582978
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 48 distanza:582928
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.1 UE id: 50 distanza:582946
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 5 distanza:582645
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 6 distanza:582620
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 8 distanza:582690
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 9 distanza:582626
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 15 distanza:582648
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 16 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 23 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 27 distanza:582708
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 30 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 31 distanza:582655
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 32 distanza:582640
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 33 distanza:582636
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 37 distanza:582651
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 39 distanza:582691
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 41 distanza:582698
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 44 distanza:582685
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 49 distanza:582686
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 15000.3 UE id: 51 distanza:582645
+TX CBR ID 1250 B 14 SIZE 261 SRC 16 DST 1 T 15017.5
+RACH INFO CLASS 0 SF 15017608 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1050 B 14 SIZE 256 SRC 16 DST 1 D 2400.39
+RX CBR ID 1100 B 14 SIZE 256 SRC 16 DST 1 D 1800.56
+RX CBR ID 1150 B 14 SIZE 256 SRC 16 DST 1 D 1200.72
+RX CBR ID 1200 B 14 SIZE 256 SRC 16 DST 1 D 600.964
+RX CBR ID 1250 B 14 SIZE 256 SRC 16 DST 1 D 1.084
+TX CBR ID 1251 B 15 SIZE 261 SRC 17 DST 1 T 15037.3
+RACH INFO CLASS 0 SF 15037448 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1051 B 15 SIZE 256 SRC 17 DST 1 D 2400.29
+RX CBR ID 1101 B 15 SIZE 256 SRC 17 DST 1 D 1800.37
+RX CBR ID 1151 B 15 SIZE 256 SRC 17 DST 1 D 1200.46
+RX CBR ID 1201 B 15 SIZE 256 SRC 17 DST 1 D 600.616
+RX CBR ID 1251 B 15 SIZE 256 SRC 17 DST 1 D 0.656
+TX CBR ID 1252 B 2 SIZE 261 SRC 4 DST 1 T 15048.4
+RACH INFO CLASS 0 SF 15048648 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1052 B 2 SIZE 256 SRC 4 DST 1 D 2400.45
+RX CBR ID 1102 B 2 SIZE 256 SRC 4 DST 1 D 1800.7
+RX CBR ID 1152 B 2 SIZE 256 SRC 4 DST 1 D 1200.87
+RX CBR ID 1202 B 2 SIZE 256 SRC 4 DST 1 D 601.106
+RX CBR ID 1252 B 2 SIZE 256 SRC 4 DST 1 D 1.306
+TX CBR ID 1253 B 38 SIZE 261 SRC 40 DST 1 T 15051
+RACH INFO CLASS 0 SF 15051208 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1053 B 38 SIZE 256 SRC 40 DST 1 D 2400.66
+RX CBR ID 1103 B 38 SIZE 256 SRC 40 DST 1 D 1801.16
+RX CBR ID 1153 B 38 SIZE 256 SRC 40 DST 1 D 1201.64
+RX CBR ID 1203 B 38 SIZE 256 SRC 40 DST 1 D 602.141
+RX CBR ID 1253 B 38 SIZE 256 SRC 40 DST 1 D 2.613
+TX CBR ID 1254 B 45 SIZE 261 SRC 47 DST 1 T 15057.2
+RACH INFO CLASS 0 SF 15057288 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1054 B 45 SIZE 256 SRC 47 DST 1 D 2400.27
+RX CBR ID 1104 B 45 SIZE 256 SRC 47 DST 1 D 1800.35
+RX CBR ID 1154 B 45 SIZE 256 SRC 47 DST 1 D 1200.52
+RX CBR ID 1204 B 45 SIZE 256 SRC 47 DST 1 D 600.595
+RX CBR ID 1254 B 45 SIZE 256 SRC 47 DST 1 D 0.699
+TX CBR ID 1255 B 25 SIZE 261 SRC 27 DST 1 T 15070.5
+RACH INFO CLASS 0 SF 15070728 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1055 B 25 SIZE 256 SRC 27 DST 1 D 2401.13
+RX CBR ID 1105 B 25 SIZE 256 SRC 27 DST 1 D 1802.03
+RX CBR ID 1155 B 25 SIZE 256 SRC 27 DST 1 D 1202.93
+RX CBR ID 1205 B 25 SIZE 256 SRC 27 DST 1 D 603.838
+RX CBR ID 1255 B 25 SIZE 256 SRC 27 DST 1 D 4.742
+TX CBR ID 1256 B 19 SIZE 261 SRC 21 DST 1 T 15094.2
+RACH INFO CLASS 0 SF 15094408 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1056 B 19 SIZE 256 SRC 21 DST 1 D 2400.52
+RX CBR ID 1106 B 19 SIZE 256 SRC 21 DST 1 D 1800.76
+RX CBR ID 1156 B 19 SIZE 256 SRC 21 DST 1 D 1201.09
+RX CBR ID 1206 B 19 SIZE 256 SRC 21 DST 1 D 601.34
+RX CBR ID 1256 B 19 SIZE 256 SRC 21 DST 1 D 1.628
+TX CBR ID 1257 B 17 SIZE 261 SRC 19 DST 1 T 15117.1
+RACH INFO CLASS 0 SF 15117128 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1057 B 17 SIZE 256 SRC 19 DST 1 D 2400.38
+RX CBR ID 1107 B 17 SIZE 256 SRC 19 DST 1 D 1800.62
+RX CBR ID 1157 B 17 SIZE 256 SRC 19 DST 1 D 1200.95
+RX CBR ID 1207 B 17 SIZE 256 SRC 19 DST 1 D 601.2
+RX CBR ID 1257 B 17 SIZE 256 SRC 19 DST 1 D 1.488
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 2 distanza:583025
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 19 distanza:583001
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 21 distanza:583002
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 22 distanza:583038
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 25 distanza:583045
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 26 distanza:583030
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 28 distanza:583031
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 29 distanza:583006
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 34 distanza:583007
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 38 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 40 distanza:583017
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 45 distanza:583036
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120 UE id: 48 distanza:583003
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 3 distanza:583196
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 4 distanza:583247
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 5 distanza:583157
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 6 distanza:583182
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 7 distanza:583210
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 8 distanza:583113
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 9 distanza:583176
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 10 distanza:583197
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 11 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 12 distanza:583234
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 13 distanza:583195
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 14 distanza:583214
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 15 distanza:583154
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 16 distanza:583147
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 17 distanza:583192
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 18 distanza:583188
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 20 distanza:583203
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 23 distanza:583104
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 24 distanza:583250
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 27 distanza:583094
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 30 distanza:583151
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 31 distanza:583148
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 32 distanza:583162
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 33 distanza:583167
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 35 distanza:583226
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 36 distanza:583221
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 37 distanza:583152
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 39 distanza:583112
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 41 distanza:583105
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 42 distanza:583222
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 43 distanza:583206
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 44 distanza:583117
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 46 distanza:583227
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 47 distanza:583210
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 49 distanza:583116
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 50 distanza:583242
+Procedura di !!!! DETACH !!!! avviata a tempo: 15120.1 UE id: 51 distanza:583158
+TX CBR ID 1258 B 8 SIZE 261 SRC 10 DST 1 T 15122.7
+Procedura di !!!! DETACH !!!! avviata a tempo: 15128.6 UE id: 19 distanza:605954
+TX CBR ID 1259 B 20 SIZE 261 SRC 22 DST 1 T 15146.6
+TX CBR ID 1260 B 4 SIZE 261 SRC 6 DST 1 T 15177.6
+TX CBR ID 1261 B 6 SIZE 261 SRC 8 DST 1 T 15196.5
+TX CBR ID 1262 B 13 SIZE 261 SRC 15 DST 1 T 15204.9
+TX CBR ID 1263 B 41 SIZE 261 SRC 43 DST 1 T 15210.4
+TX CBR ID 1264 B 23 SIZE 261 SRC 25 DST 1 T 15211.6
+TX CBR ID 1265 B 1 SIZE 261 SRC 3 DST 1 T 15212.5
+TX CBR ID 1266 B 18 SIZE 261 SRC 20 DST 1 T 15216.6
+TX CBR ID 1267 B 47 SIZE 261 SRC 49 DST 1 T 15256.6
+TX CBR ID 1268 B 12 SIZE 261 SRC 14 DST 1 T 15281.7
+TX CBR ID 1269 B 27 SIZE 261 SRC 29 DST 1 T 15291.7
+TX CBR ID 1270 B 26 SIZE 261 SRC 28 DST 1 T 15308.8
+TX CBR ID 1271 B 44 SIZE 261 SRC 46 DST 1 T 15326.5
+TX CBR ID 1272 B 7 SIZE 261 SRC 9 DST 1 T 15336.8
+TX CBR ID 1273 B 9 SIZE 261 SRC 11 DST 1 T 15337.9
+TX CBR ID 1274 B 16 SIZE 261 SRC 18 DST 1 T 15339.6
+TX CBR ID 1275 B 29 SIZE 261 SRC 31 DST 1 T 15354
+TX CBR ID 1276 B 33 SIZE 261 SRC 35 DST 1 T 15363.2
+TX CBR ID 1277 B 10 SIZE 261 SRC 12 DST 1 T 15383.9
+TX CBR ID 1278 B 35 SIZE 261 SRC 37 DST 1 T 15387
+TX CBR ID 1279 B 32 SIZE 261 SRC 34 DST 1 T 15396.5
+TX CBR ID 1280 B 11 SIZE 261 SRC 13 DST 1 T 15400.2
+TX CBR ID 1281 B 37 SIZE 261 SRC 39 DST 1 T 15405.2
+TX CBR ID 1282 B 49 SIZE 261 SRC 51 DST 1 T 15421.3
+TX CBR ID 1283 B 43 SIZE 261 SRC 45 DST 1 T 15423.7
+TX CBR ID 1284 B 5 SIZE 261 SRC 7 DST 1 T 15439.1
+TX CBR ID 1285 B 3 SIZE 261 SRC 5 DST 1 T 15458.6
+TX CBR ID 1286 B 34 SIZE 261 SRC 36 DST 1 T 15460.4
+TX CBR ID 1287 B 28 SIZE 261 SRC 30 DST 1 T 15480.8
+TX CBR ID 1288 B 36 SIZE 261 SRC 38 DST 1 T 15486.2
+TX CBR ID 1289 B 39 SIZE 261 SRC 41 DST 1 T 15492
+TX CBR ID 1290 B 31 SIZE 261 SRC 33 DST 1 T 15513
+TX CBR ID 1291 B 40 SIZE 261 SRC 42 DST 1 T 15548.8
+TX CBR ID 1292 B 0 SIZE 261 SRC 2 DST 1 T 15551.2
+TX CBR ID 1293 B 30 SIZE 261 SRC 32 DST 1 T 15552.9
+TX CBR ID 1294 B 22 SIZE 261 SRC 24 DST 1 T 15566.1
+TX CBR ID 1295 B 21 SIZE 261 SRC 23 DST 1 T 15573.6
+TX CBR ID 1296 B 24 SIZE 261 SRC 26 DST 1 T 15576.7
+TX CBR ID 1297 B 46 SIZE 261 SRC 48 DST 1 T 15576.7
+TX CBR ID 1298 B 42 SIZE 261 SRC 44 DST 1 T 15591.9
+TX CBR ID 1299 B 48 SIZE 261 SRC 50 DST 1 T 15596.1
+TX CBR ID 1300 B 14 SIZE 261 SRC 16 DST 1 T 15617.5
+TX CBR ID 1301 B 15 SIZE 261 SRC 17 DST 1 T 15637.3
+TX CBR ID 1302 B 2 SIZE 261 SRC 4 DST 1 T 15648.4
+TX CBR ID 1303 B 38 SIZE 261 SRC 40 DST 1 T 15651
+TX CBR ID 1304 B 45 SIZE 261 SRC 47 DST 1 T 15657.2
+TX CBR ID 1305 B 25 SIZE 261 SRC 27 DST 1 T 15670.5
+TX CBR ID 1306 B 19 SIZE 261 SRC 21 DST 1 T 15694.2
+TX CBR ID 1307 B 17 SIZE 261 SRC 19 DST 1 T 15717.1
+TX CBR ID 1308 B 8 SIZE 261 SRC 10 DST 1 T 15722.7
+TX CBR ID 1309 B 20 SIZE 261 SRC 22 DST 1 T 15746.6
+TX CBR ID 1310 B 4 SIZE 261 SRC 6 DST 1 T 15777.6
+TX CBR ID 1311 B 6 SIZE 261 SRC 8 DST 1 T 15796.5
+TX CBR ID 1312 B 13 SIZE 261 SRC 15 DST 1 T 15804.9
+TX CBR ID 1313 B 41 SIZE 261 SRC 43 DST 1 T 15810.4
+TX CBR ID 1314 B 23 SIZE 261 SRC 25 DST 1 T 15811.6
+TX CBR ID 1315 B 1 SIZE 261 SRC 3 DST 1 T 15812.5
+TX CBR ID 1316 B 18 SIZE 261 SRC 20 DST 1 T 15816.6
+TX CBR ID 1317 B 47 SIZE 261 SRC 49 DST 1 T 15856.6
+TX CBR ID 1318 B 12 SIZE 261 SRC 14 DST 1 T 15881.7
+TX CBR ID 1319 B 27 SIZE 261 SRC 29 DST 1 T 15891.7
+TX CBR ID 1320 B 26 SIZE 261 SRC 28 DST 1 T 15908.8
+TX CBR ID 1321 B 44 SIZE 261 SRC 46 DST 1 T 15926.5
+TX CBR ID 1322 B 7 SIZE 261 SRC 9 DST 1 T 15936.8
+TX CBR ID 1323 B 9 SIZE 261 SRC 11 DST 1 T 15937.9
+TX CBR ID 1324 B 16 SIZE 261 SRC 18 DST 1 T 15939.6
+TX CBR ID 1325 B 29 SIZE 261 SRC 31 DST 1 T 15954
+TX CBR ID 1326 B 33 SIZE 261 SRC 35 DST 1 T 15963.2
+TX CBR ID 1327 B 10 SIZE 261 SRC 12 DST 1 T 15983.9
+TX CBR ID 1328 B 35 SIZE 261 SRC 37 DST 1 T 15987
+TX CBR ID 1329 B 32 SIZE 261 SRC 34 DST 1 T 15996.5
+TX CBR ID 1330 B 11 SIZE 261 SRC 13 DST 1 T 16000.2
+TX CBR ID 1331 B 37 SIZE 261 SRC 39 DST 1 T 16005.2
+TX CBR ID 1332 B 49 SIZE 261 SRC 51 DST 1 T 16021.3
+TX CBR ID 1333 B 43 SIZE 261 SRC 45 DST 1 T 16023.7
+TX CBR ID 1334 B 5 SIZE 261 SRC 7 DST 1 T 16039.1
+TX CBR ID 1335 B 3 SIZE 261 SRC 5 DST 1 T 16058.6
+TX CBR ID 1336 B 34 SIZE 261 SRC 36 DST 1 T 16060.4
+TX CBR ID 1337 B 28 SIZE 261 SRC 30 DST 1 T 16080.8
+TX CBR ID 1338 B 36 SIZE 261 SRC 38 DST 1 T 16086.2
+TX CBR ID 1339 B 39 SIZE 261 SRC 41 DST 1 T 16092
+TX CBR ID 1340 B 31 SIZE 261 SRC 33 DST 1 T 16113
+TX CBR ID 1341 B 40 SIZE 261 SRC 42 DST 1 T 16148.8
+TX CBR ID 1342 B 0 SIZE 261 SRC 2 DST 1 T 16151.2
+TX CBR ID 1343 B 30 SIZE 261 SRC 32 DST 1 T 16152.9
+TX CBR ID 1344 B 22 SIZE 261 SRC 24 DST 1 T 16166.1
+TX CBR ID 1345 B 21 SIZE 261 SRC 23 DST 1 T 16173.6
+TX CBR ID 1346 B 24 SIZE 261 SRC 26 DST 1 T 16176.7
+TX CBR ID 1347 B 46 SIZE 261 SRC 48 DST 1 T 16176.7
+TX CBR ID 1348 B 42 SIZE 261 SRC 44 DST 1 T 16191.9
+TX CBR ID 1349 B 48 SIZE 261 SRC 50 DST 1 T 16196.1
+TX CBR ID 1350 B 14 SIZE 261 SRC 16 DST 1 T 16217.5
+TX CBR ID 1351 B 15 SIZE 261 SRC 17 DST 1 T 16237.3
+TX CBR ID 1352 B 2 SIZE 261 SRC 4 DST 1 T 16248.4
+TX CBR ID 1353 B 38 SIZE 261 SRC 40 DST 1 T 16251
+TX CBR ID 1354 B 45 SIZE 261 SRC 47 DST 1 T 16257.2
+TX CBR ID 1355 B 25 SIZE 261 SRC 27 DST 1 T 16270.5
+TX CBR ID 1356 B 19 SIZE 261 SRC 21 DST 1 T 16294.2
+TX CBR ID 1357 B 17 SIZE 261 SRC 19 DST 1 T 16317.1
+TX CBR ID 1358 B 8 SIZE 261 SRC 10 DST 1 T 16322.7
+TX CBR ID 1359 B 20 SIZE 261 SRC 22 DST 1 T 16346.6
+TX CBR ID 1360 B 4 SIZE 261 SRC 6 DST 1 T 16377.6
+TX CBR ID 1361 B 6 SIZE 261 SRC 8 DST 1 T 16396.5
+TX CBR ID 1362 B 13 SIZE 261 SRC 15 DST 1 T 16404.9
+TX CBR ID 1363 B 41 SIZE 261 SRC 43 DST 1 T 16410.4
+TX CBR ID 1364 B 23 SIZE 261 SRC 25 DST 1 T 16411.6
+TX CBR ID 1365 B 1 SIZE 261 SRC 3 DST 1 T 16412.5
+TX CBR ID 1366 B 18 SIZE 261 SRC 20 DST 1 T 16416.6
+TX CBR ID 1367 B 47 SIZE 261 SRC 49 DST 1 T 16456.6
+TX CBR ID 1368 B 12 SIZE 261 SRC 14 DST 1 T 16481.7
+TX CBR ID 1369 B 27 SIZE 261 SRC 29 DST 1 T 16491.7
+TX CBR ID 1370 B 26 SIZE 261 SRC 28 DST 1 T 16508.8
+TX CBR ID 1371 B 44 SIZE 261 SRC 46 DST 1 T 16526.5
+TX CBR ID 1372 B 7 SIZE 261 SRC 9 DST 1 T 16536.8
+TX CBR ID 1373 B 9 SIZE 261 SRC 11 DST 1 T 16537.9
+TX CBR ID 1374 B 16 SIZE 261 SRC 18 DST 1 T 16539.7
+TX CBR ID 1375 B 29 SIZE 261 SRC 31 DST 1 T 16554
+TX CBR ID 1376 B 33 SIZE 261 SRC 35 DST 1 T 16563.2
+TX CBR ID 1377 B 10 SIZE 261 SRC 12 DST 1 T 16583.9
+TX CBR ID 1378 B 35 SIZE 261 SRC 37 DST 1 T 16587
+TX CBR ID 1379 B 32 SIZE 261 SRC 34 DST 1 T 16596.5
+TX CBR ID 1380 B 11 SIZE 261 SRC 13 DST 1 T 16600.2
+TX CBR ID 1381 B 37 SIZE 261 SRC 39 DST 1 T 16605.2
+TX CBR ID 1382 B 49 SIZE 261 SRC 51 DST 1 T 16621.3
+TX CBR ID 1383 B 43 SIZE 261 SRC 45 DST 1 T 16623.7
+TX CBR ID 1384 B 5 SIZE 261 SRC 7 DST 1 T 16639.1
+TX CBR ID 1385 B 3 SIZE 261 SRC 5 DST 1 T 16658.6
+TX CBR ID 1386 B 34 SIZE 261 SRC 36 DST 1 T 16660.4
+TX CBR ID 1387 B 28 SIZE 261 SRC 30 DST 1 T 16680.8
+TX CBR ID 1388 B 36 SIZE 261 SRC 38 DST 1 T 16686.2
+TX CBR ID 1389 B 39 SIZE 261 SRC 41 DST 1 T 16692
+TX CBR ID 1390 B 31 SIZE 261 SRC 33 DST 1 T 16713
+TX CBR ID 1391 B 40 SIZE 261 SRC 42 DST 1 T 16748.8
+TX CBR ID 1392 B 0 SIZE 261 SRC 2 DST 1 T 16751.2
+TX CBR ID 1393 B 30 SIZE 261 SRC 32 DST 1 T 16752.9
+TX CBR ID 1394 B 22 SIZE 261 SRC 24 DST 1 T 16766.1
+TX CBR ID 1395 B 21 SIZE 261 SRC 23 DST 1 T 16773.6
+TX CBR ID 1396 B 24 SIZE 261 SRC 26 DST 1 T 16776.7
+TX CBR ID 1397 B 46 SIZE 261 SRC 48 DST 1 T 16776.7
+TX CBR ID 1398 B 42 SIZE 261 SRC 44 DST 1 T 16791.9
+TX CBR ID 1399 B 48 SIZE 261 SRC 50 DST 1 T 16796.1
+TX CBR ID 1400 B 14 SIZE 261 SRC 16 DST 1 T 16817.5
+TX CBR ID 1401 B 15 SIZE 261 SRC 17 DST 1 T 16837.3
+TX CBR ID 1402 B 2 SIZE 261 SRC 4 DST 1 T 16848.4
+TX CBR ID 1403 B 38 SIZE 261 SRC 40 DST 1 T 16851
+TX CBR ID 1404 B 45 SIZE 261 SRC 47 DST 1 T 16857.2
+TX CBR ID 1405 B 25 SIZE 261 SRC 27 DST 1 T 16870.5
+TX CBR ID 1406 B 19 SIZE 261 SRC 21 DST 1 T 16894.2
+TX CBR ID 1407 B 17 SIZE 261 SRC 19 DST 1 T 16917.1
+TX CBR ID 1408 B 8 SIZE 261 SRC 10 DST 1 T 16922.7
+TX CBR ID 1409 B 20 SIZE 261 SRC 22 DST 1 T 16946.6
+TX CBR ID 1410 B 4 SIZE 261 SRC 6 DST 1 T 16977.6
+TX CBR ID 1411 B 6 SIZE 261 SRC 8 DST 1 T 16996.5
+TX CBR ID 1412 B 13 SIZE 261 SRC 15 DST 1 T 17004.9
+TX CBR ID 1413 B 41 SIZE 261 SRC 43 DST 1 T 17010.4
+TX CBR ID 1414 B 23 SIZE 261 SRC 25 DST 1 T 17011.6
+TX CBR ID 1415 B 1 SIZE 261 SRC 3 DST 1 T 17012.5
+TX CBR ID 1416 B 18 SIZE 261 SRC 20 DST 1 T 17016.6
+TX CBR ID 1417 B 47 SIZE 261 SRC 49 DST 1 T 17056.6
+TX CBR ID 1418 B 12 SIZE 261 SRC 14 DST 1 T 17081.7
+TX CBR ID 1419 B 27 SIZE 261 SRC 29 DST 1 T 17091.7
+TX CBR ID 1420 B 26 SIZE 261 SRC 28 DST 1 T 17108.8
+TX CBR ID 1421 B 44 SIZE 261 SRC 46 DST 1 T 17126.5
+TX CBR ID 1422 B 7 SIZE 261 SRC 9 DST 1 T 17136.8
+TX CBR ID 1423 B 9 SIZE 261 SRC 11 DST 1 T 17137.9
+TX CBR ID 1424 B 16 SIZE 261 SRC 18 DST 1 T 17139.7
+TX CBR ID 1425 B 29 SIZE 261 SRC 31 DST 1 T 17154
+TX CBR ID 1426 B 33 SIZE 261 SRC 35 DST 1 T 17163.2
+TX CBR ID 1427 B 10 SIZE 261 SRC 12 DST 1 T 17183.9
+TX CBR ID 1428 B 35 SIZE 261 SRC 37 DST 1 T 17187
+TX CBR ID 1429 B 32 SIZE 261 SRC 34 DST 1 T 17196.5
+TX CBR ID 1430 B 11 SIZE 261 SRC 13 DST 1 T 17200.2
+TX CBR ID 1431 B 37 SIZE 261 SRC 39 DST 1 T 17205.2
+TX CBR ID 1432 B 49 SIZE 261 SRC 51 DST 1 T 17221.3
+TX CBR ID 1433 B 43 SIZE 261 SRC 45 DST 1 T 17223.7
+TX CBR ID 1434 B 5 SIZE 261 SRC 7 DST 1 T 17239.1
+TX CBR ID 1435 B 3 SIZE 261 SRC 5 DST 1 T 17258.6
+TX CBR ID 1436 B 34 SIZE 261 SRC 36 DST 1 T 17260.4
+TX CBR ID 1437 B 28 SIZE 261 SRC 30 DST 1 T 17280.8
+TX CBR ID 1438 B 36 SIZE 261 SRC 38 DST 1 T 17286.2
+TX CBR ID 1439 B 39 SIZE 261 SRC 41 DST 1 T 17292
+TX CBR ID 1440 B 31 SIZE 261 SRC 33 DST 1 T 17313
+TX CBR ID 1441 B 40 SIZE 261 SRC 42 DST 1 T 17348.8
+TX CBR ID 1442 B 0 SIZE 261 SRC 2 DST 1 T 17351.2
+TX CBR ID 1443 B 30 SIZE 261 SRC 32 DST 1 T 17352.9
+TX CBR ID 1444 B 22 SIZE 261 SRC 24 DST 1 T 17366.1
+TX CBR ID 1445 B 21 SIZE 261 SRC 23 DST 1 T 17373.6
+TX CBR ID 1446 B 24 SIZE 261 SRC 26 DST 1 T 17376.7
+TX CBR ID 1447 B 46 SIZE 261 SRC 48 DST 1 T 17376.7
+TX CBR ID 1448 B 42 SIZE 261 SRC 44 DST 1 T 17391.9
+TX CBR ID 1449 B 48 SIZE 261 SRC 50 DST 1 T 17396.1
+TX CBR ID 1450 B 14 SIZE 261 SRC 16 DST 1 T 17417.5
+TX CBR ID 1451 B 15 SIZE 261 SRC 17 DST 1 T 17437.3
+TX CBR ID 1452 B 2 SIZE 261 SRC 4 DST 1 T 17448.4
+TX CBR ID 1453 B 38 SIZE 261 SRC 40 DST 1 T 17451
+TX CBR ID 1454 B 45 SIZE 261 SRC 47 DST 1 T 17457.2
+TX CBR ID 1455 B 25 SIZE 261 SRC 27 DST 1 T 17470.5
+TX CBR ID 1456 B 19 SIZE 261 SRC 21 DST 1 T 17494.2
+TX CBR ID 1457 B 17 SIZE 261 SRC 19 DST 1 T 17517.1
+TX CBR ID 1458 B 8 SIZE 261 SRC 10 DST 1 T 17522.7
+TX CBR ID 1459 B 20 SIZE 261 SRC 22 DST 1 T 17546.6
+TX CBR ID 1460 B 4 SIZE 261 SRC 6 DST 1 T 17577.6
+TX CBR ID 1461 B 6 SIZE 261 SRC 8 DST 1 T 17596.5
+TX CBR ID 1462 B 13 SIZE 261 SRC 15 DST 1 T 17604.9
+TX CBR ID 1463 B 41 SIZE 261 SRC 43 DST 1 T 17610.4
+TX CBR ID 1464 B 23 SIZE 261 SRC 25 DST 1 T 17611.6
+TX CBR ID 1465 B 1 SIZE 261 SRC 3 DST 1 T 17612.5
+TX CBR ID 1466 B 18 SIZE 261 SRC 20 DST 1 T 17616.6
+TX CBR ID 1467 B 47 SIZE 261 SRC 49 DST 1 T 17656.6
+TX CBR ID 1468 B 12 SIZE 261 SRC 14 DST 1 T 17681.7
+TX CBR ID 1469 B 27 SIZE 261 SRC 29 DST 1 T 17691.7
+TX CBR ID 1470 B 26 SIZE 261 SRC 28 DST 1 T 17708.8
+TX CBR ID 1471 B 44 SIZE 261 SRC 46 DST 1 T 17726.5
+TX CBR ID 1472 B 7 SIZE 261 SRC 9 DST 1 T 17736.8
+TX CBR ID 1473 B 9 SIZE 261 SRC 11 DST 1 T 17737.9
+TX CBR ID 1474 B 16 SIZE 261 SRC 18 DST 1 T 17739.7
+TX CBR ID 1475 B 29 SIZE 261 SRC 31 DST 1 T 17754
+TX CBR ID 1476 B 33 SIZE 261 SRC 35 DST 1 T 17763.2
+TX CBR ID 1477 B 10 SIZE 261 SRC 12 DST 1 T 17783.9
+TX CBR ID 1478 B 35 SIZE 261 SRC 37 DST 1 T 17787
+TX CBR ID 1479 B 32 SIZE 261 SRC 34 DST 1 T 17796.5
+TX CBR ID 1480 B 11 SIZE 261 SRC 13 DST 1 T 17800.2
+TX CBR ID 1481 B 37 SIZE 261 SRC 39 DST 1 T 17805.2
+TX CBR ID 1482 B 49 SIZE 261 SRC 51 DST 1 T 17821.3
+TX CBR ID 1483 B 43 SIZE 261 SRC 45 DST 1 T 17823.7
+TX CBR ID 1484 B 5 SIZE 261 SRC 7 DST 1 T 17839.1
+TX CBR ID 1485 B 3 SIZE 261 SRC 5 DST 1 T 17858.6
+TX CBR ID 1486 B 34 SIZE 261 SRC 36 DST 1 T 17860.4
+TX CBR ID 1487 B 28 SIZE 261 SRC 30 DST 1 T 17880.8
+TX CBR ID 1488 B 36 SIZE 261 SRC 38 DST 1 T 17886.2
+TX CBR ID 1489 B 39 SIZE 261 SRC 41 DST 1 T 17892
+TX CBR ID 1490 B 31 SIZE 261 SRC 33 DST 1 T 17913
+TX CBR ID 1491 B 40 SIZE 261 SRC 42 DST 1 T 17948.8
+TX CBR ID 1492 B 0 SIZE 261 SRC 2 DST 1 T 17951.2
+TX CBR ID 1493 B 30 SIZE 261 SRC 32 DST 1 T 17952.9
+TX CBR ID 1494 B 22 SIZE 261 SRC 24 DST 1 T 17966.1
+TX CBR ID 1495 B 21 SIZE 261 SRC 23 DST 1 T 17973.6
+TX CBR ID 1496 B 24 SIZE 261 SRC 26 DST 1 T 17976.7
+TX CBR ID 1497 B 46 SIZE 261 SRC 48 DST 1 T 17976.7
+TX CBR ID 1498 B 42 SIZE 261 SRC 44 DST 1 T 17991.9
+TX CBR ID 1499 B 48 SIZE 261 SRC 50 DST 1 T 17996.1
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 2 distanza:582777
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 3 distanza:582864
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 4 distanza:582812
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 5 distanza:582902
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 6 distanza:582877
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 7 distanza:582850
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 8 distanza:582947
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 9 distanza:582883
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 10 distanza:582863
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 11 distanza:582827
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 12 distanza:582825
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 13 distanza:582865
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 14 distanza:582846
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 15 distanza:582905
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 16 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 17 distanza:582868
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 18 distanza:582871
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 19 distanza:582802
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 20 distanza:582856
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 21 distanza:582800
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 22 distanza:582764
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 23 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 24 distanza:582809
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 25 distanza:582758
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 26 distanza:582772
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 27 distanza:582965
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 28 distanza:582771
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 29 distanza:582796
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 30 distanza:582908
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 31 distanza:582912
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 32 distanza:582897
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 33 distanza:582892
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 34 distanza:582795
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 35 distanza:582834
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 36 distanza:582838
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 37 distanza:582907
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 38 distanza:582783
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 39 distanza:582948
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 40 distanza:582785
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 41 distanza:582955
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 42 distanza:582837
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 43 distanza:582853
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 44 distanza:582942
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 45 distanza:582766
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 46 distanza:582833
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 47 distanza:582849
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 48 distanza:582799
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 49 distanza:582943
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 50 distanza:582818
+Procedura di !!!!  ATTACH  !!!! avviata a tempo: 18000.2 UE id: 51 distanza:582902
+TX CBR ID 1500 B 14 SIZE 261 SRC 16 DST 1 T 18017.5
+RACH INFO CLASS 0 SF 18017608 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1300 B 14 SIZE 256 SRC 16 DST 1 D 2400.4
+RX CBR ID 1350 B 14 SIZE 256 SRC 16 DST 1 D 1800.56
+RX CBR ID 1400 B 14 SIZE 256 SRC 16 DST 1 D 1200.72
+RX CBR ID 1450 B 14 SIZE 256 SRC 16 DST 1 D 600.972
+RX CBR ID 1500 B 14 SIZE 256 SRC 16 DST 1 D 1.092
+TX CBR ID 1501 B 15 SIZE 261 SRC 17 DST 1 T 18037.3
+RACH INFO CLASS 0 SF 18037448 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1301 B 15 SIZE 256 SRC 17 DST 1 D 2400.29
+RX CBR ID 1351 B 15 SIZE 256 SRC 17 DST 1 D 1800.37
+RX CBR ID 1401 B 15 SIZE 256 SRC 17 DST 1 D 1200.46
+RX CBR ID 1451 B 15 SIZE 256 SRC 17 DST 1 D 600.616
+RX CBR ID 1501 B 15 SIZE 256 SRC 17 DST 1 D 0.656
+TX CBR ID 1502 B 2 SIZE 261 SRC 4 DST 1 T 18048.4
+RACH INFO CLASS 0 SF 18048648 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1302 B 2 SIZE 256 SRC 4 DST 1 D 2400.46
+RX CBR ID 1352 B 2 SIZE 256 SRC 4 DST 1 D 1800.71
+RX CBR ID 1402 B 2 SIZE 256 SRC 4 DST 1 D 1200.87
+RX CBR ID 1452 B 2 SIZE 256 SRC 4 DST 1 D 601.114
+RX CBR ID 1502 B 2 SIZE 256 SRC 4 DST 1 D 1.314
+TX CBR ID 1503 B 38 SIZE 261 SRC 40 DST 1 T 18051
+RACH INFO CLASS 0 SF 18051208 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1303 B 38 SIZE 256 SRC 40 DST 1 D 2400.66
+RX CBR ID 1353 B 38 SIZE 256 SRC 40 DST 1 D 1801.16
+RX CBR ID 1403 B 38 SIZE 256 SRC 40 DST 1 D 1201.64
+RX CBR ID 1453 B 38 SIZE 256 SRC 40 DST 1 D 602.141
+RX CBR ID 1503 B 38 SIZE 256 SRC 40 DST 1 D 2.613
+TX CBR ID 1504 B 45 SIZE 261 SRC 47 DST 1 T 18057.2
+RACH INFO CLASS 0 SF 18057288 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1304 B 45 SIZE 256 SRC 47 DST 1 D 2400.27
+RX CBR ID 1354 B 45 SIZE 256 SRC 47 DST 1 D 1800.35
+RX CBR ID 1404 B 45 SIZE 256 SRC 47 DST 1 D 1200.52
+RX CBR ID 1454 B 45 SIZE 256 SRC 47 DST 1 D 600.595
+RX CBR ID 1504 B 45 SIZE 256 SRC 47 DST 1 D 0.699
+TX CBR ID 1505 B 25 SIZE 261 SRC 27 DST 1 T 18070.5
+RACH INFO CLASS 0 SF 18070728 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1305 B 25 SIZE 256 SRC 27 DST 1 D 2401.13
+RX CBR ID 1355 B 25 SIZE 256 SRC 27 DST 1 D 1802.04
+RX CBR ID 1405 B 25 SIZE 256 SRC 27 DST 1 D 1202.94
+RX CBR ID 1455 B 25 SIZE 256 SRC 27 DST 1 D 603.846
+RX CBR ID 1505 B 25 SIZE 256 SRC 27 DST 1 D 4.75
+TX CBR ID 1506 B 19 SIZE 261 SRC 21 DST 1 T 18094.2
+RACH INFO CLASS 0 SF 18094408 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1306 B 19 SIZE 256 SRC 21 DST 1 D 2400.52
+RX CBR ID 1356 B 19 SIZE 256 SRC 21 DST 1 D 1800.76
+RX CBR ID 1406 B 19 SIZE 256 SRC 21 DST 1 D 1201.09
+RX CBR ID 1456 B 19 SIZE 256 SRC 21 DST 1 D 601.34
+RX CBR ID 1506 B 19 SIZE 256 SRC 21 DST 1 D 1.628
+TX CBR ID 1507 B 17 SIZE 261 SRC 19 DST 1 T 18117.1
+RACH INFO CLASS 0 SF 18117128 WIN 1 COLLISIONS 0 TOT 1
+RX CBR ID 1307 B 17 SIZE 256 SRC 19 DST 1 D 2400.39
+RX CBR ID 1357 B 17 SIZE 256 SRC 19 DST 1 D 1800.63
+RX CBR ID 1407 B 17 SIZE 256 SRC 19 DST 1 D 1200.96
+RX CBR ID 1457 B 17 SIZE 256 SRC 19 DST 1 D 601.208
+RX CBR ID 1507 B 17 SIZE 256 SRC 19 DST 1 D 1.496
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 2 distanza:583154
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 3 distanza:583067
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 4 distanza:583119
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 5 distanza:583029
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 6 distanza:583054
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 7 distanza:583081
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 9 distanza:583047
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 10 distanza:583068
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 11 distanza:583104
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 12 distanza:583106
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 13 distanza:583066
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 14 distanza:583085
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 15 distanza:583026
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 16 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 17 distanza:583063
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 18 distanza:583060
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 19 distanza:583129
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 20 distanza:583074
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 21 distanza:583131
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 22 distanza:583167
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 24 distanza:583121
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 25 distanza:583173
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 26 distanza:583159
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 28 distanza:583160
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 29 distanza:583135
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 30 distanza:583022
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 31 distanza:583019
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 32 distanza:583033
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 33 distanza:583038
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 34 distanza:583136
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 35 distanza:583097
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 36 distanza:583093
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 37 distanza:583023
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 38 distanza:583148
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 40 distanza:583146
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 42 distanza:583094
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 43 distanza:583078
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 45 distanza:583165
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 46 distanza:583098
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 47 distanza:583082
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 48 distanza:583132
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 50 distanza:583113
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.1 UE id: 51 distanza:583029
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.2 UE id: 8 distanza:583241
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.2 UE id: 23 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.2 UE id: 27 distanza:583223
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.2 UE id: 39 distanza:583240
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.2 UE id: 41 distanza:583233
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.2 UE id: 44 distanza:583246
+Procedura di !!!! DETACH !!!! avviata a tempo: 18120.2 UE id: 49 distanza:583245
+TX CBR ID 1508 B 8 SIZE 261 SRC 10 DST 1 T 18122.7
+Procedura di !!!! DETACH !!!! avviata a tempo: 18128.6 UE id: 19 distanza:606096
+TX CBR ID 1509 B 20 SIZE 261 SRC 22 DST 1 T 18146.6
+TX CBR ID 1510 B 4 SIZE 261 SRC 6 DST 1 T 18177.6
+TX CBR ID 1511 B 6 SIZE 261 SRC 8 DST 1 T 18196.5
+TX CBR ID 1512 B 13 SIZE 261 SRC 15 DST 1 T 18204.9
+TX CBR ID 1513 B 41 SIZE 261 SRC 43 DST 1 T 18210.4
+TX CBR ID 1514 B 23 SIZE 261 SRC 25 DST 1 T 18211.6
+TX CBR ID 1515 B 1 SIZE 261 SRC 3 DST 1 T 18212.5
+TX CBR ID 1516 B 18 SIZE 261 SRC 20 DST 1 T 18216.6
+TX CBR ID 1517 B 47 SIZE 261 SRC 49 DST 1 T 18256.6
+TX CBR ID 1518 B 12 SIZE 261 SRC 14 DST 1 T 18281.7
+TX CBR ID 1519 B 27 SIZE 261 SRC 29 DST 1 T 18291.7
+TX CBR ID 1520 B 26 SIZE 261 SRC 28 DST 1 T 18308.8
+TX CBR ID 1521 B 44 SIZE 261 SRC 46 DST 1 T 18326.5
+TX CBR ID 1522 B 7 SIZE 261 SRC 9 DST 1 T 18336.8
+TX CBR ID 1523 B 9 SIZE 261 SRC 11 DST 1 T 18337.9
+TX CBR ID 1524 B 16 SIZE 261 SRC 18 DST 1 T 18339.7
+TX CBR ID 1525 B 29 SIZE 261 SRC 31 DST 1 T 18354
+TX CBR ID 1526 B 33 SIZE 261 SRC 35 DST 1 T 18363.2
+TX CBR ID 1527 B 10 SIZE 261 SRC 12 DST 1 T 18383.9
+TX CBR ID 1528 B 35 SIZE 261 SRC 37 DST 1 T 18387
+TX CBR ID 1529 B 32 SIZE 261 SRC 34 DST 1 T 18396.5
+TX CBR ID 1530 B 11 SIZE 261 SRC 13 DST 1 T 18400.2
+TX CBR ID 1531 B 37 SIZE 261 SRC 39 DST 1 T 18405.2
+TX CBR ID 1532 B 49 SIZE 261 SRC 51 DST 1 T 18421.3
+TX CBR ID 1533 B 43 SIZE 261 SRC 45 DST 1 T 18423.7
+TX CBR ID 1534 B 5 SIZE 261 SRC 7 DST 1 T 18439.1
+TX CBR ID 1535 B 3 SIZE 261 SRC 5 DST 1 T 18458.6
+TX CBR ID 1536 B 34 SIZE 261 SRC 36 DST 1 T 18460.4
+TX CBR ID 1537 B 28 SIZE 261 SRC 30 DST 1 T 18480.8
+TX CBR ID 1538 B 36 SIZE 261 SRC 38 DST 1 T 18486.2
+TX CBR ID 1539 B 39 SIZE 261 SRC 41 DST 1 T 18492
+TX CBR ID 1540 B 31 SIZE 261 SRC 33 DST 1 T 18513
+TX CBR ID 1541 B 40 SIZE 261 SRC 42 DST 1 T 18548.8
+TX CBR ID 1542 B 0 SIZE 261 SRC 2 DST 1 T 18551.2
+TX CBR ID 1543 B 30 SIZE 261 SRC 32 DST 1 T 18552.9
+TX CBR ID 1544 B 22 SIZE 261 SRC 24 DST 1 T 18566.1
+TX CBR ID 1545 B 21 SIZE 261 SRC 23 DST 1 T 18573.6
+TX CBR ID 1546 B 24 SIZE 261 SRC 26 DST 1 T 18576.7
+TX CBR ID 1547 B 46 SIZE 261 SRC 48 DST 1 T 18576.7
+TX CBR ID 1548 B 42 SIZE 261 SRC 44 DST 1 T 18591.9
+TX CBR ID 1549 B 48 SIZE 261 SRC 50 DST 1 T 18596.1
+TX CBR ID 1550 B 14 SIZE 261 SRC 16 DST 1 T 18617.5
+TX CBR ID 1551 B 15 SIZE 261 SRC 17 DST 1 T 18637.3
+TX CBR ID 1552 B 2 SIZE 261 SRC 4 DST 1 T 18648.4
+TX CBR ID 1553 B 38 SIZE 261 SRC 40 DST 1 T 18651
+TX CBR ID 1554 B 45 SIZE 261 SRC 47 DST 1 T 18657.2
+TX CBR ID 1555 B 25 SIZE 261 SRC 27 DST 1 T 18670.5
+TX CBR ID 1556 B 19 SIZE 261 SRC 21 DST 1 T 18694.2
+TX CBR ID 1557 B 17 SIZE 261 SRC 19 DST 1 T 18717.1
+TX CBR ID 1558 B 8 SIZE 261 SRC 10 DST 1 T 18722.7
+TX CBR ID 1559 B 20 SIZE 261 SRC 22 DST 1 T 18746.6
+TX CBR ID 1560 B 4 SIZE 261 SRC 6 DST 1 T 18777.6
+TX CBR ID 1561 B 6 SIZE 261 SRC 8 DST 1 T 18796.5
+TX CBR ID 1562 B 13 SIZE 261 SRC 15 DST 1 T 18804.9
+TX CBR ID 1563 B 41 SIZE 261 SRC 43 DST 1 T 18810.4
+TX CBR ID 1564 B 23 SIZE 261 SRC 25 DST 1 T 18811.6
+TX CBR ID 1565 B 1 SIZE 261 SRC 3 DST 1 T 18812.5
+TX CBR ID 1566 B 18 SIZE 261 SRC 20 DST 1 T 18816.6
+TX CBR ID 1567 B 47 SIZE 261 SRC 49 DST 1 T 18856.6
+TX CBR ID 1568 B 12 SIZE 261 SRC 14 DST 1 T 18881.7
+TX CBR ID 1569 B 27 SIZE 261 SRC 29 DST 1 T 18891.7
+TX CBR ID 1570 B 26 SIZE 261 SRC 28 DST 1 T 18908.8
+TX CBR ID 1571 B 44 SIZE 261 SRC 46 DST 1 T 18926.5
+TX CBR ID 1572 B 7 SIZE 261 SRC 9 DST 1 T 18936.8
+TX CBR ID 1573 B 9 SIZE 261 SRC 11 DST 1 T 18937.9
+TX CBR ID 1574 B 16 SIZE 261 SRC 18 DST 1 T 18939.7
+TX CBR ID 1575 B 29 SIZE 261 SRC 31 DST 1 T 18954
+TX CBR ID 1576 B 33 SIZE 261 SRC 35 DST 1 T 18963.2
+TX CBR ID 1577 B 10 SIZE 261 SRC 12 DST 1 T 18983.9
+TX CBR ID 1578 B 35 SIZE 261 SRC 37 DST 1 T 18987
+TX CBR ID 1579 B 32 SIZE 261 SRC 34 DST 1 T 18996.5
+TX CBR ID 1580 B 11 SIZE 261 SRC 13 DST 1 T 19000.2
+TX CBR ID 1581 B 37 SIZE 261 SRC 39 DST 1 T 19005.2
+TX CBR ID 1582 B 49 SIZE 261 SRC 51 DST 1 T 19021.3
+TX CBR ID 1583 B 43 SIZE 261 SRC 45 DST 1 T 19023.7
+TX CBR ID 1584 B 5 SIZE 261 SRC 7 DST 1 T 19039.1
+TX CBR ID 1585 B 3 SIZE 261 SRC 5 DST 1 T 19058.6
+TX CBR ID 1586 B 34 SIZE 261 SRC 36 DST 1 T 19060.4
+TX CBR ID 1587 B 28 SIZE 261 SRC 30 DST 1 T 19080.8
+TX CBR ID 1588 B 36 SIZE 261 SRC 38 DST 1 T 19086.2
+TX CBR ID 1589 B 39 SIZE 261 SRC 41 DST 1 T 19092
+TX CBR ID 1590 B 31 SIZE 261 SRC 33 DST 1 T 19113
+TX CBR ID 1591 B 40 SIZE 261 SRC 42 DST 1 T 19148.8
+TX CBR ID 1592 B 0 SIZE 261 SRC 2 DST 1 T 19151.2
+TX CBR ID 1593 B 30 SIZE 261 SRC 32 DST 1 T 19152.9
+TX CBR ID 1594 B 22 SIZE 261 SRC 24 DST 1 T 19166.1
+TX CBR ID 1595 B 21 SIZE 261 SRC 23 DST 1 T 19173.6
+TX CBR ID 1596 B 24 SIZE 261 SRC 26 DST 1 T 19176.7
+TX CBR ID 1597 B 46 SIZE 261 SRC 48 DST 1 T 19176.7
+TX CBR ID 1598 B 42 SIZE 261 SRC 44 DST 1 T 19191.9
+TX CBR ID 1599 B 48 SIZE 261 SRC 50 DST 1 T 19196.1
+TX CBR ID 1600 B 14 SIZE 261 SRC 16 DST 1 T 19217.5
+TX CBR ID 1601 B 15 SIZE 261 SRC 17 DST 1 T 19237.3
+TX CBR ID 1602 B 2 SIZE 261 SRC 4 DST 1 T 19248.4
+TX CBR ID 1603 B 38 SIZE 261 SRC 40 DST 1 T 19251
+TX CBR ID 1604 B 45 SIZE 261 SRC 47 DST 1 T 19257.2
+TX CBR ID 1605 B 25 SIZE 261 SRC 27 DST 1 T 19270.5
+TX CBR ID 1606 B 19 SIZE 261 SRC 21 DST 1 T 19294.2
+TX CBR ID 1607 B 17 SIZE 261 SRC 19 DST 1 T 19317.1
+TX CBR ID 1608 B 8 SIZE 261 SRC 10 DST 1 T 19322.7
+TX CBR ID 1609 B 20 SIZE 261 SRC 22 DST 1 T 19346.6
+TX CBR ID 1610 B 4 SIZE 261 SRC 6 DST 1 T 19377.6
+TX CBR ID 1611 B 6 SIZE 261 SRC 8 DST 1 T 19396.5
+TX CBR ID 1612 B 13 SIZE 261 SRC 15 DST 1 T 19404.9
+TX CBR ID 1613 B 41 SIZE 261 SRC 43 DST 1 T 19410.4
+TX CBR ID 1614 B 23 SIZE 261 SRC 25 DST 1 T 19411.6
+TX CBR ID 1615 B 1 SIZE 261 SRC 3 DST 1 T 19412.5
+TX CBR ID 1616 B 18 SIZE 261 SRC 20 DST 1 T 19416.6
+TX CBR ID 1617 B 47 SIZE 261 SRC 49 DST 1 T 19456.6
+TX CBR ID 1618 B 12 SIZE 261 SRC 14 DST 1 T 19481.7
+TX CBR ID 1619 B 27 SIZE 261 SRC 29 DST 1 T 19491.7
+TX CBR ID 1620 B 26 SIZE 261 SRC 28 DST 1 T 19508.8
+TX CBR ID 1621 B 44 SIZE 261 SRC 46 DST 1 T 19526.5
+TX CBR ID 1622 B 7 SIZE 261 SRC 9 DST 1 T 19536.8
+TX CBR ID 1623 B 9 SIZE 261 SRC 11 DST 1 T 19537.9
+TX CBR ID 1624 B 16 SIZE 261 SRC 18 DST 1 T 19539.7
+TX CBR ID 1625 B 29 SIZE 261 SRC 31 DST 1 T 19554
+TX CBR ID 1626 B 33 SIZE 261 SRC 35 DST 1 T 19563.2
+TX CBR ID 1627 B 10 SIZE 261 SRC 12 DST 1 T 19583.9
+TX CBR ID 1628 B 35 SIZE 261 SRC 37 DST 1 T 19587
+TX CBR ID 1629 B 32 SIZE 261 SRC 34 DST 1 T 19596.5
+TX CBR ID 1630 B 11 SIZE 261 SRC 13 DST 1 T 19600.2
+TX CBR ID 1631 B 37 SIZE 261 SRC 39 DST 1 T 19605.2
+TX CBR ID 1632 B 49 SIZE 261 SRC 51 DST 1 T 19621.3
+TX CBR ID 1633 B 43 SIZE 261 SRC 45 DST 1 T 19623.7
+TX CBR ID 1634 B 5 SIZE 261 SRC 7 DST 1 T 19639.1
+TX CBR ID 1635 B 3 SIZE 261 SRC 5 DST 1 T 19658.6
+TX CBR ID 1636 B 34 SIZE 261 SRC 36 DST 1 T 19660.4
+TX CBR ID 1637 B 28 SIZE 261 SRC 30 DST 1 T 19680.8
+TX CBR ID 1638 B 36 SIZE 261 SRC 38 DST 1 T 19686.2
+TX CBR ID 1639 B 39 SIZE 261 SRC 41 DST 1 T 19692
+TX CBR ID 1640 B 31 SIZE 261 SRC 33 DST 1 T 19713
+TX CBR ID 1641 B 40 SIZE 261 SRC 42 DST 1 T 19748.8
+TX CBR ID 1642 B 0 SIZE 261 SRC 2 DST 1 T 19751.2
+TX CBR ID 1643 B 30 SIZE 261 SRC 32 DST 1 T 19752.9
+TX CBR ID 1644 B 22 SIZE 261 SRC 24 DST 1 T 19766.1
+TX CBR ID 1645 B 21 SIZE 261 SRC 23 DST 1 T 19773.6
+TX CBR ID 1646 B 24 SIZE 261 SRC 26 DST 1 T 19776.7
+TX CBR ID 1647 B 46 SIZE 261 SRC 48 DST 1 T 19776.7
+TX CBR ID 1648 B 42 SIZE 261 SRC 44 DST 1 T 19791.9
+TX CBR ID 1649 B 48 SIZE 261 SRC 50 DST 1 T 19796.1
+TX CBR ID 1650 B 14 SIZE 261 SRC 16 DST 1 T 19817.5
+TX CBR ID 1651 B 15 SIZE 261 SRC 17 DST 1 T 19837.3
+TX CBR ID 1652 B 2 SIZE 261 SRC 4 DST 1 T 19848.4
+TX CBR ID 1653 B 38 SIZE 261 SRC 40 DST 1 T 19851
+TX CBR ID 1654 B 45 SIZE 261 SRC 47 DST 1 T 19857.2
+TX CBR ID 1655 B 25 SIZE 261 SRC 27 DST 1 T 19870.5
+TX CBR ID 1656 B 19 SIZE 261 SRC 21 DST 1 T 19894.2
+TX CBR ID 1657 B 17 SIZE 261 SRC 19 DST 1 T 19917.1
+TX CBR ID 1658 B 8 SIZE 261 SRC 10 DST 1 T 19922.7
+TX CBR ID 1659 B 20 SIZE 261 SRC 22 DST 1 T 19946.6
+TX CBR ID 1660 B 4 SIZE 261 SRC 6 DST 1 T 19977.6
+TX CBR ID 1661 B 6 SIZE 261 SRC 8 DST 1 T 19996.5
+ SIMULATOR_DEBUG: Stop (104273579 events)

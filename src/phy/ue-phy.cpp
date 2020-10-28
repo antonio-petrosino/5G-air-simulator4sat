@@ -120,15 +120,12 @@ UePhy::StartTx (shared_ptr<PacketBurst> p)
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy tx" << endl;
 DEBUG_LOG_END
-
   GetUlChannel ()->StartTx (p, GetTxSignal (), GetDevice ());
-  //cout << "StartTX #125 ue-phy.cpp" << endl;
 }
 
 void
 UePhy::StartRx (shared_ptr<PacketBurst> p, ReceivedSignal* rxSignal)
 {
-	//cout << "StartRX #131 ue-phy.cpp" << endl;
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy rx" << endl;
 DEBUG_LOG_END

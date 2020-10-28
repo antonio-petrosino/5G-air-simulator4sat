@@ -69,65 +69,64 @@ static void nbCell_Satellite (int argc, char *argv[])
 {
 	// ./5G-air-simulator nbCell-Sat rural 0 100 0.3 50 5 1 15 1 60 256 4 1 1 3 1 12 48 320 8 256 > TracingTest.txt
 
-    string environment(argv[2]); // "suburban" or "rural"
-    int schedUL = atoi(argv[3]);
-    double dur = atoi(argv[4]); // [s]
-    double radius = atof(argv[5]); // [km]
-    //cout<< "Radius = " << radius << endl;
-    int nbUE = atoi(argv[6]);
-    double bandwidth = atof(argv[7]); // [MHz] max 15MHz
-    int carriers = atoi(argv[8]);  // 1 carrier -> solo 48 preambolo
-    double spacing = atof(argv[9]); // 15 kHz or 3.75 kHz
-    int tones = atoi(argv[10]); // 1,3,12
-    int CBR_interval = atoi(argv[11]); // scenario agricoltura 1 ogni ora [s]
-    int CBR_size = atoi(argv[12]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
-    int totPreambleTx = atoi(argv[13]); // tentativi di RACH procedure
-    int nbCE = atoi(argv[14]); // numero coverage class
-    
-    std::map<double, int> ceProb;
-    std::map<int, int> maxPreambleTx;
-    std::map<int, int> preambleRep;
-    std::map<int, int> rarWindow;
-    std::map<int, int> nbPre;
-    std::map<int, int> rachPeriod;
-    std::map<int, int> rachOffset;
-    std::map<int, int> boWindow;
+	string environment(argv[2]); // "suburban" or "rural"
+	int schedUL = atoi(argv[3]);
+	double dur = atoi(argv[4]); // [s]
+	double radius = atof(argv[5]); // [km]
+	//cout<< "Radius = " << radius << endl;
+	int nbUE = atoi(argv[6]);
+	double bandwidth = atof(argv[7]); // [MHz] max 15MHz
+	int carriers = atoi(argv[8]);  // 1 carrier -> solo 48 preambolo
+	double spacing = atof(argv[9]); // 15 kHz or 3.75 kHz
+	int tones = atoi(argv[10]); // 1,3,12
+	int CBR_interval = atoi(argv[11]); // scenario agricoltura 1 ogni ora [s]
+	int CBR_size = atoi(argv[12]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
+	int totPreambleTx = atoi(argv[13]); // tentativi di RACH procedure
+	int nbCE = atoi(argv[14]); // numero coverage class
+
+	std::map<double, int> ceProb;
+	std::map<int, int> maxPreambleTx;
+	std::map<int, int> preambleRep;
+	std::map<int, int> rarWindow;
+	std::map<int, int> nbPre;
+	std::map<int, int> rachPeriod;
+	std::map<int, int> rachOffset;
+	std::map<int, int> boWindow;
     
     // al varariare della coverage class
     for (int i=0; i<nbCE; i++)
     {
+		if (i==nbCE-1)
+		  ceProb.insert(std::make_pair(1, i));
+		else if (i==0)
+		  ceProb.insert(std::make_pair(atof(argv[15+i])/100,i));
+		else
+		  ceProb.insert(std::make_pair((atof(argv[15+i])/100) + (atof(argv[14+i])/100), i));
 
-    if (i==nbCE-1)
-      ceProb.insert(std::make_pair(1, i));
-    else if (i==0)
-      ceProb.insert(std::make_pair(atof(argv[15+i])/100,i));
-    else
-      ceProb.insert(std::make_pair((atof(argv[15+i])/100) + (atof(argv[14+i])/100), i));
-
-    maxPreambleTx.insert(std::make_pair(i, atoi(argv[15+nbCE+i])));
-    preambleRep.insert(std::make_pair(i, atoi(argv[15+(nbCE*2)+i])));
-    rarWindow.insert(std::make_pair(i, atoi(argv[15+(nbCE*3)+i]))); // ordine dei 10 [ms]
-    nbPre.insert(std::make_pair(i, atoi(argv[15+(nbCE*4)+i]))); // nP
-    rachPeriod.insert(std::make_pair(i, atoi(argv[15+(nbCE*5)+i])));
-    rachOffset.insert(std::make_pair(i, atoi(argv[15+(nbCE*6)+i]))); // dall inizio della visibilita del sat fino alla fine del cell search
-    boWindow.insert(std::make_pair(i, atoi(argv[15+(nbCE*7)+i]))); // backoff window
+		maxPreambleTx.insert(std::make_pair(i, atoi(argv[15+nbCE+i])));
+		preambleRep.insert(std::make_pair(i, atoi(argv[15+(nbCE*2)+i])));
+		rarWindow.insert(std::make_pair(i, atoi(argv[15+(nbCE*3)+i]))); // ordine dei 10 [ms]
+		nbPre.insert(std::make_pair(i, atoi(argv[15+(nbCE*4)+i]))); // nP
+		rachPeriod.insert(std::make_pair(i, atoi(argv[15+(nbCE*5)+i])));
+		rachOffset.insert(std::make_pair(i, atoi(argv[15+(nbCE*6)+i]))); // dall inizio della visibilita del sat fino alla fine del cell search
+		boWindow.insert(std::make_pair(i, atoi(argv[15+(nbCE*7)+i]))); // backoff window
   }
     
-int seed;
-  if (argc==16+(nbCE*8))
-    {
-      seed = atoi(argv[15+(nbCE*8)]);
-    }
-  else
-    {
-      seed = -1;
-    }
+    int seed;
+	if (argc==16+(nbCE*8))
+	{
+	  seed = atoi(argv[15+(nbCE*8)]);
+	}
+	else
+	{
+	  seed = -1;
+	}
 
-  	cout << "Visualizza prob." << endl;
-    for(auto it = ceProb.cbegin(); it != ceProb.cend(); ++it)
-    {
-        std::cout << it->first << " " << it->second << "\n";
-    }    
+	cout << "Visualizza prob." << endl;
+	for(auto it = ceProb.cbegin(); it != ceProb.cend(); ++it)
+	{
+		std::cout << it->first << " " << it->second << "\n";
+	}
         
     //int etilt; //degrees
     double carrierFreq; //MHz
@@ -230,31 +229,31 @@ int seed;
     
     std::mt19937 gen(seed>=0 ? seed : time(NULL));
 
-  cout << "Simulation with SEED = " << seed << endl;
-  cout << "Duration: " << duration << " flow: " << flow_duration << endl;
+	cout << "Simulation with SEED = " << seed << endl;
+	cout << "Duration: " << duration << " flow: " << flow_duration << endl;
 
-  // SET FRAME STRUCTURE
-  frameManager->SetFrameStructure(FrameManager::FRAME_STRUCTURE_FDD);
-  frameManager->SetNRep(1);
+	// SET FRAME STRUCTURE
+	frameManager->SetFrameStructure(FrameManager::FRAME_STRUCTURE_FDD);
+	frameManager->SetNRep(1);
 
-  //Define Application Container
-  CBR CBRApplication[nbUE];
-  int cbrApplication = 0;
-  int destinationPort = 101;
-  int applicationID = 0;
+	//Define Application Container
+	CBR CBRApplication[nbUE];
+	int cbrApplication = 0;
+	int destinationPort = 101;
+	int applicationID = 0;
 
-  // CREATE CELL
-  Cell *cell = new Cell (0, radius, 0.005, 0, 0);
+	// CREATE CELL
+	Cell *cell = new Cell (0, radius, 0.005, 0, 0);
 
-  networkManager->GetCellContainer ()->push_back (cell);
+	networkManager->GetCellContainer ()->push_back (cell);
 
-  // CREATE CHANNELS and propagation loss model
-  RadioChannel *dlCh = new RadioChannel ();
-  RadioChannel *ulCh = new RadioChannel ();
+	// CREATE CHANNELS and propagation loss model
+	RadioChannel *dlCh = new RadioChannel ();
+	RadioChannel *ulCh = new RadioChannel ();
 
-  // CREATE SPECTRUM
-  BandwidthManager* spectrum = new BandwidthManager (bandwidth, bandwidth, 0, 0);
-  spectrum->CreateNbIoTspectrum(carriers, spacing, tones);
+	// CREATE SPECTRUM
+	BandwidthManager* spectrum = new BandwidthManager (bandwidth, bandwidth, 0, 0);
+	spectrum->CreateNbIoTspectrum(carriers, spacing, tones);
 
     cout << "TTI Length: ";
     frameManager->setTTILength(tones, spacing);
@@ -287,6 +286,7 @@ int seed;
     // The simulator handles only UPLINK case
     
     //Create GNodeB
+    NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
     GNodeB* gnb = new GNodeB (1, cell, -300310, 0, 500000, "sat"); // scenario satellitare a 500km
     gnb->SetRandomAccessType(m_GnbRandomAccessType);
     gnb->GetPhy ()->SetDlChannel (dlCh);
@@ -351,137 +351,144 @@ int seed;
 
     for (int i = 0; i < nbUE; i++)
     {
-    zone = zoneDis(gen); // le UE vengono assegnate in modo uniforme a tutte le zone
-    cout << "ZONE " << zone;
-    low = edges[nbOfZones - 1 - zone];
-    cout << " LOW EDGE " << low;
+		zone = zoneDis(gen); // la UE viene assegnata in modo uniforme
+		cout << "ZONE " << zone;
+		low = edges[nbOfZones - 1 - zone];
+		cout << " LOW EDGE " << low;
 
-    distance = spaDis(gen) + (double) low;
+		distance = spaDis(gen) + (double) low;
 
-    cout << " DISTANCE " << distance;
-    cout << endl;
+		cout << " DISTANCE " << distance;
+		cout << endl;
 
-    sign = (sig(gen) % 2) * 2 - 1;
-    posX=distance / sqrt(2) * sign;
-    sign = (sig(gen) % 2) * 2 - 1;
-    posY=distance / sqrt(2) * sign;
+		sign = (sig(gen) % 2) * 2 - 1;
+		posX=distance / sqrt(2) * sign;
+		sign = (sig(gen) % 2) * 2 - 1;
+		posY=distance / sqrt(2) * sign;
 
-    UserEquipment* ue = new UserEquipment (idUE,
-                                     posX, posY, 0, speedDirection,
-                                     cell,
-                                     gnb,
-                                     0, //handover false!
-                                     Mobility::UE_SATELLITE);
-
-    cout << "Created UE - id " << idUE << " position " << posX << " " << posY << endl;
-
-    ue->SetRandomAccessType(m_UeRandomAccessType);
-
-    ue->SetTimePositionUpdate (0.05); // trigger per la mobilità
-
-    ue->GetPhy ()->SetDlChannel (dlCh);
-    ue->GetPhy ()->SetUlChannel (ulCh);
-
-    double propDist = distance/(1000*radius);
-    std::map<double, int>::iterator it;
-    it = ceProb.upper_bound(propDist);
-    UeMacEntity* ueMac = (UeMacEntity*) ue->GetProtocolStack()->GetMacEntity();
-    UeNbIoTRandomAccess* ueRam =(UeNbIoTRandomAccess*) ueMac->GetRandomAccessManager();
-    ueRam->SetCEClassStatic(it->second);
-    ueRam->SetCEClassDynamic(it->second);
-    ueRam->SetMaxFailedAttempts(totPreambleTx);
-
-    DEBUG_LOG_START_1(SIM_ENV_CE_CLASS_LOG)
-    cout << "CE Class is " << ueRam->GetCEClassStatic()<< " and proportional dist is " << propDist << endl;
-    DEBUG_LOG_END
-
-    networkManager->GetUserEquipmentContainer ()->push_back (ue);
-
-    // register ue to the gnb
-    gnb->RegisterUserEquipment (ue);
-
-    ////////////////////////////
-//    // ERROR model
-        NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
-       // ue->GetPhy ()->SetErrorModel (errorModel);
-
-        ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
-        c_ul->disableFastFading();
-        gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
-       // gnb->GetPhy ()->SetErrorModel (errorModel);
-
-        // propagation loss model da inserire
-//        gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
-
-    ////////////////////////////
-
-    DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
-    CartesianCoordinates* userPosition = ue->GetMobilityModel()->GetAbsolutePosition();
-    CartesianCoordinates* cellPosition = cell->GetCellCenterPosition();
-
-    double distance = userPosition->GetDistance(cellPosition)/1000;
-
-    double zoneWidth = (double) (radius/nbOfZones);
-    double edges[nbOfZones+1];
-    for (int i=0; i <= nbOfZones; i++)
-    {
-    edges[i]= i*zoneWidth;
-    }
-    if (distance >= edges[nbOfZones])
-    {
-    zone = 0;
-    }
-    for (int i= 0; i < nbOfZones; i++)
-    {
-    if (distance >= edges[i] && distance <= edges[i+1])
-    {
-      zone=nbOfZones-1-i;
-    }
-    }
-    cout << "LOG_ZONE UE " << idUE
-    << " DISTANCE " << distance
-    << " WIDTH " << zoneWidth
-    << " ZONE " << zone
-    << endl;
-    DEBUG_LOG_END
-
-    //CREATE UPLINK APPLICATION FOR THIS UE
-    double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
-    double duration_time = flow_duration - 0.001;
-
-    // *** cbr application
-    // create application
-    CBRApplication[cbrApplication].SetSource (ue);
-    CBRApplication[cbrApplication].SetDestination (gnb);
-    CBRApplication[cbrApplication].SetApplicationID (applicationID);
-    CBRApplication[cbrApplication].SetStartTime(start_time);
-    CBRApplication[cbrApplication].SetStopTime(duration_time);
-
-    CBRApplication[cbrApplication].SetInterval ((double) CBR_interval);
-    CBRApplication[cbrApplication].SetSize (CBR_size);
-
-    //------------------------------------------------------------------------------------------------------------- create qos parameters????
-
-    QoSParameters *qosParameters = new QoSParameters ();
-    qosParameters->SetMaxDelay (flow_duration);
-    CBRApplication[cbrApplication].SetQoSParameters (qosParameters);
+		UserEquipment* ue = new UserEquipment (idUE,
+										 posX, posY, 0, speedDirection,
+										 cell,
+										 gnb,
+										 0, //handover false!
+										 Mobility::UE_SATELLITE);
 
 
-    //create classifier parameters
-    ClassifierParameters *cp = new ClassifierParameters (ue->GetIDNetworkNode(),
-                                                   gnb->GetIDNetworkNode(),
-                                                   0,
-                                                   destinationPort,
-                                                   TransportProtocol::TRANSPORT_PROTOCOL_TYPE_UDP);
-    CBRApplication[cbrApplication].SetClassifierParameters (cp);
 
-    cout << "CREATED CBR APPLICATION, ID " << applicationID << endl;
+		ue->SetRandomAccessType(m_UeRandomAccessType);
+		ue->SetTimePositionUpdate (0.05); // trigger per la mobilità
+		ue->GetPhy ()->SetDlChannel (dlCh);
+		ue->GetPhy ()->SetUlChannel (ulCh);
 
-    //update counter
-    //destinationPort++;
-    applicationID++;
-    cbrApplication++;
-    idUE++;
+		////////////////////////////
+		// ERROR model
+		//NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
+		ue->GetPhy ()->SetErrorModel (errorModel);
+		///////////////////////////
+
+		double propDist = distance/(1000*radius);
+		std::map<double, int>::iterator it;
+		it = ceProb.upper_bound(propDist);
+		UeMacEntity* ueMac = (UeMacEntity*) ue->GetProtocolStack()->GetMacEntity();
+		UeNbIoTRandomAccess* ueRam =(UeNbIoTRandomAccess*) ueMac->GetRandomAccessManager();
+		ueRam->SetCEClassStatic(it->second);
+		ueRam->SetCEClassDynamic(it->second);
+		ueRam->SetMaxFailedAttempts(totPreambleTx);
+
+		DEBUG_LOG_START_1(SIM_ENV_CE_CLASS_LOG)
+			cout << "CE Class is " << ueRam->GetCEClassStatic()<< " and proportional dist is " << propDist << endl;
+		DEBUG_LOG_END
+
+		networkManager->GetUserEquipmentContainer ()->push_back (ue);
+
+		// register ue to the gnb
+		gnb->RegisterUserEquipment (ue);
+
+		////////////////////////////
+		ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
+		//c_ul->disableFastFading();
+		gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
+
+		// propagation loss model da inserire
+		//gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
+		////////////////////////////
+
+
+		CartesianCoordinates* userPosition = ue->GetMobilityModel()->GetAbsolutePosition();
+		CartesianCoordinates* cellPosition = cell->GetCellCenterPosition();
+
+		double distance = userPosition->GetDistance(cellPosition)/1000;
+
+		double zoneWidth = (double) (radius/nbOfZones);
+		double edges[nbOfZones+1];
+
+		for (int i=0; i <= nbOfZones; i++)
+		{
+			edges[i]= i*zoneWidth;
+		}
+
+		if (distance >= edges[nbOfZones])
+		{
+			zone = 0;
+		}
+		for (int i= 0; i < nbOfZones; i++)
+		{
+			if (distance >= edges[i] && distance <= edges[i+1])
+			{
+			  zone = nbOfZones-1-i;
+			}
+		}
+
+		DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
+			cout << "LOG_ZONE UE " << idUE
+			<< " DISTANCE " << distance
+			<< " WIDTH " << zoneWidth
+			<< " ZONE " << zone
+			<< endl;
+		DEBUG_LOG_END
+
+		//CREATE UPLINK APPLICATION FOR THIS UE
+		double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
+		double duration_time = flow_duration - 0.001;
+		cout << "PRE CBR - id " << idUE << endl;
+		// *** cbr application
+		// create application
+		CBRApplication[cbrApplication].SetSource (ue);
+		cout << "errore check #460 - id " << idUE << endl;
+		CBRApplication[cbrApplication].SetDestination (gnb);
+		cout << "errore check #462 - id " << idUE << endl;
+		CBRApplication[cbrApplication].SetApplicationID (applicationID);
+		cout << "errore check #464 - id " << idUE << endl;
+		CBRApplication[cbrApplication].SetStartTime(start_time);
+		cout << "errore check #466 - id " << idUE << endl;
+		CBRApplication[cbrApplication].SetStopTime(duration_time);
+		cout << "errore check #468 - id " << idUE << endl;
+
+		CBRApplication[cbrApplication].SetInterval ((double) CBR_interval);
+		CBRApplication[cbrApplication].SetSize (CBR_size);
+
+		//------------------------------------------------------------------------------------------------------------- create qos parameters????
+
+		QoSParameters *qosParameters = new QoSParameters ();
+		qosParameters->SetMaxDelay (flow_duration);
+		CBRApplication[cbrApplication].SetQoSParameters (qosParameters);
+
+
+		//create classifier parameters
+		ClassifierParameters *cp = new ClassifierParameters (ue->GetIDNetworkNode(),
+													   gnb->GetIDNetworkNode(),
+													   0,
+													   destinationPort,
+													   TransportProtocol::TRANSPORT_PROTOCOL_TYPE_UDP);
+		CBRApplication[cbrApplication].SetClassifierParameters (cp);
+
+		cout << "CREATED CBR APPLICATION, ID " << applicationID << endl;
+
+		//update counter
+		//destinationPort++;
+		applicationID++;
+		cbrApplication++;
+		idUE++;
     }
 
     simulator->SetStop(duration);

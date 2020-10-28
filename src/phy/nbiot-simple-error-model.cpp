@@ -56,7 +56,6 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
       double bler;
 
       bler = GetBLER_SAT (sinr_, mcs_);
-      bler = 0.2;
 
       if (randomNumber < bler)
         {

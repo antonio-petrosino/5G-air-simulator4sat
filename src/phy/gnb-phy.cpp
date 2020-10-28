@@ -136,17 +136,16 @@ DEBUG_LOG_END
     {
     vector<int> cqi; //compute the CQI
     phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
-//    if (_PHY_TRACING_)
-//      {
-//        if (phyError)
-//          {
-//            cout << "**** YES PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
-//          }
-//        else
-//          {
-//            cout << "**** NO PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
-//          }
-//      }
+
+        if (phyError)
+         {
+            cout << "**** YES PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
+          }
+        else
+          {
+            cout << "**** NO PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
+          }
+
     }
 
 

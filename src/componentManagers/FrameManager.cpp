@@ -400,7 +400,7 @@ void
 FrameManager::SetNRep(int NRep)
 {
 	m_NRep = NRep;
-	cout << "Settato il numero di ripetizioni a: " << NRep << endl;
+	cout << "Blind repetition - set to: " << NRep << endl;
 }
 
 int
