@@ -40,7 +40,8 @@ GetSatPosition (double time)
 
 	double mod = 3000.0; // dipende dal tempo di visibilità + prossimo passaggio satellite
 	double newPosition = 0.0;
-	newPosition = -300000 -309 +(5000 * (fmod(time,mod)));
+	double offset = 10000.0; // sfasamento introdotto per allontanare la gNB dall'area di misura
+	newPosition = -300000 -309 +(5000 * (fmod(time,mod))) - offset;
 
 	// da un bordo cella all'altro ci mette 125 ms circa
 	return newPosition;

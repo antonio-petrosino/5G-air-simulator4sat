@@ -132,10 +132,12 @@ DEBUG_LOG_END
 
   //CHECK FOR PHY ERROR
   bool phyError = false;
+
   if (GetErrorModel() != nullptr)
     {
     vector<int> cqi; //compute the CQI
     phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
+
 
         if (phyError)
          {

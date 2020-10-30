@@ -47,6 +47,8 @@ satellite scenario implementation.
 6) channel -> channel-realization.h/cpp
 // Aggiunta def: CHANNEL_MODEL_SATELLITE
 // da inserire m_pathLoss output del D1
+// !!!!!!!!!!!!
+// creazione del modello del total_loss!!!
 
 6a) channel -> RadioChannel.cpp
 // inserita estensione 0.001 x NRep

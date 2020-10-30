@@ -359,6 +359,10 @@ ChannelRealization::ShortTermUpdate(void)
         gnb = (GNodeB*) src;
       }
 
+    if (gnb->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
+    	return;
+    }
+
     double f = src->GetPhy ()->GetCarrierFrequency ();
     double losProbability, randomProb;
     CartesianCoordinates* uePos = ue->GetMobilityModel()->GetAbsolutePosition();
@@ -508,6 +512,7 @@ ChannelRealization::GetPathLoss (void)
   //srand(time(nullptr));
   double A, B, C;
   int* nbWalls;
+  const double light_spd = 2.99792458e8;
 
   switch(m_channelModel)
     {
@@ -547,7 +552,19 @@ ChannelRealization::GetPathLoss (void)
                * ...
                */
               //m_pathLoss = 69.55 + 26.16*log10(f) - 13.82*log10(Henb) + (44.9-6.55*log10(Henb))*log10(distance * 0.001) - 4.78*pow(log10(f),2) + 18.33*log10(f) - 40.94;
-              m_pathLoss = 143.0;
+    	  	  // Dal D1 -> FreeSpacePathLoss[dB]  = 20 log10 (d(s(t)) + 20 log10 (f) + 20 log10 ((4 * pi)/c);
+    	  	  // Dal D1 -> noise power = 122
+
+    	  	  m_pathLoss = 20 * log10(distance3D/1000) + 20 * log10 (f/1000) + 92.44; //solo free space
+    	  	/*
+    	  	* cout << "--------------------------- PATH LOSS ---------------------------------------------"<<endl;
+    	  	* cout << "distance3D:" << distance3D <<endl;
+    	  	* cout << "f: " << f <<endl;
+    	  	* cout << "M_PI: " << M_PI <<endl;
+    	  	* cout << "light_spd: " << light_spd <<endl;
+    	  	* cout << "-----------------------------------------------------------------------------"<<endl;
+    	  	* cout << "Free Space Path loss: " << m_pathLoss << endl;
+    	  	*/
               break;
 
 
@@ -1090,6 +1107,7 @@ DEBUG_LOG_END
               break;
             case CHANNEL_MODEL_SATELLITE:
             	l = - GetPathLoss();
+            	cout <<"#1106 - channel-realization.cpp -> l: " <<l<<endl;
             	break;
             }
 

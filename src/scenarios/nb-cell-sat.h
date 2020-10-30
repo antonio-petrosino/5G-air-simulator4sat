@@ -133,7 +133,6 @@ static void nbCell_Satellite (int argc, char *argv[])
     double txPower = 33; // dBm
     double antennaHeight = 500000; // m
     double antennaGain = 8; // 8 dBi
-    
     //double antennaAttenuation = 20; // dB???
     //double horizontalBeamwidth3db = 65; //degrees??
     double UENoiseFigure = 6; // dB
@@ -153,20 +152,8 @@ static void nbCell_Satellite (int argc, char *argv[])
     //double vBeamWidth = 65;
     double BSFeederLoss = 0; // 2
     
-    if(environment=="suburban" || environment=="urban" || environment == "sat")
-    {        
-        //etilt = 14;
-        channelModel = 4;
-        carrierFreq = 2000;
-    }
-    else if(environment=="rural")
-    {        
-        //etilt = 10;
-        channelModel = 4;
-        carrierFreq = 2000;
-    }
-    else if(environment == "sat"){
-    	channelModel = 5;
+    if(environment == "sat"){
+    	channelModel = 4;
     	carrierFreq = 2000;
     }
     else
@@ -176,7 +163,7 @@ static void nbCell_Satellite (int argc, char *argv[])
     
     // define channel model
     ChannelRealization::ChannelModel model;
-
+    cout << "Modello "<<channelModel << endl;
     switch(channelModel)
     {
         case 0:
@@ -202,8 +189,6 @@ static void nbCell_Satellite (int argc, char *argv[])
           model = ChannelRealization::CHANNEL_MODEL_MACROCELL_URBAN;
           break;
     }
-    
-
 
     // define simulation times
     double duration = dur; //+ 1;
@@ -296,6 +281,7 @@ static void nbCell_Satellite (int argc, char *argv[])
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
     gnb->GetPhy ()->SetmaxSatelliteRange(583000);
+    gnb->GetPhy ()->SetErrorModel (errorModel);
     ulCh->AddDevice (gnb);
     gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);
     gnb->SetULScheduler(uplink_scheduler_type);
@@ -450,20 +436,13 @@ static void nbCell_Satellite (int argc, char *argv[])
 		//CREATE UPLINK APPLICATION FOR THIS UE
 		double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
 		double duration_time = flow_duration - 0.001;
-		cout << "PRE CBR - id " << idUE << endl;
 		// *** cbr application
 		// create application
 		CBRApplication[cbrApplication].SetSource (ue);
-		cout << "errore check #460 - id " << idUE << endl;
 		CBRApplication[cbrApplication].SetDestination (gnb);
-		cout << "errore check #462 - id " << idUE << endl;
 		CBRApplication[cbrApplication].SetApplicationID (applicationID);
-		cout << "errore check #464 - id " << idUE << endl;
 		CBRApplication[cbrApplication].SetStartTime(start_time);
-		cout << "errore check #466 - id " << idUE << endl;
 		CBRApplication[cbrApplication].SetStopTime(duration_time);
-		cout << "errore check #468 - id " << idUE << endl;
-
 		CBRApplication[cbrApplication].SetInterval ((double) CBR_interval);
 		CBRApplication[cbrApplication].SetSize (CBR_size);
 

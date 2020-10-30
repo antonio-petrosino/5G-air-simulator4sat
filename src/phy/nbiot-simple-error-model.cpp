@@ -42,9 +42,15 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
    * the device establishes if the packet has been correctly received or not.
    * In the latter case, the packet is considered erroneous and ignored.
    */
+
 // NRU = 5, TBS = 256,
-  channels = {1};
-  mcs = {3};
+  //channels = {1}; // forzatura
+
+  //cout <<" channels: " << channels << endl;
+  //cout <<" mcs: " << mcs << endl;
+
+  mcs = {3}; // forzatura
+
   bool error = false;
 
   double randomNumber = (rand () %100 ) / 100.;

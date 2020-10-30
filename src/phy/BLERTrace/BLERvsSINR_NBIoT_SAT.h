@@ -100,6 +100,8 @@ GetBLER_SAT (double SINR, int MCS)
   double R = 0.0;
   int _NRep = FrameManager::Init()->GetNRep();
 
+  cout << "SNR: "<< SINR << endl;
+
   if(_NRep == 2 ){
 
 	  MCS_ = MCS_ + 8;
