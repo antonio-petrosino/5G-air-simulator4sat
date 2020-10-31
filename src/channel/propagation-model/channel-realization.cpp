@@ -344,6 +344,7 @@ ChannelRealization::ShortTermUpdate(void)
     UserEquipment* ue;
     GNodeB* gnb;
 
+
     if (src->GetNodeType () == NetworkNode::TYPE_UE
         && ( dst->GetNodeType () == NetworkNode::TYPE_GNODEB
               || dst->GetNodeType () == NetworkNode::TYPE_HOME_BASE_STATION) )
@@ -360,9 +361,8 @@ ChannelRealization::ShortTermUpdate(void)
       }
 
     if (gnb->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
-    	cout << "ShortTermUpdate() Aborted."<<endl;
-    	m_lastShortTermUpdate = Simulator::Init()->Now();
-    	return;
+    		m_lastShortTermUpdate = Simulator::Init()->Now();
+        	return;
     }
 
     double f = src->GetPhy ()->GetCarrierFrequency ();
@@ -468,7 +468,7 @@ ChannelRealization::GetSamplingPeriod (void)
 double
 ChannelRealization::GetPathLoss (void)
 {
-  cout << "Richiamo #462 ChannelReal::GetPathLoss() check" << endl;
+  //cout << "Richiamo #462 ChannelReal::GetPathLoss() check" << endl;
   ShortTermUpdate();
   NetworkNode* src = GetSourceNode ();
   NetworkNode* dst = GetDestinationNode ();
@@ -514,7 +514,6 @@ ChannelRealization::GetPathLoss (void)
   //srand(time(nullptr));
   double A, B, C;
   int* nbWalls;
-  const double light_spd = 2.99792458e8;
 
   switch(m_channelModel)
     {
@@ -548,25 +547,14 @@ ChannelRealization::GetPathLoss (void)
         break;
 
       case CHANNEL_MODEL_SATELLITE:
-		/*
-		* According to  ---  insert standard 3gpp ---
-		* the Path Loss Model For Satellite Environment is
-		* ...
-		*/
-		//m_pathLoss = 69.55 + 26.16*log10(f) - 13.82*log10(Henb) + (44.9-6.55*log10(Henb))*log10(distance * 0.001) - 4.78*pow(log10(f),2) + 18.33*log10(f) - 40.94;
-		// Dal D1 -> FreeSpacePathLoss[dB]  = 20 log10 (d(s(t)) + 20 log10 (f) + 20 log10 ((4 * pi)/c);
-
-		m_pathLoss = 20 * log10(distance3D/1000) + 20 * log10 (f/1000) + 92.44; //solo free space
-		/*
-		* cout << "--------------------------- PATH LOSS ---------------------------------------------"<<endl;
-		* cout << "distance3D:" << distance3D <<endl;
-		* cout << "f: " << f <<endl;
-		* cout << "M_PI: " << M_PI <<endl;
-		* cout << "light_spd: " << light_spd <<endl;
-		* cout << "-----------------------------------------------------------------------------"<<endl;
-		* cout << "Free Space Path loss: " << m_pathLoss << endl;
-		*/
-		break;
+              /*
+               * According to  ---  insert standard 3gpp ---
+               * the Path Loss Model For Satellite Environment is
+               * ...
+               */
+              //m_pathLoss = 69.55 + 26.16*log10(f) - 13.82*log10(Henb) + (44.9-6.55*log10(Henb))*log10(distance * 0.001) - 4.78*pow(log10(f),2) + 18.33*log10(f) - 40.94;
+    	  	  m_pathLoss = 20 * log10(distance3D/1000) + 20 * log10 (f/1000) + 92.44; //solo free space
+              break;
 
 
       case CHANNEL_MODEL_MACROCELL_RURAL:
@@ -776,11 +764,6 @@ DEBUG_LOG_START_1(SIM_ENV_TRIPLE_SECTOR_DEBUG)
         << endl;
 DEBUG_LOG_END
     }
-//  else if (ue->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
-//     // guadagno antenna in base all'angolo
-//    //  perdita per le colonne di vapore, ecc...
-//    	m_pathLoss = m_pathLoss  + 0.0;
-//    }
 
   double feederLoss = src->GetPhy()->GetAntennaParameters()->GetFeederLoss();
 
@@ -1080,8 +1063,6 @@ DEBUG_LOG_END
 
   loss.resize (nbOfPaths);
 
-  cout << "nbOfPaths" << nbOfPaths << endl;
-
   double pathloss = GetPathLoss ();
   double shadowing = GetShadowing ();
   double penetrationlLoss = GetPenetrationLoss ();
@@ -1115,7 +1096,6 @@ DEBUG_LOG_END
               break;
             case CHANNEL_MODEL_SATELLITE:
             	l = - GetPathLoss();
-            	cout <<"#1106 - channel-realization.cpp -> l: " <<l<<endl;
             	break;
             }
 

@@ -55,10 +55,9 @@ DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG)
 	cout << "UpdatePosition gNB satellitare avviato."<<endl;
 DEBUG_LOG_END
 
-
   double timeInterval = time - GetPositionLastUpdate ();
 
-  if(timeInterval > 0.1 || time == 0.0){
+  if(timeInterval > 0.005 || time == 0.0){
 
     GNodeB *thisNode = (GNodeB*)GetDevice();
     //cout << "Aggiornamento posizione satellitare... time: "<< time <<endl;
@@ -97,7 +96,6 @@ DEBUG_LOG_END
 	x_pos = GetSatPosition(time);
 	//cout <<"Nuova posizione: " <<  x_pos << " time: "<< std::to_string (time) << endl;
 // fine calcolo di movimento
-
 	  CartesianCoordinates *newPosition =
 	  new CartesianCoordinates(x_pos,
 							   GetAbsolutePosition()->GetCoordinateY(),

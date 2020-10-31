@@ -69,7 +69,6 @@ DEBUG_LOG_END
 void
 RadioChannel::StartRx (shared_ptr<PacketBurst> p, TransmittedSignal* txSignal, NetworkNode* src)
 {
-
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "RadioChannel::StartRx ch " << GetChannelId () << endl;
 DEBUG_LOG_END

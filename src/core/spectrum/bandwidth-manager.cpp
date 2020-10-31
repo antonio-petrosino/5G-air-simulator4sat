@@ -48,7 +48,7 @@ const static map<double, int> RBs_for_BW =
 #define NB_IOT_ALLOWED_RBs_FOR_10_MHz 8
 #define NB_IOT_ALLOWED_RBs_FOR_15_MHz 13
 #define NB_IOT_ALLOWED_RBs_FOR_20_MHz 18
-#define NB_IOT_ALLOWED_RBs_FOR_30_MHz 20 // da rivedee il 20
+#define NB_IOT_ALLOWED_RBs_FOR_30_MHz 20 // da rivedere il 20
 
 BandwidthManager::BandwidthManager (double ulBw, double dlBw, int ulOffset,
                                     int dlOffset, bool tddTrue)
@@ -407,6 +407,28 @@ BandwidthManager::GetNbIoTrb (void)
       rb.push_back (85);
       rb.push_back (90);
       rb.push_back (95);
+      break;
+    case 20:
+      rb.push_back (4);
+      rb.push_back (9);
+      rb.push_back (14);
+      rb.push_back (19);
+      rb.push_back (24);
+      rb.push_back (29);
+      rb.push_back (34);
+      rb.push_back (39);
+      rb.push_back (44);
+      rb.push_back (55);
+      rb.push_back (60);
+      rb.push_back (65);
+      rb.push_back (70);
+      rb.push_back (75);
+      rb.push_back (80);
+      rb.push_back (85);
+      rb.push_back (90);
+      rb.push_back (95);
+      rb.push_back (100);
+      rb.push_back (108);
       break;
     }
   return rb;

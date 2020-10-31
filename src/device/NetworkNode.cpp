@@ -163,8 +163,9 @@ NetworkNode::MakeActive (void)
 	    CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
 	    CartesianCoordinates* gnbPos = ((UserEquipment*)this)->GetTargetNode()->GetMobilityModel()->GetAbsolutePosition();
 	    double distance = uePos->GetDistance3D (gnbPos);
+	    double maxSatelliteRange = ((UserEquipment*)this)->GetTargetNode()-> GetPhy ()->GetmaxSatelliteRange ();
 
-	    if(distance > 583000)
+	    if(distance > maxSatelliteRange)
 	    	  {
 	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
 	    		  return;

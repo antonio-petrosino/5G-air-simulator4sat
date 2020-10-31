@@ -179,6 +179,7 @@ void
 UserEquipment::UpdateUserPosition (double time)
 {
   GetMobilityModel ()->UpdatePosition (time);
+  //cout << "Aggiornamento posizione UE... time: "<< time <<endl;
   SetIndoorFlag(NetworkManager::Init()->CheckIndoorUsers(this));
 
   if (GetMobilityModel ()->GetHandover () == true)
@@ -198,27 +199,45 @@ DEBUG_LOG_END
           NetworkManager::Init()->HandoverProcedure(time, this, targetNode, newTargetNode);
         }
     }
-  //blocco else che funzionerà solo per lo scenario NB-IoT in cui l'handover sarà sicuramente messo a falso
+  //blocco else che funzionerà solo per lo scenario NB-IoT
+  //in cui l'handover sarà sicuramente messo a falso
   else if (GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true)
   {
+	  //cout <<"Riconosciuto scenario NB-IoT"<<endl;
+
 	  CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
 	  CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
 
 	  double distance = uePos->GetDistance3D (gnbPos);
 	  double maxSatelliteRange = GetTargetNode ()-> GetPhy ()->GetmaxSatelliteRange ();
 
+	  //print di DEBUG
+//	  if(GetIDNetworkNode()==2){
+//		  //mostro solo la posizione per il nodo 3 di test
+//		  cout<<"Posizione attuale UE=2: " << uePos->GetCoordinateX() <<" "<< uePos->GetCoordinateY() <<" "<<  uePos->GetCoordinateZ() << endl;
+//		  cout<<"Posizione attuale gNB: " << gnbPos->GetCoordinateX() <<" "<< gnbPos->GetCoordinateY() <<" "<< gnbPos->GetCoordinateZ() << endl;
+//		  cout<<"La distanza è: " << distance << endl;
+//		  cout<<"Time di riferimento: "<< time << endl;
+//	  }
+	  //cout << "Distanza UE dalla gNB: " << distance << endl;
+
 	  // gestire detach per simulare visibilità/non visibilità
-	  // la visibilità inizia quando il dispositivo è a meno di xxx km dalla gNB
+
 	  if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
-	  {
+	  { // la visibilità inizia quando il dispositivo è a meno di 583km dalla gNB
 		  if(GetNodeState() != UserEquipment::STATE_DETACHED){
 
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 		cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 		Print();
 DEBUG_LOG_END
-			cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
-			SetNodeState (UserEquipment::STATE_DETACHED);
+
+			  cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
+			  SetNodeState (UserEquipment::STATE_DETACHED);
+			  //double detachTime = ue->GetProtocolStack()->GetRrcEntity()->GetHandoverEntity()->GetDetachTime();
+			  //Simulator::Init()->Schedule(detachTime, &NetworkNode::MakeActive, ue);
+			  //Simulator::Init()->Schedule(0.01, &NetworkNode::MakeActive(), this);
+			  //cout<<"Stato attuale del dispositivo:"<<GetNodeState() << " UE id: "<< GetIDNetworkNode () << endl;
 		  }
 	  }
 	  else
@@ -228,9 +247,13 @@ DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 		cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
 		Print();
 DEBUG_LOG_END
-			cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
-			MakeActive();
-			Simulator::Init()->Schedule(0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+				cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+
+
+			    //SetNodeState (UserEquipment::STATE_ACTIVE); // o idle??
+				MakeActive();
+				Simulator::Init()->Schedule(0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+				//cout<<"Stato attuale del dispositivo:"<<GetNodeState() << " UE id: "<< GetIDNetworkNode () << endl;
 		  }
 	  }
   }

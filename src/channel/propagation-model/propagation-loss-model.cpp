@@ -177,13 +177,13 @@ DEBUG_LOG_END
       int nbOfPaths = rxSignalValues.size ();
       int nbOfSubChannels = rxSignalValues.at (0).size ();
 
+      // rxPower -> SNR_tabulato = ???;
+
       for (int i = 0; i < nbOfPaths; i++)
         {
           for (int j = 0; j < nbOfSubChannels; j++)
             {
               double rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); // add propagation loss
-
-              // rxPower -> SNR_tabulato =;
 
 DEBUG_LOG_START_1(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL)
               cout << "\t\t path " << i << " sub channel = " << j

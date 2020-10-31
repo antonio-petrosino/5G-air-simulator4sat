@@ -94,6 +94,8 @@ GnbPhy::DoSetBandwidthManager (void)
 void
 GnbPhy::StartTx (shared_ptr<PacketBurst> p)
 {
+  //cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy tx" << endl;
+
   if (FrameManager::Init()->MbsfnEnabled()==true && FrameManager::Init()->isMbsfnSubframe()==true)
     {
       GetDlMcChannel ()->StartTx (p, GetTxSignal (), GetDevice ());
@@ -107,22 +109,20 @@ GnbPhy::StartTx (shared_ptr<PacketBurst> p)
 void
 GnbPhy::StartRx (shared_ptr<PacketBurst> p, TransmittedSignal* txSignal)
 {
+
+//cout << "StartRX gnb-phy #113"<<endl;
+
 DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "Node " << GetDevice()->GetIDNetworkNode () << " starts phy rx" << endl;
 DEBUG_LOG_END
-	cout << "StartRX #113" <<endl;
+
   //COMPUTE THE SINR
   vector<double> measuredSinr;
   vector<int> channelsForRx;
   vector<double> rxSignalValues = txSignal->GetValues().at(0);
 
   double interference = 0;
-  //double noise_interference = 10. * log10 (pow(10., GetThermalNoise()/10) + interference); // dB - solo noise nel nostro caso
-  double noise_interference = 0.0;
-
-  // TODO: RIVEDERE THERMAL NOISE
-  // adesso tutti i contributi saranno sintetizzati nel rxSignalValues
-  // non bisogna aggiungere più nulla
+  double noise_interference = 10. * log10 (pow(10., GetThermalNoise()/10) + interference); // dB - solo noise nel nostro caso
 
   int chId = 0;
   for ( auto power : rxSignalValues ) // transmission power for the current sub channel [dB]
@@ -137,25 +137,24 @@ DEBUG_LOG_END
 
   //CHECK FOR PHY ERROR
   bool phyError = false;
-
+  /*
   if (GetErrorModel() != nullptr)
     {
     vector<int> cqi; //compute the CQI
     phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
-
-    if(_PHY_TRACING_){
+    if (_PHY_TRACING_)
+      {
         if (phyError)
-         {
+          {
             cout << "**** YES PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
           }
         else
           {
             cout << "**** NO PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
           }
+      }
     }
-
-    }
-
+    */
 
   if (!phyError && p->GetNPackets() > 0)
     {
@@ -164,8 +163,6 @@ DEBUG_LOG_END
     }
 
   delete txSignal;
-  cout << "Fine - StartRX #113" <<endl;
-
 }
 
 void

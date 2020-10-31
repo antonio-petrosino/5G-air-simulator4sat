@@ -110,7 +110,7 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
     
     if (m_RaProcedureActive == true)
     {
-    	//cout<< "UeNbIoTRandomAccess::ReStartRaProcedure() Invoked." << endl;
+    	cout<< "UeNbIoTRandomAccess::ReStartRaProcedure() Invoked." << endl;
         UserEquipment* ue = (UserEquipment*)m_macEntity->GetDevice();
         GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) ue->GetTargetNode()->GetMacEntity()->GetRandomAccessManager();
 
@@ -123,7 +123,7 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
 
     	    if(distance > maxSatelliteRange)
     	    	  {
-    	    	      //cout <<"Ma la UE è troppo lontana."<<endl;
+    	    		  cout <<"Ma la UE è troppo lontana."<<endl;
     	    		  return;
     	    	  }
     	}
