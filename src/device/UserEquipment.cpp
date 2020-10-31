@@ -228,9 +228,9 @@ DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 		cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
 		Print();
 DEBUG_LOG_END
-				cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
-				MakeActive();
-				Simulator::Init()->Schedule(0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+			cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+			MakeActive();
+			Simulator::Init()->Schedule(0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
 		  }
 	  }
   }

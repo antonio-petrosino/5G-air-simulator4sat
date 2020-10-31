@@ -183,6 +183,8 @@ DEBUG_LOG_END
             {
               double rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); // add propagation loss
 
+              // rxPower -> SNR_tabulato =;
+
 DEBUG_LOG_START_1(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL)
               cout << "\t\t path " << i << " sub channel = " << j
                         << " rxSignalValues = " << rxSignalValues.at (i).at (j)

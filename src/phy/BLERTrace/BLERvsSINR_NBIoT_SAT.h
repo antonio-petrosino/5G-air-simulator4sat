@@ -100,7 +100,7 @@ GetBLER_SAT (double SINR, int MCS)
   double R = 0.0;
   int _NRep = FrameManager::Init()->GetNRep();
 
-  cout << "SNR: "<< SINR << endl;
+  //cout << "SNR: "<< SINR << endl;
 
   if(_NRep == 2 ){
 
@@ -112,7 +112,7 @@ GetBLER_SAT (double SINR, int MCS)
 
   }
 
-  //cout <<"SINR: "<< SINR <<" MCS: "<<MCS <<" MCS index: "<< MCS_ << endl;
+  cout <<"SINR: "<< SINR <<" MCS: "<<MCS <<" MCS index: "<< MCS_ << endl;
 
   if ( SINR <= SINR_NBIoT_SAT [MCS_-1] [0] )
     {

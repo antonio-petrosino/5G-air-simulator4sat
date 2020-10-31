@@ -371,7 +371,15 @@ Phy::SetNoiseFigure(double nf)
    *
    *  noise_db = noise figure + n0 + 10log10 (180000) - 30
    */
+
+
   m_thermalNoise = m_noiseFigure - 174 + 10*log10(180000) - 30;
+
+  /* -- contributo da matlab - DOMENICO
+   * Tsys_noise_eNB = 290 + (10^(eNB_NF/10)-1)*150
+   * eNB_rcv_sens = 10*log10(kb*(Tsys_noise_eNB)*Bandwidth); % eNB receiver sensitivity in [dB]
+  SatelliteNoisePowerDB = eNB_rcv_sens;
+  */
 }
 
 double

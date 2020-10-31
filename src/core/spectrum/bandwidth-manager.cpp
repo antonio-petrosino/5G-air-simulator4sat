@@ -295,6 +295,9 @@ BandwidthManager::GetMaxNbIoTcarriers (void)
     case 20:
       a = NB_IOT_ALLOWED_RBs_FOR_20_MHz;
       break;
+    case 30:
+      a = NB_IOT_ALLOWED_RBs_FOR_30_MHz;
+      break;
     default:
       cout << "ERROR: Invalid NB-IoT Bandwidth" << endl;
       exit (0);

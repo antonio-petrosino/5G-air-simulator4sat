@@ -163,7 +163,7 @@ static void nbCell_Satellite (int argc, char *argv[])
     
     // define channel model
     ChannelRealization::ChannelModel model;
-    cout << "Modello "<<channelModel << endl;
+
     switch(channelModel)
     {
         case 0:
@@ -280,7 +280,7 @@ static void nbCell_Satellite (int argc, char *argv[])
     gnb->GetPhy ()->SetCarrierFrequency(carrierFreq);
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
-    gnb->GetPhy ()->SetmaxSatelliteRange(583000);
+    gnb->GetPhy ()->SetmaxSatelliteRange(596000);
     gnb->GetPhy ()->SetErrorModel (errorModel);
     ulCh->AddDevice (gnb);
     gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);
@@ -359,10 +359,8 @@ static void nbCell_Satellite (int argc, char *argv[])
 										 0, //handover false!
 										 Mobility::UE_SATELLITE);
 
-
-
 		ue->SetRandomAccessType(m_UeRandomAccessType);
-		ue->SetTimePositionUpdate (0.05); // trigger per la mobilità
+		ue->SetTimePositionUpdate (0.001); // trigger per la mobilità
 		ue->GetPhy ()->SetDlChannel (dlCh);
 		ue->GetPhy ()->SetUlChannel (ulCh);
 
