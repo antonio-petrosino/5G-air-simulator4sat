@@ -44,58 +44,19 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
    */
 
   bool error = false;
-
-//DEBUG_LOG_START_1(SIM_ENV_BLER_DEBUG)
-//  cout << "\n--> CheckForPhysicalError \n\t\t Channels: ";
-//  for (int i = 0; i < (int)channels.size (); i++)
-//    {
-//      cout << channels.at (i) << " ";
-//    }
-//  cout << "\n\t\t MCS: ";
-//  for (int i = 0; i < (int)mcs.size (); i++)
-//    {
-//      cout << mcs.at (i) << " ";
-//    }
-//  cout << "\n\t\t SINR: ";
-//  for (int i = 0; i < (int)sinr.size (); i++)
-//    {
-//      cout << sinr.at (i) << " ";
-//    }
-//  cout << "\n"<< endl;
-//DEBUG_LOG_END
-
-
   double randomNumber = (rand () %100 ) / 100.;
 
   for (int i = 0; i < (int)channels.size (); i++)
     {
-      int mcs_ = mcs.at (i);
-      mcs_ = 3;
+      int mcs_ = FrameManager::Init()->GetMCSNBIoTSat ();
       double sinr_ = sinr.at (channels.at (i));
 
-      //inizialmente mcs e sinr potrebbero essere costanti
-      //int mcs_ = ??;
-      //int sinr_ = ??;
-
       double bler;
-      cout << "Richiamo #80 nbiot-simple-error-model.cpp check" << endl;
+
       bler = GetBLER_SAT (sinr_, mcs_);
 
-//DEBUG_LOG_START_1(SIM_ENV_BLER_DEBUG)
-//      cout <<"Get BLER for ch " << channels.at(i)<<
-//                " cqi " << mcs_ << " sinr "  << sinr_
-//                << " BLER = " << bler << endl;
-//DEBUG_LOG_END
-//
       if (randomNumber < bler)
         {
-//DEBUG_LOG_START_1(SIM_ENV_BLER_DEBUG)
-//          cout << "ERROR RX ---- "
-//                    << "effective SINR:" << sinr_
-//                    << ", selected CQI: " << mcs_
-//                    << ", random " << randomNumber
-//                    << ", BLER: " << bler << endl;
-//DEBUG_LOG_END
 
           error = true;
           if (_TEST_BLER_) cout << "BLER PDF " << sinr_ << " 1" << endl;

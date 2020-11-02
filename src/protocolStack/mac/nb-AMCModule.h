@@ -29,7 +29,7 @@
 class nbAMCModule {
 public:
   nbAMCModule();
-  virtual ~nbAMCModule();
+  virtual ~nbAMCModule() = default;
 
   int
   GetTBSizeFromMCS (int mcs, int nbRUs);
@@ -45,6 +45,7 @@ public:
 
   int
   GetMCSfromDistance (double distance, double radius, int tones);
+
 };
 
 #endif /* NB_AMCModule_H_ */

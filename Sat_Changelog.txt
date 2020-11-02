@@ -4,6 +4,9 @@
 This file contains 5G-air-simulator changelog for 
 satellite scenario implementation.
 
+example: 
+./5G-air-simulator nbCell-Sat sat 1 20000 0.3 3000 20 1 15 1 1000 32 15 1 1 10 4 8 48 3000 12 256 25
+
 ====================================================
 - File aggiunti:
 ---------------------------------------------------
@@ -62,8 +65,14 @@ nb-roundrobin-uplink-packet-scheduler.cpp
 // RUsAllocation() -> ttiLength * NRep <-> ttiLength
 
 9) componentManager -> FrameManager.cpp 
-// NRep come variabile globale
+// Inserito set/getNRep
+// Inserita Set/GetMCSNBIoTSat() per fissare il numero di MCS da linea di comando
+// Inserita gestione dell'MCS ed NRU forzato
+
 
 10) src -> phy -> phy.h/cpp
 // inserita variabile globale 
 // m_maxSatelliteRange -> metri di visibilità
+
+12) nb-roundrobin-uplink-packet-scheduler.cpp/h
+// Get MCS ed NRU da FrameManager

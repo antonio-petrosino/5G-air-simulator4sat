@@ -23,9 +23,11 @@
 
 #include "propagation-loss-model.h"
 #include "channel-realization.h"
+#include "../../core/spectrum/bandwidth-manager.h"
 #include "../../core/spectrum/transmitted-signal.h"
 #include "../../load-parameters.h"
 #include "../../device/NetworkNode.h"
+#include "../../phy/BLERTrace/BLERvsSINR_NBIoT_SAT.h"
 #include <vector>
 #include <iostream>
 #include <math.h>
@@ -170,28 +172,57 @@ DEBUG_LOG_END
 
       vector< vector<double> > loss = c->GetLoss ();
 
+      bool satScenario = false;
+      if(dst->GetNodeType() == NetworkNode::TYPE_GNODEB){
+    	  if(dst->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
+    	      	  satScenario = true;
+    	        }
+      }else if(src->GetNodeType() == NetworkNode::TYPE_GNODEB){
+    	  if(src->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
+    	      	  satScenario = true;
+    	        }
+      }
+
+
 DEBUG_LOG_START_1(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL)
       cout << "tx sub channels " << rxSignalValues.at (0).size () << " loss sub channels " << loss.at (0).size () << endl;
 DEBUG_LOG_END
 
       int nbOfPaths = rxSignalValues.size ();
       int nbOfSubChannels = rxSignalValues.at (0).size ();
+      double rxPower = 0.0;
+      if (satScenario == true){
+	  double ElAngle = src ->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
 
-      // rxPower -> SNR_tabulato = ???;
+	  double loss4sat = GetLOSS_SAT(ElAngle);
+
+		  for(auto& row:loss){
+			 for(auto& col:row){
+				col = loss4sat;
+			 }
+		  }
+      }
 
       for (int i = 0; i < nbOfPaths; i++)
         {
           for (int j = 0; j < nbOfSubChannels; j++)
             {
-              double rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); // add propagation loss
 
-DEBUG_LOG_START_1(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL)
-              cout << "\t\t path " << i << " sub channel = " << j
-                        << " rxSignalValues = " << rxSignalValues.at (i).at (j)
-                        << " loss = " << loss.at (i).at (j)
-                        << " rxPower = " << rxPower
-                        << endl;
-DEBUG_LOG_END
+        	  if (satScenario == true){
+				   rxPower = loss.at (i).at (j); // add propagation loss
+        	  }else{
+        		   rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); // add propagation loss
+        	  }
+
+
+        	  //double rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); //TODO: da togliere
+//DEBUG_LOG_START_1(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL)
+//              cout << "\t\t path " << i << " sub channel = " << j
+//                        << " rxSignalValues = " << rxSignalValues.at (i).at (j)
+//                        << " loss = " << loss.at (i).at (j)
+//                        << " rxPower = " << rxPower
+//                        << endl;
+//DEBUG_LOG_END
 
               rxSignalValues.at (i).at (j) = rxPower; // in W/Hz
             }
@@ -209,3 +240,4 @@ DEBUG_LOG_END
     }
   return rxSignal;
 }
+

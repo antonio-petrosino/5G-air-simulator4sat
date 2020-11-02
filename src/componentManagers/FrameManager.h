@@ -61,6 +61,8 @@ private:
   unsigned long m_TTICounter;
   int m_TTILength;
   int m_NRep;
+  int m_MCSSat;
+  int m_NRUSat;
 
   FrameManager();
   static FrameManager *ptr;
@@ -139,6 +141,16 @@ public:
   void ResourceAllocation(void);
   void setTTILength (int tones, double spacing);
   int getTTILength (void) const;
+
+
+  void
+  SetMCSNBIoTSat (int MCS);
+  int
+  GetMCSNBIoTSat (void) const;
+  void
+  SetNRUNBIoTSat (int NRU);
+  int
+  GetNRUNBIoTSat (void) const;
 };
 
 #endif /* FRAMEMANAGER_H_ */

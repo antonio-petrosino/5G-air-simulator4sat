@@ -57,6 +57,7 @@
 #include "../protocolStack/mac/random-access/gnb-random-access.h"
 #include "../protocolStack/mac/random-access/enb-nb-iot-random-access.h"
 #include "../protocolStack/mac/random-access/ue-nb-iot-random-access.h"
+#include "../protocolStack/mac/nb-AMCModule.h"
 
 #include <iostream>
 #include <queue>
@@ -67,7 +68,7 @@
 
 static void nbCell_Satellite (int argc, char *argv[])
 {
-	// ./5G-air-simulator nbCell-Sat rural 0 100 0.3 50 5 1 15 1 60 256 4 1 1 3 1 12 48 320 8 256 > TracingTest.txt
+	// ./5G-air-simulator nbCell-Sat rural 0 100 0.3 50 5 1 15 1 3 5 60 256 4 1 1 3 1 12 48 320 8 256 > TracingTest.txt
 
     string environment(argv[2]); // "suburban" or "rural"
     int schedUL = atoi(argv[3]);
@@ -79,10 +80,15 @@ static void nbCell_Satellite (int argc, char *argv[])
     int carriers = atoi(argv[8]);  // 1 carrier -> solo 48 preambolo
     double spacing = atof(argv[9]); // 15 kHz or 3.75 kHz
     int tones = atoi(argv[10]); // 1,3,12
-    int CBR_interval = atoi(argv[11]); // scenario agricoltura 1 ogni ora [s]
-    int CBR_size = atoi(argv[12]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
-    int totPreambleTx = atoi(argv[13]); // tentativi di RACH procedure
-    int nbCE = atoi(argv[14]); // numero coverage class
+	int MCS = atoi(argv[11]); // 1,3,12
+	int NRU = atoi(argv[12]); // 1,3,12
+
+	//argv numeri +2
+
+    int CBR_interval = atoi(argv[13]); // scenario agricoltura 1 ogni ora [s]
+    int CBR_size = atoi(argv[14]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
+    int totPreambleTx = atoi(argv[15]); // tentativi di RACH procedure
+    int nbCE = atoi(argv[16]); // numero coverage class
     
     std::map<double, int> ceProb;
     std::map<int, int> maxPreambleTx;
@@ -100,23 +106,23 @@ static void nbCell_Satellite (int argc, char *argv[])
     if (i==nbCE-1)
       ceProb.insert(std::make_pair(1, i));
     else if (i==0)
-      ceProb.insert(std::make_pair(atof(argv[15+i])/100,i));
+      ceProb.insert(std::make_pair(atof(argv[17+i])/100,i));
     else
-      ceProb.insert(std::make_pair((atof(argv[15+i])/100) + (atof(argv[14+i])/100), i));
+      ceProb.insert(std::make_pair((atof(argv[17+i])/100) + (atof(argv[16+i])/100), i));
 
-    maxPreambleTx.insert(std::make_pair(i, atoi(argv[15+nbCE+i])));
-    preambleRep.insert(std::make_pair(i, atoi(argv[15+(nbCE*2)+i])));
-    rarWindow.insert(std::make_pair(i, atoi(argv[15+(nbCE*3)+i]))); // ordine dei 10 [ms]
-    nbPre.insert(std::make_pair(i, atoi(argv[15+(nbCE*4)+i]))); // nP
-    rachPeriod.insert(std::make_pair(i, atoi(argv[15+(nbCE*5)+i])));
-    rachOffset.insert(std::make_pair(i, atoi(argv[15+(nbCE*6)+i]))); // dall inizio della visibilita del sat fino alla fine del cell search
-    boWindow.insert(std::make_pair(i, atoi(argv[15+(nbCE*7)+i]))); // backoff window
+    maxPreambleTx.insert(std::make_pair(i, atoi(argv[17+nbCE+i])));
+    preambleRep.insert(std::make_pair(i, atoi(argv[17+(nbCE*2)+i])));
+    rarWindow.insert(std::make_pair(i, atoi(argv[17+(nbCE*3)+i]))); // ordine dei 10 [ms]
+    nbPre.insert(std::make_pair(i, atoi(argv[17+(nbCE*4)+i]))); // nP
+    rachPeriod.insert(std::make_pair(i, atoi(argv[17+(nbCE*5)+i])));
+    rachOffset.insert(std::make_pair(i, atoi(argv[17+(nbCE*6)+i]))); // dall inizio della visibilita del sat fino alla fine del cell search
+    boWindow.insert(std::make_pair(i, atoi(argv[17+(nbCE*7)+i]))); // backoff window
   }
     
 int seed;
-  if (argc==16+(nbCE*8))
+  if (argc==18+(nbCE*8))
     {
-      seed = atoi(argv[15+(nbCE*8)]);
+      seed = atoi(argv[17+(nbCE*8)]);
     }
   else
     {
@@ -236,6 +242,8 @@ int seed;
   // SET FRAME STRUCTURE
   frameManager->SetFrameStructure(FrameManager::FRAME_STRUCTURE_FDD);
   frameManager->SetNRep(1);
+  frameManager->SetMCSNBIoTSat(MCS);
+  frameManager->SetNRUNBIoTSat(NRU);
 
   //Define Application Container
   CBR CBRApplication[nbUE];
@@ -296,11 +304,12 @@ int seed;
     gnb->GetPhy ()->SetCarrierFrequency(carrierFreq);
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
-    gnb->GetPhy ()->SetmaxSatelliteRange(596000);
+    gnb->GetPhy ()->SetmaxSatelliteRange(610000);
     gnb->GetPhy ()->SetErrorModel (errorModel);
     ulCh->AddDevice (gnb);
     gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);
     gnb->SetULScheduler(uplink_scheduler_type);
+
 
     networkManager->GetGNodeBContainer ()->push_back (gnb);
     //cout << "Created gNB - id 1 position (0;0)"<< endl;
@@ -353,10 +362,7 @@ int seed;
 
     for (int i = 0; i < nbUE; i++)
     {
-    	if (i == 255)
-    {
-    		cout << "test"<<endl;
-    	}
+
     zone = zoneDis(gen); // le UE vengono assegnate in modo uniforme a tutte le zone
     cout << "ZONE " << zone;
     low = edges[nbOfZones - 1 - zone];

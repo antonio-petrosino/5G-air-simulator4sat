@@ -172,7 +172,8 @@ DEBUG_LOG_END
                   CartesianCoordinates* cellPosition = scheduledUser.m_userToSchedule->GetCell()->GetCellCenterPosition();
                   double cellRadius = scheduledUser.m_userToSchedule->GetCell()->GetRadius();
                   double distance = userPosition->GetDistance(cellPosition);
-                  int mcs = GetMacEntity ()->GetNbAmcModule ()->GetMCSfromDistance (distance, cellRadius*1000, tones);
+                  //int mcs = GetMacEntity ()->GetNbAmcModule ()->GetMCSfromDistance (distance, cellRadius*1000, tones);
+                  int mcs = FrameManager::Init()->GetMCSNBIoTSat ();
 
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
                   cout << " \t Assigning resources to user " << id << endl;
@@ -181,8 +182,8 @@ DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
                   cout << " \t MCS = " << mcs;
 DEBUG_LOG_END
 
-                  int nru = GetMacEntity ()->GetNbAmcModule ()->GetNbOfRUsFromSize(mcs, dataToTransmit*8);
-
+                  //int nru = GetMacEntity ()->GetNbAmcModule ()->GetNbOfRUsFromSize(mcs, dataToTransmit*8);
+				  int nru = FrameManager::Init()->GetNRUNBIoTSat();
                   if (nru > ruSlice)
                     {
                       nru = ruSlice;

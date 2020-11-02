@@ -65,6 +65,10 @@ public:
   GetDistance3D(double remoteObjectPosX,
                 double remoteObjectPosY,
                 double remoteObjectPosZ);
+
+  double
+  GetElAngle(CartesianCoordinates *remoteObject);
+
   double
   GetPolarAzimut(CartesianCoordinates *center);
   double

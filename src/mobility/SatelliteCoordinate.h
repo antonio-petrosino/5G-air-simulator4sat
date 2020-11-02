@@ -40,7 +40,8 @@ GetSatPosition (double time)
 
 	double mod = 3000.0; // dipende dal tempo di visibilità + prossimo passaggio satellite
 	double newPosition = 0.0;
-	newPosition = -300000 -309 +(5000 * (fmod(time,mod))) -20000;
+	double start_offset = 100000;
+	newPosition = -300000 -309 +(5000 * (fmod(time,mod))) - start_offset;
 	// da un bordo cella all'altro ci mette 125 ms circa
 	return newPosition;
 };

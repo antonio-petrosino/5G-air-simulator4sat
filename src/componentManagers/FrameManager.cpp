@@ -37,6 +37,8 @@ FrameManager::FrameManager()
   m_TDDFrameConfiguration = 1; //Default Value
   m_MBSFNPattern = 0; //No MBSFN by default
   m_NRep = 1;
+  m_MCSSat = 3;
+  m_NRUSat = 5;
   Simulator::Init()->Schedule(0.0, &FrameManager::Start, this);
 
 }
@@ -401,6 +403,26 @@ FrameManager::SetNRep(int NRep)
 {
 	m_NRep = NRep;
 	cout << "Blind repetition value set to: " << NRep << endl;
+}
+
+void
+FrameManager::SetMCSNBIoTSat (int _MCS) {
+	m_MCSSat = _MCS;
+}
+
+int
+FrameManager::GetMCSNBIoTSat (void) const {
+	return m_MCSSat;
+}
+
+void
+FrameManager::SetNRUNBIoTSat (int _NRU) {
+	m_NRUSat = _NRU;
+}
+
+int
+FrameManager::GetNRUNBIoTSat (void) const{
+	return m_NRUSat;
 }
 
 int

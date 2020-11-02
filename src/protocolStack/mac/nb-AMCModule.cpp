@@ -39,12 +39,8 @@ int nbTransportBlockSizeTable [8][14] = {
 
 nbAMCModule::nbAMCModule()
 {
-}
 
-nbAMCModule::~nbAMCModule()
-{
 }
-
 
 int
 nbAMCModule::GetTBSizeFromMCS (int mcs, int nbRUs)
