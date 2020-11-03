@@ -57,7 +57,7 @@ DEBUG_LOG_END
 
   double timeInterval = time - GetPositionLastUpdate ();
 
-  if(timeInterval > 0.2 || time == 0.0){
+  if(timeInterval > 0.3 || time == 0.0){
 
     GNodeB *thisNode = (GNodeB*)GetDevice();
     //cout << "Aggiornamento posizione satellitare... time: "<< time <<endl;

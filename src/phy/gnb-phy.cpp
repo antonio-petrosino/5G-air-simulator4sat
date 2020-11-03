@@ -125,12 +125,6 @@ DEBUG_LOG_END
   //double noise_interference = 10. * log10 (pow(10., GetThermalNoise()/10) + interference); // dB - solo noise nel nostro caso
   double noise_interference = 0;
 
-  bool satScenario = false;
-
-  if(GetBandwidthManager()->GetNBIoTenabled() == true){
-		  satScenario = true;
-		}
-
   int chId = 0;
   for ( auto power : rxSignalValues ) // transmission power for the current sub channel [dB]
     {
@@ -139,7 +133,7 @@ DEBUG_LOG_END
           channelsForRx.push_back (chId);
         }
       chId++;
-      if(satScenario == true){
+      if(GetBandwidthManager()->GetNBIoTenabled() == true){
     	  measuredSinr.push_back(power);
       }else{
       measuredSinr.push_back (power - noise_interference - UL_INTERFERENCE);
@@ -153,16 +147,18 @@ DEBUG_LOG_END
     {
     vector<int> cqi; //compute the CQI
     phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
-    if (_PHY_TRACING_)
+    //if (_PHY_TRACING_)
+    if(false)
     {
         if (phyError)
           {
             cout << "**** YES PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
-            cout << "measuredSinr: " << measuredSinr << endl;
+            cout << "measuredSinr: " << measuredSinr[0] << endl;
           }
         else
           {
             cout << "**** NO PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
+            cout << "measuredSinr: " << measuredSinr[0] << endl;
           }
       }
     }

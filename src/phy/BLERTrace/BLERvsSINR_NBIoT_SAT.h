@@ -273,7 +273,7 @@ DEBUG_LOG_START_1(SIM_ENV_BLER_DEBUG)
                 << endl;
 DEBUG_LOG_END
     }
-
+  //cout << "BLER: " << BLER<<endl;
   return BLER;
 }
 

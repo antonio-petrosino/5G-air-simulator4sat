@@ -442,7 +442,7 @@ DEBUG_LOG_END
   for (auto amdRecord : *GetSentAMDs() ) {
     if (amdRecord->m_retx_count_timer == 1) {
       queue->SetQueueSize(queue->GetQueueSize()+amdRecord->m_packet->GetSize());
-      cout<<endl;
+      //cout<<endl;
     }
     amdRecord->m_retx_count_timer--;
   }

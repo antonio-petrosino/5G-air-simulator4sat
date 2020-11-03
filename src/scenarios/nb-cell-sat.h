@@ -389,7 +389,8 @@ int seed;
 
     ue->SetRandomAccessType(m_UeRandomAccessType);
 
-    ue->SetTimePositionUpdate (0.001); // trigger per la mobilità
+    ue->SetTimePositionUpdate (0.3); // trigger per la mobilità
+    // 0.3
 
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);

@@ -199,6 +199,7 @@ DEBUG_LOG_END
 		  for(auto& row:loss){
 			 for(auto& col:row){
 				col = loss4sat;
+				//col = 20;
 			 }
 		  }
       }

@@ -31,6 +31,8 @@
 #include "../core/spectrum/bandwidth-manager.h"
 #include "../core/eventScheduler/simulator.h"
 #include "../componentManagers/NetworkManager.h"
+#include "../flows/radio-bearer.h"
+#include "../flows/MacQueue.h"
 #include "../protocolStack/rrc/ho/handover-entity.h"
 #include "../protocolStack/rrc/ho/ho-manager.h"
 
@@ -175,9 +177,19 @@ UserEquipment::GetTimePositionUpdate (void)
   return m_timePositionUpdate;
 }
 
+//void
+//UserEquipment::UpdateUserPosition (void)
+//{
+//
+//}
+
 void
 UserEquipment::UpdateUserPosition (double time)
 {
+//?????
+//  time = Simulator::Init ()->Now();
+/////?????
+
   GetMobilityModel ()->UpdatePosition (time);
   //cout << "Aggiornamento posizione UE... time: "<< time <<endl;
   SetIndoorFlag(NetworkManager::Init()->CheckIndoorUsers(this));
@@ -248,11 +260,27 @@ DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 		Print();
 DEBUG_LOG_END
 				cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
-
+				SetNodeState (UserEquipment::STATE_IDLE);
 
 			    //SetNodeState (UserEquipment::STATE_ACTIVE); // o idle??
-				MakeActive();
-				Simulator::Init()->Schedule(0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+				//MakeActive();
+				bool needRAP = false;
+				RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();
+
+				if (rrc->GetRadioBearerContainer ()->size() > 0){
+					for (auto bearer : *rrc->GetRadioBearerContainer()){
+
+						if (bearer->GetMacQueue()->GetNbDataPackets()>0){
+
+							needRAP = true;
+
+						}
+					}
+				}
+
+				if(needRAP){
+					Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+				}
 				//cout<<"Stato attuale del dispositivo:"<<GetNodeState() << " UE id: "<< GetIDNetworkNode () << endl;
 		  }
 	  }
@@ -261,26 +289,31 @@ DEBUG_LOG_END
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate
 
-//	  cout << "Periodicità: " << fmod(time, 3000.0) << endl;
-//	  cout << "time: " << time << endl;
-//	if(fmod(time, 3000.0) < 160.0){
-//    Simulator::Init()->Schedule(m_timePositionUpdate,
-//                              &UserEquipment::UpdateUserPosition,
-//                              this,
-//                              Simulator::Init ()->Now());
-//	}else{
-//
-//	Simulator::Init()->Schedule(3000.1 - fmod(time,3000.0) ,
-//	                            &UserEquipment::UpdateUserPosition,
-//	                            this,
-//	                            Simulator::Init ()->Now());
-//	cout <<"Simulatore: schedulato fra " << 3000.1 - fmod(time,3000.0) << " sec." <<endl;
-//	}
+	  //cout << "Periodicità: " << fmod(time, 3000.0) << "time: " << time << endl;
+
+	/*if(fmod(time, 3000.0) < 160.001){
+    Simulator::Init()->Schedule(m_timePositionUpdate,
+                              &UserEquipment::UpdateUserPosition,
+                              this,
+                              Simulator::Init ()->Now());
+	}else{
+
+	Simulator::Init()->Schedule(3000.001 - fmod(time,3000.00) ,
+	                            &UserEquipment::UpdateUserPosition,
+	                            this,
+	                            Simulator::Init ()->Now() + 3000.001 - fmod(time,3000.00)); // chiamo up_us_pos con now()
+								//now + 3000
+	// se overload non passare niente, fino a this
+	cout <<"Simulatore: schedulato fra " << 3000.001 - fmod(time,3000.0) << " sec." <<endl;
+	}
+*/
+	  //TODO_A: time != da Now(); perchè???
 
 	  Simulator::Init()->Schedule(m_timePositionUpdate,
 	                                &UserEquipment::UpdateUserPosition,
 	                                this,
 	                                Simulator::Init ()->Now());
+
   }
 }
 
