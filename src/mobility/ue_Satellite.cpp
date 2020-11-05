@@ -35,8 +35,6 @@ Ue_SatelliteMovement::Ue_SatelliteMovement()
   SetHandover (false); //??
   SetLastHandoverTime (0.0);
   SetAbsolutePosition (nullptr);
-
-  //cout <<"Costruttore del movimento UE satellitare avviato!" << endl;
 }
 
 Ue_SatelliteMovement::~Ue_SatelliteMovement()
@@ -48,13 +46,8 @@ void
 Ue_SatelliteMovement::UpdatePosition (double time)
 {
 	double timeInterval = time - GetPositionLastUpdate ();
-
 	UserEquipment *thisNode = (UserEquipment*)GetDevice();
-
 	NetworkNode *targetNode = thisNode->GetTargetNode ();
-
 	targetNode->GetMobilityModel ()->UpdatePosition (time);
-
     SetPositionLastUpdate (time);
-
 }

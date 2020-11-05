@@ -191,15 +191,15 @@ DEBUG_LOG_END
       int nbOfPaths = rxSignalValues.size ();
       int nbOfSubChannels = rxSignalValues.at (0).size ();
       double rxPower = 0.0;
-      if (satScenario == true){
-	  double ElAngle = src ->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
 
-	  double loss4sat = GetLOSS_SAT(ElAngle);
+      if (satScenario == true){
+
+		  double ElAngle = src ->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
+		  double measuredSNR = GetSNRfromElAngle_SAT(ElAngle);
 
 		  for(auto& row:loss){
 			 for(auto& col:row){
-				col = loss4sat;
-				//col = 20;
+				col = measuredSNR;
 			 }
 		  }
       }
@@ -210,7 +210,7 @@ DEBUG_LOG_END
             {
 
         	  if (satScenario == true){
-				   rxPower = loss.at (i).at (j); // add propagation loss
+				   rxPower = loss.at (i).at (j); // add measured snr value
         	  }else{
         		   rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); // add propagation loss
         	  }

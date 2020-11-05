@@ -186,12 +186,12 @@ UserEquipment::GetTimePositionUpdate (void)
 void
 UserEquipment::UpdateUserPosition (double time)
 {
-//?????
-//  time = Simulator::Init ()->Now();
-/////?????
-
   GetMobilityModel ()->UpdatePosition (time);
-  //cout << "Aggiornamento posizione UE... time: "<< time <<endl;
+
+DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
+  cout << "Aggiornamento posizione UE... time: "<< time <<endl;
+DEBUG_LOG_END
+
   SetIndoorFlag(NetworkManager::Init()->CheckIndoorUsers(this));
 
   if (GetMobilityModel ()->GetHandover () == true)
@@ -215,83 +215,58 @@ DEBUG_LOG_END
   //in cui l'handover sarà sicuramente messo a falso
   else if (GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true)
   {
-	  //cout <<"Riconosciuto scenario NB-IoT"<<endl;
+	CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
+	CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
 
-	  CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
-	  CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
+	double distance = uePos->GetDistance3D (gnbPos);
+	double maxSatelliteRange = GetTargetNode ()-> GetPhy ()->GetmaxSatelliteRange ();
 
-	  double distance = uePos->GetDistance3D (gnbPos);
-	  double maxSatelliteRange = GetTargetNode ()-> GetPhy ()->GetmaxSatelliteRange ();
-
-	  //print di DEBUG
-//	  if(GetIDNetworkNode()==2){
-//		  //mostro solo la posizione per il nodo 3 di test
-//		  cout<<"Posizione attuale UE=2: " << uePos->GetCoordinateX() <<" "<< uePos->GetCoordinateY() <<" "<<  uePos->GetCoordinateZ() << endl;
-//		  cout<<"Posizione attuale gNB: " << gnbPos->GetCoordinateX() <<" "<< gnbPos->GetCoordinateY() <<" "<< gnbPos->GetCoordinateZ() << endl;
-//		  cout<<"La distanza è: " << distance << endl;
-//		  cout<<"Time di riferimento: "<< time << endl;
-//	  }
-	  //cout << "Distanza UE dalla gNB: " << distance << endl;
-
-	  // gestire detach per simulare visibilità/non visibilità
-
-	  if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
-	  { // la visibilità inizia quando il dispositivo è a meno di 583km dalla gNB
-		  if(GetNodeState() != UserEquipment::STATE_DETACHED){
-
+	// gestire detach per simulare visibilità/non visibilità
+	if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
+	{ // la visibilità inizia quando il dispositivo è a meno di 583km dalla gNB
+		if(GetNodeState() != UserEquipment::STATE_DETACHED){
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
-		cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
-		Print();
+cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
+Print();
 DEBUG_LOG_END
+			cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
+			SetNodeState (UserEquipment::STATE_DETACHED);
+		}
+	}else{
 
-			  cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
-			  SetNodeState (UserEquipment::STATE_DETACHED);
-			  //double detachTime = ue->GetProtocolStack()->GetRrcEntity()->GetHandoverEntity()->GetDetachTime();
-			  //Simulator::Init()->Schedule(detachTime, &NetworkNode::MakeActive, ue);
-			  //Simulator::Init()->Schedule(0.01, &NetworkNode::MakeActive(), this);
-			  //cout<<"Stato attuale del dispositivo:"<<GetNodeState() << " UE id: "<< GetIDNetworkNode () << endl;
-		  }
-	  }
-	  else
-	  {
-		  if(GetNodeState() == UserEquipment::STATE_DETACHED){
+		if(GetNodeState() == UserEquipment::STATE_DETACHED){
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
-		cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
-		Print();
+cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+Print();
 DEBUG_LOG_END
-				cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
-				SetNodeState (UserEquipment::STATE_IDLE);
+			cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+			SetNodeState (UserEquipment::STATE_IDLE);
 
-			    //SetNodeState (UserEquipment::STATE_ACTIVE); // o idle??
-				//MakeActive();
-				bool needRAP = false;
-				RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();
+			bool needRAP = false;
 
-				if (rrc->GetRadioBearerContainer ()->size() > 0){
-					for (auto bearer : *rrc->GetRadioBearerContainer()){
+			RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();
 
-						if (bearer->GetMacQueue()->GetNbDataPackets()>0){
-
-							needRAP = true;
-
-						}
+			if (rrc->GetRadioBearerContainer ()->size() > 0){
+				for (auto bearer : *rrc->GetRadioBearerContainer()){
+					if (bearer->GetMacQueue()->GetNbDataPackets()>0){
+						needRAP = true;
 					}
 				}
+			}
 
-				if(needRAP){
-					Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
-				}
-				//cout<<"Stato attuale del dispositivo:"<<GetNodeState() << " UE id: "<< GetIDNetworkNode () << endl;
-		  }
-	  }
+			if(needRAP){
+				Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+			}
+		}
+	}
   }
-// inserire uno shift dal secondo 150 al secondo 3000 per esempio
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate
 
 	  //cout << "Periodicità: " << fmod(time, 3000.0) << "time: " << time << endl;
 
-	/*if(fmod(time, 3000.0) < 160.001){
+/*
+	if(fmod(time, 3000.0) < 160.001){
     Simulator::Init()->Schedule(m_timePositionUpdate,
                               &UserEquipment::UpdateUserPosition,
                               this,
@@ -307,13 +282,10 @@ DEBUG_LOG_END
 	cout <<"Simulatore: schedulato fra " << 3000.001 - fmod(time,3000.0) << " sec." <<endl;
 	}
 */
-	  //TODO_A: time != da Now(); perchè???
-
 	  Simulator::Init()->Schedule(m_timePositionUpdate,
 	                                &UserEquipment::UpdateUserPosition,
 	                                this,
 	                                Simulator::Init ()->Now());
-
   }
 }
 

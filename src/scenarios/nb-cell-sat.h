@@ -80,12 +80,10 @@ static void nbCell_Satellite (int argc, char *argv[])
     int carriers = atoi(argv[8]);  // 1 carrier -> solo 48 preambolo
     double spacing = atof(argv[9]); // 15 kHz or 3.75 kHz
     int tones = atoi(argv[10]); // 1,3,12
-	int MCS = atoi(argv[11]); // 1,3,12
-	int NRU = atoi(argv[12]); // 1,3,12
-
-	//argv numeri +2
-
-    int CBR_interval = atoi(argv[13]); // scenario agricoltura 1 ogni ora [s]
+	int MCS = atoi(argv[11]);
+	int NRU = atoi(argv[12]);
+	// parametrizzare NRep?
+    int CBR_interval = atoi(argv[13]); // scenario agricoltura 1 ogni 4/6 ore [s]
     int CBR_size = atoi(argv[14]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
     int totPreambleTx = atoi(argv[15]); // tentativi di RACH procedure
     int nbCE = atoi(argv[16]); // numero coverage class
@@ -134,41 +132,25 @@ int seed;
     {
         std::cout << it->first << " " << it->second << "\n";
     }    
-        
-    //int etilt; //degrees
+
     double carrierFreq; //MHz
     double txPower = 33; // dBm
     double antennaHeight = 500000; // m
     double antennaGain = 8; // 8 dBi
-    
-    //double antennaAttenuation = 20; // dB???
-    //double horizontalBeamwidth3db = 65; //degrees??
     double UENoiseFigure = 6; // dB
     
     int channelModel = 1;
-    //int nbCell = 20; // number of sites in the simulation
-    //int nbActiveCell = 1; // number of sites with active users
-    //int nbSector = 3; // number of sectors per site
     double BSNoiseFigure = 3; // dB
     bool handover = false;
-    //double indoorUeFraction = 0;
-    //double minDist = 0.025; // in km
-    
-    //int gnbTx = nbTx;
-    //int ueRx = nbRx;
-    
-    //double vBeamWidth = 65;
     double BSFeederLoss = 0; // 2
     
-    if(environment=="suburban" || environment=="urban" || environment == "sat")
+    if(environment=="suburban")
     {        
-        //etilt = 14;
         channelModel = 4;
         carrierFreq = 2000;
     }
     else if(environment=="rural")
     {        
-        //etilt = 10;
         channelModel = 4;
         carrierFreq = 2000;
     }
@@ -209,8 +191,6 @@ int seed;
           model = ChannelRealization::CHANNEL_MODEL_MACROCELL_URBAN;
           break;
     }
-    
-
 
     // define simulation times
     double duration = dur; //+ 1;
@@ -304,7 +284,8 @@ int seed;
     gnb->GetPhy ()->SetCarrierFrequency(carrierFreq);
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
-    gnb->GetPhy ()->SetmaxSatelliteRange(610000);
+    //gnb->GetPhy ()->SetmaxSatelliteRange(610000);
+    gnb->GetPhy ()->SetmaxSatelliteRange(550000);
     gnb->GetPhy ()->SetErrorModel (errorModel);
     ulCh->AddDevice (gnb);
     gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);
@@ -390,7 +371,6 @@ int seed;
     ue->SetRandomAccessType(m_UeRandomAccessType);
 
     ue->SetTimePositionUpdate (0.3); // trigger per la mobilità
-    // 0.3
 
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);
@@ -414,17 +394,11 @@ int seed;
     gnb->RegisterUserEquipment (ue);
 
     ////////////////////////////
-//    // ERROR model
-    	//NBIoTSimpleErrorModel *errorModel = new NBIoTSimpleErrorModel();
+// ERROR model
         ue->GetPhy ()->SetErrorModel (errorModel);
-//
         ChannelRealization* c_ul = new ChannelRealization (ue, gnb, model);
         //c_ul->disableFastFading();
         gnb->GetPhy ()->GetUlChannel ()->GetPropagationLossModel ()->AddChannelRealization (c_ul);
-//
-//        // propagation loss model da inserire
-       //gnb->GetPhy()->GetUlChannel()->SetPropagationLossModel(NULL);
-
     ////////////////////////////
 
     DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
@@ -437,25 +411,25 @@ int seed;
     double edges[nbOfZones+1];
     for (int i=0; i <= nbOfZones; i++)
     {
-    edges[i]= i*zoneWidth;
+    	edges[i]= i*zoneWidth;
     }
     if (distance >= edges[nbOfZones])
     {
-    zone = 0;
+    	zone = 0;
     }
     for (int i= 0; i < nbOfZones; i++)
     {
-    if (distance >= edges[i] && distance <= edges[i+1])
-    {
-      zone=nbOfZones-1-i;
+		if (distance >= edges[i] && distance <= edges[i+1])
+		{
+		  zone=nbOfZones-1-i;
+		}
     }
-    }
-    cout << "LOG_ZONE UE " << idUE
-    << " DISTANCE " << distance
-    << " WIDTH " << zoneWidth
-    << " ZONE " << zone
-    << endl;
-    DEBUG_LOG_END
+cout << "LOG_ZONE UE " << idUE
+<< " DISTANCE " << distance
+<< " WIDTH " << zoneWidth
+<< " ZONE " << zone
+<< endl;
+DEBUG_LOG_END
 
     //CREATE UPLINK APPLICATION FOR THIS UE
     double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
@@ -472,7 +446,8 @@ int seed;
     CBRApplication[cbrApplication].SetInterval ((double) CBR_interval);
     CBRApplication[cbrApplication].SetSize (CBR_size);
 
-    //------------------------------------------------------------------------------------------------------------- create qos parameters????
+    //-------------------------------------------------------------------
+    //------------------------------------------ create qos parameters????
 
     QoSParameters *qosParameters = new QoSParameters ();
     qosParameters->SetMaxDelay (flow_duration);

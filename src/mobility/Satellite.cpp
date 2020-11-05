@@ -32,14 +32,12 @@
 SatelliteMovement::SatelliteMovement()
 {
   SetMobilityModel(Mobility::SATELLITE);
-  //SetSpeed (0);
   SetSpeed (5000);
   SetSpeedDirection (0.0);
   SetPositionLastUpdate (0.0);
   SetHandover (false);
   SetLastHandoverTime (0.0);
   SetAbsolutePosition (nullptr);
-  //cout <<"Costruttore del movimento gNB satellitare avviato!" << endl;
 }
 
 SatelliteMovement::~SatelliteMovement()
@@ -60,7 +58,6 @@ DEBUG_LOG_END
   if(timeInterval > 0.3 || time == 0.0){
 
     GNodeB *thisNode = (GNodeB*)GetDevice();
-    //cout << "Aggiornamento posizione satellitare... time: "<< time <<endl;
 
 DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG)
   cout << "MOBILITY_DEBUG: User ID: " << GetDevice ()->GetIDNetworkNode()
@@ -87,30 +84,24 @@ DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG_TAB)
 DEBUG_LOG_END
 
     double x_pos = 0.0;
-	//double z_pos = 500000.0;
     // è espresso in metri al secondo se la velocita è data in km/h
-
-// inserire modello di movimento
-    //cout<<"Aggiorno posizione satellite" << endl;
-    //cout <<"Vecchia posizione: "<<  GetAbsolutePosition()->GetCoordinateX() << endl;
 	x_pos = GetSatPosition(time);
-	//cout <<"Nuova posizione: " <<  x_pos << " time: "<< std::to_string (time) << endl;
-// fine calcolo di movimento
-	  CartesianCoordinates *newPosition =
-	  new CartesianCoordinates(x_pos,
-							   GetAbsolutePosition()->GetCoordinateY(),
-							   GetAbsolutePosition()->GetCoordinateZ());
-	  newPosition->SetFloorHeight( GetAbsolutePosition()->GetFloorHeight() );
 
-	  // nuova posizione per il satellite
-	  SetAbsolutePosition(newPosition);
-	  SetPositionLastUpdate (time);
+	CartesianCoordinates *newPosition =
+	new CartesianCoordinates(x_pos,
+						   GetAbsolutePosition()->GetCoordinateY(),
+						   GetAbsolutePosition()->GetCoordinateZ());
+	newPosition->SetFloorHeight( GetAbsolutePosition()->GetFloorHeight() );
+
+	SetAbsolutePosition(newPosition);
+	SetPositionLastUpdate (time);
 
 DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG)
   cout << "\n\t Final Position (X): " << GetAbsolutePosition()->GetCoordinateX()
 			<< "\n\t Final Position (Y): " << GetAbsolutePosition()->GetCoordinateY()
 			<< endl;
 DEBUG_LOG_END
+
 DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG_TAB)
   cout << GetAbsolutePosition()->GetCoordinateX() << " "
 			<< GetAbsolutePosition()->GetCoordinateY()

@@ -21,8 +21,6 @@
  */
 
 #include "nbiot-simple-error-model.h"
-//#include "BLERTrace/BLERvsSINR_15CQI_AWGN.h"
-//#include "BLERTrace/BLERvsSINR_15CQI_TU.h"
 #include "BLERTrace/BLERvsSINR_NBIoT_SAT.h"
 #include "../utility/RandomVariable.h"
 
@@ -50,14 +48,12 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
     {
       int mcs_ = FrameManager::Init()->GetMCSNBIoTSat ();
       double sinr_ = sinr.at (channels.at (i));
-
       double bler;
 
       bler = GetBLER_SAT (sinr_, mcs_);
 
       if (randomNumber < bler)
         {
-
           error = true;
           if (_TEST_BLER_) cout << "BLER PDF " << sinr_ << " 1" << endl;
         }

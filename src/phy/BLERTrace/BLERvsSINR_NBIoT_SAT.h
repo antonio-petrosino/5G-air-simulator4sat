@@ -31,7 +31,6 @@
 
 #include "iostream"
 
-// i valori non rispecchiano il nostro scenario
 static double BLER_NBIoT_SAT [24][21] =
 {
 		{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, // iMCS = 0, NRep  = 1;
@@ -61,7 +60,6 @@ static double BLER_NBIoT_SAT [24][21] =
 
 };
 
-// i valori non rispecchiano il nostro scenario
 static double SINR_NBIoT_SAT [24][21] =
 {
 		{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, // iMCS = 0, NRep  = 1;
@@ -215,19 +213,15 @@ GetBLER_SAT (double SINR, int MCS)
   double BLER = 0.0;
   int MCS_ = MCS;
   double R = 0.0;
-
-  //cout << "SINR in input: " << SINR << "MCS: " << MCS << endl;
-
   int _NRep = FrameManager::Init()->GetNRep();
 
-  if(_NRep == 2 ){
-
+  if(_NRep == 2 )
+  {
 	  MCS_ = MCS_ + 8;
-
-  }else if(_NRep == 4){
-
+  }
+  else if(_NRep == 4)
+  {
 	  MCS_ = MCS_ + 16;
-
   }
 
   if ( SINR <= SINR_NBIoT_SAT [MCS_-1] [0] )
@@ -245,7 +239,6 @@ GetBLER_SAT (double SINR, int MCS)
           if (SINR >= SINR_NBIoT_SAT [MCS_-1] [i] && SINR < SINR_NBIoT_SAT [MCS_-1] [i+1])
             {
               index = i;
-              //cout << SINR_15_CQI_TU [MCS_-1] [i] << " - " << SINR_15_CQI_TU [MCS_-1] [i+1] << endl;
             }
         }
     }
@@ -253,7 +246,6 @@ GetBLER_SAT (double SINR, int MCS)
   if (index != -1)
     {
       R = (SINR - SINR_NBIoT_SAT [MCS_-1] [index]) / ( SINR_NBIoT_SAT [MCS_-1] [index + 1] - SINR_NBIoT_SAT [MCS_-1] [index] );
-
       BLER = BLER_NBIoT_SAT [MCS_-1] [index] + R * ( BLER_NBIoT_SAT [MCS_-1] [index + 1] - BLER_NBIoT_SAT [MCS_-1] [index] );
     }
 
@@ -273,24 +265,23 @@ DEBUG_LOG_START_1(SIM_ENV_BLER_DEBUG)
                 << endl;
 DEBUG_LOG_END
     }
-  //cout << "BLER: " << BLER<<endl;
   return BLER;
 }
 
 static double
-GetLOSS_SAT (double elangle)
+GetSNRfromElAngle_SAT (double elangle)
 {
   int index = -1;
   double R = 0.0;
-  double LOSS = 0.0;
+  double measuredSNR = 0.0;
 
   if ( elangle <= ELANGLE4LOSS_NBIoT_SAT [0] )
     {
-      LOSS = 999999.0; // comunicazione impossibile
+      measuredSNR = 999999.0;
     }
   else if (elangle >= ELANGLE4LOSS_NBIoT_SAT [583])
     {
-	  LOSS = ELANGLE4LOSS_NBIoT_SAT [583];
+	  measuredSNR = ELANGLE4LOSS_NBIoT_SAT [583];
     }
   else
     {
@@ -307,11 +298,9 @@ GetLOSS_SAT (double elangle)
     {
       R = (elangle - ELANGLE4LOSS_NBIoT_SAT [index]) / ( ELANGLE4LOSS_NBIoT_SAT [index + 1] - ELANGLE4LOSS_NBIoT_SAT [index] );
 
-      LOSS = LOSS_NBIoT_SAT [index] + R * ( LOSS_NBIoT_SAT [index + 1] - LOSS_NBIoT_SAT [index] );
+      measuredSNR = LOSS_NBIoT_SAT [index] + R * ( LOSS_NBIoT_SAT [index + 1] - LOSS_NBIoT_SAT [index] );
     }
-  //cout<< "LOSS relativa: " << LOSS << endl;
-  return LOSS;
+  return measuredSNR;
 }
-
 
 #endif /* BLERVSSINR_NBIoT_SAT_H */
