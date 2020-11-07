@@ -42,6 +42,7 @@
 #include "../channel/propagation-model/channel-realization.h"
 #include "../phy/wideband-cqi-eesm-error-model.h"
 #include "../phy/nbiot-simple-error-model.h"
+#include "../phy/BLERTrace/BLERvsSINR_NBIoT_SAT.h"
 #include "../load-parameters.h"
 
 #include "../device/UserEquipment.h"
@@ -284,8 +285,9 @@ int seed;
     gnb->GetPhy ()->SetCarrierFrequency(carrierFreq);
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
-    //gnb->GetPhy ()->SetmaxSatelliteRange(610000);
-    gnb->GetPhy ()->SetmaxSatelliteRange(550000);
+    double minDist = GetMinDistance4CellSelection(); // in base all'angolo di visibilità scelto con SNR > 0
+    gnb->GetPhy ()->SetmaxSatelliteRange(minDist);
+    //gnb->GetPhy ()->SetmaxSatelliteRange(510000);
     gnb->GetPhy ()->SetErrorModel (errorModel);
     ulCh->AddDevice (gnb);
     gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);

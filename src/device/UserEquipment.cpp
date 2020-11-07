@@ -186,6 +186,8 @@ UserEquipment::GetTimePositionUpdate (void)
 void
 UserEquipment::UpdateUserPosition (double time)
 {
+	if(fmod(time, 2990.0) < 170.001){
+		//cout << "Aggiornamento posizione UE... time: "<< time <<endl;
   GetMobilityModel ()->UpdatePosition (time);
 
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
@@ -229,7 +231,7 @@ DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 Print();
 DEBUG_LOG_END
-			cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
+			//cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 			SetNodeState (UserEquipment::STATE_DETACHED);
 		}
 	}else{
@@ -239,7 +241,7 @@ DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
 Print();
 DEBUG_LOG_END
-			cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+			//cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
 			SetNodeState (UserEquipment::STATE_IDLE);
 
 			bool needRAP = false;
@@ -260,6 +262,7 @@ DEBUG_LOG_END
 		}
 	}
   }
+	}
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate
 

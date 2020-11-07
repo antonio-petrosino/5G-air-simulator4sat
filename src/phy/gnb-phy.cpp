@@ -22,9 +22,11 @@
 
 
 #include "gnb-phy.h"
+#include "ue-phy.h"
 #include "../device/NetworkNode.h"
 #include "../channel/RadioChannel.h"
 #include "../core/spectrum/bandwidth-manager.h"
+#include "../phy/BLERTrace/BLERvsSINR_NBIoT_SAT.h"
 #include "../protocolStack/packet/packet-burst.h"
 #include "../core/spectrum/transmitted-signal.h"
 #include "../core/idealMessages/ideal-control-messages.h"
@@ -122,8 +124,18 @@ DEBUG_LOG_END
   vector<double> rxSignalValues = txSignal->GetValues().at(0);
 
   double interference = 0;
-  //double noise_interference = 10. * log10 (pow(10., GetThermalNoise()/10) + interference); // dB - solo noise nel nostro caso
-  double noise_interference = 0;
+  double noise_interference = 10. * log10 (pow(10., GetThermalNoise()/10) + interference); // dB - solo noise nel nostro caso
+  //double noise_interference = 0;
+
+  bool satScenario = GetDevice()-> GetPhy()->GetBandwidthManager()->GetNBIoTenabled();
+  //double measuredSNR = 0.0;
+
+	//if (satScenario == true){
+		//UePhy* uePhy = (UePhy*) GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetPhy();
+		//double ElAngle = uePhy->GetDevice()->GetMobilityModel ()->GetAbsolutePosition ()->GetElAngle (GetDevice()->GetMobilityModel()->GetAbsolutePosition());
+		//measuredSNR = GetSNRfromElAngle_SAT(ElAngle);
+
+	//}
 
   int chId = 0;
   for ( auto power : rxSignalValues ) // transmission power for the current sub channel [dB]
@@ -133,10 +145,13 @@ DEBUG_LOG_END
           channelsForRx.push_back (chId);
         }
       chId++;
-      if(GetBandwidthManager()->GetNBIoTenabled() == true){
-    	  measuredSinr.push_back(power);
-      }else{
-      measuredSinr.push_back (power - noise_interference - UL_INTERFERENCE);
+
+      if(satScenario){
+    	  measuredSinr.push_back(power - GetSatelliteNoisePowerDB());
+      }
+      else
+      {
+    	  measuredSinr.push_back (power - noise_interference - UL_INTERFERENCE);
       }
     }
 
@@ -147,8 +162,8 @@ DEBUG_LOG_END
     {
     vector<int> cqi; //compute the CQI
     phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
-    //if (_PHY_TRACING_)
-    if(false)
+    if (_PHY_TRACING_)
+    //if(false)
     {
         if (phyError)
           {
@@ -168,6 +183,8 @@ DEBUG_LOG_END
     {
       //FORWARD RECEIVED PACKETS TO THE DEVICE
       GetDevice()->ReceivePacketBurst(p);
+    }else{
+    	cout << "RX ERROR" << endl;
     }
 
   delete txSignal;

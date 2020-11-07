@@ -195,11 +195,13 @@ DEBUG_LOG_END
       if (satScenario == true){
 
 		  double ElAngle = src ->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
-		  double measuredSNR = GetSNRfromElAngle_SAT(ElAngle);
+		  double simulatedRxPower = GetRxPowerfromElAngle_SAT(ElAngle);
 
-		  for(auto& row:loss){
+		  for(auto& row:rxSignalValues){
 			 for(auto& col:row){
-				col = measuredSNR;
+				 if(col != 0){
+					 col = simulatedRxPower; // TODO: Controllare quali valori sono zero
+				 }
 			 }
 		  }
       }
@@ -209,23 +211,24 @@ DEBUG_LOG_END
           for (int j = 0; j < nbOfSubChannels; j++)
             {
 
-        	  if (satScenario == true){
-				   rxPower = loss.at (i).at (j); // add measured snr value
-        	  }else{
-        		   rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); // add propagation loss
+        	 if (satScenario == true){
+				  rxPower = rxSignalValues.at (i).at (j); // add measured snr value
+        	  }else
+        	  {
+        		  rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); // add propagation loss
         	  }
 
 
         	  //double rxPower = rxSignalValues.at (i).at (j) + loss.at (i).at (j); //TODO: da togliere
-//DEBUG_LOG_START_1(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL)
-//              cout << "\t\t path " << i << " sub channel = " << j
-//                        << " rxSignalValues = " << rxSignalValues.at (i).at (j)
-//                        << " loss = " << loss.at (i).at (j)
-//                        << " rxPower = " << rxPower
-//                        << endl;
-//DEBUG_LOG_END
+DEBUG_LOG_START_1(SIM_ENV_TEST_PROPAGATION_LOSS_MODEL)
+              cout << "\t\t path " << i << " sub channel = " << j
+                        << " rxSignalValues = " << rxSignalValues.at (i).at (j)
+                        << " loss = " << loss.at (i).at (j)
+                        << " rxPower = " << rxPower
+                        << endl;
+DEBUG_LOG_END
 
-              rxSignalValues.at (i).at (j) = rxPower; // in W/Hz
+              rxSignalValues.at (i).at (j) = rxPower; // in W/Hz //????
             }
         }
       rxSignal->SetValues (rxSignalValues);
