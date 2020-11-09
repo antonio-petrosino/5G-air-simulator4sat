@@ -140,12 +140,16 @@ public:
   void ResourceBlocksAllocation ();
   void UplinkResourceBlockAllocation ();
   void DownlinkResourceBlockAllocation ();
+    
+  void UpdateAttachedUEs (int);
+  int GetAttachedUEs (void);
 
   //Debug
   void Print (void);
 
 private:
   UserEquipmentRecords *m_userEquipmentRecords;
+  int m_attachedUEs;
 };
 
 #endif /* GNODEB_H_ */

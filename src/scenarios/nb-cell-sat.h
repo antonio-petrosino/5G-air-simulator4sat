@@ -69,7 +69,7 @@
 
 static void nbCell_Satellite (int argc, char *argv[])
 {
-	// ./5G-air-simulator nbCell-Sat rural 0 100 0.3 50 5 1 15 1 3 5 60 256 4 1 1 3 1 12 48 320 8 256 > TracingTest.txt
+	// ./5G-air-simulator nbCell-Sat sat 1 200000 0.3 3000 30 1 15 1 3 5 4 21600 19 15 1 1 10 4 8 48 128 12 1024 25
 
     string environment(argv[2]); // "suburban" or "rural"
     int schedUL = atoi(argv[3]);
@@ -83,11 +83,11 @@ static void nbCell_Satellite (int argc, char *argv[])
     int tones = atoi(argv[10]); // 1,3,12
 	int MCS = atoi(argv[11]);
 	int NRU = atoi(argv[12]);
-	// parametrizzare NRep?
-    int CBR_interval = atoi(argv[13]); // scenario agricoltura 1 ogni 4/6 ore [s]
-    int CBR_size = atoi(argv[14]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
-    int totPreambleTx = atoi(argv[15]); // tentativi di RACH procedure
-    int nbCE = atoi(argv[16]); // numero coverage class
+	int NRep = atoi(argv[13]);
+    int CBR_interval = atoi(argv[14]); // scenario agricoltura 1 ogni 4/6 ore [s]
+    int CBR_size = atoi(argv[15]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
+    int totPreambleTx = atoi(argv[16]); // tentativi di RACH procedure
+    int nbCE = atoi(argv[17]); // numero coverage class
     
     std::map<double, int> ceProb;
     std::map<int, int> maxPreambleTx;
@@ -105,23 +105,23 @@ static void nbCell_Satellite (int argc, char *argv[])
     if (i==nbCE-1)
       ceProb.insert(std::make_pair(1, i));
     else if (i==0)
-      ceProb.insert(std::make_pair(atof(argv[17+i])/100,i));
+      ceProb.insert(std::make_pair(atof(argv[18+i])/100,i));
     else
-      ceProb.insert(std::make_pair((atof(argv[17+i])/100) + (atof(argv[16+i])/100), i));
+      ceProb.insert(std::make_pair((atof(argv[18+i])/100) + (atof(argv[17+i])/100), i));
 
-    maxPreambleTx.insert(std::make_pair(i, atoi(argv[17+nbCE+i])));
-    preambleRep.insert(std::make_pair(i, atoi(argv[17+(nbCE*2)+i])));
-    rarWindow.insert(std::make_pair(i, atoi(argv[17+(nbCE*3)+i]))); // ordine dei 10 [ms]
-    nbPre.insert(std::make_pair(i, atoi(argv[17+(nbCE*4)+i]))); // nP
-    rachPeriod.insert(std::make_pair(i, atoi(argv[17+(nbCE*5)+i])));
-    rachOffset.insert(std::make_pair(i, atoi(argv[17+(nbCE*6)+i]))); // dall inizio della visibilita del sat fino alla fine del cell search
-    boWindow.insert(std::make_pair(i, atoi(argv[17+(nbCE*7)+i]))); // backoff window
-  }
+    maxPreambleTx.insert(std::make_pair(i, atoi(argv[18+nbCE+i])));
+    preambleRep.insert(std::make_pair(i, atoi(argv[18+(nbCE*2)+i])));
+    rarWindow.insert(std::make_pair(i, atoi(argv[18+(nbCE*3)+i]))); // ordine dei 10 [ms]
+    nbPre.insert(std::make_pair(i, atoi(argv[18+(nbCE*4)+i]))); // nP
+    rachPeriod.insert(std::make_pair(i, atoi(argv[18+(nbCE*5)+i])));
+    rachOffset.insert(std::make_pair(i, atoi(argv[18+(nbCE*6)+i]))); // dall inizio della visibilita del sat fino alla fine del cell search
+    boWindow.insert(std::make_pair(i, atoi(argv[18+(nbCE*7)+i]))); // backoff window
+   }
     
 int seed;
-  if (argc==18+(nbCE*8))
+  if (argc==19+(nbCE*8))
     {
-      seed = atoi(argv[17+(nbCE*8)]);
+      seed = atoi(argv[18+(nbCE*8)]);
     }
   else
     {
@@ -222,7 +222,7 @@ int seed;
 
   // SET FRAME STRUCTURE
   frameManager->SetFrameStructure(FrameManager::FRAME_STRUCTURE_FDD);
-  frameManager->SetNRep(1);
+  frameManager->SetNRep(NRep);
   frameManager->SetMCSNBIoTSat(MCS);
   frameManager->SetNRUNBIoTSat(NRU);
 
@@ -372,7 +372,7 @@ int seed;
 
     ue->SetRandomAccessType(m_UeRandomAccessType);
 
-    ue->SetTimePositionUpdate (0.3); // trigger per la mobilità
+    ue->SetTimePositionUpdate (0.1); // trigger per la mobilità
 
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);

@@ -184,7 +184,7 @@ DEBUG_LOG_END
       //FORWARD RECEIVED PACKETS TO THE DEVICE
       GetDevice()->ReceivePacketBurst(p);
     }else{
-    	cout << "RX ERROR" << endl;
+    	cout << "RX ERROR "<< endl;
     }
 
   delete txSignal;

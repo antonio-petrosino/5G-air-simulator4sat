@@ -174,7 +174,7 @@ NetworkNode::MakeActive (void)
 
   if(GetNodeType()==TYPE_UE)
     {
-      if(((UserEquipment*)this)->GetTargetNode()->GetDLScheduler()!=nullptr)
+      if(((UserEquipment*)this)->GetTargetNode()->GetDLScheduler()!=nullptr || ((UserEquipment*)this)->GetTargetNode()->GetULScheduler()!=nullptr )
         {
           SetNodeState (STATE_ACTIVE);
           UserEquipment* ue = (UserEquipment*) this;

@@ -55,7 +55,7 @@ DEBUG_LOG_END
 
   double timeInterval = time - GetPositionLastUpdate ();
 
-  if(timeInterval > 0.3 || time == 0.0){
+  if(timeInterval > 0.1 || time == 0.0){
 
     GNodeB *thisNode = (GNodeB*)GetDevice();
 

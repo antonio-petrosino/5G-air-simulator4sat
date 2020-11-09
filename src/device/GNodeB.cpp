@@ -137,6 +137,8 @@ GNodeB::GNodeB (int idElement,
 	  Classifier *classifier = new Classifier ();
 	  classifier->SetDevice (this);
 	  SetClassifier (classifier);
+      
+      m_attachedUEs = 0;
 }
 
 
@@ -618,4 +620,14 @@ GNodeB::Print (void)
       cout << "\t\t idUE = " << record->GetUE ()->
                 GetIDNetworkNode () << endl;
     }
+}
+
+void
+GNodeB::UpdateAttachedUEs (int n) {
+    m_attachedUEs += n;
+}
+
+int
+GNodeB::GetAttachedUEs (void) {
+    return m_attachedUEs;
 }

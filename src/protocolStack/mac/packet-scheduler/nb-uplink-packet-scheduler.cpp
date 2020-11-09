@@ -149,17 +149,19 @@ DEBUG_LOG_END
 void
 nbUplinkPacketScheduler::DoSchedule (void)
 {
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_VERBOSE)
-  cout << "Start UPLINK packet scheduler" << endl;
-DEBUG_LOG_END
-  SelectUsersToSchedule ();
-  //int freeTones = std::count(m_RUmap[0].begin(), m_RUmap[0].end(), -1);
-  if (GetUsersToSchedule ()->size () > 0)// || freeTones<m_RUmap[0].size())
-    {
-      RUsAllocation ();
-      DoStopSchedule ();
+    DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_VERBOSE)
+    cout << "Start UPLINK packet scheduler" << endl;
+    DEBUG_LOG_END
+    if (GetMacEntity()->GetDevice()->GetAttachedUEs() > 0) {
+        SelectUsersToSchedule ();
+        //int freeTones = std::count(m_RUmap[0].begin(), m_RUmap[0].end(), -1);
+        if (GetUsersToSchedule ()->size () > 0)// || freeTones<m_RUmap[0].size())
+        {
+            RUsAllocation ();
+            DoStopSchedule ();
+        }
+        DeleteUsersToSchedule ();
     }
-  DeleteUsersToSchedule ();
 }
 
 
