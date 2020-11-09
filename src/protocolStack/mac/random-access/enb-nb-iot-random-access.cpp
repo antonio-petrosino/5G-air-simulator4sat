@@ -352,20 +352,27 @@ void GnbNbIoTRandomAccess::SendMessage4(NetworkNode *dest) {
 }
 
 bool GnbNbIoTRandomAccess::isRachOpportunity() {
-    int currentTTI = FrameManager::Init()->GetTTICounter();
+    int currentTTI = (int) FrameManager::Init()->GetTTICounter();
     
     DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_NB)
     cout << "GnbNbIoTRandomAccess::isRachOpportunity( " << currentTTI <<" ) " << endl;
     DEBUG_LOG_END
-    vector<bool> found;
-    for (auto i : m_tonesReservedForRach)
-    {
-        if (m_tonesReservedForRach[i.first].find(currentTTI) != m_tonesReservedForRach[i.first].end())
-            found.push_back(true);
-        else
-            found.push_back(false);
-    }
-    return std::find(found.begin(), found.end(), true) != found.end();
+        
+    std::map<int, int> timeOffset=GetTimeOffset();
+    std::map<int, int> rao=GetRaoIndex();
+    std::map<int, int> periodicity=GetResPeriodicity();
+    return (((currentTTI - timeOffset[0]) % (periodicity[0])) == 0);
+
+//ORIGINAL CODE WORKING FOR MULTIPLE CE CLASSES
+//    vector<bool> found;
+//    for (auto i : m_tonesReservedForRach)
+//    {
+//        if (m_tonesReservedForRach[i.first].find(currentTTI) != m_tonesReservedForRach[i.first].end())
+//            found.push_back(true);
+//        else
+//            found.push_back(false);
+//    }
+//    return std::find(found.begin(), found.end(), true) != found.end();
 }
 
 vector<int>

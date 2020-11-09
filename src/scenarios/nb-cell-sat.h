@@ -290,7 +290,7 @@ int seed;
     //gnb->GetPhy ()->SetmaxSatelliteRange(510000);
     gnb->GetPhy ()->SetErrorModel (errorModel);
     ulCh->AddDevice (gnb);
-    gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);
+    //gnb->SetDLScheduler (GNodeB::DLScheduler_TYPE_PROPORTIONAL_FAIR);
     gnb->SetULScheduler(uplink_scheduler_type);
 
 
