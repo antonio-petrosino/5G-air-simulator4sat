@@ -187,7 +187,8 @@ UserEquipment::GetTimePositionUpdate (void)
 void
 UserEquipment::UpdateUserPosition (double time)
 {
-	if(fmod(time, GetPeriod()) < GetVisibilityTime()){
+	//if(fmod(time, GetPeriod()) < GetVisibilityTime()){
+		if(true){
 		//cout << "Aggiornamento posizione UE... time: "<< time <<endl;
   GetMobilityModel ()->UpdatePosition (time);
 
