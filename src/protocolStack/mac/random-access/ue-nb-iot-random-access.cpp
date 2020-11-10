@@ -123,7 +123,7 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
 
     	    if(distance > maxSatelliteRange)
     	    	  {
-    	    		  cout <<"Ma la UE è troppo lontana."<<endl;
+    	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
     	    		  return;
     	    	  }
     	}

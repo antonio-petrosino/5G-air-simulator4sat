@@ -37,7 +37,7 @@ GetPeriod(){
 
 static double
 GetVisibilityTime(){
-	return 180.0;
+	return 300.0;
 };
 
 
@@ -55,7 +55,7 @@ GetSatPosition (double time)
 	double mod = 2830.0;
 			//GetPeriod(); // dipende dal tempo di visibilità + prossimo passaggio satellite
 	double newPosition = 0.0;
-	double start_offset = 100000;
+	double start_offset = 10000;
 	//start_offset = 0;
 
 	newPosition = -320000 -309 +(7059.22 * (fmod(time,mod))) - start_offset;
