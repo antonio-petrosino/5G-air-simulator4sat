@@ -25,10 +25,12 @@
 #include <cstdlib>
 #include "../../componentManagers/NetworkManager.h"
 #include "../radio-bearer.h"
+#include <random>
 
 CBR::CBR()
 {
   SetApplicationType (Application::APPLICATION_TYPE_CBR);
+  SetClassicCBR(true); // classic or pareto
 }
 
 void
@@ -91,7 +93,20 @@ CBR::Send (void)
 int
 CBR::GetSize (void) const
 {
-  return m_size;
+	if (GetClassicCBR())
+	{
+		return m_size;
+
+	}else{
+		// Pareto distribution with alpha = 2.5 and minimum application payload size = 20 bytes
+		//with a cut off of 200 bytes.
+		std::exponential_distribution<double> distribution(2.5);
+		extern std::mt19937 commonGen;
+		int size = (int) ceil(20*exp(distribution(commonGen))*8) / 8;
+		return (size>200 ? 200 : size);
+		//return m_size;
+	}
+
 }
 
 void
@@ -99,6 +114,19 @@ CBR::SetSize(int size)
 {
   m_size = size;
 }
+
+bool
+CBR::GetClassicCBR (void) const
+{
+  return m_classicCBR;
+}
+
+void
+CBR::SetClassicCBR(bool _classic)
+{
+	m_classicCBR = _classic;
+}
+
 void
 CBR::SetInterval(double interval)
 {

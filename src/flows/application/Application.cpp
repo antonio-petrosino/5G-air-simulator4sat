@@ -490,7 +490,8 @@ Application::Trace (Packet* p)
     {
       cout << " ID " << p->GetID ()
                 << " B " << GetApplicationID ()
-                << " SIZE " << p->GetSize ()
+				//<< " SIZE " << p->GetSize () - 5
+                << " SIZE " << p->GetSize () - 5
                 << " SRC " << GetSource ()->GetIDNetworkNode ()
                 << " DST " << GetDestination ()->GetIDNetworkNode ()
                 << " T " << Simulator::Init()->Now() << endl;

@@ -48,11 +48,16 @@ public:
   SetInterval(double interval);
   double
   GetInterval (void) const;
+  void
+  SetClassicCBR(bool _classic);
+  bool
+  GetClassicCBR (void) const;
 
 private:
 
   double m_interval;
   int m_size;
+  bool m_classicCBR;
 };
 
 #endif /* CBR_H_ */

@@ -226,7 +226,10 @@ int seed;
     }
     
     std::mt19937 gen(seed>=0 ? seed : time(NULL));
-
+    
+    extern std::mt19937 commonGen;
+    commonGen.seed(seed>=0 ? seed : time(NULL));
+    
   cout << "Simulation with SEED = " << seed << endl;
   cout << "Duration: " << duration << " flow: " << flow_duration << endl;
 
@@ -501,7 +504,7 @@ DEBUG_LOG_END
     CBRApplication[cbrApplication].SetApplicationID (applicationID);
     CBRApplication[cbrApplication].SetStartTime(start_time);
     CBRApplication[cbrApplication].SetStopTime(duration_time);
-
+    CBRApplication[cbrApplication].SetClassicCBR(false);
     //CBRApplication[cbrApplication].SetInterval ((double) CBR_interval);
     CBRApplication[cbrApplication].SetInterval (_cbrInterval);
     CBRApplication[cbrApplication].SetSize (CBR_size);

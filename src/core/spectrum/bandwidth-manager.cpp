@@ -333,16 +333,17 @@ BandwidthManager::CreateNbIoTspectrum (int nbOfNbIoTcarriers, double spacing,
     {
       m_tones = tones;
     }
-  float rubw = m_tones * spacing / 1000; // [kHz -> MHz]
+    
+  int rus = (int) floor(180/(m_tones * spacing)); // resource units
 
   vector<int> rbs = GetNbIoTrb ();
 
   for (int j = 0; j < m_nbOfNbIoTcarriers; j++)
     {
       int rb = rbs.at (j);
-      for (int i = 0; i < (0.18 / rubw); i++)
+      for (int i = 0; i < rus; i++)
         {
-          m_NbIoTchannels.push_back (m_ulSubChannels.at (rb - 1) + (i * rubw));
+          m_NbIoTchannels.push_back (m_ulSubChannels.at (rb - 1) + (i * 0.180/rus));
         }
     }
 }
