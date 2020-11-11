@@ -104,7 +104,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     double spacing = 15; // 15 kHz or 3.75 kHz
     int tones = 1; // 1,3,12
 	int NRU = 5; // sarà costante nel nostro scenario???
-    int CBR_interval = 21600; // scenario agricoltura 1 ogni 4/6 ore [s]
+    //int CBR_interval = 21600; // scenario agricoltura 1 ogni 4/6 ore [s]
     int CBR_size = 19; // da D1 268 [byte] (2144 bit) che include gli header di alto livello
     int totPreambleTx = 10; // tentativi di RACH procedure
     int nbCE = 1; // numero coverage class
@@ -242,6 +242,11 @@ int seed;
   int destinationPort = 101;
   int applicationID = 0;
 
+  int class30min = 0;
+  int class1hour = 0;
+  int class2hour = 0;
+  int class1day = 0;
+
   // CREATE CELL
   Cell *cell = new Cell (0, radius, 0.005, 0, 0);
 
@@ -350,26 +355,35 @@ int seed;
     std::uniform_real_distribution<> spaDis(0.0, zoneWidth);
     std::uniform_int_distribution<> zoneDis(0, nbOfZones-1);
     std::uniform_int_distribution<> sig(1, 2);
-    std::uniform_real_distribution<> timeDis(0.0, (double) CBR_interval); // intervallo all interno del quale l UE trasmette
 
-    cout << "CBR interval is " << (double) CBR_interval << endl;
+    //double rndSpaDis =  (rand () % zoneWidth );
+
+    //double rndSpaDis_temp = (double)rand() / RAND_MAX;
+    //double rndSpaDis =  0 + rndSpaDis_temp * (zoneWidth - 0);
+
+	//int rndZoneDis = (rand () % (nbOfZones-1) );
+	//int rndSig = (rand () % 1 ) + 1;
 
     for (int i = 0; i < nbUE; i++)
     {
 
     zone = zoneDis(gen); // le UE vengono assegnate in modo uniforme a tutte le zone
+    //zone = rndZoneDis;
     cout << "ZONE " << zone;
     low = edges[nbOfZones - 1 - zone];
     cout << " LOW EDGE " << low;
 
     distance = spaDis(gen) + (double) low;
+    //distance = rndSpaDis + (double) low;
 
     cout << " DISTANCE " << distance;
     cout << endl;
 
     sign = (sig(gen) % 2) * 2 - 1;
+    //sign = (rndSig % 2) * 2 - 1;
     posX=distance / sqrt(2) * sign;
     sign = (sig(gen) % 2) * 2 - 1;
+    //sign = (rndSig % 2) * 2 - 1;
     posY=distance / sqrt(2) * sign;
 
     UserEquipment* ue = new UserEquipment (idUE,
@@ -444,9 +458,41 @@ cout << "LOG_ZONE UE " << idUE
 << endl;
 DEBUG_LOG_END
 
+
+    //PERIODIC INTER-ARRIVAL TIME SPLIT
+	//  5% 	-> 30 minutes 	-> 1800 sec
+	// 15% 	-> 60 minutes 	-> 3600 sec
+	// 40% 	-> 120 minutes 	-> 7200 sec
+	// 40% 	-> 1 day 		-> 86400 sec
+
+    //double randomNumber = (rand () %100 ) / 100.;
+	std::uniform_int_distribution<> rndCBR (0, 100);
+	double randomNumber = rndCBR(gen) / 100.;
+    double _cbrInterval = 99999.0;
+
+    if(randomNumber <= 0.05){
+    	_cbrInterval = 1800.0;
+    	class30min++;
+    }else if(randomNumber > 0.05 && randomNumber <= 0.20){
+    	_cbrInterval = 3600.0;
+    	class1hour++;
+    }else if(randomNumber > 0.20 && randomNumber <= 0.60){
+    	_cbrInterval = 7200.0;
+    	class2hour++;
+    }else if(randomNumber > 0.60){
+    	_cbrInterval = 86400.0;
+    	class1day++;
+    }
+    cout << "CBR interval is " << _cbrInterval << endl;
+
     //CREATE UPLINK APPLICATION FOR THIS UE
-    double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
-    double duration_time = flow_duration - 0.001;
+	std::uniform_real_distribution<> timeDis(0.0, (double) _cbrInterval); // intervallo all interno del quale l UE trasmette
+	double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
+	double duration_time = flow_duration - 0.001;
+
+    //double rndTime = (rand () % _cbrInterval );
+    //double rndTime_temp = (double)rand() / RAND_MAX;
+    //double rndTime =  0 + rndTime_temp * (_cbrInterval - 0);
 
     // *** cbr application
     // create application
@@ -456,7 +502,8 @@ DEBUG_LOG_END
     CBRApplication[cbrApplication].SetStartTime(start_time);
     CBRApplication[cbrApplication].SetStopTime(duration_time);
 
-    CBRApplication[cbrApplication].SetInterval ((double) CBR_interval);
+    //CBRApplication[cbrApplication].SetInterval ((double) CBR_interval);
+    CBRApplication[cbrApplication].SetInterval (_cbrInterval);
     CBRApplication[cbrApplication].SetSize (CBR_size);
 
     //-------------------------------------------------------------------

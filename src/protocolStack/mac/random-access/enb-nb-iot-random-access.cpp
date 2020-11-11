@@ -216,6 +216,8 @@ void GnbNbIoTRandomAccess::CheckCollisions() {
                     
                     std::uniform_int_distribution<> bo (0, m_backoff[classK]);
                     extern std::mt19937 commonGen;
+
+                    //int randomNumber = (rand () % m_backoff[classK] );
                     
                     if (k.preamble == j.preamble && k.ue != j.ue) {
                         collision = true;
@@ -233,6 +235,7 @@ void GnbNbIoTRandomAccess::CheckCollisions() {
                             int waitTime;
                             
                             backoffTime = bo(commonGen);
+                            //backoffTime = randomNumber;
                             
                             if (m_preambleRep[classK]<64)
                             {

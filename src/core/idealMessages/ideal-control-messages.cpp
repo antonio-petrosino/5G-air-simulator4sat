@@ -444,9 +444,13 @@ RandomAccessPreambleIdealControlMessage::RandomAccessPreambleIdealControlMessage
 {
   SetMessageType (IdealControlMessage::RA_PREAMBLE);
   SetTimeTx();
+
   std::uniform_int_distribution<> pre(1, p);
   extern std::mt19937 commonGen;
   m_preamble = pre(commonGen);
+
+  //int randomNumber = (rand () % (p-1) )+1;
+  //m_preamble = randomNumber;
 }
 
 
