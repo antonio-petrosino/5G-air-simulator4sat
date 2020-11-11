@@ -56,6 +56,7 @@
 #include "scenarios/test-mbsfn.h"
 #include "scenarios/test-unicast.h"
 #include "scenarios/nb-cell-sat.h"
+#include "scenarios/nb-cell-sat-conf-paper.h"
 #include "scenarios/nb-cell-test.h"
 #include "utility/help.h"
 #include <iostream>
@@ -103,7 +104,12 @@ main (int argc, char *argv[])
       {
     	  //cout << "Apertura scenario satellitare" << endl;
           nbCell_Satellite (argc, argv);
-          }
+      }
+
+      if (strcmp(argv[1], "nbCell-Sat-Conf-Paper")==0)
+      {
+    	  nbCell_Satellite_Conf_Paper (argc, argv);
+      }
           
       if (strcmp(argv[1], "SingleCellWithI")==0)
         {

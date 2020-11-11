@@ -16,7 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with 5G-air-simulator; if not, see <http://www.gnu.org/licenses/>.
  *
- * Author: Telematics Lab <telematics-dev@poliba.it>
+ * Author: Antonio Petrosino  <antonio.petrosino@poliba.it>
+ * Author: Giancarlo Sciddurlo  <giancarlo.sciddurlo@poliba.it>
  */
 
 #include "Satellite.h"
@@ -29,15 +30,16 @@
 
 
 
-SatelliteMovement::SatelliteMovement()
+SatelliteMovement::SatelliteMovement(int nSat)
 {
   SetMobilityModel(Mobility::SATELLITE);
-  SetSpeed (5000);
+  SetSpeed (7059.22);
   SetSpeedDirection (0.0);
   SetPositionLastUpdate (0.0);
   SetHandover (false);
   SetLastHandoverTime (0.0);
   SetAbsolutePosition (nullptr);
+  SetNumberOfSatellitePerOrbit(nSat);
 }
 
 SatelliteMovement::~SatelliteMovement()
@@ -56,8 +58,6 @@ DEBUG_LOG_END
   double timeInterval = time - GetPositionLastUpdate ();
 
   if(timeInterval > 0.1 || time == 0.0){
-
-    GNodeB *thisNode = (GNodeB*)GetDevice();
 
 DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG)
   cout << "MOBILITY_DEBUG: User ID: " << GetDevice ()->GetIDNetworkNode()
@@ -83,9 +83,8 @@ DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG_TAB)
 			<< endl;
 DEBUG_LOG_END
 
-    double x_pos = 0.0;
+	double x_pos = GetSatPosition(time, GetNumberOfSatellitePerOrbit());
     // è espresso in metri al secondo se la velocita è data in km/h
-	x_pos = GetSatPosition(time);
 
 	CartesianCoordinates *newPosition =
 	new CartesianCoordinates(x_pos,

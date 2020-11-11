@@ -29,11 +29,22 @@ Mobility::Mobility()
 {
   m_AbsolutePosition = nullptr;
   m_WrapAroundPosition = nullptr;
+  //SetNumberOfSatellitePerOrbit(1);
 }
 
 Mobility::~Mobility()
 {
   delete m_AbsolutePosition;
+}
+
+int
+Mobility::GetNumberOfSatellitePerOrbit(void){
+	return m_numSatellitePerOrbit;
+}
+
+void
+Mobility::SetNumberOfSatellitePerOrbit(int nSat){
+	m_numSatellitePerOrbit = nSat;
 }
 
 void

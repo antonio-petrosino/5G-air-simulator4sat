@@ -16,7 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with 5G-air-simulator; if not, see <http://www.gnu.org/licenses/>.
  *
- * Author: Telematics Lab <telematics-dev@poliba.it>
+ * Author: Antonio Petrosino  <antonio.petrosino@poliba.it>
+ * Author: Giancarlo Sciddurlo  <giancarlo.sciddurlo@poliba.it>
  */
 
 #include "ue_Satellite.h"

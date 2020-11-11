@@ -119,6 +119,7 @@ public:
     double m_maxVerticalAttenuation; // in dB
     double m_feederLoss;
     double m_maxSatelliteRange; // in metri
+    int m_numSatellitePerOrbit;
 
     void SetEtilt(int etilt);
     double GetEtilt(void);
@@ -146,6 +147,7 @@ public:
 
     void SetFeederLoss(double loss);
     double GetFeederLoss(void);
+
   };
 
   AntennaParameters* GetAntennaParameters (void);
@@ -180,6 +182,7 @@ private:
 
   int m_txAntennas;
   int m_rxAntennas;
+
   AntennaParameters* m_antennaParameters;
 
   Interference *m_interference;

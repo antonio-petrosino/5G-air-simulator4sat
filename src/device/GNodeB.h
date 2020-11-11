@@ -118,7 +118,7 @@ public:
   GNodeB (int idElement, Cell *cell);
   GNodeB (int idElement, Cell *cell, double posx, double posy);
   GNodeB (int idElement, Cell *cell, double posx, double posy, double posz);
-  GNodeB (int idElement, Cell *cell, double posx, double posy, double posz, string type);
+  GNodeB (int idElement, Cell *cell, double posx, double posy, double posz, string type, int nSat);
 
   virtual ~GNodeB();
 
@@ -144,12 +144,16 @@ public:
   void UpdateAttachedUEs (int);
   int GetAttachedUEs (void);
 
+  //void SetNumberOfSatellitePerOrbit(int nSat);
+  //int GetNumberOfSatellitePerOrbit(void);
+
   //Debug
   void Print (void);
 
 private:
   UserEquipmentRecords *m_userEquipmentRecords;
   int m_attachedUEs;
+  //int m_numSatellitePerOrbit;
 };
 
 #endif /* GNODEB_H_ */

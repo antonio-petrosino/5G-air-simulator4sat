@@ -103,7 +103,8 @@ GNodeB::GNodeB (int idElement,
                 double posx,
                 double posy,
                 double posz,
-				string type)
+				string type,
+				int nSat)
 {
 
 	  SetIDNetworkNode (idElement);
@@ -113,7 +114,7 @@ GNodeB::GNodeB (int idElement,
 	  CartesianCoordinates *position = new CartesianCoordinates(posx, posy, posz);
 	  if( type == "sat"){
 		  cout << "Riconosciuto lo scenario satellitare, preparazione modello di mobilità satellitare." << endl;
-		  Mobility* m = new SatelliteMovement(); // movimento satellitare
+		  Mobility* m = new SatelliteMovement(nSat); // movimento satellitare
 		  m->SetAbsolutePosition (position);
 		  SetMobilityModel (m);
 		  delete position;
@@ -631,3 +632,15 @@ int
 GNodeB::GetAttachedUEs (void) {
     return m_attachedUEs;
 }
+
+/*
+int
+GNodeB::GetNumberOfSatellitePerOrbit(void){
+	return m_numSatellitePerOrbit;
+}
+
+void
+GNodeB::SetNumberOfSatellitePerOrbit(int nSat){
+	m_numSatellitePerOrbit = nSat;
+}
+*/

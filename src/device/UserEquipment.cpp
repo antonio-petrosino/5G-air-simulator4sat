@@ -88,7 +88,7 @@ UserEquipment::UserEquipment (int idElement,
     }
   else if (model == Mobility::SATELLITE)
     {
-      m = new SatelliteMovement ();
+      m = new SatelliteMovement (1);
     }
   else if (model == Mobility::UE_SATELLITE)
     {

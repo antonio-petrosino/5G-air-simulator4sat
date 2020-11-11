@@ -67,31 +67,13 @@
 #include <cstring>
 #include <math.h>
 
-static void nbCell_Satellite (int argc, char *argv[])
+static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
 {
-	// ./5G-air-simulator nbCell-Sat sat 2 1 200000 0.3 3000 30 1 15 1 3 5 4 21600 19 15 1 1 10 4 8 48 128 12 1024 25
+	// ./5G-air-simulator nbCell-Sat-Conf-Paper 2 1 3 4 128 1024 10
+	//						[1]                [2-3-4-5] [6] [7] [8]
 
-    string environment(argv[2]); // "suburban" or "rural"
-	int nSatellitePerOrbit = atoi(argv[3]); // numero di satelliti per orbita
-	//cout<< "Number of satellites per orbit = " << nSatellitePerOrbit << endl;
-    int schedUL = atoi(argv[4]);
-    double dur = atoi(argv[5]); // [s]
-    double radius = atof(argv[6]); // [km]
-    //cout<< "Radius = " << radius << endl;
-    int nbUE = atoi(argv[7]);
-    double bandwidth = atof(argv[8]); // [MHz] max 15MHz
-    int carriers = atoi(argv[9]);  // 1 carrier -> solo 48 preambolo
-    double spacing = atof(argv[10]); // 15 kHz or 3.75 kHz
-    int tones = atoi(argv[11]); // 1,3,12
-	int MCS = atoi(argv[12]);
-	int NRU = atoi(argv[13]);
-	int NRep = atoi(argv[14]);
-    int CBR_interval = atoi(argv[15]); // scenario agricoltura 1 ogni 4/6 ore [s]
-    int CBR_size = atoi(argv[16]); // da D1 268 [byte] (2144 bit) che include gli header di alto livello
-    int totPreambleTx = atoi(argv[17]); // tentativi di RACH procedure
-    int nbCE = atoi(argv[18]); // numero coverage class
-    
-    std::map<double, int> ceProb;
+
+	std::map<double, int> ceProb;
     std::map<int, int> maxPreambleTx;
     std::map<int, int> preambleRep;
     std::map<int, int> rarWindow;
@@ -99,31 +81,57 @@ static void nbCell_Satellite (int argc, char *argv[])
     std::map<int, int> rachPeriod;
     std::map<int, int> rachOffset;
     std::map<int, int> boWindow;
-    
+
+    int nSatellitePerOrbit = atoi(argv[2]); // numero di satelliti per orbita
+	int carriers = atoi(argv[3]);  // 1 carrier -> solo 48 preambolo
+	int MCS = atoi(argv[4]);
+	int NRep = atoi(argv[5]);
+	int RAOPeriod = atoi(argv[6]);
+	int backOffRACH = atoi(argv[7]);
+
+	//string environment(argv[2]); // "suburban" or "rural"
+	string environment("sat");
+    //int schedUL = atoi(argv[4]);
+	int schedUL = 1;
+    //double dur = atoi(argv[5]); // [s]
+	double dur = 86400.0; // [s] 86400 sec = 1 day
+    //double radius = atof(argv[6]); // [km]
+	double radius = 0.309; // [km]
+    //int nbUE = atoi(argv[7]);
+	int nbUE = 3000;
+    //double bandwidth = atof(argv[8]); // [MHz] max 15MHz
+	double bandwidth = 30; // [MHz] max 15MHz
+    double spacing = 15; // 15 kHz or 3.75 kHz
+    int tones = 1; // 1,3,12
+	int NRU = 5; // sarà costante nel nostro scenario???
+    int CBR_interval = 21600; // scenario agricoltura 1 ogni 4/6 ore [s]
+    int CBR_size = 19; // da D1 268 [byte] (2144 bit) che include gli header di alto livello
+    int totPreambleTx = 10; // tentativi di RACH procedure
+    int nbCE = 1; // numero coverage class
+
     // al varariare della coverage class
     for (int i=0; i<nbCE; i++)
     {
-
-    if (i==nbCE-1)
+    //if (i==nbCE-1)
       ceProb.insert(std::make_pair(1, i));
-    else if (i==0)
-      ceProb.insert(std::make_pair(atof(argv[19+i])/100,i));
-    else
-      ceProb.insert(std::make_pair((atof(argv[19+i])/100) + (atof(argv[18+i])/100), i));
+    //else if (i==0)
+      //ceProb.insert(std::make_pair(atof(argv[19+i])/100,i));
+    //else
+      //ceProb.insert(std::make_pair((atof(argv[19+i])/100) + (atof(argv[18+i])/100), i));
 
-    maxPreambleTx.insert(std::make_pair(i, atoi(argv[19+nbCE+i])));
-    preambleRep.insert(std::make_pair(i, atoi(argv[19+(nbCE*2)+i])));
-    rarWindow.insert(std::make_pair(i, atoi(argv[19+(nbCE*3)+i]))); // ordine dei 10 [ms]
-    nbPre.insert(std::make_pair(i, atoi(argv[19+(nbCE*4)+i]))); // nP
-    rachPeriod.insert(std::make_pair(i, atoi(argv[19+(nbCE*5)+i])));
-    rachOffset.insert(std::make_pair(i, atoi(argv[19+(nbCE*6)+i]))); // dall inizio della visibilita del sat fino alla fine del cell search
-    boWindow.insert(std::make_pair(i, atoi(argv[19+(nbCE*7)+i]))); // backoff window
+    maxPreambleTx.insert(std::make_pair(i, 10));
+    preambleRep.insert(std::make_pair(i, 4));
+    rarWindow.insert(std::make_pair(i, 8));
+    nbPre.insert(std::make_pair(i, 48 * carriers)); // nP
+    rachPeriod.insert(std::make_pair(i,RAOPeriod ));
+    rachOffset.insert(std::make_pair(i, 12)); // dall inizio della visibilita del sat fino alla fine del cell search??
+    boWindow.insert(std::make_pair(i, backOffRACH)); // backoff window larga
    }
     
 int seed;
-  if (argc==20+(nbCE*8))
+  if (argc==9)
     {
-      seed = atoi(argv[19+(nbCE*8)]);
+      seed = atoi(argv[8]);
     }
   else
     {

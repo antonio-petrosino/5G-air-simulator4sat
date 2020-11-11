@@ -42,24 +42,33 @@ GetVisibilityTime(){
 
 
 static double
-GetSatPosition (double time)
+GetSatPosition (double time, int nSat)
 {
-	// metà_raggio_satellite [COSTANTE] - radius [INPUT]+ (velocità_relativa [calcolata in base ai 2 minuti] * tempo_visibilità_satellite_[modulo3000]])
-	// metri, metri, m/s, secondi
-	// modello basato su:
-	// area 				= 30 ettari
-	// altezza satellite 	= 500km
-	// tempo visibilità		= 111 secondi
-	// periodicità sat.		= 1 ogni 2838 secondi
+	if(nSat>0){
+		// metà_raggio_satellite [COSTANTE] - radius [INPUT]+ (velocità_relativa [calcolata in base ai 2 minuti] * tempo_visibilità_satellite_[modulo3000]])
+		// metri, metri, m/s, secondi
+		// modello basato su:
+		// area 				= 30 ettari
+		// altezza satellite 	= 500km
+		// tempo visibilità		= 111 secondi
+		// periodicità sat.		= 1 ogni 2838 secondi
 
-	double mod = 2830.0;
-			//GetPeriod(); // dipende dal tempo di visibilità + prossimo passaggio satellite
-	double newPosition = 0.0;
-	double start_offset = 10000;
-	//start_offset = 0;
+		//double mod = 2830.0;
+		double period = 5676.98;
+		double mod =  period / nSat;
+		//cout <<"Number of satellite per orbit: " << nSat<< endl;
 
-	newPosition = -320000 -309 +(7059.22 * (fmod(time,mod))) - start_offset;
-	return newPosition;
+		double newPosition = 0.0;
+		double start_offset = 10000;
+		//start_offset = 0;
+		newPosition = -320000 -309 +(7059.22 * (fmod(time,mod))) - start_offset;
+
+		return newPosition;
+	}else
+	{
+		cout <<"Number of satellite per orbit < 0." << endl;
+		return 0;
+	}
 };
 
 
