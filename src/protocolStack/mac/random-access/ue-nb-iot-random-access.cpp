@@ -64,7 +64,7 @@ UeNbIoTRandomAccess::StartRaProcedure()
 
 	//cout<< "UeNbIoTRandomAccess::StartRaProcedure() Invoked." << endl;
 
-    UserEquipment* _device = ((UserEquipment*)m_macEntity->GetDevice());
+    /*UserEquipment* _device = ((UserEquipment*)m_macEntity->GetDevice());
     double maxSatelliteRange = _device-> GetTargetNode ()-> GetPhy ()-> GetmaxSatelliteRange ();
 
 	if(_device->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
@@ -77,6 +77,12 @@ UeNbIoTRandomAccess::StartRaProcedure()
 	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
 	    		  return;
 	    	  }
+	}*/
+
+	if(m_macEntity->GetDevice()->GetNodeType()==NetworkNode::TYPE_UE)  {
+		if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
+			return;
+		}
 	}
 
     if ((m_macEntity->GetDevice()->GetNodeState()!= NetworkNode::STATE_ACTIVE))
@@ -114,7 +120,7 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
         UserEquipment* ue = (UserEquipment*)m_macEntity->GetDevice();
         GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) ue->GetTargetNode()->GetMacEntity()->GetRandomAccessManager();
 
-        double maxSatelliteRange = ue-> GetTargetNode ()-> GetPhy ()-> GetmaxSatelliteRange ();
+       /* double maxSatelliteRange = ue-> GetTargetNode ()-> GetPhy ()-> GetmaxSatelliteRange ();
 
     	if(ue->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
     	    CartesianCoordinates* uePos  = ue->GetMobilityModel()->GetAbsolutePosition();
@@ -126,6 +132,12 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
     	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
     	    		  return;
     	    	  }
+    	} */
+
+    	if(m_macEntity->GetDevice()->GetNodeType()==NetworkNode::TYPE_UE)  {
+    		if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
+    			return;
+    		}
     	}
 
         m_RaProcedureActive = false;

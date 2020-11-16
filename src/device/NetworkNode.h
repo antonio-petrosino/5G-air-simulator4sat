@@ -37,7 +37,7 @@
 #include "../mobility/ConstantPosition.h"
 #include "../mobility/Manhattan.h"
 #include "../mobility/LinearMovement.h"
-#include "../mobility/Satellite.h"
+#include "../mobility/SatelliteMovement.h"
 #include "../mobility/ue_Satellite.h"
 #include "../protocolStack/protocol-stack.h"
 #include "../phy/phy.h"

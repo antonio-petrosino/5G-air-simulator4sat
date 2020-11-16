@@ -53,8 +53,7 @@ DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
   cout << "RadioChannel::StartTx ch " << GetChannelId () << endl;
 DEBUG_LOG_END
   int _NRep = FrameManager::Init()->GetNRep();
-  Simulator::Init()->Schedule(0.001 * _NRep, // 1 ms dello slot -> 1ms x NRep
-  //Simulator::Init()->Schedule(0.001, // 1 ms dello slot -> 1ms x NRep
+  Simulator::Init()->Schedule(0.001,
                               &RadioChannel::StartRx,
                               this,
                               p,

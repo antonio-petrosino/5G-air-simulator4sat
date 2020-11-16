@@ -77,13 +77,19 @@ public:
   //Debug
   void Print (void);
 
+  void
+  SetCellSellInARow(int a);
+  int
+  GetCellSellInARow();
+
+
 private:
   GNodeB* m_targetNode;
   GNodeB::UserEquipmentRecord* m_targetNodeRecord;
   CqiManager *m_cqiManager;
 
   bool m_isIndoor;
-
+  int m_nCellSelInARow;
   double m_timePositionUpdate;
   double m_activityTimeout;
   shared_ptr<Event> m_activityTimeoutEvent;

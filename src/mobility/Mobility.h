@@ -95,11 +95,6 @@ public:
   double
   GetTopologyBorder (void);
 
-  void
-  SetNumberOfSatellitePerOrbit(int nSat);
-  int
-  GetNumberOfSatellitePerOrbit(void);
-
 
 private:
   NetworkNode* m_device;
@@ -113,7 +108,6 @@ private:
   double m_positionLastUpdate;  // s
   bool m_handover;              // true to enable hand over
   double m_handoverLastRun;     // s
-  int m_numSatellitePerOrbit;
 };
 
 #endif /* MOBILITY_H_ */

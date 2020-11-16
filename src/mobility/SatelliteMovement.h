@@ -20,8 +20,8 @@
  * Author: Giancarlo Sciddurlo  <giancarlo.sciddurlo@poliba.it>
  */
 
-#ifndef SATELLITE_H_
-#define SATELLITE_H_
+#ifndef SATELLITEMOVEMENT_H_
+#define SATELLITEMOVEMENT_H_
 
 #include "Mobility.h"
 
@@ -30,9 +30,26 @@ class SatelliteMovement :public Mobility
 public:
   SatelliteMovement(int nSat);
   virtual ~SatelliteMovement();
+    
+    void SetPeriod(double _period);
+    double GetPeriod(void);
+    double GetSatPosition (double time);
+    void SetNumberOfSatellitePerOrbit(int nSat);
+    int GetNumberOfSatellitePerOrbit(void);
+    void SetTimePositionUpdate(double _update);
+    double GetTimePositionUpdate(void);
+    void SetTimeOrbitPeriod(double _update);
+    double GetTimeOrbitPeriod(void);
+    bool GetAttachProcedure(CartesianCoordinates* _uePos);
+    double GetElAngle(CartesianCoordinates* _uePos);
 
   void
   UpdatePosition (double time);
+    
+private:
+    int m_numSatellitePerOrbit;
+    double m_gNBtimePositionUpdate;
+    double timeOrbitPeriod;
 };
 
 #endif /* SATELLITE_H_ */

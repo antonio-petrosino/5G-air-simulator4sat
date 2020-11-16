@@ -37,16 +37,6 @@ Mobility::~Mobility()
   delete m_AbsolutePosition;
 }
 
-int
-Mobility::GetNumberOfSatellitePerOrbit(void){
-	return m_numSatellitePerOrbit;
-}
-
-void
-Mobility::SetNumberOfSatellitePerOrbit(int nSat){
-	m_numSatellitePerOrbit = nSat;
-}
-
 void
 Mobility::SetDevice (NetworkNode *device)
 {

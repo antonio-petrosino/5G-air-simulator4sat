@@ -77,11 +77,9 @@ nbRoundRobinUplinkPacketScheduler::RUsAllocation ()
 
   UsersToSchedule *users = GetUsersToSchedule ();
 
-  int ruSlice = 10;
+  int ruSlice = FrameManager::Init()->GetNRUNBIoTSat(); //10;
   int _NRep = FrameManager::Init()->GetNRep();
-  int TotalTtiLenght =  ttiLength * _NRep;
-  if (currentSF % TotalTtiLenght == 0 && !(gnbRam->isRachOpportunity())) // ttiLength -> ttiLeng*NRep
-  //if (currentSF % ttiLength == 0 && !(gnbRam->isRachOpportunity())) // ttiLength -> ttiLeng*NRep
+  if (currentSF % ttiLength == 0 && !(gnbRam->isRachOpportunity()))
     {
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
       cout <<"LOG_USERS TTI " << currentSF << " UE " << users->size () << endl;
@@ -199,7 +197,7 @@ DEBUG_LOG_END
                   vector<int>::size_type idx = i-m_RUmap[0].begin();
 
                   m_RUmap[0][idx] = id;
-                  m_RUmap[1][idx] = nru;
+                  m_RUmap[1][idx] = nru * _NRep;
                   m_RUmap[2][idx] = mcs;
                   m_RUmap[3][idx] = tbs;
                   m_RUmap[4][idx] = nru;

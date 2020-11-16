@@ -158,7 +158,8 @@ NetworkNode::SetNodeState (NodeState state)
 void
 NetworkNode::MakeActive (void)
 {
-	if(((UserEquipment*)this)->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
+	//cout << "Ho invocato il MakeActive() time: "<< Simulator::Init ()->Now()<< endl;
+	/*if(((UserEquipment*)this)->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
 		//cout << "Ho invocato il MakeActive"<< endl;
 	    CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
 	    CartesianCoordinates* gnbPos = ((UserEquipment*)this)->GetTargetNode()->GetMobilityModel()->GetAbsolutePosition();
@@ -170,7 +171,7 @@ NetworkNode::MakeActive (void)
 	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
 	    		  return;
 	    	  }
-	}
+	}*/
 
   if(GetNodeType()==TYPE_UE)
     {

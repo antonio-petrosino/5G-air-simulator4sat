@@ -33,7 +33,6 @@
 #include "../componentManagers/NetworkManager.h"
 #include "../flows/radio-bearer.h"
 #include "../flows/MacQueue.h"
-#include "../mobility/SatelliteCoordinate.h"
 #include "../protocolStack/rrc/ho/handover-entity.h"
 #include "../protocolStack/rrc/ho/ho-manager.h"
 
@@ -123,6 +122,7 @@ UserEquipment::UserEquipment (int idElement,
 
   m_activityTimeout = 10;
   m_activityTimeoutEvent = NULL;
+  m_nCellSelInARow = 0;
 }
 
 UserEquipment::UserEquipment (int idElement,
@@ -183,14 +183,21 @@ UserEquipment::GetTimePositionUpdate (void)
 //{
 //
 //}
+void
+UserEquipment::SetCellSellInARow(int a){
+	m_nCellSelInARow = a;
+}
+int
+UserEquipment::GetCellSellInARow(){
+	return m_nCellSelInARow;
+}
+
+
 
 void
 UserEquipment::UpdateUserPosition (double time)
 {
-	//if(fmod(time, GetPeriod()) < GetVisibilityTime()){
-		if(true){
-		//cout << "Aggiornamento posizione UE... time: "<< time <<endl;
-  GetMobilityModel ()->UpdatePosition (time);
+	GetMobilityModel ()->UpdatePosition (time);
 
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
   cout << "Aggiornamento posizione UE... time: "<< time <<endl;
@@ -215,20 +222,41 @@ DEBUG_LOG_END
           NetworkManager::Init()->HandoverProcedure(time, this, targetNode, newTargetNode);
         }
     }
-  //blocco else che funzionerà solo per lo scenario NB-IoT
-  //in cui l'handover sarà sicuramente messo a falso
+  //blocco else che funzionerà solo per lo scenario NB-IoT in cui l'handover sarà sicuramente messo a falso
   else if (GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true)
   {
 	CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
 	CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
 
 	double distance = uePos->GetDistance3D (gnbPos);
-	double maxSatelliteRange = GetTargetNode ()-> GetPhy ()->GetmaxSatelliteRange ();
+	bool _attach = false;
+	if (GetTargetNode()->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE)
+	{
+		 _attach =((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetAttachProcedure(uePos);
+	}
 
-	// gestire detach per simulare visibilità/non visibilità
-	if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
-	{ // la visibilità inizia quando il dispositivo è a meno di 583km dalla gNB
-		if(GetNodeState() != UserEquipment::STATE_DETACHED){
+	if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE and _attach)
+	{
+		int n_try = GetCellSellInARow();
+		SetCellSellInARow(n_try + 1);
+
+		if (GetCellSellInARow() >= 5){
+			_attach = true;
+			SetCellSellInARow(0);
+		}else{
+			_attach = false;
+		}
+
+	}else if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE and !_attach){
+		SetCellSellInARow(0);
+		//_attach = false;
+	}
+
+	//if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
+	if(!_attach)
+	{
+		//if(GetNodeState() != UserEquipment::STATE_DETACHED){
+		if(GetNodeState() == UserEquipment::STATE_IDLE){
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 Print();
@@ -267,7 +295,7 @@ DEBUG_LOG_END
 		}
 	}
   }
-	}
+
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate
 

@@ -66,7 +66,7 @@ using std::iota;
 static bool _APP_TRACING_ = true;
 static bool _RLC_TRACING_ = false;
 static bool _MAC_TRACING_ = false;
-static bool _PHY_TRACING_ = false;
+static bool _PHY_TRACING_ = true;
 
 /* activate uplink */
 static bool UPLINK = false;

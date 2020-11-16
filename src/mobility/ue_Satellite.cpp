@@ -46,9 +46,10 @@ Ue_SatelliteMovement::~Ue_SatelliteMovement()
 void
 Ue_SatelliteMovement::UpdatePosition (double time)
 {
-	double timeInterval = time - GetPositionLastUpdate ();
-	UserEquipment *thisNode = (UserEquipment*)GetDevice();
-	NetworkNode *targetNode = thisNode->GetTargetNode ();
-	targetNode->GetMobilityModel ()->UpdatePosition (time);
+	//double timeInterval = time - GetPositionLastUpdate ();
+	//UserEquipment *thisNode = (UserEquipment*)GetDevice();
+	//NetworkNode *targetNode = thisNode->GetTargetNode ();
+	//targetNode->GetMobilityModel ()->UpdatePosition (time);
     SetPositionLastUpdate (time);
 }
+

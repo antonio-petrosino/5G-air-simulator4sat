@@ -197,7 +197,8 @@ int seed;
 
     // define simulation times
     double duration = dur; //+ 1;
-    double flow_duration = duration;
+    //double flow_duration = duration ;
+    double flow_duration = duration / 2 ;
     
     UeRandomAccess::RandomAccessType m_UeRandomAccessType = UeRandomAccess::RA_TYPE_NB_IOT;
     GnbRandomAccess::RandomAccessType m_GnbRandomAccessType = GnbRandomAccess::RA_TYPE_NB_IOT;

@@ -71,6 +71,8 @@ nbFifoUplinkPacketScheduler::RUsAllocation ()
 {
   int currentSF = FrameManager::Init()->GetTTICounter();
   int ttiLength = FrameManager::Init()->getTTILength();
+  int _NRep = FrameManager::Init()->GetNRep();
+    
   GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) GetMacEntity()->GetRandomAccessManager() ;
 
   UsersToSchedule *users = GetUsersToSchedule ();
@@ -182,7 +184,7 @@ DEBUG_LOG_END
                   vector<int>::size_type idx = i-m_RUmap[0].begin();
 
                   m_RUmap[0][idx] = id;
-                  m_RUmap[1][idx] = nru;
+                  m_RUmap[1][idx] = nru * _NRep;
                   m_RUmap[2][idx] = mcs;
                   m_RUmap[3][idx] = tbs;
                   m_RUmap[4][idx] = nru;

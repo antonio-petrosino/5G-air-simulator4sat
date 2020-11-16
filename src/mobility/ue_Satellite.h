@@ -26,12 +26,14 @@
 
 class Ue_SatelliteMovement :public Mobility
 {
+
 public:
 	Ue_SatelliteMovement();
   virtual ~Ue_SatelliteMovement();
 
   void
   UpdatePosition (double time);
+
 };
 
 #endif /* UE_SATELLITE_H_ */

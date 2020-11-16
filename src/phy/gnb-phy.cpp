@@ -39,6 +39,7 @@
 #include "../utility/eesm-effective-sinr.h"
 #include "../utility/miesm-effective-sinr.h"
 #include "../componentManagers/FrameManager.h"
+#include "../protocolStack/mac/nb-AMCModule.h"
 
 
 #define UL_INTERFERENCE 4
@@ -162,20 +163,37 @@ DEBUG_LOG_END
     {
     vector<int> cqi; //compute the CQI
     phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
-    if (_PHY_TRACING_)
-    //if(false)
-    {
-        if (phyError)
-          {
-            cout << "**** YES PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
-            cout << "measuredSinr: " << measuredSinr[0] << endl;
-          }
-        else
-          {
-            cout << "**** NO PHY ERROR (node " << GetDevice ()->GetIDNetworkNode () << ") ****" << endl;
-            cout << "measuredSinr: " << measuredSinr[0] << endl;
-          }
-      }
+        if (_PHY_TRACING_ && p->GetNPackets() > 0) {
+            
+            UserEquipment* ue = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE();
+            
+            CartesianCoordinates* uePos = ue->GetMobilityModel()->GetAbsolutePosition();
+            CartesianCoordinates* gnbPos = GetDevice()->GetMobilityModel()->GetAbsolutePosition();
+
+            double DIST_ = uePos->GetDistance3D (gnbPos);
+                       
+            int MCS_ = FrameManager::Init()->GetMCSNBIoTSat ();
+            int RU_ = FrameManager::Init()->GetNRUNBIoTSat();
+            int TBS_ = GetDevice()->GetMacEntity()->GetNbAmcModule()->GetTBSizeFromMCS (MCS_, RU_);
+            double EL_ = 0.0;
+            //double EL_ = ue->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(GetDevice()->GetMobilityModel()->GetAbsolutePosition());
+        	if (GetDevice()->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE)
+        	{
+        		EL_ =((SatelliteMovement*) GetDevice()->GetMobilityModel())->GetElAngle(ue->GetMobilityModel()->GetAbsolutePosition());
+        	}
+            
+            cout << "PHY_RX SRC " << ue->GetIDNetworkNode()
+            << " DST " << GetDevice()->GetIDNetworkNode()
+            << " DISTANCE " << DIST_
+            << " ELEVATION " << EL_
+            << " SNR " << measuredSinr.at(channelsForRx.at(0)) //TODO: THIS ONLY WORKS FOR SINGLE TONE
+            << " RU " << RU_
+            << " MCS " << MCS_
+            << " SIZE " << TBS_
+            << " ERR " << phyError
+            << " T " << Simulator::Init()->Now()
+            << endl;
+        }
     }
 
 
@@ -183,8 +201,6 @@ DEBUG_LOG_END
     {
       //FORWARD RECEIVED PACKETS TO THE DEVICE
       GetDevice()->ReceivePacketBurst(p);
-    }else{
-    	cout << "RX ERROR "<< endl;
     }
 
   delete txSignal;

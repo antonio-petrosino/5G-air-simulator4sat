@@ -193,9 +193,30 @@ DEBUG_LOG_END
       double rxPower = 0.0;
 
       if (satScenario == true){
+          double gain = 0;
+          if (dst->GetPhy()->GetBandwidthManager ()->GetSubcarrierSpacing() == 3.75) {
+            gain = 16.8124;
+          }
+          else {
+              if (dst->GetPhy()->GetBandwidthManager()->GetTones() == 1) {
+                  gain = 10.7918;
+              }
+          }
+          gain = 0.0;
+		  //double ElAngle = src ->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
 
-		  double ElAngle = src ->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
-		  double simulatedRxPower = GetRxPowerfromElAngle_SAT(ElAngle);
+		  double ElAngle = 0.0;
+
+		  if (src->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
+
+			  ElAngle =((SatelliteMovement*) src->GetMobilityModel())->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
+
+		  }else if (dst->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
+
+			  ElAngle =((SatelliteMovement*) dst->GetMobilityModel())->GetElAngle(src->GetMobilityModel()->GetAbsolutePosition());
+		  }
+
+          double simulatedRxPower = GetRxPowerfromElAngle_SAT(ElAngle) + gain;
 
 		  for(auto& row:rxSignalValues){
 			 for(auto& col:row){
