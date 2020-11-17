@@ -91,7 +91,7 @@ UserEquipment::UserEquipment (int idElement,
     }
   else if (model == Mobility::UE_SATELLITE)
     {
-      m = new Ue_SatelliteMovement ();
+      m = new UeSatelliteMovement ();
     }
   else
     {
@@ -122,7 +122,6 @@ UserEquipment::UserEquipment (int idElement,
 
   m_activityTimeout = 10;
   m_activityTimeoutEvent = NULL;
-  m_nCellSelInARow = 0;
 }
 
 UserEquipment::UserEquipment (int idElement,
@@ -178,22 +177,6 @@ UserEquipment::GetTimePositionUpdate (void)
   return m_timePositionUpdate;
 }
 
-//void
-//UserEquipment::UpdateUserPosition (void)
-//{
-//
-//}
-void
-UserEquipment::SetCellSellInARow(int a){
-	m_nCellSelInARow = a;
-}
-int
-UserEquipment::GetCellSellInARow(){
-	return m_nCellSelInARow;
-}
-
-
-
 void
 UserEquipment::UpdateUserPosition (double time)
 {
@@ -237,25 +220,6 @@ DEBUG_LOG_END
 		 _attach =((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetAttachProcedure(uePos);
 	}
 
-	/*
-	if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE and _attach)
-	{
-		int n_try = GetCellSellInARow();
-		SetCellSellInARow(n_try + 1);
-
-		if (GetCellSellInARow() >= 5){
-			_attach = true;
-			SetCellSellInARow(0);
-		}else{
-			_attach = false;
-		}
-
-
-	}else if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE and !_attach){
-		SetCellSellInARow(0);
-		//_attach = false;
-	}
-	*/
 
 	//if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
 	if(!_attach)

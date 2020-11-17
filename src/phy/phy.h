@@ -92,8 +92,6 @@ public:
   void SetAverageBuildingHeight(double height);
   double GetAverageBuildingHeight(void);
 
-  //void SetmaxSatelliteRange(double msr);
-  //double GetmaxSatelliteRange(void) const;
 
   Interference* GetInterference (void);
   ErrorModel* GetErrorModel (void);

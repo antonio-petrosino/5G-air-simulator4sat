@@ -77,11 +77,6 @@ public:
   //Debug
   void Print (void);
 
-  void
-  SetCellSellInARow(int a);
-  int
-  GetCellSellInARow();
-
 
 private:
   GNodeB* m_targetNode;

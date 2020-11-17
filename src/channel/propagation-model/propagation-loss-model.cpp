@@ -202,20 +202,14 @@ DEBUG_LOG_END
                   gain = 10.7918;
               }
           }
-          gain = 0.0;
-		  //double ElAngle = src ->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
 
-		  double ElAngle = 0.0;
-
-		  if (src->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
-
-			  ElAngle =((SatelliteMovement*) src->GetMobilityModel())->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
-
-		  }else if (dst->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
-
-			  ElAngle =((SatelliteMovement*) dst->GetMobilityModel())->GetElAngle(src->GetMobilityModel()->GetAbsolutePosition());
-		  }
-
+          double ElAngle = 0.0;
+          if (src->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
+              ElAngle =((SatelliteMovement*) src->GetMobilityModel())->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
+          }
+          else if (dst->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
+              ElAngle =((SatelliteMovement*) dst->GetMobilityModel())->GetElAngle(src->GetMobilityModel()->GetAbsolutePosition());
+          }
           double simulatedRxPower = GetRxPowerfromElAngle_SAT(ElAngle) + gain;
 
 		  for(auto& row:rxSignalValues){

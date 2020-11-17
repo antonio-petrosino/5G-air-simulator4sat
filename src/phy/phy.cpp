@@ -39,7 +39,6 @@ Phy::Phy()
   m_bandwidthManager = nullptr;
   m_carrierFrequency = 2000;
   m_txSignal = nullptr;
-  //m_maxSatelliteRange = 0.0;
   m_antennaParameters = new AntennaParameters ();
   SetNoiseFigure(2.5);
   m_averageBuildingHeight = 10;

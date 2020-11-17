@@ -62,23 +62,6 @@ UeNbIoTRandomAccess::StartRaProcedure()
     cout << "UE " << m_macEntity ->GetDevice()->GetIDNetworkNode() << " StartRaProcedure() " << endl;
     DEBUG_LOG_END
 
-	//cout<< "UeNbIoTRandomAccess::StartRaProcedure() Invoked." << endl;
-
-    /*UserEquipment* _device = ((UserEquipment*)m_macEntity->GetDevice());
-    double maxSatelliteRange = _device-> GetTargetNode ()-> GetPhy ()-> GetmaxSatelliteRange ();
-
-	if(_device->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
-	    CartesianCoordinates* uePos  = _device->GetMobilityModel()->GetAbsolutePosition();
-	    CartesianCoordinates* gnbPos = _device->GetTargetNode()->GetMobilityModel()->GetAbsolutePosition();
-	    double distance = uePos->GetDistance3D (gnbPos);
-
-	    if(distance > maxSatelliteRange)
-	    	  {
-	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
-	    		  return;
-	    	  }
-	}*/
-
 	if(m_macEntity->GetDevice()->GetNodeType()==NetworkNode::TYPE_UE)  {
 		if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
 			return;
@@ -120,19 +103,6 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
         UserEquipment* ue = (UserEquipment*)m_macEntity->GetDevice();
         GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) ue->GetTargetNode()->GetMacEntity()->GetRandomAccessManager();
 
-       /* double maxSatelliteRange = ue-> GetTargetNode ()-> GetPhy ()-> GetmaxSatelliteRange ();
-
-    	if(ue->GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true){
-    	    CartesianCoordinates* uePos  = ue->GetMobilityModel()->GetAbsolutePosition();
-    	    CartesianCoordinates* gnbPos = ue->GetTargetNode()->GetMobilityModel()->GetAbsolutePosition();
-    	    double distance = uePos->GetDistance3D (gnbPos);
-
-    	    if(distance > maxSatelliteRange)
-    	    	  {
-    	    		  //cout <<"Ma la UE è troppo lontana."<<endl;
-    	    		  return;
-    	    	  }
-    	} */
 
     	if(m_macEntity->GetDevice()->GetNodeType()==NetworkNode::TYPE_UE)  {
     		if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
@@ -144,9 +114,6 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
         m_nbFailedAttempts++;
         m_nbFailedAttemptsCE++;
 
-        //		GNodeB* gnb = (GNodeB*)ue->GetTargetNode();
-        //		GnbMacEntity* gnbMac = (GnbMacEntity*)gnb->GetProtocolStack()->GetMacEntity();
-        //		GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) gnbMac->GetRandomAccessManager();
         std::map<int, int> MaxPreambleAttempts=gnbRam->GetMaxPreambleTx();
         
         if (m_nbFailedAttempts < m_maxFailedAttempts)

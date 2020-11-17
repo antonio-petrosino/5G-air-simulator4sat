@@ -88,26 +88,6 @@ CartesianCoordinates::GetDistance3D(CartesianCoordinates *remoteObject)
                 pow ( (GetCoordinateZ() - remoteObject->GetCoordinateZ()), 2) );
 }
 
-/*double
-CartesianCoordinates::GetElAngle(CartesianCoordinates *remoteObject)
-{
-	double distance = sqrt (pow ((GetCoordinateX() - remoteObject->GetCoordinateX()),2) +
-	          pow ( (GetCoordinateY() - remoteObject->GetCoordinateY()),2));
-
-	double satHeight = remoteObject->GetCoordinateZ();
-
-	double elangle = 0.0;
-
-	if(distance > 0){
-		elangle = atan(satHeight / distance)* 180 / M_PI; // satHeight dovrebbe essere 500000 controllare
-	}else if(distance == 0){
-		elangle = 90;
-	}
-	// 2203970
-	//cout << "Angolo elevazione calcolato: " << elangle << " - visibilità da 55° a 90°."<< endl;
-	return elangle;
-
-}*/
 
 double
 CartesianCoordinates::GetDistance(double remoteObjectPosX,

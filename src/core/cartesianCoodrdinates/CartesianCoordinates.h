@@ -66,8 +66,6 @@ public:
                 double remoteObjectPosY,
                 double remoteObjectPosZ);
 
-  //double
-  //GetElAngle(CartesianCoordinates *remoteObject);
 
   double
   GetPolarAzimut(CartesianCoordinates *center);

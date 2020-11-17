@@ -395,10 +395,11 @@ Application::AddRadioBearer(RadioBearer* bearer)
 void
 Application::SetStartTime (double time)
 {
-  m_startTime = time;
-  Simulator::Init()->Schedule(time,
-                              &Application::Start,
-                              this);
+    m_startTime = time;
+    if ((GetStopTime () == -1) || ((Simulator::Init()->Now () + time) < GetStopTime ()))
+        Simulator::Init()->Schedule(time,
+                                    &Application::Start,
+                                    this);
 }
 
 double
@@ -410,11 +411,10 @@ Application::GetStartTime (void) const
 void
 Application::SetStopTime (double time)
 {
-    m_startTime = time;
-    if ((GetStopTime () == -1) || ((Simulator::Init()->Now () + time) < GetStopTime ()))
-        Simulator::Init()->Schedule(time,
-                                    &Application::Start,
-                                    this);
+  m_stopTime = time;
+  Simulator::Init()->Schedule(time + 0.1,
+                              &Application::Stop,
+                              this);
 }
 
 double
