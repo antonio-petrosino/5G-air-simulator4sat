@@ -30,9 +30,6 @@ class SatelliteMovement :public Mobility
 public:
   SatelliteMovement(int nSat);
   virtual ~SatelliteMovement();
-    
-    void SetPeriod(double _period);
-    double GetPeriod(void);
 
     void SetSNRthreshold(double SNRthreshold);
     double GetSNRthreshold(void);
@@ -50,6 +47,8 @@ public:
 
     bool GetAttachProcedure(CartesianCoordinates* _uePos);
     double GetElAngle(CartesianCoordinates* _uePos);
+
+    double GetVisibilityPeriod();
 
   void
   UpdatePosition (double time);

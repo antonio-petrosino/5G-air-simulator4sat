@@ -200,7 +200,7 @@ int seed;
 
     // define simulation times
     double duration = dur; //+ 1;
-    double flow_duration = duration ;
+    double flow_duration = duration / 2;
     //double flow_duration = duration / 2 ;
     
     UeRandomAccess::RandomAccessType m_UeRandomAccessType = UeRandomAccess::RA_TYPE_NB_IOT;
@@ -380,7 +380,7 @@ int seed;
 
     ue->SetRandomAccessType(m_UeRandomAccessType);
 
-    ue->SetTimePositionUpdate (0.1); // trigger per la mobilità
+    ue->SetTimePositionUpdate (0.01); // trigger per la mobilità
 
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);

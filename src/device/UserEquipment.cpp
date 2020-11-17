@@ -28,6 +28,7 @@
 #include "Gateway.h"
 #include "../phy/ue-phy.h"
 #include "CqiManager/cqi-manager.h"
+//#include "../mobility/Mobility.h"
 #include "../core/spectrum/bandwidth-manager.h"
 #include "../core/eventScheduler/simulator.h"
 #include "../componentManagers/NetworkManager.h"
@@ -180,7 +181,8 @@ UserEquipment::GetTimePositionUpdate (void)
 void
 UserEquipment::UpdateUserPosition (double time)
 {
-	if(fmod(time-0.001, 2838.49) < 150){
+
+	if(fmod(time-0.001, ((SatelliteMovement*) GetTargetNode ()->GetMobilityModel())->GetVisibilityPeriod()) < 150){
 
 	GetMobilityModel ()->UpdatePosition (time);
 

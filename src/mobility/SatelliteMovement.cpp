@@ -39,13 +39,13 @@ SatelliteMovement::SatelliteMovement(int nSat)
   SetHandover (false);
   SetLastHandoverTime (0.0);
   SetAbsolutePosition (nullptr);
-  SetTimePositionUpdate(0.1);
+  SetTimePositionUpdate(0.01);
   SetNumberOfSatellitePerOrbit(nSat);
-  SetPeriod(5676.98); // about 94 min
+  SetTimeOrbitPeriod(5676.98); // about 94 min
   cout << "Generating satellite with the following parameters:"
 	   << "\n\t Speed: " << GetSpeed() << " meter/second"
 	   << "\n\t Number of satellite per Orbit: " << GetNumberOfSatellitePerOrbit()
-	   << "\n\t Period: " << GetPeriod() << " seconds"
+	   << "\n\t Period: " << GetTimeOrbitPeriod() << " seconds"
 	   << "\n ...Done!" << endl;
   Simulator::Init()->Schedule(m_gNBtimePositionUpdate,
                                 &SatelliteMovement::UpdatePosition,
@@ -138,13 +138,17 @@ SatelliteMovement::SetNumberOfSatellitePerOrbit(int nSat){
 }
 
 double
-SatelliteMovement::GetPeriod(){
-    return 5676.98;
-}
+SatelliteMovement::GetVisibilityPeriod()
+{
+	if (GetNumberOfSatellitePerOrbit() > 0){
 
-void
-SatelliteMovement::SetPeriod(double _period){
-	m_timeOrbitPeriod =  _period;
+		return GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit();
+	}
+	else{
+		cout << "ERROR: Number of satellite < 0. " << endl;
+		return 0.0;
+	}
+
 }
 
 double
