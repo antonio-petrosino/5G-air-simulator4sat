@@ -85,8 +85,8 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
 
     
     int seed;
-    if (argc==10)
-        seed = atoi(argv[9]);
+    if (argc==12)
+        seed = atoi(argv[11]);
     else
         seed = -1;
     

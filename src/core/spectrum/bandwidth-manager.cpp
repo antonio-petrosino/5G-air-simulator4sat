@@ -45,12 +45,12 @@ const static map<double, int> RBs_for_BW =
   };
 
 #define NB_IOT_ALLOWED_RBs_FOR_1_4_MHz 0
-#define NB_IOT_ALLOWED_RBs_FOR_3_MHz 2
-#define NB_IOT_ALLOWED_RBs_FOR_5_MHz 4
+#define NB_IOT_ALLOWED_RBs_FOR_3_MHz 8
+#define NB_IOT_ALLOWED_RBs_FOR_5_MHz 8
 #define NB_IOT_ALLOWED_RBs_FOR_10_MHz 8
-#define NB_IOT_ALLOWED_RBs_FOR_15_MHz 13
-#define NB_IOT_ALLOWED_RBs_FOR_20_MHz 18
-#define NB_IOT_ALLOWED_RBs_FOR_30_MHz 18 // da rivedere il 18
+#define NB_IOT_ALLOWED_RBs_FOR_15_MHz 8
+#define NB_IOT_ALLOWED_RBs_FOR_20_MHz 8
+#define NB_IOT_ALLOWED_RBs_FOR_30_MHz 8 // da rivedere il 30 MHz
 
 BandwidthManager::BandwidthManager (double ulBw, double dlBw, int ulOffset,
                                     int dlOffset, bool tddTrue)
@@ -351,90 +351,83 @@ BandwidthManager::CreateNbIoTspectrum (int nbOfNbIoTcarriers, double spacing,
 vector<int>
 BandwidthManager::GetNbIoTrb (void)
 {
-  vector<int> rb;
-  int carr = GetMaxNbIoTcarriers ();
-  switch (carr)
+    vector<int> rb;
+    int minBw;
+    if (m_dlBandwidth < m_ulBandwidth)
     {
-    case 2:
-      rb.push_back (1);
-      rb.push_back (2);
-      break;
-    case 4:
-      rb.push_back (2);
-      rb.push_back (7);
-      rb.push_back (17);
-      rb.push_back (22);
-      break;
-    case 8:
-      rb.push_back (4);
-      rb.push_back (9);
-      rb.push_back (14);
-      rb.push_back (19);
-      rb.push_back (30);
-      rb.push_back (35);
-      rb.push_back (40);
-      rb.push_back (45);
-      break;
-    case 13:
-      rb.push_back (2);
-      rb.push_back (7);
-      rb.push_back (17);
-      rb.push_back (22);
-      rb.push_back (27);
-      rb.push_back (32);
-      rb.push_back (42);
-      rb.push_back (47);
-      rb.push_back (52);
-      rb.push_back (57);
-      rb.push_back (62);
-      rb.push_back (67);
-      rb.push_back (72);
-      rb.push_back (57);
-      break;
-    case 18:
-      rb.push_back (4);
-      rb.push_back (9);
-      rb.push_back (14);
-      rb.push_back (19);
-      rb.push_back (24);
-      rb.push_back (29);
-      rb.push_back (34);
-      rb.push_back (39);
-      rb.push_back (44);
-      rb.push_back (55);
-      rb.push_back (60);
-      rb.push_back (65);
-      rb.push_back (70);
-      rb.push_back (75);
-      rb.push_back (80);
-      rb.push_back (85);
-      rb.push_back (90);
-      rb.push_back (95);
-      break;
-    case 20:
-      rb.push_back (4);
-      rb.push_back (9);
-      rb.push_back (14);
-      rb.push_back (19);
-      rb.push_back (24);
-      rb.push_back (29);
-      rb.push_back (34);
-      rb.push_back (39);
-      rb.push_back (44);
-      rb.push_back (55);
-      rb.push_back (60);
-      rb.push_back (65);
-      rb.push_back (70);
-      rb.push_back (75);
-      rb.push_back (80);
-      rb.push_back (85);
-      rb.push_back (90);
-      rb.push_back (95);
-      rb.push_back (100);
-      rb.push_back (105);
-      break;
+        minBw = (int) m_dlBandwidth;
     }
-  return rb;
+    else
+    {
+        minBw = (int) m_ulBandwidth;
+    }
+    switch (minBw)
+    {
+        case 3:
+            rb.push_back (1);
+            rb.push_back (2);
+            rb.push_back (3);
+            rb.push_back (4);
+            rb.push_back (5);
+            rb.push_back (6);
+            rb.push_back (7);
+            rb.push_back (8);
+            
+            break;
+        case 5:
+            rb.push_back (2);
+            rb.push_back (4);
+            rb.push_back (7);
+            rb.push_back (9);
+            rb.push_back (12);
+            rb.push_back (14);
+            rb.push_back (17);
+            rb.push_back (22);
+            break;
+        case 10:
+            rb.push_back (4);
+            rb.push_back (9);
+            rb.push_back (14);
+            rb.push_back (19);
+            rb.push_back (30);
+            rb.push_back (35);
+            rb.push_back (40);
+            rb.push_back (45);
+            
+            break;
+        case 15:
+            rb.push_back (2);
+            rb.push_back (7);
+            rb.push_back (17);
+            rb.push_back (22);
+            rb.push_back (27);
+            rb.push_back (32);
+            rb.push_back (42);
+            rb.push_back (47);
+            
+            break;
+        case 20:
+            rb.push_back (4);
+            rb.push_back (9);
+            rb.push_back (14);
+            rb.push_back (19);
+            rb.push_back (24);
+            rb.push_back (29);
+            rb.push_back (34);
+            rb.push_back (39);
+            break;
+        case 30:
+            rb.push_back (4);
+            rb.push_back (9);
+            rb.push_back (14);
+            rb.push_back (19);
+            rb.push_back (24);
+            rb.push_back (29);
+            rb.push_back (34);
+            rb.push_back (39);
+            break;
+    }
+    return rb;
 }
 
 int

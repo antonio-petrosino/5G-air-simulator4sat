@@ -39,7 +39,7 @@ SatelliteMovement::SatelliteMovement(int nSat)
   SetHandover (false);
   SetLastHandoverTime (0.0);
   SetAbsolutePosition (nullptr);
-  SetTimePositionUpdate(0.01);
+  SetTimePositionUpdate(0.05);
   SetNumberOfSatellitePerOrbit(nSat);
   SetTimeOrbitPeriod(5676.98); // about 94 min
   cout << "Generating satellite with the following parameters:"

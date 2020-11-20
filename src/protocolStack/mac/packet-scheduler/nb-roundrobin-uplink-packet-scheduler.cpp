@@ -75,12 +75,12 @@ nbRoundRobinUplinkPacketScheduler::RUsAllocation ()
   int ttiLength = FrameManager::Init()->getTTILength();
   GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) GetMacEntity()->GetRandomAccessManager() ;
 
-  UsersToSchedule *users = GetUsersToSchedule ();
-
-  int ruSlice = FrameManager::Init()->GetNRUNBIoTSat(); //10;
-  int _NRep = FrameManager::Init()->GetNRep();
   if (currentSF % ttiLength == 0 && !(gnbRam->isRachOpportunity()))
     {
+        UsersToSchedule *users = GetUsersToSchedule ();
+        int ruSlice = FrameManager::Init()->GetNRUNBIoTSat(); //10
+        int _NRep = FrameManager::Init()->GetNRep();
+        
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
       cout <<"LOG_USERS TTI " << currentSF << " UE " << users->size () << endl;
 DEBUG_LOG_END

@@ -246,12 +246,11 @@ UeNbIoTRandomAccess::ReceiveMessage4()
     << endl;
     DEBUG_LOG_END
     
+    DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
     RrcEntity *rrc = m_macEntity ->GetDevice ()->GetProtocolStack ()->GetRrcEntity ();
     RrcEntity::RadioBearersContainer* bearers = rrc->GetRadioBearerContainer ();
     std::vector<RadioBearer* >::iterator it =bearers->begin();
     int id = (*it)->GetMacQueue()->GetPacketQueue()->begin ()->GetPacket()->GetID();
-    
-    DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
     cout << "RACH_WIN UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
     << " T " << Simulator::Init()->Now()
     << " ID "<< id
