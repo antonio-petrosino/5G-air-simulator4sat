@@ -439,13 +439,13 @@ DEBUG_LOG_END
         }
     }
   
-  for (auto amdRecord : *GetSentAMDs() ) {
-    if (amdRecord->m_retx_count_timer == 1) {
-      queue->SetQueueSize(queue->GetQueueSize()+amdRecord->m_packet->GetSize());
-      //cout<<endl;
-    }
-    amdRecord->m_retx_count_timer--;
-  }
+//  for (auto amdRecord : *GetSentAMDs() ) {
+//    if (amdRecord->m_retx_count_timer == 1) {
+//      queue->SetQueueSize(queue->GetQueueSize()+amdRecord->m_packet->GetSize());
+//      //cout<<endl;
+//    }
+//    amdRecord->m_retx_count_timer--;
+//  }
   
   DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_ARQ)
     queue->PrintQueueInfo();

@@ -244,38 +244,37 @@ DEBUG_LOG_END
 	}else{
 
 		if(GetNodeState() == UserEquipment::STATE_DETACHED){
-DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
-cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
-Print();
-DEBUG_LOG_END
+            DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
+            cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+            Print();
+            DEBUG_LOG_END
 			//cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
 			SetNodeState (UserEquipment::STATE_IDLE);
             GetTargetNode ()->UpdateAttachedUEs(1);
-
-			bool needRAP = false;
-
-			RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();
-
-			if (rrc->GetRadioBearerContainer ()->size() > 0){
-				for (auto bearer : *rrc->GetRadioBearerContainer()){
-					if (bearer->GetMacQueue()->GetNbDataPackets()>0){
-						needRAP = true;
-					}
-					/*else{
-						cout << "bearer->GetMacQueue()->GetNbDataPackets() = 0...t = "<< time <<" --> "<<endl;
-						cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
-					}*/
-				}
-			}
-			/*else{
-				cout << "rrc->GetRadioBearerContainer ()->size() = 0...t = "<< time <<" --> "<<endl;
-				cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
-			}*/
-
-			if(needRAP){
-				Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
-			}
 		}
+        bool needRAP = false;
+
+        RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();
+
+        if (rrc->GetRadioBearerContainer ()->size() > 0){
+            for (auto bearer : *rrc->GetRadioBearerContainer()){
+                if (bearer->GetQueueSize()>0 && GetNodeState() == UserEquipment::STATE_IDLE){
+                    needRAP = true;
+                }
+                /*else{
+                    cout << "bearer->GetMacQueue()->GetNbDataPackets() = 0...t = "<< time <<" --> "<<endl;
+                    cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
+                }*/
+            }
+        }
+        /*else{
+            cout << "rrc->GetRadioBearerContainer ()->size() = 0...t = "<< time <<" --> "<<endl;
+            cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
+        }*/
+
+        if(needRAP){
+            Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+        }
 	}
   }
 }
@@ -339,7 +338,8 @@ UserEquipment::SetLastActivity()
     {
       m_activityTimeoutEvent->MarkDeleted();
     }
-  m_activityTimeoutEvent = Simulator::Init()->Schedule(m_activityTimeout, &UserEquipment::SetNodeState, this, NetworkNode::STATE_IDLE );
+    if (GetNodeState() != NetworkNode::STATE_DETACHED)
+        m_activityTimeoutEvent = Simulator::Init()->Schedule(m_activityTimeout, &UserEquipment::SetNodeState, this, NetworkNode::STATE_IDLE );
 }
 
 void

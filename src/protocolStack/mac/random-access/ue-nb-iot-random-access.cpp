@@ -103,13 +103,6 @@ UeNbIoTRandomAccess::ReStartRaProcedure()
         UserEquipment* ue = (UserEquipment*)m_macEntity->GetDevice();
         GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) ue->GetTargetNode()->GetMacEntity()->GetRandomAccessManager();
 
-
-    	if(m_macEntity->GetDevice()->GetNodeType()==NetworkNode::TYPE_UE)  {
-    		if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
-    			return;
-    		}
-    	}
-
         m_RaProcedureActive = false;
         m_nbFailedAttempts++;
         m_nbFailedAttemptsCE++;
@@ -245,8 +238,8 @@ UeNbIoTRandomAccess::ReceiveMessage4()
     << " T " << Simulator::Init()->Now()
     << endl;
     DEBUG_LOG_END
-
-	DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
+    
+    DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
     RrcEntity *rrc = m_macEntity ->GetDevice ()->GetProtocolStack ()->GetRrcEntity ();
     RrcEntity::RadioBearersContainer* bearers = rrc->GetRadioBearerContainer ();
     std::vector<RadioBearer* >::iterator it =bearers->begin();
