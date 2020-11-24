@@ -33,6 +33,7 @@ public:
   virtual ~NBIoTSimpleErrorModel() = default;
 
   virtual bool CheckForPhysicalError (vector<int> channels, vector<int> mcs, vector<double> m_sinr);
+  int GetRefMCS(int MCS, int NRU);
 };
 
 #endif /* NBIOT_SIMPLE_ERRORMODEL_H_ */

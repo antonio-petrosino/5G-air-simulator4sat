@@ -36,6 +36,7 @@
 #include "../flows/MacQueue.h"
 #include "../protocolStack/rrc/ho/handover-entity.h"
 #include "../protocolStack/rrc/ho/ho-manager.h"
+#include "../componentManagers/FrameManager.h"
 
 
 UserEquipment::UserEquipment (int idElement,
@@ -123,6 +124,8 @@ UserEquipment::UserEquipment (int idElement,
 
   m_activityTimeout = 10;
   m_activityTimeoutEvent = NULL;
+
+  m_assignedNRU = FrameManager::Init()->GetNRUNBIoTSat();
 }
 
 UserEquipment::UserEquipment (int idElement,
@@ -182,8 +185,8 @@ void
 UserEquipment::UpdateUserPosition (double time)
 {
 
-	if(fmod(time-0.001, ((SatelliteMovement*) GetTargetNode ()->GetMobilityModel())->GetVisibilityPeriod()) < 150){
-
+	//if(fmod(time-0.001, ((SatelliteMovement*) GetTargetNode ()->GetMobilityModel())->GetVisibilityPeriod()) < 200){
+		if(true){
 	GetMobilityModel ()->UpdatePosition (time);
 
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
@@ -226,8 +229,9 @@ DEBUG_LOG_END
 	//if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
 	if(!_attach)
 	{
-		//if(GetNodeState() != UserEquipment::STATE_DETACHED){
-		if(GetNodeState() == UserEquipment::STATE_IDLE){
+		if(GetNodeState() != UserEquipment::STATE_DETACHED){
+		//if(GetNodeState() == UserEquipment::STATE_IDLE){
+			// se il dispositivo ha più di un pacchetto nel buffer?
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
 cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
 Print();
@@ -257,8 +261,16 @@ DEBUG_LOG_END
 					if (bearer->GetMacQueue()->GetNbDataPackets()>0){
 						needRAP = true;
 					}
+					/*else{
+						cout << "bearer->GetMacQueue()->GetNbDataPackets() = 0...t = "<< time <<" --> "<<endl;
+						cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
+					}*/
 				}
 			}
+			/*else{
+				cout << "rrc->GetRadioBearerContainer ()->size() = 0...t = "<< time <<" --> "<<endl;
+				cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
+			}*/
 
 			if(needRAP){
 				Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
@@ -270,26 +282,6 @@ DEBUG_LOG_END
 
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate
-
-	  //cout << "Periodicità: " << fmod(time, 3000.0) << "time: " << time << endl;
-
-/*
-	if(fmod(time, 3000.0) < 160.001){
-    Simulator::Init()->Schedule(m_timePositionUpdate,
-                              &UserEquipment::UpdateUserPosition,
-                              this,
-                              Simulator::Init ()->Now());
-	}else{
-
-	Simulator::Init()->Schedule(3000.001 - fmod(time,3000.00) ,
-	                            &UserEquipment::UpdateUserPosition,
-	                            this,
-	                            Simulator::Init ()->Now() + 3000.001 - fmod(time,3000.00)); // chiamo up_us_pos con now()
-								//now + 3000
-	// se overload non passare niente, fino a this
-	cout <<"Simulatore: schedulato fra " << 3000.001 - fmod(time,3000.0) << " sec." <<endl;
-	}
-*/
 	  Simulator::Init()->Schedule(m_timePositionUpdate,
 	                                &UserEquipment::UpdateUserPosition,
 	                                this,
@@ -365,6 +357,13 @@ UserEquipment::GetActivityTimeout()
 void UserEquipment::SetRandomAccessType(UeRandomAccess::RandomAccessType type)
 {
   GetMacEntity ()->SetRandomAccessType(type);
+}
+
+void UserEquipment::SetNRUtoUE(int _nru){
+	m_assignedNRU = _nru;
+}
+int UserEquipment::GetNRUtoUE(void){
+	return m_assignedNRU;
 }
 
 //Debug

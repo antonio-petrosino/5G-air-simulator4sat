@@ -46,7 +46,9 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
 
   for (int i = 0; i < (int)channels.size (); i++)
     {
-      int mcs_ = FrameManager::Init()->GetMCSNBIoTSat ();
+      //int mcs_ = FrameManager::Init()->GetMCSNBIoTSat ();
+	  int mcs_ = mcs[0];
+
       double sinr_ = sinr.at (channels.at (i));
       double bler;
 
@@ -64,4 +66,31 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
     }
 
   return error;
+}
+
+int
+NBIoTSimpleErrorModel::GetRefMCS(int MCS, int NRU){
+	double coderate = 0.0;
+
+	if (MCS > 0 && MCS <= 10){
+		if(NRU > 0 &&  NRU <= 5 ){
+			coderate = CodeRatesSingleToneTable[MCS][NRU-1];
+		}
+	}
+
+	double minOffset = 9999.99;
+	int newMCSindex = 0;
+	//int newNRUindex = 0;
+
+	for(int i=0; i<5; i++){
+		if((abs(coderate - RefCodeRates[i])) < minOffset){
+			minOffset = abs(coderate - RefCodeRates[i]);
+			newMCSindex = RefMCS[i];
+			//newNRUindex = RefNRU[i];
+		}
+	}
+
+	return newMCSindex;
+	// since TBS is constant for each BLER curves stored
+	// we need only one MCS value to find the corresponding curve
 }

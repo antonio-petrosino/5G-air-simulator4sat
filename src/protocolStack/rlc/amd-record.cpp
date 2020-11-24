@@ -28,7 +28,8 @@ AmdRecord::AmdRecord (Packet* p, int sn)
   m_packet = p;
   m_sn = sn;
   m_retx_count = 0;
-  m_retx_count_timer = 10;
+  //m_retx_count_timer = 10;
+  m_retx_count_timer = 1;
   m_toRetransmit = false;
 }
 

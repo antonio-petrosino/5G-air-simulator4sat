@@ -245,8 +245,8 @@ UeNbIoTRandomAccess::ReceiveMessage4()
     << " T " << Simulator::Init()->Now()
     << endl;
     DEBUG_LOG_END
-    
-    DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
+
+	DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
     RrcEntity *rrc = m_macEntity ->GetDevice ()->GetProtocolStack ()->GetRrcEntity ();
     RrcEntity::RadioBearersContainer* bearers = rrc->GetRadioBearerContainer ();
     std::vector<RadioBearer* >::iterator it =bearers->begin();

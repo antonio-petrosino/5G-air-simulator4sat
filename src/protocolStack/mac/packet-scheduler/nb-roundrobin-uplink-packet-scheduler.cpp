@@ -77,10 +77,10 @@ nbRoundRobinUplinkPacketScheduler::RUsAllocation ()
 
   if (currentSF % ttiLength == 0 && !(gnbRam->isRachOpportunity()))
     {
-        UsersToSchedule *users = GetUsersToSchedule ();
-        int ruSlice = FrameManager::Init()->GetNRUNBIoTSat(); //10
-        int _NRep = FrameManager::Init()->GetNRep();
-        
+	  UsersToSchedule *users = GetUsersToSchedule ();
+	  int ruSlice = FrameManager::Init()->GetNRUNBIoTSat(); //10;
+	  int _NRep = FrameManager::Init()->GetNRep();
+
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
       cout <<"LOG_USERS TTI " << currentSF << " UE " << users->size () << endl;
 DEBUG_LOG_END
@@ -180,14 +180,16 @@ DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
                   cout << " \t MCS = " << mcs;
 DEBUG_LOG_END
 
-                  //int nru = GetMacEntity ()->GetNbAmcModule ()->GetNbOfRUsFromSize(mcs, dataToTransmit*8);
-				  int nru = FrameManager::Init()->GetNRUNBIoTSat();
+                  int nru = GetMacEntity ()->GetNbAmcModule ()->GetNbOfRUsFromSize(mcs, dataToTransmit*8);
+				  //int nru = FrameManager::Init()->GetNRUNBIoTSat();
                   if (nru > ruSlice)
                     {
                       nru = ruSlice;
                     }
 
                   int tbs = (GetMacEntity ()->GetNbAmcModule ()->GetTBSizeFromMCS (mcs, nru)) / 8;
+
+                  scheduledUser.m_userToSchedule->SetNRUtoUE(nru);
 
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
                   cout << " - TBS [byte] = " << tbs << " - NRU = " << nru << endl;

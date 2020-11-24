@@ -27,6 +27,7 @@
 #include "../channel/RadioChannel.h"
 #include "../core/spectrum/bandwidth-manager.h"
 #include "../phy/BLERTrace/BLERvsSINR_NBIoT_SAT.h"
+#include "../phy/nbiot-simple-error-model.h"
 #include "../protocolStack/packet/packet-burst.h"
 #include "../core/spectrum/transmitted-signal.h"
 #include "../core/idealMessages/ideal-control-messages.h"
@@ -159,21 +160,27 @@ DEBUG_LOG_END
   //CHECK FOR PHY ERROR
   bool phyError = false;
 
-  if (GetErrorModel() != nullptr)
+  if (GetErrorModel() != nullptr && p->GetNPackets() > 0)
     {
-    vector<int> cqi; //compute the CQI
-    phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, cqi, measuredSinr);
-        if (_PHY_TRACING_ && p->GetNPackets() > 0) {
+    vector<int> approxMCS;
+    int MCS_ = FrameManager::Init()->GetMCSNBIoTSat ();
+    //int RU_ = FrameManager::Init()->GetNRUNBIoTSat();
+    int RU_ = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetNRUtoUE();
+
+    UserEquipment* ue = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE();
+    approxMCS.push_back(((NBIoTSimpleErrorModel*) GetErrorModel())-> GetRefMCS(MCS_,RU_));
+
+    phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, approxMCS, measuredSinr);
+        if (_PHY_TRACING_) {
+
             
-            UserEquipment* ue = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE();
             
             CartesianCoordinates* uePos = ue->GetMobilityModel()->GetAbsolutePosition();
             CartesianCoordinates* gnbPos = GetDevice()->GetMobilityModel()->GetAbsolutePosition();
 
             double DIST_ = uePos->GetDistance3D (gnbPos);
                        
-            int MCS_ = FrameManager::Init()->GetMCSNBIoTSat ();
-            int RU_ = FrameManager::Init()->GetNRUNBIoTSat();
+
             int TBS_ = GetDevice()->GetMacEntity()->GetNbAmcModule()->GetTBSizeFromMCS (MCS_, RU_);
             double EL_ = 0.0;
             //double EL_ = ue->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(GetDevice()->GetMobilityModel()->GetAbsolutePosition());

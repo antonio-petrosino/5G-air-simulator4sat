@@ -45,7 +45,7 @@ SatelliteMovement::SatelliteMovement(int nSat)
   cout << "Generating satellite with the following parameters:"
 	   << "\n\t Speed: " << GetSpeed() << " meter/second"
 	   << "\n\t Number of satellite per Orbit: " << GetNumberOfSatellitePerOrbit()
-	   << "\n\t Period: " << GetTimeOrbitPeriod() << " seconds"
+	   << "\n\t Elapsed Time between 2 sat: " << GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit() << " seconds"
 	   << "\n ...Done!" << endl;
   Simulator::Init()->Schedule(m_gNBtimePositionUpdate,
                                 &SatelliteMovement::UpdatePosition,
@@ -62,6 +62,7 @@ SatelliteMovement::~SatelliteMovement()
 void
 SatelliteMovement::UpdatePosition (double time)
 {
+	//cout << "...t = "<<time <<" --> "<<endl;
 DEBUG_LOG_START_1(SIM_ENV_MOBILITY_DEBUG)
     cout << "\t START MOBILITY MODEL for "<< GetDevice ()->GetIDNetworkNode() << endl;
 	cout << "UpdatePosition gNB satellitare avviato."<<endl;

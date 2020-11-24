@@ -71,6 +71,7 @@
 static void nbCell_Satellite (int argc, char *argv[])
 {
 	// ./5G-air-simulator nbCell-Sat sat 2 -140.0 1 86400 0.3 3000 30 1 15 1 3 5 4 21600 19 15 1 1 10 4 8 48 128 12 1024 10
+						//nbCell-Sat sat 3 -141.0 1 43200 0.309 3000 30 1 15 1 3 5 4 14400 19 15 1 1 10 4 8 48 240 12 1024 10
 
 
     string environment(argv[2]); // "suburban" or "rural"
@@ -200,7 +201,9 @@ int seed;
 
     // define simulation times
     double duration = dur; //+ 1;
-    double flow_duration = duration / 2;
+
+    double flow_duration = duration * 50 / 100;
+
     //double flow_duration = duration / 2 ;
     
     UeRandomAccess::RandomAccessType m_UeRandomAccessType = UeRandomAccess::RA_TYPE_NB_IOT;
@@ -380,7 +383,7 @@ int seed;
 
     ue->SetRandomAccessType(m_UeRandomAccessType);
 
-    ue->SetTimePositionUpdate (0.01); // trigger per la mobilità
+    ue->SetTimePositionUpdate (0.05); // trigger per la mobilità
 
     ue->GetPhy ()->SetDlChannel (dlCh);
     ue->GetPhy ()->SetUlChannel (ulCh);

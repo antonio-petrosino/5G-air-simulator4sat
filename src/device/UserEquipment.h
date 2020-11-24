@@ -74,6 +74,10 @@ public:
   void SetActivityTimeout(double timeout);
   double GetActivityTimeout();
   void SetRandomAccessType(UeRandomAccess::RandomAccessType type);
+
+  void SetNRUtoUE(int _nru);
+  int GetNRUtoUE(void);
+
   //Debug
   void Print (void);
 
@@ -88,6 +92,8 @@ private:
   double m_timePositionUpdate;
   double m_activityTimeout;
   shared_ptr<Event> m_activityTimeoutEvent;
+
+  int m_assignedNRU;
 };
 
 #endif /* USEREQUIPMENT_H_ */

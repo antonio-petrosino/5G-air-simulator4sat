@@ -176,6 +176,8 @@ DEBUG_LOG_END
                   int nru = GetMacEntity ()->GetNbAmcModule ()->GetNbOfRUsFromSize(mcs, dataToTransmit*8);
                   int tbs = (GetMacEntity ()->GetNbAmcModule ()->GetTBSizeFromMCS (mcs, nru)) / 8;
 
+                  scheduledUser.m_userToSchedule->SetNRUtoUE(nru);
+
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_FIFO)
                   cout << " - TBS [byte] = " << tbs << " - NRU = " << nru << endl;
 DEBUG_LOG_END
