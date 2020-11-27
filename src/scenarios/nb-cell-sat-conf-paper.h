@@ -276,7 +276,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
         
         ue->SetRandomAccessType(m_UeRandomAccessType);
         
-        ue->SetTimePositionUpdate (0.05); // trigger per la mobilità
+        ue->SetTimePositionUpdate (0.1); // trigger per la mobilità
         
         ue->GetPhy ()->SetDlChannel (dlCh);
         ue->GetPhy ()->SetUlChannel (ulCh);

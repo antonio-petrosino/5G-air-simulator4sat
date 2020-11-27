@@ -202,7 +202,7 @@ DEBUG_LOG_END
                   gain = 10.7918;
               }
           }
-          gain = 0.0;
+
           double ElAngle = 0.0;
           if (src->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
               ElAngle =((SatelliteMovement*) src->GetMobilityModel())->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
