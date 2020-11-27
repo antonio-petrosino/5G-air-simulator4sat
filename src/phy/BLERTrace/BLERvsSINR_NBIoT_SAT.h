@@ -1145,7 +1145,6 @@ GetSNRfromElAngle_SAT (double elangle, int uplink_or_downlink, SatelliteMovement
       R = (elangle - ELANGLE_NBIoT_SAT [index]) / ( ELANGLE_NBIoT_SAT [index + 1] - ELANGLE_NBIoT_SAT [index] );
 
       if (uplink_or_downlink == 1){
-    	  //TODO: inserire parametro gNB che distingue il tipo di antenna
     	  if(model == SatelliteMovement::PARABOLIC_REFLECTOR){
 
     		  measuredSNR = SNR_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] + R * ( SNR_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index + 1] - SNR_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] );
@@ -1157,7 +1156,6 @@ GetSNRfromElAngle_SAT (double elangle, int uplink_or_downlink, SatelliteMovement
     	  }
 
       }else{
-    	  //TODO: inserire parametro gNB che distingue il tipo di antenna
     	  if(model == SatelliteMovement::PARABOLIC_REFLECTOR){
 
     		  measuredSNR = SNR_DL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] + R * ( SNR_DL_PARABOLIC_REFLECTOR_NBIoT_SAT [index + 1] - SNR_DL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] );
@@ -1203,9 +1201,17 @@ GetRxPowerfromElAngle_SAT (double elangle, SatelliteMovement::AntennaType model)
 	  if (index != -1)
 	    {
 	      R = (elangle - ELANGLE_NBIoT_SAT [index]) / ( ELANGLE_NBIoT_SAT [index + 1] - ELANGLE_NBIoT_SAT [index] );
-	      //TODO: inserire parametro gNB che distingue il tipo di antenna
-	      rxPower = LB_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] + R * ( LB_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index + 1] - LB_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] );
-	      rxPower = LB_UL_PATCH_NBIoT_SAT [index] + R * ( LB_UL_PATCH_NBIoT_SAT [index + 1] - LB_UL_PATCH_NBIoT_SAT [index] );
+	      if(model == SatelliteMovement::PARABOLIC_REFLECTOR){
+
+	    	  rxPower = LB_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] + R * ( LB_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index + 1] - LB_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [index] );
+
+	      }else if(model == SatelliteMovement::PATCH_ANTENNA){
+
+	    	  rxPower = LB_UL_PATCH_NBIoT_SAT [index] + R * ( LB_UL_PATCH_NBIoT_SAT [index + 1] - LB_UL_PATCH_NBIoT_SAT [index] );
+
+	      }
+
+
 	    }
 	  return rxPower;
 }
