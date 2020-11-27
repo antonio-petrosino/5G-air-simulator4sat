@@ -42,6 +42,7 @@ SatelliteMovement::SatelliteMovement(int nSat)
   SetTimePositionUpdate(0.05);
   SetNumberOfSatellitePerOrbit(nSat);
   SetTimeOrbitPeriod(5676.98); // about 94 min
+  SetAntennaType(SatelliteMovement::PARABOLIC_REFLECTOR);
   cout << "Generating satellite with the following parameters:"
 	   << "\n\t Speed: " << GetSpeed() << " meter/second"
 	   << "\n\t Number of satellite per Orbit: " << GetNumberOfSatellitePerOrbit()
@@ -207,14 +208,22 @@ SatelliteMovement::GetAttachProcedure(CartesianCoordinates* uePos){
 
 	//double ElAngle = uePos->GetElAngle(gnbPos);
 	double ElAngle = GetElAngle(uePos);
-	double snr4attachProbability = GetSNRfromElAngle_SAT(ElAngle, 2); //snr for downlink
+	double snr4attachProbability = GetSNRfromElAngle_SAT(ElAngle, 2, GetAntennaType()); //snr for downlink
 
 	double measuredRSRP = snr4attachProbability + GetTermalNoisePowerDB();
 
 	// if SNR < Soglia
 	// return false;
 
-	if(measuredRSRP < GetSNRthreshold()){
+	// Qui il discorso dovrebbe essere relativo all'MCL che in NB-IoT è 164 al massimo
+	// 1 -> 144 dB
+	// 2 -> 154 dB
+	// 3 -> 164 dB
+	// MCL = Ptx (33 dBm or 3 dB) - Prx [dB]
+	// MCL = 3 dB - measuredRSRP
+	double measuredCL = 3 - measuredRSRP;
+
+	if(measuredCL > GetMCLthreshold()){
 		return false;
 	}
 
@@ -257,11 +266,19 @@ SatelliteMovement::GetElAngle(CartesianCoordinates *remoteObject)
 }
 
 void
-SatelliteMovement::SetSNRthreshold(double SNRthreshold){
+SatelliteMovement::SetMCLthreshold(double SNRthreshold){
 	m_SNRthreshold = SNRthreshold;
 }
 double
-SatelliteMovement::GetSNRthreshold(void){
+SatelliteMovement::GetMCLthreshold(void){
 	return m_SNRthreshold;
 }
 
+SatelliteMovement::AntennaType
+SatelliteMovement::GetAntennaType(void) const{
+	return m_AntennaType;
+}
+void
+SatelliteMovement::SetAntennaType(AntennaType model){
+	m_AntennaType = model;
+}

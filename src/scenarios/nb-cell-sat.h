@@ -202,7 +202,8 @@ int seed;
     // define simulation times
     double duration = dur; //+ 1;
 
-    double flow_duration = duration * 50 / 100;
+    //double flow_duration = duration * 50 / 100;
+    double flow_duration = duration;
 
     //double flow_duration = duration / 2 ;
     
@@ -295,7 +296,8 @@ int seed;
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
     //gnb->GetPhy ()->SetmaxSatelliteRange(GetMinDistance4CellSelection()); // in base all'angolo di visibilità scelto con SNR > 0
-    ((SatelliteMovement*)gnb->GetMobilityModel())->SetSNRthreshold(SNRt);
+    ((SatelliteMovement*)gnb->GetMobilityModel())->SetMCLthreshold(SNRt);
+    ((SatelliteMovement*)gnb->GetMobilityModel())->SetAntennaType(SatelliteMovement::PATCH_ANTENNA);
     //gnb->SetNumberOfSatellitePerOrbit(nSatellitePerOrbit);
 
     //gnb->GetPhy ()->SetmaxSatelliteRange(510000);

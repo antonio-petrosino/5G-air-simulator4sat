@@ -229,7 +229,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
     //gnb->GetPhy ()->SetmaxSatelliteRange(GetMinDistance4CellSelection()); // in base all'angolo di visibilità scelto con SNR > 0
-    ((SatelliteMovement*)gnb->GetMobilityModel())->SetSNRthreshold(SNRt);
+    ((SatelliteMovement*)gnb->GetMobilityModel())->SetMCLthreshold(SNRt);
     
     //gnb->GetPhy ()->SetmaxSatelliteRange(510000);
     gnb->GetPhy ()->SetErrorModel (errorModel);
@@ -276,7 +276,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
         
         ue->SetRandomAccessType(m_UeRandomAccessType);
         
-        ue->SetTimePositionUpdate (0.1); // trigger per la mobilità
+        ue->SetTimePositionUpdate (0.05); // trigger per la mobilità
         
         ue->GetPhy ()->SetDlChannel (dlCh);
         ue->GetPhy ()->SetUlChannel (ulCh);

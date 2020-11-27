@@ -31,8 +31,13 @@ public:
   SatelliteMovement(int nSat);
   virtual ~SatelliteMovement();
 
-    void SetSNRthreshold(double SNRthreshold);
-    double GetSNRthreshold(void);
+  	  enum AntennaType {
+      	PATCH_ANTENNA,
+  		PARABOLIC_REFLECTOR
+  	  };
+
+    void SetMCLthreshold(double SNRthreshold);
+    double GetMCLthreshold(void);
 
     double GetSatPosition (double time);
 
@@ -50,6 +55,11 @@ public:
 
     double GetVisibilityPeriod();
 
+    SatelliteMovement::AntennaType
+	GetAntennaType(void) const;
+    void
+    SetAntennaType(AntennaType model);
+
   void
   UpdatePosition (double time);
     
@@ -58,7 +68,7 @@ private:
     double m_gNBtimePositionUpdate;
     double m_timeOrbitPeriod;
     double m_SNRthreshold;
-
+    AntennaType m_AntennaType;
 };
 
 #endif /* SATELLITE_H_ */

@@ -203,14 +203,18 @@ DEBUG_LOG_END
               }
           }
 
+          //gain = 0.0; // ESA NON VUOLE!
+
           double ElAngle = 0.0;
+          double simulatedRxPower = 0.0;
           if (src->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
               ElAngle =((SatelliteMovement*) src->GetMobilityModel())->GetElAngle(dst->GetMobilityModel()->GetAbsolutePosition());
+              simulatedRxPower = GetRxPowerfromElAngle_SAT(ElAngle, ((SatelliteMovement*)src->GetMobilityModel())->GetAntennaType()) + gain;
           }
           else if (dst->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){
               ElAngle =((SatelliteMovement*) dst->GetMobilityModel())->GetElAngle(src->GetMobilityModel()->GetAbsolutePosition());
+              simulatedRxPower = GetRxPowerfromElAngle_SAT(ElAngle, ((SatelliteMovement*)dst->GetMobilityModel())->GetAntennaType()) + gain;
           }
-          double simulatedRxPower = GetRxPowerfromElAngle_SAT(ElAngle) + gain;
 
 		  for(auto& row:rxSignalValues){
 			 for(auto& col:row){
