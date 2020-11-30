@@ -184,9 +184,6 @@ UserEquipment::GetTimePositionUpdate (void)
 void
 UserEquipment::UpdateUserPosition (double time)
 {
-
-	//if(fmod(time-0.001, ((SatelliteMovement*) GetTargetNode ()->GetMobilityModel())->GetVisibilityPeriod()) < 200){
-		if(true){
 	GetMobilityModel ()->UpdatePosition (time);
 
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
@@ -277,7 +274,7 @@ DEBUG_LOG_END
         }
 	}
   }
-}
+
 
   if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
     //schedule the new update after m_timePositionUpdate

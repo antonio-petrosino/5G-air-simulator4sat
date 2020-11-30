@@ -104,7 +104,8 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
 
     
     int schedUL = 1; // RR
-    double radius = 0.309; // [km]
+    //double radius = 0.309; // [km]
+    double radius = 200; // [km]
     
 
     double bandwidth = 30; // [MHz] max 15MHz
@@ -144,8 +145,8 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     ChannelRealization::ChannelModel model= ChannelRealization::CHANNEL_MODEL_SATELLITE;
     
     // define simulation times
-    double duration = 21600; // 21600 s = 6 h  // 86400 s = 1 day
-    double flow_duration = duration / 2;
+    double duration = 43200; // 21600 s = 6 h  // 86400 s = 1 day
+    double flow_duration = duration;
     
     UeRandomAccess::RandomAccessType m_UeRandomAccessType = UeRandomAccess::RA_TYPE_NB_IOT;
     GnbRandomAccess::RandomAccessType m_GnbRandomAccessType = GnbRandomAccess::RA_TYPE_NB_IOT;
@@ -229,6 +230,8 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
     //gnb->GetPhy ()->SetmaxSatelliteRange(GetMinDistance4CellSelection()); // in base all'angolo di visibilità scelto con SNR > 0
+    ((SatelliteMovement*)gnb->GetMobilityModel())->SetAntennaType(SatelliteMovement::PARABOLIC_REFLECTOR);
+    ((SatelliteMovement*)gnb->GetMobilityModel())->SetFixedAreaRadius(radius * 1000); // meters
     ((SatelliteMovement*)gnb->GetMobilityModel())->SetMCLthreshold(SNRt);
     
     //gnb->GetPhy ()->SetmaxSatelliteRange(510000);

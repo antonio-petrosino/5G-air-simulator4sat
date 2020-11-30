@@ -201,7 +201,7 @@ DEBUG_LOG_END
               if (dst->GetPhy()->GetBandwidthManager()->GetTones() == 1) {
                   gain = 10.7918;
               }
-          }          
+          }
 
           double ElAngle = 0.0;
           double simulatedRxPower = 0.0;

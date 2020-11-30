@@ -297,7 +297,10 @@ int seed;
     gnb->GetPhy ()->SetHeight(antennaHeight);
     //gnb->GetPhy ()->SetmaxSatelliteRange(GetMinDistance4CellSelection()); // in base all'angolo di visibilità scelto con SNR > 0
     ((SatelliteMovement*)gnb->GetMobilityModel())->SetMCLthreshold(SNRt);
+    ((SatelliteMovement*)gnb->GetMobilityModel())->SetFixedAreaRadius(radius * 1000);
     ((SatelliteMovement*)gnb->GetMobilityModel())->SetAntennaType(SatelliteMovement::PATCH_ANTENNA);
+
+
     //gnb->SetNumberOfSatellitePerOrbit(nSatellitePerOrbit);
 
     //gnb->GetPhy ()->SetmaxSatelliteRange(510000);

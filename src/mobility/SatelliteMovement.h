@@ -50,6 +50,12 @@ public:
     void SetTimeOrbitPeriod(double _update);
     double GetTimeOrbitPeriod(void);
 
+    void SetFixedAreaRadius(double radius);
+    double GetFixedAreaRadius(void);
+
+    //void SetSpotBeamRadius(double radius);
+    double GetSpotBeamRadius(void);
+
     bool GetAttachProcedure(CartesianCoordinates* _uePos);
     double GetElAngle(CartesianCoordinates* _uePos);
 
@@ -68,6 +74,8 @@ private:
     double m_gNBtimePositionUpdate;
     double m_timeOrbitPeriod;
     double m_SNRthreshold;
+    double m_fixedAreaRadius;
+    double m_spotBeamRadius;
     AntennaType m_AntennaType;
 };
 

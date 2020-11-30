@@ -43,6 +43,8 @@ SatelliteMovement::SatelliteMovement(int nSat)
   SetNumberOfSatellitePerOrbit(nSat);
   SetTimeOrbitPeriod(5676.98); // about 94 min
   SetAntennaType(SatelliteMovement::PARABOLIC_REFLECTOR);
+  //SetFixedAreaRadius(0);
+
   cout << "Generating satellite with the following parameters:"
 	   << "\n\t Speed: " << GetSpeed() << " meter/second"
 	   << "\n\t Number of satellite per Orbit: " << GetNumberOfSatellitePerOrbit()
@@ -187,8 +189,10 @@ SatelliteMovement::GetSatPosition (double time)
         // periodicità sat.        = 1 ogni 2838 secondi
 
         double mod =  GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit();
-        double start_offset = 10000;
-        double newPosition = -320000 -309 +(7059.22 * (fmod(time,mod))) - start_offset;
+        double start_offset = 50000;
+        //double newPosition = -320000 - 309  +(7059.22 * (fmod(time,mod))) - start_offset;
+
+        double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - start_offset;
         //start_offset = 0;
 
         return newPosition;
@@ -281,4 +285,28 @@ SatelliteMovement::GetAntennaType(void) const{
 void
 SatelliteMovement::SetAntennaType(AntennaType model){
 	m_AntennaType = model;
+}
+
+void
+SatelliteMovement::SetFixedAreaRadius(double radius){
+	 m_fixedAreaRadius = radius;
+	 cout <<"Fixed area radius: " << m_fixedAreaRadius << " meters"<< endl;
+}
+
+double
+SatelliteMovement::GetFixedAreaRadius(void){
+	return m_fixedAreaRadius;
+}
+
+double
+SatelliteMovement::GetSpotBeamRadius(void){
+
+	if(m_AntennaType == SatelliteMovement::PARABOLIC_REFLECTOR){
+		m_spotBeamRadius = 130000.0;
+
+	}else if(m_AntennaType == SatelliteMovement::PATCH_ANTENNA){
+		m_spotBeamRadius = 320000.0;
+	}
+
+	return m_spotBeamRadius;
 }
