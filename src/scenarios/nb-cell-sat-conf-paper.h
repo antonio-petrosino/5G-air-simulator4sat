@@ -81,12 +81,13 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     int NRep = atoi(argv[7]);
     int RAOPeriod = atoi(argv[8]);
     int backOffRACH = atoi(argv[9]);
-    double spacing = atof(argv[10]);; // 15 kHz or 3.75 kHz
+    double spacing = atof(argv[10]); // 15 kHz or 3.75 kHz
+    bool clustering = atoi(argv[11]); // 1 for clustering, 0 for uniform
 
     
     int seed;
-    if (argc==12)
-        seed = atoi(argv[11]);
+    if (argc==13)
+        seed = atoi(argv[12]);
     else
         seed = -1;
     
@@ -256,17 +257,46 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     //Create UEs
     int idUE = 2;
     double speedDirection = 0;
+
+    int i_cluster = 0;
+    int nCluster = 10;
+    double uePerCluster = nbUE/nCluster;
+    double deviceDensity = 100.0 / 1000000.0; // ue/m^2
+    double clusterArea = uePerCluster / deviceDensity;
+    double clusterRadius = sqrt(clusterArea / 3.1415926535);
+    double cluster_x_pos[nCluster];
+    double cluster_y_pos[nCluster];
+    if (clustering) {
+        for (int i = 0; i < nCluster; i++) {
+            cluster_x_pos[i] = (double)rand()/RAND_MAX;
+            cluster_x_pos[i] = (clusterRadius/(radius*1000)) *
+            (((2*radius*1000)*cluster_x_pos[i]) - (radius*1000));
+            cluster_y_pos[i] = (double)rand()/RAND_MAX;
+            cluster_y_pos[i] = (clusterRadius/(radius*1000)) *
+            (((2*radius*1000)*cluster_y_pos[i]) - (radius*1000));
+        }
+    }
+    
+
     
     for (int i = 0; i < nbUE; i++)
     {
-        
-        //ue's random position
         double posX = (double)rand()/RAND_MAX;
-        posX = 0.95 *
-        (((2*radius*1000)*posX) - (radius*1000));
         double posY = (double)rand()/RAND_MAX;
-        posY = 0.95 *
-        (((2*radius*1000)*posY) - (radius*1000));
+        
+        if (clustering) {
+            //ue's random position - cluster
+            posX = (((2*clusterRadius)*posX) - (clusterRadius)) + cluster_x_pos[i_cluster];
+            posY = (((2*clusterRadius)*posY) - (clusterRadius)) + cluster_y_pos[i_cluster];
+            i_cluster = fmod(++i_cluster, nCluster);
+        }
+        else {
+            //ue's random position - uniform
+            posX = 0.95 *
+            (((2*radius*1000)*posX) - (radius*1000));
+            posY = 0.95 *
+            (((2*radius*1000)*posY) - (radius*1000));
+        }
         
         UserEquipment* ue = new UserEquipment (idUE,
                                                posX, posY, 0, speedDirection,
