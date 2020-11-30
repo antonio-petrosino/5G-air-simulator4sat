@@ -263,39 +263,36 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     double uePerCluster = nbUE/nCluster;
     double deviceDensity = 100.0 / 1000000.0; // ue/m^2
     double clusterArea = uePerCluster / deviceDensity;
-    double clusterRadius = sqrt(clusterArea / 3.1415926535);
+    double clusterRadius = sqrt(clusterArea / M_PI);
     double cluster_x_pos[nCluster];
     double cluster_y_pos[nCluster];
+    double r, theta;
     if (clustering) {
         for (int i = 0; i < nCluster; i++) {
-            cluster_x_pos[i] = (double)rand()/RAND_MAX;
-            cluster_x_pos[i] = (clusterRadius/(radius*1000)) *
-            (((2*radius*1000)*cluster_x_pos[i]) - (radius*1000));
-            cluster_y_pos[i] = (double)rand()/RAND_MAX;
-            cluster_y_pos[i] = (clusterRadius/(radius*1000)) *
-            (((2*radius*1000)*cluster_y_pos[i]) - (radius*1000));
+            r = sqrt(((double)rand()/RAND_MAX));
+            theta = ((double)rand()/RAND_MAX) * 2 * M_PI;
+            cluster_x_pos[i] = 0 + (r * radius*1000 * cos(theta));
+            cluster_y_pos[i] = 0 + (r * radius*1000 * sin(theta));
         }
     }
     
-
+    double posX, posY;
     
     for (int i = 0; i < nbUE; i++)
     {
-        double posX = (double)rand()/RAND_MAX;
-        double posY = (double)rand()/RAND_MAX;
-        
+        r = sqrt(((double)rand()/RAND_MAX));
+        theta = ((double)rand()/RAND_MAX) * 2 * M_PI;
+
         if (clustering) {
             //ue's random position - cluster
-            posX = (((2*clusterRadius)*posX) - (clusterRadius)) + cluster_x_pos[i_cluster];
-            posY = (((2*clusterRadius)*posY) - (clusterRadius)) + cluster_y_pos[i_cluster];
+            posX = cluster_x_pos[i_cluster] + (r * clusterRadius * cos(theta));
+            posY = cluster_y_pos[i_cluster] + (r * clusterRadius * sin(theta));
             i_cluster = fmod(++i_cluster, nCluster);
         }
         else {
             //ue's random position - uniform
-            posX = 0.95 *
-            (((2*radius*1000)*posX) - (radius*1000));
-            posY = 0.95 *
-            (((2*radius*1000)*posY) - (radius*1000));
+            posX = 0 + (r * radius*1000 * cos(theta));
+            posY = 0 + (r * radius*1000 * sin(theta));
         }
         
         UserEquipment* ue = new UserEquipment (idUE,
