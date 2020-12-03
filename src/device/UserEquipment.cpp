@@ -222,7 +222,6 @@ DEBUG_LOG_END
 		 _attach =((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetAttachProcedure(uePos);
 	}
 
-
 	//if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
 	if(!_attach)
 	{
@@ -237,9 +236,13 @@ DEBUG_LOG_END
 			SetNodeState (UserEquipment::STATE_DETACHED);
             if (GetTargetNode()->GetAttachedUEs()>0)
                 GetTargetNode ()->UpdateAttachedUEs(-1);
+            
+            if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE) {
+                ((UeSatelliteMovement*) GetMobilityModel())->RefreshTimePositionUpdate();
+            }
 		}
 	}else{
-
+        
 		if(GetNodeState() == UserEquipment::STATE_DETACHED){
             DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
             cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
@@ -249,6 +252,7 @@ DEBUG_LOG_END
 			SetNodeState (UserEquipment::STATE_IDLE);
             GetTargetNode ()->UpdateAttachedUEs(1);
 		}
+        SetTimePositionUpdate (0.05);
         bool needRAP = false;
 
         RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();

@@ -33,6 +33,8 @@ public:
 
   void
   UpdatePosition (double time);
+  void
+  RefreshTimePositionUpdate (void);
 
 };
 

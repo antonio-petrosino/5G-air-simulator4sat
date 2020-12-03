@@ -1123,10 +1123,15 @@ GetSNRfromElAngle_SAT (double elangle, int uplink_or_downlink, SatelliteMovement
   else if (elangle >= ELANGLE_NBIoT_SAT [583])
     {
 	  if (uplink_or_downlink == 1){
-		  //measuredSNR = 999999.0;
-		  measuredSNR = SNR_UL_PATCH_NBIoT_SAT [583];
+          if(model == SatelliteMovement::PATCH_ANTENNA)
+              measuredSNR = SNR_UL_PATCH_NBIoT_SAT [583];
+          else
+              measuredSNR = SNR_UL_PARABOLIC_REFLECTOR_NBIoT_SAT [583];
 	  }else{
-		  measuredSNR = SNR_DL_PATCH_NBIoT_SAT [583];
+          if(model == SatelliteMovement::PATCH_ANTENNA)
+              measuredSNR = SNR_DL_PATCH_NBIoT_SAT [583];
+          else
+              measuredSNR = SNR_DL_PARABOLIC_REFLECTOR_NBIoT_SAT [583];
 	  }
     }
   else
@@ -1215,6 +1220,41 @@ GetRxPowerfromElAngle_SAT (double elangle, SatelliteMovement::AntennaType model)
 	    }
 	  return rxPower;
 }
+
+static double
+GetMinElAngleFromSNR (double minSNR, int uplink_or_downlink, SatelliteMovement::AntennaType model)  { // 1 - uplink, 2 - downlink)
+    int index = -1;
+    double measuredSNR[584];
+    
+    if (uplink_or_downlink == 1){
+        if(model == SatelliteMovement::PATCH_ANTENNA)
+            for (int i=0; i<583; i++)
+        measuredSNR[i] = SNR_UL_PATCH_NBIoT_SAT[i];
+        else
+            for (int i=0; i<583; i++)
+        measuredSNR[i] = SNR_UL_PARABOLIC_REFLECTOR_NBIoT_SAT[i];
+    }
+    else{
+        if(model == SatelliteMovement::PATCH_ANTENNA)
+            for (int i=0; i<583; i++)
+        measuredSNR[i] = SNR_DL_PATCH_NBIoT_SAT[i];
+        else
+            for (int i=0; i<583; i++)
+        measuredSNR[i] = SNR_DL_PARABOLIC_REFLECTOR_NBIoT_SAT[i];
+    }
+    
+    for (int i=0; i<583; i++) {
+        if (minSNR >= measuredSNR[i]) {
+            index = i;
+            break;
+        }
+    }
+    if (index!=-1)
+        return ELANGLE_NBIoT_SAT [index];
+    else
+        return 90.0;
+}
+
 
 /*static double
 GetMinDistance4CellSelection(){

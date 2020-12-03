@@ -53,3 +53,16 @@ UeSatelliteMovement::UpdatePosition (double time)
     SetPositionLastUpdate (time);
 }
 
+void
+UeSatelliteMovement::RefreshTimePositionUpdate ()
+{
+    UserEquipment *thisNode = (UserEquipment*)GetDevice();
+    if (thisNode->GetTargetNode()->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE) {
+        double t = ((SatelliteMovement*) thisNode->GetTargetNode()->GetMobilityModel())->GetNextTimePositionUpdate(GetAbsolutePosition()) ;
+        thisNode->SetTimePositionUpdate(t);
+    }
+    else{
+        cout << "Wrong mobility models selected";
+        exit(1);
+    }
+}

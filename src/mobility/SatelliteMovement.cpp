@@ -198,8 +198,8 @@ SatelliteMovement::GetSatPosition (double time)
         return newPosition;
     }else
     {
-        cout <<"Number of satellite per orbit < 0." << endl;
-        return 0;
+        cout <<"Number of satellite per orbit < 1." << endl;
+        exit(1);
     }
 }
 
@@ -225,7 +225,7 @@ SatelliteMovement::GetAttachProcedure(CartesianCoordinates* uePos){
 	// 3 -> 164 dB
 	// MCL = Ptx (33 dBm or 3 dB) - Prx [dB]
 	// MCL = 3 dB - measuredRSRP
-	double measuredCL = 3 - measuredRSRP;
+	double measuredCL = GetDevice()->GetPhy()->GetTxPower() - 30 - measuredRSRP;
 
 	if(measuredCL > GetMCLthreshold()){
 		return false;
@@ -267,6 +267,43 @@ SatelliteMovement::GetElAngle(CartesianCoordinates *remoteObject)
 	//cout << "Angolo elevazione calcolato: " << elangle << " - visibilità da 55° a 90°."<< endl;
 	return elangle;
 
+}
+
+double
+SatelliteMovement::GetSatPositionFromElAngle(CartesianCoordinates *remoteObject, double elangle)
+{
+    CartesianCoordinates* gnbPos = GetAbsolutePosition();
+    double satHeight = gnbPos->GetCoordinateZ();
+    double distance = (satHeight) / (tan(elangle * 180 / M_PI));
+    double satPosition = sqrt(pow(distance,2) - pow(gnbPos->GetCoordinateY() - remoteObject->GetCoordinateY(),2)) + remoteObject->GetCoordinateX();
+    return satPosition;
+}
+
+double
+SatelliteMovement::GetNextUsefulElevationAngle(double currentElAngle)
+{
+    //BISOGNA IRARE FUORI L'ANGOLO!
+    double elAngle = 0.0;
+    return elAngle;
+}
+
+double
+SatelliteMovement::GetTimeNeededForDestination(double satPosition)
+{
+    //BISOGNA PARTIRE DA QUESTA E TIRARE FUORI IL TIME!
+    //double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - start_offset;
+    double time = 0.0;
+    return time;
+}
+
+double
+SatelliteMovement::GetNextTimePositionUpdate(CartesianCoordinates *uePos)
+{
+    double t;
+    double ElAngle = GetElAngle(uePos);
+    ElAngle = GetNextUsefulElevationAngle(ElAngle);
+    t = GetTimeNeededForDestination(GetSatPositionFromElAngle(uePos, ElAngle));
+    return t;
 }
 
 void
