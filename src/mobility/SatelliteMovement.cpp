@@ -189,10 +189,10 @@ SatelliteMovement::GetSatPosition (double time)
         // periodicità sat.        = 1 ogni 2838 secondi
 
         double mod =  GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit();
-        double start_offset = 50000;
+        double startOffset = 50000;
         //double newPosition = -320000 - 309  +(7059.22 * (fmod(time,mod))) - start_offset;
 
-        double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - start_offset;
+        double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - startOffset;
         //start_offset = 0;
 
         return newPosition;
@@ -276,9 +276,16 @@ SatelliteMovement::GetSatPositionFromElAngle(CartesianCoordinates *remoteObject,
 {
     CartesianCoordinates* gnbPos = GetAbsolutePosition();
     double satHeight = gnbPos->GetCoordinateZ();
-    double distance = (satHeight) / (tan(elangle * 180 / M_PI));
+    // formula inversa
+    // elangle = atan(satHeight / distance)* 180 / M_PI;
+    double distance = (satHeight) / (tan(elangle * M_PI / 180));
+    //double satPosition = GetRightPosition(1, -2*(remoteObject->GetCoordinateX()), -((pow(distance,2)-pow((satHeight - remoteObject->GetCoordinateY()),2)-pow(remoteObject->GetCoordinateX(),2))));
+
     double root = sqrt(pow(distance,2) - pow(gnbPos->GetCoordinateY() - remoteObject->GetCoordinateY(),2));
+
     double satPosition = remoteObject->GetCoordinateX() - root;
+    double sat2Position = remoteObject->GetCoordinateX() + root;
+
     return satPosition;
 }
 
@@ -289,7 +296,7 @@ SatelliteMovement::GetTimeNeededForDestination(double satPosition)
     //double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - start_offset;
     double time = 0.0;
     double mod = GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit();
-    int i = ceil(Simulator::Init()->Now() / mod);
+    int i = floor(Simulator::Init()->Now() / mod);
     double gnbPosX = GetAbsolutePosition()->GetCoordinateX();
     double gnbPosXTarget = satPosition;
     double startOffset = 50000;
@@ -314,7 +321,11 @@ SatelliteMovement::GetNextTimePositionUpdate(CartesianCoordinates *uePos)
 
     if(ElAngle < MinElAngle){
     	t = GetTimeNeededForDestination(GetSatPositionFromElAngle(uePos, MinElAngle));
+
+        if(t < 0.05)
+        	t = 0.05;
     }else{
+
     	t = 0.05;
     }
 

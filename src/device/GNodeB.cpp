@@ -117,6 +117,7 @@ GNodeB::GNodeB (int idElement,
 		  Mobility* m = new SatelliteMovement(nSat); // movimento satellitare
 		  m->SetAbsolutePosition (position);
 		  SetMobilityModel (m);
+		  m->SetDevice (this);
 		  delete position;
 	  }else{
 		  Mobility* m = new ConstantPosition (); // posizione fissa
