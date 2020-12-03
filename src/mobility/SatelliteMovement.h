@@ -67,7 +67,6 @@ public:
     SetAntennaType(AntennaType model);
     
     double GetSatPositionFromElAngle(CartesianCoordinates *remoteObject, double elangle);
-    double GetNextUsefulElevationAngle(double currentElAngle);
     double GetTimeNeededForDestination(double satPosition);
     double GetNextTimePositionUpdate(CartesianCoordinates *remoteObject);
 

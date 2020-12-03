@@ -236,11 +236,13 @@ DEBUG_LOG_END
 			SetNodeState (UserEquipment::STATE_DETACHED);
             if (GetTargetNode()->GetAttachedUEs()>0)
                 GetTargetNode ()->UpdateAttachedUEs(-1);
-            
-            if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE) {
-                ((UeSatelliteMovement*) GetMobilityModel())->RefreshTimePositionUpdate();
-            }
+
 		}
+
+        if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE) {
+            ((UeSatelliteMovement*) GetMobilityModel())->RefreshTimePositionUpdate();
+        }
+
 	}else{
         
 		if(GetNodeState() == UserEquipment::STATE_DETACHED){

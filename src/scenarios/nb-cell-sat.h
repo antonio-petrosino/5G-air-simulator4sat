@@ -295,6 +295,7 @@ int seed;
     gnb->GetPhy ()->SetCarrierFrequency(carrierFreq);
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
+    gnb->GetPhy ()->SetTxPower(txPower);
     //gnb->GetPhy ()->SetmaxSatelliteRange(GetMinDistance4CellSelection()); // in base all'angolo di visibilità scelto con SNR > 0
     ((SatelliteMovement*)gnb->GetMobilityModel())->SetMCLthreshold(SNRt);
     ((SatelliteMovement*)gnb->GetMobilityModel())->SetFixedAreaRadius(radius * 1000);

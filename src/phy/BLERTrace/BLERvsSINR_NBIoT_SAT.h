@@ -1254,7 +1254,7 @@ GetMinElAngleFromSNR (double minSNR, int uplink_or_downlink, SatelliteMovement::
     else
         return 90.0;
 }
-
+
 
 /*static double
 GetMinDistance4CellSelection(){

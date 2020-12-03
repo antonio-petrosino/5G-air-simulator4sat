@@ -106,7 +106,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     
     int schedUL = 1; // RR
     //double radius = 0.309; // [km]
-    double radius = 200; // [km]
+    double radius = 130; // [km]
     
 
     double bandwidth = 30; // [MHz] max 15MHz
@@ -139,7 +139,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
 
     double carrierFreq = 2000; //MHz
     double antennaHeight = 500000; // m
-    
+    double txPower = 33; // dBm
     double BSNoiseFigure = 3; // dB
     
     // define channel model
@@ -172,6 +172,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     int destinationPort = 101;
     int applicationID = 0;
     
+
     int class30min = 0;
     int class1hour = 0;
     int class2hour = 0;
@@ -230,6 +231,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     gnb->GetPhy ()->SetCarrierFrequency(carrierFreq);
     gnb->GetPhy ()->SetBandwidthManager (spectrum);
     gnb->GetPhy ()->SetHeight(antennaHeight);
+    gnb->GetPhy ()->SetTxPower(txPower);
     //gnb->GetPhy ()->SetmaxSatelliteRange(GetMinDistance4CellSelection()); // in base all'angolo di visibilità scelto con SNR > 0
     ((SatelliteMovement*)gnb->GetMobilityModel())->SetAntennaType(SatelliteMovement::PARABOLIC_REFLECTOR);
     ((SatelliteMovement*)gnb->GetMobilityModel())->SetFixedAreaRadius(radius * 1000); // meters

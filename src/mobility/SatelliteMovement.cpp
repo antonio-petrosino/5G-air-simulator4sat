@@ -225,7 +225,9 @@ SatelliteMovement::GetAttachProcedure(CartesianCoordinates* uePos){
 	// 3 -> 164 dB
 	// MCL = Ptx (33 dBm or 3 dB) - Prx [dB]
 	// MCL = 3 dB - measuredRSRP
-	double measuredCL = GetDevice()->GetPhy()->GetTxPower() - 30 - measuredRSRP;
+
+	double txPower = GetDevice()->GetPhy()->GetTxPower();
+	double measuredCL =  txPower - 30 - measuredRSRP;
 
 	if(measuredCL > GetMCLthreshold()){
 		return false;
@@ -275,16 +277,9 @@ SatelliteMovement::GetSatPositionFromElAngle(CartesianCoordinates *remoteObject,
     CartesianCoordinates* gnbPos = GetAbsolutePosition();
     double satHeight = gnbPos->GetCoordinateZ();
     double distance = (satHeight) / (tan(elangle * 180 / M_PI));
-    double satPosition = sqrt(pow(distance,2) - pow(gnbPos->GetCoordinateY() - remoteObject->GetCoordinateY(),2)) + remoteObject->GetCoordinateX();
+    double root = sqrt(pow(distance,2) - pow(gnbPos->GetCoordinateY() - remoteObject->GetCoordinateY(),2));
+    double satPosition = remoteObject->GetCoordinateX() - root;
     return satPosition;
-}
-
-double
-SatelliteMovement::GetNextUsefulElevationAngle(double currentElAngle)
-{
-    //BISOGNA IRARE FUORI L'ANGOLO!
-    double elAngle = 0.0;
-    return elAngle;
 }
 
 double
@@ -293,6 +288,19 @@ SatelliteMovement::GetTimeNeededForDestination(double satPosition)
     //BISOGNA PARTIRE DA QUESTA E TIRARE FUORI IL TIME!
     //double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - start_offset;
     double time = 0.0;
+    double mod = GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit();
+    int i = ceil(Simulator::Init()->Now() / mod);
+    double gnbPosX = GetAbsolutePosition()->GetCoordinateX();
+    double gnbPosXTarget = satPosition;
+    double startOffset = 50000;
+    double speed = 7059.22;
+    double temp = (gnbPosXTarget + GetSpotBeamRadius() + GetFixedAreaRadius() + startOffset) / speed;
+
+    if(gnbPosX > gnbPosXTarget){
+    	i = i + 1;
+    }
+    time = (mod * i + temp) - Simulator::Init()->Now();
+
     return time;
 }
 
@@ -301,8 +309,15 @@ SatelliteMovement::GetNextTimePositionUpdate(CartesianCoordinates *uePos)
 {
     double t;
     double ElAngle = GetElAngle(uePos);
-    ElAngle = GetNextUsefulElevationAngle(ElAngle);
-    t = GetTimeNeededForDestination(GetSatPositionFromElAngle(uePos, ElAngle));
+    double minSNR = GetDevice()->GetPhy()->GetTxPower() - 30 - GetMCLthreshold() - GetTermalNoisePowerDB();
+    double MinElAngle = GetMinElAngleFromSNR (minSNR, 2, GetAntennaType());
+
+    if(ElAngle < MinElAngle){
+    	t = GetTimeNeededForDestination(GetSatPositionFromElAngle(uePos, MinElAngle));
+    }else{
+    	t = 0.05;
+    }
+
     return t;
 }
 
