@@ -126,6 +126,7 @@ UserEquipment::UserEquipment (int idElement,
   m_activityTimeoutEvent = NULL;
 
   m_assignedNRU = FrameManager::Init()->GetNRUNBIoTSat();
+  m_isTransmitting = false;
 }
 
 UserEquipment::UserEquipment (int idElement,
@@ -210,7 +211,7 @@ DEBUG_LOG_END
         }
     }
   //blocco else che funzionerà solo per lo scenario NB-IoT in cui l'handover sarà sicuramente messo a falso
-  else if (GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true)
+  else if (GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true && !IsTransmitting())
   {
 	CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
 	CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
@@ -229,7 +230,7 @@ DEBUG_LOG_END
 		//if(GetNodeState() == UserEquipment::STATE_IDLE){
 			// se il dispositivo ha più di un pacchetto nel buffer?
 DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
-cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
+cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<  " ANGOLO:" << ((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetElAngle(uePos) <<endl;
 Print();
 DEBUG_LOG_END
 			//cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
@@ -247,7 +248,7 @@ DEBUG_LOG_END
         
 		if(GetNodeState() == UserEquipment::STATE_DETACHED){
             DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
-            cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+            cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance <<  " ANGOLO:" << ((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetElAngle(uePos) <<endl;
             Print();
             DEBUG_LOG_END
 			//cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
@@ -382,4 +383,16 @@ UserEquipment::Print (void)
             "\n\t m_speed = " << GetMobilityModel ()->GetSpeed () <<
             "\n\t m_speedDirection = " << GetMobilityModel ()->GetSpeedDirection () <<
             endl;
+}
+
+void
+UserEquipment::SetTransmitting (bool b)
+{
+    m_isTransmitting = b;
+}
+
+bool
+UserEquipment::IsTransmitting (void)
+{
+    return m_isTransmitting;
 }

@@ -123,6 +123,8 @@ DEBUG_LOG_END
 
   GetUlChannel ()->StartTx (p, GetTxSignal (), GetDevice ());
   //cout << "StartTX #125 ue-phy.cpp" << endl;
+    
+  GetDevice()->SetTransmitting(false);
 }
 
 void

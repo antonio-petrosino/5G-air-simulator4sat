@@ -296,17 +296,24 @@ SatelliteMovement::GetTimeNeededForDestination(double satPosition)
     //double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - start_offset;
     double time = 0.0;
     double mod = GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit();
-    int i = floor(Simulator::Init()->Now() / mod);
+
     double gnbPosX = GetAbsolutePosition()->GetCoordinateX();
     double gnbPosXTarget = satPosition;
-    double startOffset = 50000;
+    double startOffset = 150000;
     double speed = 7059.22;
-    double temp = (gnbPosXTarget + GetSpotBeamRadius() + GetFixedAreaRadius() + startOffset) / speed;
-
-    if(gnbPosX > gnbPosXTarget){
-    	i = i + 1;
+    
+    double sMin = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (speed * (fmod(0,mod))) - startOffset;
+    double sMax = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (speed * (fmod(mod-0.0001,mod))) - startOffset;
+    
+    double space;
+    if(gnbPosX >= gnbPosXTarget){
+        space = (sMax - gnbPosX) + (gnbPosXTarget - sMin);
     }
-    time = (mod * i + temp) - Simulator::Init()->Now();
+    else {
+        space = gnbPosXTarget - gnbPosX;
+    }
+    
+    time = space/speed;
 
     return time;
 }

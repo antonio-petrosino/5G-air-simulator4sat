@@ -80,6 +80,9 @@ public:
 
   //Debug
   void Print (void);
+    
+  void SetTransmitting (bool);
+  bool IsTransmitting (void);
 
 
 private:
@@ -94,6 +97,7 @@ private:
   shared_ptr<Event> m_activityTimeoutEvent;
 
   int m_assignedNRU;
+  bool m_isTransmitting;
 };
 
 #endif /* USEREQUIPMENT_H_ */

@@ -124,7 +124,8 @@ DEBUG_LOG_END
 
   for (auto record : *node->GetUserEquipmentRecords ())
     {
-      if (record->GetSchedulingRequest () > 0)
+      int schedReq = record->GetSchedulingRequest ();
+      if (schedReq > 0 && record->GetUE ()->GetNodeState() == NetworkNode::STATE_ACTIVE)
         {
           UserToSchedule* user = new UserToSchedule ();
           user->m_userToSchedule = record->GetUE ();
@@ -132,7 +133,7 @@ DEBUG_LOG_END
             {
               record->GetUE ()->GetMacEntity()->SendSchedulingRequest();
             }
-          user->m_dataToTransmit = record->GetSchedulingRequest ();
+          user->m_dataToTransmit = schedReq;
           user->m_listOfAllocatedRUs.clear ();
           user->m_selectedMCS = 0;
           user->m_transmittedData = 0;

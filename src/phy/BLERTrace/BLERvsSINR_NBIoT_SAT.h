@@ -1141,6 +1141,7 @@ GetSNRfromElAngle_SAT (double elangle, int uplink_or_downlink, SatelliteMovement
           if (elangle >= ELANGLE_NBIoT_SAT [i] && elangle < ELANGLE_NBIoT_SAT [i+1])
             {
               index = i;
+              break;
             }
         }
     }
