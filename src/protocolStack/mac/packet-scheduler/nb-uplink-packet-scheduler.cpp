@@ -37,6 +37,7 @@
 #include "../../../componentManagers/FrameManager.h"
 #include "../../../protocolStack/mac/random-access/enb-nb-iot-random-access.h"
 #include <algorithm>
+#include "../../rlc/am-rlc-entity.h"
 
 nbUplinkPacketScheduler::nbUplinkPacketScheduler()
 {
@@ -114,37 +115,38 @@ nbUplinkPacketScheduler::GetUsersToSchedule (void)
 void
 nbUplinkPacketScheduler::SelectUsersToSchedule ()
 {
-  CreateUsersToSchedule ();
-  GNodeB *node = GetMacEntity ()->GetDevice ();
-
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_VERBOSE)
-  cout << "SelectUsersToSchedule... "
-          " Users: " << node->GetUserEquipmentRecords ()->size ()<< endl;
-DEBUG_LOG_END
-
-  for (auto record : *node->GetUserEquipmentRecords ())
+    CreateUsersToSchedule ();
+    GNodeB *node = GetMacEntity ()->GetDevice ();
+    
+    DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_VERBOSE)
+    cout << "SelectUsersToSchedule... "
+    " Users: " << node->GetUserEquipmentRecords ()->size ()<< endl;
+    DEBUG_LOG_END
+    
+    for (auto record : *node->GetUserEquipmentRecords ())
     {
-      int schedReq = record->GetSchedulingRequest ();
-      if (schedReq > 0 && record->GetUE ()->GetNodeState() == NetworkNode::STATE_ACTIVE)
+        record->SetSchedulingRequest(record->GetSchedulingRequest () + record->GetUE ()->GetSizeOfUnaknowledgedAmd());
+        int schedReq = record->GetSchedulingRequest ();
+        if (schedReq > 0 && record->GetUE ()->GetNodeState() == NetworkNode::STATE_ACTIVE)
         {
-          UserToSchedule* user = new UserToSchedule ();
-          user->m_userToSchedule = record->GetUE ();
-          if (record->GetUE ()->GetActivityTimeout() - Simulator::Init()->Now() <= 0.002)
+            UserToSchedule* user = new UserToSchedule ();
+            user->m_userToSchedule = record->GetUE ();
+            if (record->GetUE ()->GetActivityTimeout() - Simulator::Init()->Now() <= 0.002)
             {
-              record->GetUE ()->GetMacEntity()->SendSchedulingRequest();
+                record->GetUE ()->GetMacEntity()->SendSchedulingRequest();
             }
-          user->m_dataToTransmit = schedReq;
-          user->m_listOfAllocatedRUs.clear ();
-          user->m_selectedMCS = 0;
-          user->m_transmittedData = 0;
-          user->m_averageSchedulingGrant = record->GetSchedulingGrants ();
-
-          GetUsersToSchedule ()->push_back (user);
+            user->m_dataToTransmit = schedReq;
+            user->m_listOfAllocatedRUs.clear ();
+            user->m_selectedMCS = 0;
+            user->m_transmittedData = 0;
+            user->m_averageSchedulingGrant = record->GetSchedulingGrants ();
+            
+            GetUsersToSchedule ()->push_back (user);
         }
     }
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_VERBOSE)
-  cout << "Users to be scheduled: " << GetUsersToSchedule ()->size () << endl;
-DEBUG_LOG_END
+    DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_VERBOSE)
+    cout << "Users to be scheduled: " << GetUsersToSchedule ()->size () << endl;
+    DEBUG_LOG_END
 }
 
 void
@@ -159,9 +161,17 @@ nbUplinkPacketScheduler::DoSchedule (void)
         if (GetUsersToSchedule ()->size () > 0)// || freeTones<m_RUmap[0].size())
         {
             RUsAllocation ();
+            UpdateTransmission();
             DoStopSchedule ();
         }
         DeleteUsersToSchedule ();
+    }
+    else {
+        if (GetTransmittingUsers() > 0) {
+            SelectUsersToSchedule ();
+            UpdateTransmission();
+            DoStopSchedule ();
+        }
     }
 }
 

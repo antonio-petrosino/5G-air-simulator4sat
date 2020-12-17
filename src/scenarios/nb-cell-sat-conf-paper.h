@@ -125,15 +125,38 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     std::map<int, int> rachOffset;
     std::map<int, int> boWindow;
     
+    
+    
+    int pp; // ra-ResponseWindowSize = {2, 3, 4, 5, 6, 7, 8, 10}  PDCCH PERIODS
+    switch ((int)floor(MCS/4)) {
+        case 0:
+            pp = 8;
+            break;
+        case 1:
+            pp = 6;
+            break;
+        case 2:
+            pp=4;
+            break;
+            
+        case 3:
+            pp=3;
+            break;
+        default:
+            cout << "error :  unsupported MCS configuration" << endl;
+            exit(1);
+    }
+    int G = spacing==15 ? 8 : 32;
+    
     // al varariare della coverage class
     for (int i=0; i<nbCE; i++) {
         ceProb.insert(std::make_pair(1, i));
         maxPreambleTx.insert(std::make_pair(i, 10));
-        preambleRep.insert(std::make_pair(i, 4));
-        rarWindow.insert(std::make_pair(i, 8));
+        preambleRep.insert(std::make_pair(i, NRep));
+        rarWindow.insert(std::make_pair(i, pp * G * NRep));
         nbPre.insert(std::make_pair(i, 48 * carriers)); // nP
         rachPeriod.insert(std::make_pair(i,RAOPeriod ));
-        rachOffset.insert(std::make_pair(i, 12)); // dall inizio della visibilita del sat fino alla fine del cell search??
+        rachOffset.insert(std::make_pair(i, 16)); // dall inizio della visibilita del sat fino alla fine del cell search??
         boWindow.insert(std::make_pair(i, backOffRACH)); // backoff window larga
     }
 
@@ -145,9 +168,6 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     // define channel model
     ChannelRealization::ChannelModel model= ChannelRealization::CHANNEL_MODEL_SATELLITE;
     
-    // define simulation times
-    double duration = 43200; // 21600 s = 6 h  // 86400 s = 1 day
-    double flow_duration = duration;
     
     UeRandomAccess::RandomAccessType m_UeRandomAccessType = UeRandomAccess::RA_TYPE_NB_IOT;
     GnbRandomAccess::RandomAccessType m_GnbRandomAccessType = GnbRandomAccess::RA_TYPE_NB_IOT;
@@ -157,8 +177,6 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     FrameManager *frameManager = FrameManager::Init();
     NetworkManager* networkManager = NetworkManager::Init();
     
-
-    cout << "Duration: " << duration << " flow: " << flow_duration << endl;
     
     // SET FRAME STRUCTURE
     frameManager->SetFrameStructure(FrameManager::FRAME_STRUCTURE_FDD);
@@ -256,6 +274,17 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
     gnbRam->SetTimeOffset(rachOffset);
     gnbRam->SetBackoff(boWindow);
     
+    
+    // define simulation times
+    
+    double nPeriods = 7;
+    double duration = ((SatelliteMovement*)gnb->GetMobilityModel())->GetVisibilityPeriod() * nPeriods; // 21600 s = 6 h  // 86400 s = 1 day
+    duration = duration + 3600 - ( fmod(duration, 3600)); //round to a complete hour
+    double flow_duration = duration;
+    
+    cout << "Duration: " << duration << " flow: " << flow_duration << endl;
+
+    
     //Create UEs
     int idUE = 2;
     double speedDirection = 0;
@@ -324,6 +353,7 @@ static void nbCell_Satellite_Conf_Paper (int argc, char *argv[])
         
         // register ue to the gnb
         gnb->RegisterUserEquipment (ue);
+        gnb->UpdateAttachedUEs(1);
         
         
         // ERROR model

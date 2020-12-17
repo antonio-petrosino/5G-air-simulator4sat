@@ -278,6 +278,8 @@ DEBUG_LOG_END
               AmdRecord* newAmdRecord = new AmdRecord (p1, p1->GetRLCHeader ()->GetRlcPduSequenceNumber ());
               newAmdRecord->m_retx_count = amdRecord->m_retx_count;
               GetSentAMDs ()->insert(GetSentAMDs ()->begin() + amdId, newAmdRecord);
+              RefreshUnacknowledgedAmd(newAmdRecord->m_packet->GetSize () + 5);
+
 
               DEBUG_LOG_START_1(SIM_ENV_RLC_DEBUG)
                 PrintSentAMDs ();
@@ -413,6 +415,8 @@ DEBUG_LOG_END
 
               AmdRecord *amdRecord = new AmdRecord (packet->Copy (), currentSN);
               GetSentAMDs ()->push_back (amdRecord);
+              RefreshUnacknowledgedAmd(amdRecord->m_packet->GetSize () + 5);
+               
 DEBUG_LOG_START_1(SIM_ENV_RLC_DEBUG)
               PrintSentAMDs ();
 DEBUG_LOG_END
@@ -720,6 +724,7 @@ DEBUG_LOG_END
           &&
           amdRecord->m_packet->GetRLCHeader ()->GetStartByte () == msg.GetStartByte ())
         {
+          RefreshUnacknowledgedAmd(- (amdRecord->m_packet->GetSize () + 5));
           m_sentAMDs->erase (it);
           delete amdRecord;
 
@@ -785,6 +790,7 @@ DEBUG_LOG_END
                   cout  <<  endl;
                 }
             }
+          RefreshUnacknowledgedAmd(- (amdRecord->m_packet->GetSize () + 5));
           delete amdRecord;
         }
       else
@@ -803,12 +809,16 @@ DEBUG_LOG_END
 }
 
 int
-AmRlcEntity::GetSizeOfUnaknowledgedAmd (void)
+AmRlcEntity::GetSizeOfUnacknowledgedAmd (void)
 {
-  int size = 0;
-  for (auto amdRecord : *m_sentAMDs)
-    {
-      size += amdRecord->m_packet->GetSize () + 5; //add also MAC and CRC overhead
+    int size = 0;
+    for (auto amdRecord : *m_sentAMDs) {
+        size += amdRecord->m_packet->GetSize () + 5; //add also MAC and CRC overhead
     }
-  return size;
+    return size;
+}
+
+void
+AmRlcEntity::RefreshUnacknowledgedAmd (int s) {
+    GetDevice()->UpdateSizeOfUnaknowledgedAmd(s);
 }

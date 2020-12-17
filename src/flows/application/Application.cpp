@@ -71,6 +71,7 @@ DEBUG_LOG_END
 
       m_radioBearer = new RadioBearer ();
       m_radioBearer->GetRlcEntity ()->SetRlcEntityIndex (GetApplicationID ());
+      m_radioBearer->GetRlcEntity ()->SetDevice(ue);
       m_radioBearer->SetSource (ue);
       m_radioBearer->SetDestination (ue->GetTargetNode ());
       m_radioBearer->SetClassifierParameters (GetClassifierParameters ());

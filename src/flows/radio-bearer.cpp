@@ -402,7 +402,7 @@ RadioBearer::GetHeadOfLinePacketSize (void)
       AmRlcEntity* amRlc = (AmRlcEntity*) GetRlcEntity ();
       if (amRlc->GetSentAMDs()->size() > 0)
         {
-          size = amRlc->GetSizeOfUnaknowledgedAmd ();
+          size = amRlc->GetSizeOfUnacknowledgedAmd ();
         }
       else
         {

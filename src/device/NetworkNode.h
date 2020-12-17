@@ -81,6 +81,7 @@ private:
   Mobility *m_mobility;
 
   NetworkNode* m_multicastDest;
+  int m_sizeOfUnaknowledgedAmd;
 
 public:
   NetworkNode();
@@ -118,6 +119,11 @@ public:
 
   void SendPacketBurst (shared_ptr<PacketBurst> p);
   void ReceivePacketBurst (shared_ptr<PacketBurst> p);
+    
+  void SetSizeOfUnaknowledgedAmd (int);
+  void UpdateSizeOfUnaknowledgedAmd (int);
+  int GetSizeOfUnaknowledgedAmd (void);
+
 };
 
 

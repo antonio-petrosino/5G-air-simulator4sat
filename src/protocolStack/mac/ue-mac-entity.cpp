@@ -138,7 +138,7 @@ UeMacEntity::SendSchedulingRequest ()
             }
         }
     }
-
+    
   UserEquipment* thisNode = GetDevice ();
   //send the message
   if(thisNode->GetNodeState() == NetworkNode::STATE_ACTIVE)

@@ -122,9 +122,6 @@ DEBUG_LOG_START_1(SIM_ENV_TEST_DEVICE_ON_CHANNEL)
 DEBUG_LOG_END
 
   GetUlChannel ()->StartTx (p, GetTxSignal (), GetDevice ());
-  //cout << "StartTX #125 ue-phy.cpp" << endl;
-    
-  GetDevice()->SetTransmitting(false);
 }
 
 void

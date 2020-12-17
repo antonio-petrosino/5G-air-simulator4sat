@@ -264,3 +264,22 @@ NetworkNode::GetMulticastDestination (void)
   return m_multicastDest;
 }
 
+void
+NetworkNode::SetSizeOfUnaknowledgedAmd (int s)
+{
+  m_sizeOfUnaknowledgedAmd = s;
+}
+
+int
+NetworkNode::GetSizeOfUnaknowledgedAmd (void)
+{
+    return m_sizeOfUnaknowledgedAmd;
+}
+
+void
+NetworkNode::UpdateSizeOfUnaknowledgedAmd (int s)
+{
+  m_sizeOfUnaknowledgedAmd += s;
+}
+
+

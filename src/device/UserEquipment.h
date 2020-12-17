@@ -84,6 +84,8 @@ public:
   void SetTransmitting (bool);
   bool IsTransmitting (void);
 
+  bool Attachment (void);
+  void SetInactivity (void);
 
 private:
   GNodeB* m_targetNode;

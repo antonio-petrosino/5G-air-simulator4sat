@@ -60,6 +60,7 @@ nbRoundRobinUplinkPacketScheduler::nbRoundRobinUplinkPacketScheduler(GnbMacEntit
     }
   m_roundRobinId = 0;
   m_queue.clear();
+  m_transmittingUsers = 0;
 }
 
 nbRoundRobinUplinkPacketScheduler::~nbRoundRobinUplinkPacketScheduler()
@@ -190,7 +191,7 @@ DEBUG_LOG_END
                   int tbs = (GetMacEntity ()->GetNbAmcModule ()->GetTBSizeFromMCS (mcs, nru)) / 8;
 
                   scheduledUser.m_userToSchedule->SetNRUtoUE(nru);
-                  scheduledUser.m_userToSchedule->SetTransmitting(true);
+                  //scheduledUser.m_userToSchedule->SetTransmitting(true);
 
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
                   cout << " - TBS [byte] = " << tbs << " - NRU = " << nru << endl;
@@ -206,6 +207,7 @@ DEBUG_LOG_END
                   m_RUmap[4][idx] = nru;
                   m_users[idx] = scheduledUser;
                   scheduledUser.m_transmittedData = 0;
+                  m_transmittingUsers++;
                 }
               else
                 {
@@ -225,66 +227,79 @@ DEBUG_LOG_END
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR_MAP)
       printMap();
 DEBUG_LOG_END
+    }
+}
 
-      for (int i=0; i<m_RUmap[1].size(); i++)
+void
+nbRoundRobinUplinkPacketScheduler::UpdateTransmission(){
+    int currentSF = FrameManager::Init()->GetTTICounter();
+    int ttiLength = FrameManager::Init()->getTTILength();
+    GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) GetMacEntity()->GetRandomAccessManager() ;
+    
+    if (currentSF % ttiLength == 0 && !(gnbRam->isRachOpportunity())) {
+        int id;
+        UsersToSchedule *users = GetUsersToSchedule ();
+        for (int i=0; i<m_RUmap[1].size(); i++)
         {
-          if (m_RUmap[1][i] > 0)
+            if (m_RUmap[1][i] > 0)
             {
-              if (--m_RUmap[1][i] <= 0)
+                if (--m_RUmap[1][i] <= 0)
                 {
-                  id = m_users[i].m_userToSchedule->GetIDNetworkNode();
-                  if (m_users[i].m_dataToTransmit - m_RUmap[3][i] <=0)
+                    id = m_users[i].m_userToSchedule->GetIDNetworkNode();
+                    if (m_users[i].m_dataToTransmit - m_RUmap[3][i] <=0)
                     {
-                      vector<UserToSchedule>::iterator j = find(m_queue.begin(), m_queue.end(), m_users[i]);
-                      vector<UserToSchedule>::size_type idx = j-m_queue.begin();
-                      m_queue.erase(j);
-                      if (idx<m_roundRobinId)
+                        vector<UserToSchedule>::iterator j = find(m_queue.begin(), m_queue.end(), m_users[i]);
+                        vector<UserToSchedule>::size_type idx = j-m_queue.begin();
+                        m_queue.erase(j);
+                        if (idx<m_roundRobinId)
                         {
-                          m_roundRobinId--;
+                            m_roundRobinId--;
                         }
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
-                      cout << "\t UE " << id <<" removed from Queue" << endl;
-DEBUG_LOG_END
+                        DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
+                        cout << "\t UE " << id <<" removed from Queue" << endl;
+                        DEBUG_LOG_END
                     }
-                  for (auto user : *users)
+                    for (auto user : *users)
                     {
-                      if (user->m_userToSchedule->GetIDNetworkNode() == id)
+                        if (user->m_userToSchedule->GetIDNetworkNode() == id)
                         {
-                          user->m_transmittedData = m_RUmap[3][i];
-                          user->m_selectedMCS = m_RUmap[2][i];
-                          user->m_listOfAllocatedRUs.push_back(m_RUmap[4][i]);
-                          user->m_subcarrier = i;
+                            user->m_transmittedData = m_RUmap[3][i];
+                            user->m_selectedMCS = m_RUmap[2][i];
+                            user->m_listOfAllocatedRUs.push_back(m_RUmap[4][i]);
+                            user->m_subcarrier = i;
+
                         }
                     }
-
-
-                  UserToSchedule us;
-                  us.m_userToSchedule = NULL;
-                  us.m_averageSchedulingGrant = -1;
-                  us.m_dataToTransmit = -1;
-                  us.m_listOfAllocatedRUs.clear();
-                  us.m_selectedMCS = -1;
-                  us.m_subcarrier = -1;
-
-                  m_users[i] = us;
-                  m_RUmap[0][i] = -1;
-                  m_RUmap[1][i] = -1;
-                  m_RUmap[2][i] = -1;
-                  m_RUmap[3][i] = -1;
-                  m_RUmap[4][i] = -1;
+                    m_transmittingUsers--;
+                    
+                    
+                    UserToSchedule us;
+                    us.m_userToSchedule = NULL;
+                    us.m_averageSchedulingGrant = -1;
+                    us.m_dataToTransmit = -1;
+                    us.m_listOfAllocatedRUs.clear();
+                    us.m_selectedMCS = -1;
+                    us.m_subcarrier = -1;
+                    
+                    m_users[i] = us;
+                    m_RUmap[0][i] = -1;
+                    m_RUmap[1][i] = -1;
+                    m_RUmap[2][i] = -1;
+                    m_RUmap[3][i] = -1;
+                    m_RUmap[4][i] = -1;
                 }
             }
         }
-
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
-      cout << endl;
-      cout << "SF " << currentSF;
-      printQ();
-DEBUG_LOG_END
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR_MAP)
-      printMap();
-DEBUG_LOG_END
     }
+    DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
+          cout << endl;
+          cout << "SF " << currentSF;
+          printQ();
+    DEBUG_LOG_END
+    DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR_MAP)
+          printMap();
+    DEBUG_LOG_END
+    
 }
 
 void nbRoundRobinUplinkPacketScheduler::printMap()
@@ -327,4 +342,9 @@ void nbRoundRobinUplinkPacketScheduler::printQ()
       cout << id << " ";
     }
   cout << endl;
+}
+
+int
+nbRoundRobinUplinkPacketScheduler::GetTransmittingUsers () {
+    return m_transmittingUsers;
 }

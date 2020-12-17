@@ -63,6 +63,9 @@ public:
   virtual void RUsAllocation () = 0;
   void printMap (void);
 
+  virtual void UpdateTransmission () = 0;
+  virtual int GetTransmittingUsers () = 0;
+
 private:
   UsersToSchedule* m_usersToSchedule;
   vector< vector<int> > m_RUmap = vector< vector<int> >(5);

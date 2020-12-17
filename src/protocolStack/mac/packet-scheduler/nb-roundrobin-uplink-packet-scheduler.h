@@ -30,13 +30,16 @@ public:
   virtual ~nbRoundRobinUplinkPacketScheduler();
   void printMap();
   void RUsAllocation ();
+  void UpdateTransmission ();
   void printQ();
+  int GetTransmittingUsers ();
 
 private:
   int m_roundRobinId;
   vector< vector<int> > m_RUmap = vector< vector<int> >(5);
   vector<UserToSchedule> m_users;
   vector<UserToSchedule>  m_queue;
+  int m_transmittingUsers;
 };
 
 #endif /* NB_ROUNDROBIN_UPLINK_PACKET_SCHEDULER_H_ */

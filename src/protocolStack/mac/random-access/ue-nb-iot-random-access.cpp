@@ -62,12 +62,10 @@ UeNbIoTRandomAccess::StartRaProcedure()
     cout << "UE " << m_macEntity ->GetDevice()->GetIDNetworkNode() << " StartRaProcedure() " << endl;
     DEBUG_LOG_END
 
-	if(m_macEntity->GetDevice()->GetNodeType()==NetworkNode::TYPE_UE)  {
 		if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
 			return;
 		}
-	}
-
+    
     if ((m_macEntity->GetDevice()->GetNodeState()!= NetworkNode::STATE_ACTIVE))
     {
         if (m_RaProcedureActive == false)
@@ -196,15 +194,48 @@ UeNbIoTRandomAccess::ReceiveMessage2(int msg3time)
     DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_NB)
     cout << "ReceiveMessage2(" << msg3time<<") " << endl;
     DEBUG_LOG_END
-    DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS)
-    cout << "RANDOM_ACCESS RECEIVE_MSG2 UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
-    << " T "<< Simulator::Init()->Now()
-    << endl;
-    DEBUG_LOG_END
     
-    double delay = msg3time/1000.0;
-    
-    Simulator::Init()->Schedule(delay, &UeNbIoTRandomAccess::SendMessage3, this);
+    if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
+        
+        GnbMacEntity* gnbMac = (GnbMacEntity*) ((UeMacEntity*)m_macEntity)->GetDevice()->GetTargetNode()->GetProtocolStack()->GetMacEntity();
+        GnbNbIoTRandomAccess* enbRam = (GnbNbIoTRandomAccess*) gnbMac->GetRandomAccessManager();
+        
+        std::map<int, int> backoff = enbRam->GetBackoff();
+        std::map<int, int> preambleRep = enbRam->GetPreambleRep();
+        std::map<int, int> rarWindow = enbRam->GetRarWindow();
+         
+        std::uniform_int_distribution<> bo (0, backoff[GetCEClassDynamic()]);
+        extern std::mt19937 commonGen;
+
+        int backoffTime = bo(commonGen);
+        int waitTime;
+                
+        if (preambleRep[GetCEClassDynamic()]<64) {
+            waitTime = (int) (ceil(5.6*(preambleRep[GetCEClassDynamic()]))) + rarWindow[GetCEClassDynamic()]+ 4;
+        }
+        else {
+            waitTime = (int) (ceil(5.6*(preambleRep[GetCEClassDynamic()]))) + rarWindow[GetCEClassDynamic()]+ 41;
+        }
+          
+        Simulator::Init()->Schedule((double)((backoffTime+ waitTime-1)/1000.0), &UeNbIoTRandomAccess::ReStartRaProcedure, this);
+        
+        DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS)
+        cout << "RANDOM_ACCESS FAIL_MSG2 UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
+        << " T " << Simulator::Init()->Now()
+        << endl;
+        DEBUG_LOG_END
+    }
+    else {
+        DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS)
+        cout << "RANDOM_ACCESS RECEIVE_MSG2 UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
+        << " T "<< Simulator::Init()->Now()
+        << endl;
+        DEBUG_LOG_END
+        
+        double delay = msg3time/1000.0;
+        
+        Simulator::Init()->Schedule(delay, &UeNbIoTRandomAccess::SendMessage3, this);
+    }
 }
 
 
@@ -232,34 +263,96 @@ UeNbIoTRandomAccess::ReceiveMessage4()
     DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_NB)
     cout << "ReceiveMessage4()" << endl;
     DEBUG_LOG_END
-    
-    DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS)
-    cout << "RANDOM_ACCESS RECEIVE_MSG4 UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
-    << " T " << Simulator::Init()->Now()
-    << endl;
-    DEBUG_LOG_END
-    
-    DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
-    RrcEntity *rrc = m_macEntity ->GetDevice ()->GetProtocolStack ()->GetRrcEntity ();
-    RrcEntity::RadioBearersContainer* bearers = rrc->GetRadioBearerContainer ();
-    std::vector<RadioBearer* >::iterator it =bearers->begin();
-    int id = (*it)->GetMacQueue()->GetPacketQueue()->begin ()->GetPacket()->GetID();
-    cout << "RACH_WIN UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
-    << " T " << Simulator::Init()->Now()
-    << " ID "<< id
-    << endl;
-    DEBUG_LOG_END
-    
-    UeMacEntity* mac = (UeMacEntity*)m_macEntity;
-    
-    mac -> GetDevice()->MakeActive();
-    UeRandomAccess::SetRaProcedureActive(false);
-    m_nbFailedAttempts = 0;
-    m_nbFailedAttemptsCE=0;
-    mac->SendSchedulingRequest();
-    m_CEClassDynamic=m_CEClassStatic;
+    if(m_macEntity->GetDevice()->GetNodeState() == NetworkNode::STATE_DETACHED){
+        
+        GnbMacEntity* gnbMac = (GnbMacEntity*) ((UeMacEntity*)m_macEntity)->GetDevice()->GetTargetNode()->GetProtocolStack()->GetMacEntity();
+        GnbNbIoTRandomAccess* enbRam = (GnbNbIoTRandomAccess*) gnbMac->GetRandomAccessManager();
+        
+        std::map<int, int> preambleRep = enbRam->GetPreambleRep();
+         
+        int waitTime;
+                
+        if (preambleRep[GetCEClassDynamic()]<64) {
+            waitTime = 4;
+        }
+        else {
+            waitTime = 41;
+        }
+                
+        int mcsMSG3 = (int) floor(FrameManager::Init()->GetMCSNBIoTSat()/4);
+        int nRUmsg3;
+        int pp; // mac-ContentionResolutionTimer =  {1, 2, 3, 4, 8, 16, 32, 64} PDCCH PERIODS
+
+        
+        switch (mcsMSG3) {
+            case 0:
+                nRUmsg3=4;
+                pp = 16;
+                break;
+                
+            case 1:
+                nRUmsg3=3;
+                pp = 8;
+                break;
+                
+            case 2:
+                nRUmsg3=1;
+                pp=4;
+                break;
+                
+            case 3:
+                nRUmsg3=1;
+                pp=2;
+                break;
+            default:
+                cout << "error :  unsupported MCS configuration" << endl;
+                exit(1);
+        }
+        
+        int G =  FrameManager::Init()->getTTILength(); //G = 4; 8; 16; 32; 48; 64; 96; 128
+        int nRep = FrameManager::Init()->GetNRep();
+        
+        int msg3Duration = nRUmsg3 * G * nRep;
+        int crTimer = pp * G * nRep;
+
+        Simulator::Init()->Schedule((double)((crTimer + waitTime + msg3Duration -1)/1000.0), &UeNbIoTRandomAccess::ReStartRaProcedure, this);
+        DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_NB)
+        cout << "RANDOM_ACCESS FAIL_MSG4 UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
+        << " T " << Simulator::Init()->Now()
+        << endl;
+        DEBUG_LOG_END
+    }
+    else {
+        
+        DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS)
+        cout << "RANDOM_ACCESS RECEIVE_MSG4 UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
+        << " T " << Simulator::Init()->Now()
+        << endl;
+        DEBUG_LOG_END
+        
+        DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
+        RrcEntity *rrc = m_macEntity ->GetDevice ()->GetProtocolStack ()->GetRrcEntity ();
+        RrcEntity::RadioBearersContainer* bearers = rrc->GetRadioBearerContainer ();
+        std::vector<RadioBearer* >::iterator it =bearers->begin();
+        int id = (*it)->GetMacQueue()->GetPacketQueue()->begin ()->GetPacket()->GetID();
+        cout << "RACH_WIN UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
+        << " T " << Simulator::Init()->Now()
+        << " ID "<< id
+        << endl;
+        DEBUG_LOG_END
+        
+        UeMacEntity* mac = (UeMacEntity*)m_macEntity;
+        
+        mac -> GetDevice()->MakeActive();
+        UeRandomAccess::SetRaProcedureActive(false);
+        m_nbFailedAttempts = 0;
+        m_nbFailedAttemptsCE=0;
+        mac->SendSchedulingRequest();
+        m_CEClassDynamic=m_CEClassStatic;
+    }
     
 }
+
 void UeNbIoTRandomAccess::SetCEClassStatic(int ceClassStatic)
 {
     m_CEClassStatic=ceClassStatic;

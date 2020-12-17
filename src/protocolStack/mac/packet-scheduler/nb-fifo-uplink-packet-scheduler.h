@@ -31,11 +31,15 @@ public:
   void printMap();
   void printQ();
   void RUsAllocation ();
+  void UpdateTransmission ();
+  int GetTransmittingUsers ();
+
 
 private:
   vector<UserToSchedule>  m_queue;
   vector< vector<int> > m_RUmap = vector< vector<int> >(5);
   vector<UserToSchedule> m_users;
+  int m_transmittingUsers;
 };
 
 #endif /* NB_FIFO_UPLINK_PACKET_SCHEDULER_H_ */

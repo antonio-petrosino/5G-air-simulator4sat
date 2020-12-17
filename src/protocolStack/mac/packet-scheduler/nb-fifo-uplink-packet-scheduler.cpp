@@ -59,6 +59,7 @@ nbFifoUplinkPacketScheduler::nbFifoUplinkPacketScheduler(GnbMacEntity* mac)
       m_users.push_back(u);
     }
   m_queue.clear();
+  m_transmittingUsers = 0;
 }
 
 nbFifoUplinkPacketScheduler::~nbFifoUplinkPacketScheduler()
@@ -177,6 +178,7 @@ DEBUG_LOG_END
                   int tbs = (GetMacEntity ()->GetNbAmcModule ()->GetTBSizeFromMCS (mcs, nru)) / 8;
 
                   scheduledUser.m_userToSchedule->SetNRUtoUE(nru);
+                  scheduledUser.m_userToSchedule->SetTransmitting(true);
 
 DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_FIFO)
                   cout << " - TBS [byte] = " << tbs << " - NRU = " << nru << endl;
@@ -192,6 +194,7 @@ DEBUG_LOG_END
                   m_RUmap[4][idx] = nru;
                   m_users[idx] = scheduledUser;
                   scheduledUser.m_transmittedData = 0;
+                  m_transmittingUsers++;
                 }
             }
           else
@@ -219,58 +222,72 @@ DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_LOG)
            << endl;
 DEBUG_LOG_END
 
-      for (int i=0; i<m_RUmap[1].size(); i++)
-        {
-          if (m_RUmap[1][i] >= 0)
-            {
-              if (--m_RUmap[1][i] <= 0)
-                {
-                  id = m_users[i].m_userToSchedule->GetIDNetworkNode();
-                  if (m_users[i].m_dataToTransmit - m_RUmap[3][i] <=0)
-                    {
-                      m_queue.erase(find(m_queue.begin(), m_queue.end(), m_users[i]));
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_FIFO)
-                      cout << "\t UE " << id <<" removed from Queue" << endl;
-DEBUG_LOG_END
-                    }
-                  for (auto u : *users )
-                    {
-                      if (u->m_userToSchedule->GetIDNetworkNode() == id)
-                        {
-                          u->m_transmittedData = m_RUmap[3][i];
-                          u->m_selectedMCS = m_RUmap[2][i];
-                          u->m_listOfAllocatedRUs.push_back(m_RUmap[4][i]);
-                          u->m_subcarrier = i;
-                        }
-                    }
-
-                  UserToSchedule us;
-                  us.m_userToSchedule = NULL;
-                  us.m_averageSchedulingGrant = -1;
-                  us.m_dataToTransmit = -1;
-                  us.m_listOfAllocatedRUs.clear();
-                  us.m_selectedMCS = -1;
-                  us.m_subcarrier = -1;
-
-                  m_users[i] = us;
-                  m_RUmap[0][i] = -1;
-                  m_RUmap[1][i] = -1;
-                  m_RUmap[2][i] = -1;
-                  m_RUmap[3][i] = -1;
-                  m_RUmap[4][i] = -1;
-                }
-            }
-        }
-
-DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_FIFO)
-      cout << endl;
-      cout << "SF " << currentSF;
-      printQ();
-      printMap();
-DEBUG_LOG_END
     }
 }
 
+void nbFifoUplinkPacketScheduler::UpdateTransmission() {
+    
+    int currentSF = FrameManager::Init()->GetTTICounter();
+    int ttiLength = FrameManager::Init()->getTTILength();
+    int id;
+      
+    GnbNbIoTRandomAccess* gnbRam = (GnbNbIoTRandomAccess*) GetMacEntity()->GetRandomAccessManager() ;
+
+    UsersToSchedule *users = GetUsersToSchedule ();
+
+    if (currentSF % ttiLength == 0 && !(gnbRam->isRachOpportunity()))
+    for (int i=0; i<m_RUmap[1].size(); i++)
+      {
+        if (m_RUmap[1][i] >= 0)
+          {
+            if (--m_RUmap[1][i] <= 0)
+              {
+                id = m_users[i].m_userToSchedule->GetIDNetworkNode();
+                if (m_users[i].m_dataToTransmit - m_RUmap[3][i] <=0)
+                  {
+                    m_queue.erase(find(m_queue.begin(), m_queue.end(), m_users[i]));
+DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_FIFO)
+                    cout << "\t UE " << id <<" removed from Queue" << endl;
+DEBUG_LOG_END
+                  }
+                for (auto u : *users )
+                  {
+                    if (u->m_userToSchedule->GetIDNetworkNode() == id)
+                      {
+                        u->m_transmittedData = m_RUmap[3][i];
+                        u->m_selectedMCS = m_RUmap[2][i];
+                        u->m_listOfAllocatedRUs.push_back(m_RUmap[4][i]);
+                        u->m_subcarrier = i;
+                      }
+                  }
+                m_transmittingUsers--;
+
+                UserToSchedule us;
+                us.m_userToSchedule = NULL;
+                us.m_averageSchedulingGrant = -1;
+                us.m_dataToTransmit = -1;
+                us.m_listOfAllocatedRUs.clear();
+                us.m_selectedMCS = -1;
+                us.m_subcarrier = -1;
+
+                m_users[i] = us;
+                m_RUmap[0][i] = -1;
+                m_RUmap[1][i] = -1;
+                m_RUmap[2][i] = -1;
+                m_RUmap[3][i] = -1;
+                m_RUmap[4][i] = -1;
+              }
+          }
+      }
+    
+    DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_FIFO)
+          cout << endl;
+          cout << "SF " << currentSF;
+          printQ();
+          printMap();
+    DEBUG_LOG_END
+    
+}
 
 void nbFifoUplinkPacketScheduler::printMap()
 {
@@ -313,4 +330,11 @@ void nbFifoUplinkPacketScheduler::printQ()
       cout << id << " ";
     }
   cout << endl;
+}
+
+
+
+int
+nbFifoUplinkPacketScheduler::GetTransmittingUsers () {
+    return m_transmittingUsers;
 }

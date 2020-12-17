@@ -37,6 +37,7 @@
 #include "../protocolStack/rrc/ho/handover-entity.h"
 #include "../protocolStack/rrc/ho/ho-manager.h"
 #include "../componentManagers/FrameManager.h"
+#include "../protocolStack/rlc/am-rlc-entity.h"
 
 
 UserEquipment::UserEquipment (int idElement,
@@ -127,6 +128,7 @@ UserEquipment::UserEquipment (int idElement,
 
   m_assignedNRU = FrameManager::Init()->GetNRUNBIoTSat();
   m_isTransmitting = false;
+  SetSizeOfUnaknowledgedAmd(0);
 }
 
 UserEquipment::UserEquipment (int idElement,
@@ -211,85 +213,79 @@ DEBUG_LOG_END
         }
     }
   //blocco else che funzionerà solo per lo scenario NB-IoT in cui l'handover sarà sicuramente messo a falso
-  else if (GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true && !IsTransmitting())
+  else if (GetTargetNode()->GetPhy()->GetBandwidthManager()->GetNBIoTenabled() == true)
   {
-	CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
-	CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
-
-	double distance = uePos->GetDistance3D (gnbPos);
-	bool _attach = false;
-	if (GetTargetNode()->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE)
-	{
-		 _attach =((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetAttachProcedure(uePos);
-	}
-
-	//if(distance > maxSatelliteRange) //600km 55° -> 547km 65°
-	if(!_attach)
-	{
-		if(GetNodeState() != UserEquipment::STATE_DETACHED){
-		//if(GetNodeState() == UserEquipment::STATE_IDLE){
-			// se il dispositivo ha più di un pacchetto nel buffer?
-DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
-cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<  " ANGOLO:" << ((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetElAngle(uePos) <<endl;
-Print();
-DEBUG_LOG_END
-			//cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () << " distanza:" << distance <<endl;
-			SetNodeState (UserEquipment::STATE_DETACHED);
-            if (GetTargetNode()->GetAttachedUEs()>0)
-                GetTargetNode ()->UpdateAttachedUEs(-1);
-
-		}
-
-        if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE) {
-            ((UeSatelliteMovement*) GetMobilityModel())->RefreshTimePositionUpdate();
-        }
-
-	}else{
-        
-		if(GetNodeState() == UserEquipment::STATE_DETACHED){
-            DEBUG_LOG_START_1(SIM_ENV_HANDOVER_DEBUG)
-            cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance <<  " ANGOLO:" << ((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetElAngle(uePos) <<endl;
-            Print();
-            DEBUG_LOG_END
-			//cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
-			SetNodeState (UserEquipment::STATE_IDLE);
-            GetTargetNode ()->UpdateAttachedUEs(1);
-		}
-        SetTimePositionUpdate (0.05);
-        bool needRAP = false;
-
-        RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();
-
-        if (rrc->GetRadioBearerContainer ()->size() > 0){
-            for (auto bearer : *rrc->GetRadioBearerContainer()){
-                if (bearer->GetQueueSize()>0 && GetNodeState() == UserEquipment::STATE_IDLE){
-                    needRAP = true;
-                }
-                /*else{
-                    cout << "bearer->GetMacQueue()->GetNbDataPackets() = 0...t = "<< time <<" --> "<<endl;
-                    cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
-                }*/
-            }
-        }
-        /*else{
-            cout << "rrc->GetRadioBearerContainer ()->size() = 0...t = "<< time <<" --> "<<endl;
-            cout << " GetTargetNodeRecord()->GetSchedulingRequest() " <<  GetTargetNodeRecord()->GetSchedulingRequest() << endl;
-        }*/
-
-        if(needRAP){
-            Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
-        }
-	}
+      bool needRAP = false;
+      RrcEntity *rrc = GetProtocolStack ()->GetRrcEntity ();
+      if (rrc->GetRadioBearerContainer ()->size() > 0){
+          for (auto bearer : *rrc->GetRadioBearerContainer()){
+              if (bearer->GetQueueSize()>0){
+                  needRAP = true;
+              }
+          }
+      }
+      if (needRAP || GetSizeOfUnaknowledgedAmd() > 0){
+          needRAP = true;
+      }
+      
+      if(GetNodeState() == UserEquipment::STATE_DETACHED){
+          if (needRAP) {
+              if (Attachment ()) {
+                  DEBUG_LOG_START_1(SIM_ENV_ATTACH_DEBUG)
+                  cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<  " ANGOLO:" << ((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetElAngle(GetMobilityModel()->GetAbsolutePosition()) <<endl;
+                  DEBUG_LOG_END
+                  //cout<<"Procedura di !!!!  ATTACH  !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<" distanza:" << distance << endl;
+                  SetNodeState (UserEquipment::STATE_IDLE);
+                  GetTargetNode ()->UpdateAttachedUEs(1);
+                  
+                  Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+                  SetTimePositionUpdate(0.05);
+              }
+          }
+          if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE) {
+              ((UeSatelliteMovement*) GetMobilityModel())->RefreshTimePositionUpdate();
+          }
+      }
+      else { // IDLE or ACTIVE
+          if (!Attachment ()) {
+              DEBUG_LOG_START_1(SIM_ENV_ATTACH_DEBUG)
+              cout<<"Procedura di !!!! DETACH !!!! avviata a tempo: "<< time << " UE id: "<< GetIDNetworkNode () <<  " ANGOLO:" << ((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetElAngle(GetMobilityModel()->GetAbsolutePosition()) <<endl;
+              DEBUG_LOG_END
+              SetNodeState (UserEquipment::STATE_DETACHED);
+              GetTargetNode ()->UpdateAttachedUEs(-1);
+              if (GetMobilityModel()->GetMobilityModel() == Mobility::UE_SATELLITE) {
+                  ((UeSatelliteMovement*) GetMobilityModel())->RefreshTimePositionUpdate();
+              }
+          }
+          else{
+              if (needRAP && GetNodeState() == UserEquipment::STATE_IDLE) {
+                  Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+                  SetTimePositionUpdate(0.05);
+              }
+          }
+      }
   }
+    
+    if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
+        //schedule the new update after m_timePositionUpdate
+        Simulator::Init()->Schedule(m_timePositionUpdate,
+                                    &UserEquipment::UpdateUserPosition,
+                                    this,
+                                    Simulator::Init ()->Now());
+    }
+}
 
-
-  if (GetMobilityModel ()-> GetMobilityModel() != Mobility::CONSTANT_POSITION) {
-    //schedule the new update after m_timePositionUpdate
-	  Simulator::Init()->Schedule(m_timePositionUpdate,
-	                                &UserEquipment::UpdateUserPosition,
-	                                this,
-	                                Simulator::Init ()->Now());
-  }
+bool
+UserEquipment::Attachment () {
+    
+    CartesianCoordinates* uePos = GetMobilityModel()->GetAbsolutePosition();
+    CartesianCoordinates* gnbPos = GetTargetNode ()->GetMobilityModel()->GetAbsolutePosition();
+    
+    bool attach = true;
+    if (GetTargetNode()->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE) {
+        attach =((SatelliteMovement*) GetTargetNode()->GetMobilityModel()) ->GetAttachProcedure(uePos);
+    }
+    return attach;
 }
 
 UeMacEntity*
@@ -342,8 +338,7 @@ UserEquipment::SetLastActivity()
     {
       m_activityTimeoutEvent->MarkDeleted();
     }
-    if (GetNodeState() != NetworkNode::STATE_DETACHED)
-        m_activityTimeoutEvent = Simulator::Init()->Schedule(m_activityTimeout, &UserEquipment::SetNodeState, this, NetworkNode::STATE_IDLE );
+    m_activityTimeoutEvent = Simulator::Init()->Schedule(m_activityTimeout, &UserEquipment::SetInactivity, this);
 }
 
 void
@@ -395,4 +390,11 @@ bool
 UserEquipment::IsTransmitting (void)
 {
     return m_isTransmitting;
+}
+
+void
+UserEquipment::SetInactivity ()
+{
+  if (GetNodeState() != NetworkNode::STATE_DETACHED)
+      SetNodeState(NodeState::STATE_IDLE);
 }
