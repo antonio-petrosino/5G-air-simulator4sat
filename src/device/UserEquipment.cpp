@@ -106,7 +106,7 @@ UserEquipment::UserEquipment (int idElement,
   m->SetAbsolutePosition (position);
   m->SetDevice (this);
   SetMobilityModel (m);
-
+  m_HARQretx_done = 0;
   m_timePositionUpdate = 0.001;
   Simulator::Init()->Schedule(m_timePositionUpdate,
                               &UserEquipment::UpdateUserPosition,
@@ -228,6 +228,13 @@ DEBUG_LOG_END
           needRAP = true;
       }
       
+      // simulo il delay per l'arrivo dell'ACK -> 5 ms = RTTmax
+      // serve a modellare la ricezione (o il timeout della finestra) del DCI con NDI not toggled
+      if(FrameManager::Init()->GetHARQ() && Simulator::Init()->Now() - GetLastHARQTimestamp() < 0.005)
+      {
+    	  needRAP = false;
+      }
+
       if(GetNodeState() == UserEquipment::STATE_DETACHED){
           if (needRAP) {
               if (Attachment ()) {
@@ -397,4 +404,18 @@ UserEquipment::SetInactivity ()
 {
   if (GetNodeState() != NetworkNode::STATE_DETACHED)
       SetNodeState(NodeState::STATE_IDLE);
+}
+
+void UserEquipment::SetHARQretx(int _nRetx){
+	m_HARQretx_done = _nRetx;
+}
+int UserEquipment::GetHARQretx(void){
+	return m_HARQretx_done;
+}
+
+void UserEquipment::SetLastHARQTimestamp(double now){
+	m_HARQTimestamp = now;
+}
+double UserEquipment::GetLastHARQTimestamp(void){
+	return m_HARQTimestamp;
 }

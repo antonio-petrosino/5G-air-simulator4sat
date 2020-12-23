@@ -68,6 +68,37 @@ NBIoTSimpleErrorModel::CheckForPhysicalError (vector<int> channels, vector<int> 
   return error;
 }
 
+bool
+NBIoTSimpleErrorModel::CheckForPhysicalErrorHARQ (vector<int> channels, vector<double> sinr)
+{
+
+  bool error = false;
+  double randomNumber = (rand () %100 ) / 100.;
+
+  for (int i = 0; i < (int)channels.size (); i++)
+    {
+      //int mcs_ = FrameManager::Init()->GetMCSNBIoTSat ();
+	  //int mcs_ = mcs[0];
+
+      double sinr_ = sinr.at (channels.at (i));
+      double bler;
+
+      bler = GetBlerHARQ (sinr_);
+
+      if (randomNumber < bler)
+        {
+          error = true;
+          if (_TEST_BLER_) cout << "BLER PDF " << sinr_ << " 1" << endl;
+        }
+      else
+        {
+          if (_TEST_BLER_) cout << "BLER PDF " << sinr_ << " 0" << endl;
+        }
+    }
+
+  return error;
+}
+
 int
 NBIoTSimpleErrorModel::GetRefMCS(int MCS, int NRU){
 	double coderate = 0.0;

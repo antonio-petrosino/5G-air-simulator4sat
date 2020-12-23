@@ -170,38 +170,85 @@ DEBUG_LOG_END
     UserEquipment* ue = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE();
     approxMCS.push_back(((NBIoTSimpleErrorModel*) GetErrorModel())-> GetRefMCS(MCS_,RU_));
 
-    phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, approxMCS, measuredSinr);
-        if (_PHY_TRACING_) {
+    //phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, approxMCS, measuredSinr);
 
-            
-            
-            CartesianCoordinates* uePos = ue->GetMobilityModel()->GetAbsolutePosition();
-            CartesianCoordinates* gnbPos = GetDevice()->GetMobilityModel()->GetAbsolutePosition();
+    if(FrameManager::Init()->GetHARQ()){
+    	int nTxDone = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx();
 
-            double DIST_ = uePos->GetDistance3D (gnbPos);
-                       
+    	int TBS_ = GetDevice()->GetMacEntity()->GetNbAmcModule()->GetTBSizeFromMCS (MCS_, RU_);
+    	int requiredRx = GetMaxRequiredHARQretx(-10 + measuredSinr.at(channelsForRx.at(0))); // TODO: TOGLIERE COSTANTE -13
 
-            int TBS_ = GetDevice()->GetMacEntity()->GetNbAmcModule()->GetTBSizeFromMCS (MCS_, RU_);
-            double EL_ = 0.0;
-            //double EL_ = ue->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(GetDevice()->GetMobilityModel()->GetAbsolutePosition());
-        	if (GetDevice()->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE)
-        	{
-        		EL_ =((SatelliteMovement*) GetDevice()->GetMobilityModel())->GetElAngle(ue->GetMobilityModel()->GetAbsolutePosition());
-        	}
-            
-            cout << "PHY_RX SRC " << ue->GetIDNetworkNode()
-            << " DST " << GetDevice()->GetIDNetworkNode()
-            << " DISTANCE " << DIST_
-            << " ELEVATION " << EL_
-            << " SNR " << measuredSinr.at(channelsForRx.at(0)) //TODO: THIS ONLY WORKS FOR SINGLE TONE
-            << " RU " << RU_
-            << " MCS " << MCS_
-            << " SIZE " << TBS_
-            << " ERR " << phyError
-            << " T " << Simulator::Init()->Now()
-            << endl;
-        }
-    }
+    	// se il ritardo è superiore ad una certa soglia considero la trasmissione relativa al precedente satellite, discorso azzerato
+    	if((Simulator::Init()->Now() - GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetLastHARQTimestamp()) > 400){
+    		if(nTxDone > 0){
+    			GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetHARQretx(0);
+    		}
+    	}
+
+    	GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetLastHARQTimestamp(Simulator::Init()->Now());
+
+    	if(nTxDone + 1 < requiredRx){
+
+    		phyError = true;
+    		cout << "HARQ_ERR 1 RX_n: " << nTxDone + 1 << " / " << requiredRx << endl;
+    		GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetHARQretx(nTxDone + 1);
+
+    	}else{
+
+    		//phyError = false;
+    		phyError = ((NBIoTSimpleErrorModel*)GetErrorModel ())->CheckForPhysicalErrorHARQ (channelsForRx, measuredSinr);
+    		cout << "HARQ_ERR "<< phyError <<" RX_n: " << nTxDone + 1 << " / " << requiredRx << endl;
+    		GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetHARQretx(0);
+    		//cout << "OK HARQ, non richiesta ritrasmissione." << endl;
+
+    	}
+
+	/*	cout << "PHY_RX SRC " << ue->GetIDNetworkNode()
+		<< " DST " << GetDevice()->GetIDNetworkNode()
+		<< " DISTANCE " << "0.0"
+		<< " ELEVATION " << "0.0"
+		<< " SNR " << measuredSinr.at(channelsForRx.at(0)) //TODO: THIS ONLY WORKS FOR SINGLE TONE
+		<< " RU " << RU_
+		<< " MCS " << MCS_
+		<< " SIZE " << TBS_
+		<< " ERR " << phyError
+		<< " T " << Simulator::Init()->Now()
+		<< endl;
+		*/
+    }else{
+
+    	phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, approxMCS, measuredSinr);
+     }
+
+    if (_PHY_TRACING_) {
+
+                CartesianCoordinates* uePos = ue->GetMobilityModel()->GetAbsolutePosition();
+                CartesianCoordinates* gnbPos = GetDevice()->GetMobilityModel()->GetAbsolutePosition();
+
+                double DIST_ = uePos->GetDistance3D (gnbPos);
+
+
+                int TBS_ = GetDevice()->GetMacEntity()->GetNbAmcModule()->GetTBSizeFromMCS (MCS_, RU_);
+                double EL_ = 0.0;
+                //double EL_ = ue->GetMobilityModel()->GetAbsolutePosition() ->GetElAngle(GetDevice()->GetMobilityModel()->GetAbsolutePosition());
+            	if (GetDevice()->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE)
+            	{
+            		EL_ =((SatelliteMovement*) GetDevice()->GetMobilityModel())->GetElAngle(ue->GetMobilityModel()->GetAbsolutePosition());
+            	}
+
+                cout << "PHY_RX SRC " << ue->GetIDNetworkNode()
+                << " DST " << GetDevice()->GetIDNetworkNode()
+                << " DISTANCE " << DIST_
+                << " ELEVATION " << EL_
+                << " SNR " << measuredSinr.at(channelsForRx.at(0)) //TODO: THIS ONLY WORKS FOR SINGLE TONE
+                << " RU " << RU_
+                << " MCS " << MCS_
+                << " SIZE " << TBS_
+                << " ERR " << phyError
+                << " T " << Simulator::Init()->Now()
+                << endl;
+            }
+   }
 
 
   if (!phyError && p->GetNPackets() > 0)

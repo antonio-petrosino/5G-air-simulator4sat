@@ -87,6 +87,12 @@ public:
   bool Attachment (void);
   void SetInactivity (void);
 
+  void SetHARQretx(int _nRetx);
+  int GetHARQretx(void);
+
+  void SetLastHARQTimestamp(double now);
+  double GetLastHARQTimestamp(void);
+
 private:
   GNodeB* m_targetNode;
   GNodeB::UserEquipmentRecord* m_targetNodeRecord;
@@ -99,7 +105,9 @@ private:
   shared_ptr<Event> m_activityTimeoutEvent;
 
   int m_assignedNRU;
+  int m_HARQretx_done;
   bool m_isTransmitting;
+  double m_HARQTimestamp;
 };
 
 #endif /* USEREQUIPMENT_H_ */

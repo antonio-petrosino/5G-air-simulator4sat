@@ -42,7 +42,8 @@ SatelliteMovement::SatelliteMovement(int nSat)
   SetTimePositionUpdate(0.05);
   SetNumberOfSatellitePerOrbit(nSat);
   SetTimeOrbitPeriod(5676.98); // about 94 min
-  SetAntennaType(SatelliteMovement::PARABOLIC_REFLECTOR);
+  //SetAntennaType(SatelliteMovement::PARABOLIC_REFLECTOR);
+  SetAntennaType(SatelliteMovement::PATCH_ANTENNA);
   //SetFixedAreaRadius(0);
 
   cout << "Generating satellite with the following parameters:"

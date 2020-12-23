@@ -63,6 +63,8 @@ private:
   int m_NRep;
   int m_MCSSat;
   int m_NRUSat;
+  bool m_edt;
+  bool m_harq;
 
   FrameManager();
   static FrameManager *ptr;
@@ -105,7 +107,18 @@ public:
   int
   GetNRep(void) const;
   void
-  SetNRep(int _nRep);
+  SetNRep(int nRep);
+
+  bool
+  GetEDT(void) const;
+  void
+  SetEDT(bool edt);
+
+  bool
+  GetHARQ(void) const;
+  void
+  SetHARQ(bool harq);
+
 
 
   void

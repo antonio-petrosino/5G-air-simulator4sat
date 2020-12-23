@@ -234,7 +234,38 @@ UeNbIoTRandomAccess::ReceiveMessage2(int msg3time)
         
         double delay = msg3time/1000.0;
         
-        Simulator::Init()->Schedule(delay, &UeNbIoTRandomAccess::SendMessage3, this);
+        if(FrameManager::Init()->GetEDT()){
+        // if edt is on -> check if TBS is in EDT-TBS table??
+        // come posso accedere al tbs in questo punto?
+            DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS)
+            cout << "RANDOM_ACCESS EDT_ENABLED UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
+            << " T " << Simulator::Init()->Now()
+            << endl;
+            DEBUG_LOG_END
+
+            DEBUG_LOG_START_1(SIM_ENV_TEST_RANDOM_ACCESS_WIN)
+            RrcEntity *rrc = m_macEntity ->GetDevice ()->GetProtocolStack ()->GetRrcEntity ();
+            RrcEntity::RadioBearersContainer* bearers = rrc->GetRadioBearerContainer ();
+            std::vector<RadioBearer* >::iterator it =bearers->begin();
+            int id = (*it)->GetMacQueue()->GetPacketQueue()->begin ()->GetPacket()->GetID();
+            cout << "RACH_WIN EDT_ENABLED UE " << m_macEntity ->GetDevice()->GetIDNetworkNode()
+            << " T " << Simulator::Init()->Now()
+            << " ID "<< id
+            << endl;
+            DEBUG_LOG_END
+
+            UeMacEntity* mac = (UeMacEntity*)m_macEntity;
+
+            mac -> GetDevice()->MakeActive();
+            UeRandomAccess::SetRaProcedureActive(false);
+            m_nbFailedAttempts = 0;
+            m_nbFailedAttemptsCE=0;
+            mac->SendSchedulingRequest();
+            m_CEClassDynamic=m_CEClassStatic;
+        }else{
+        	Simulator::Init()->Schedule(delay, &UeNbIoTRandomAccess::SendMessage3, this);
+        }
+
     }
 }
 
