@@ -203,6 +203,10 @@ DEBUG_LOG_END
               }
           }
 
+
+          //disabilito il boost single tone
+          //gain = 0.0;
+
           double ElAngle = 0.0;
           double simulatedRxPower = 0.0;
           if (src->GetMobilityModel()->GetMobilityModel() == Mobility::SATELLITE){

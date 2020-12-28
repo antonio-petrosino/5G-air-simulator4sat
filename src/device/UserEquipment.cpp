@@ -245,7 +245,17 @@ DEBUG_LOG_END
                   SetNodeState (UserEquipment::STATE_IDLE);
                   GetTargetNode ()->UpdateAttachedUEs(1);
                   
-                  Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+                  if(FrameManager::Init()->GetHARQ() && GetHARQretx() > 0){
+
+                	  Simulator::Init()->Schedule(0.0, &UeRandomAccess::ReceiveMessage2, GetMacEntity()->GetRandomAccessManager(),Simulator::Init()->Now());
+
+                  }else{
+
+                	  Simulator::Init()->Schedule(0.0, &UeRandomAccess::StartRaProcedure, GetMacEntity()->GetRandomAccessManager());
+
+                  }
+                  //Simulator::Init()->Schedule(0.0, &UeRandomAccess::SendMessage3, GetMacEntity()->GetRandomAccessManager());
+
                   SetTimePositionUpdate(0.05);
               }
           }

@@ -112,6 +112,7 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     //double radius = 0.309; // [km]
     double radius = 130; // [km]
     
+    radius = 0.309; // 30 hectars
 
     double bandwidth = 30; // [MHz] max 15MHz
     int tones = 1; // 1,3,12
@@ -284,7 +285,7 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     
     // define simulation times
     
-    double nPeriods = 7 * 5;
+    double nPeriods = 10;
     double duration = ((SatelliteMovement*)gnb->GetMobilityModel())->GetVisibilityPeriod() * nPeriods; // 21600 s = 6 h  // 86400 s = 1 day
     duration = duration + 3600 - ( fmod(duration, 3600)); //round to a complete hour
     double flow_duration = duration;

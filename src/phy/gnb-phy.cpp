@@ -173,31 +173,32 @@ DEBUG_LOG_END
     //phyError = GetErrorModel ()->CheckForPhysicalError (channelsForRx, approxMCS, measuredSinr);
 
     if(FrameManager::Init()->GetHARQ()){
-    	int nTxDone = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx();
+    	//int nTxDone = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx();
 
     	int TBS_ = GetDevice()->GetMacEntity()->GetNbAmcModule()->GetTBSizeFromMCS (MCS_, RU_);
-    	int requiredRx = GetMaxRequiredHARQretx(measuredSinr.at(channelsForRx.at(0))); // TODO: TOGLIERE COSTANTE -13
+    	int requiredRx = GetMaxRequiredHARQretx(measuredSinr.at(channelsForRx.at(0)));
 
     	// se il ritardo è superiore ad una certa soglia considero la trasmissione relativa al precedente satellite, discorso azzerato
-    	if((Simulator::Init()->Now() - GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetLastHARQTimestamp()) > 400){
-    		if(nTxDone > 0){
+    	double delayHARQ = Simulator::Init()->Now() - GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetLastHARQTimestamp();
+    	if(delayHARQ > 400){
+    		if(GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx() > 0){
     			GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetHARQretx(0);
     		}
     	}
 
     	GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetLastHARQTimestamp(Simulator::Init()->Now());
 
-    	if(nTxDone + 1 < requiredRx){
+    	if(GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx() + 1 < requiredRx){
 
     		phyError = true;
-    		cout << "HARQ_ERR 1 RX_n: " << nTxDone + 1 << " / " << requiredRx << endl;
-    		GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetHARQretx(nTxDone + 1);
+    		cout << "HARQ_ERR 1 RX_n: " << GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx() + 1 << " / " << requiredRx << endl;
+    		GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetHARQretx(GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx() + 1);
 
     	}else{
 
     		//phyError = false;
     		phyError = ((NBIoTSimpleErrorModel*)GetErrorModel ())->CheckForPhysicalErrorHARQ (channelsForRx, measuredSinr);
-    		cout << "HARQ_ERR "<< phyError <<" RX_n: " << nTxDone + 1 << " / " << requiredRx << endl;
+    		cout << "HARQ_ERR "<< phyError <<" RX_n: " << GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx() + 1 << " / " << requiredRx << endl;
     		GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->SetHARQretx(0);
     		//cout << "OK HARQ, non richiesta ritrasmissione." << endl;
 
