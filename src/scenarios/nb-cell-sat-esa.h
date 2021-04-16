@@ -69,7 +69,7 @@
 
 static void nbCell_Satellite_ESA(int argc, char *argv[])
 {
-    // ./5G-air-simulator nbCell-Sat-ESA 3 1000 154 1 3 1 240 2048 15 1 0 1
+    // ./5G-air-simulator nbCell-Sat-ESA 3 3000 164 1 5 1 80 65536 15 1 1 0 10
 
     
     
@@ -82,16 +82,17 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     int RAOPeriod = atoi(argv[8]);
     int backOffRACH = atoi(argv[9]);
     double spacing = atof(argv[10]); // 15 kHz or 3.75 kHz
-    bool edtEnable = false;
-    bool harqEnable = atoi(argv[11]);
-    bool clustering = atoi(argv[12]); // 1 for clustering, 0 for uniform
-
+    //bool edtEnable = false;
+    bool edtEnable =  atoi(argv[11]);
+    bool harqEnable = atoi(argv[12]);
+    bool clustering = atoi(argv[13]); // 1 for clustering, 0 for uniform
+    int NRU = 4;
     // parametrizzare EDT ed HARQ
 
     
     int seed;
-    if (argc==14)
-        seed = atoi(argv[13]);
+    if (argc==15)
+        seed = atoi(argv[14]);
     else
         seed = -1;
     
@@ -110,13 +111,16 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     
     int schedUL = 1; // RR
     //double radius = 0.309; // [km]
-    double radius = 130; // [km]
+    double radius = 320; // [km]
     
-    radius = 0.309; // 30 hectars
+
+    //if(!clustering){
+    	 //radius = 0.309; // 30 hectars
+    //}
 
     double bandwidth = 30; // [MHz] max 15MHz
     int tones = 1; // 1,3,12
-    int NRU = 5;
+
     int totPreambleTx = 10; // tentativi di RACH procedure
     int nbCE = 1; // numero coverage class
     
@@ -211,7 +215,7 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     // CREATE CHANNELS and propagation loss model
     RadioChannel *dlCh = new RadioChannel ();
     RadioChannel *ulCh = new RadioChannel ();
-    
+
     // CREATE SPECTRUM
     BandwidthManager* spectrum = new BandwidthManager (bandwidth, bandwidth, 0, 0);
     spectrum->CreateNbIoTspectrum(carriers, spacing, tones);
@@ -288,6 +292,10 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     double nPeriods = 10;
     double duration = ((SatelliteMovement*)gnb->GetMobilityModel())->GetVisibilityPeriod() * nPeriods; // 21600 s = 6 h  // 86400 s = 1 day
     duration = duration + 3600 - ( fmod(duration, 3600)); //round to a complete hour
+    duration = 172800;//48h
+
+    //duration = 36000; //10h
+
     double flow_duration = duration;
     
     cout << "Duration: " << duration << " flow: " << flow_duration << endl;
@@ -300,7 +308,16 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     int i_cluster = 0;
     int nCluster = 10;
     double uePerCluster = nbUE/nCluster;
-    double deviceDensity = 100.0 / 1000000.0; // ue/m^2
+
+    if(nbUE%3000 == 0){
+    	uePerCluster = 3000;
+    	nCluster = nbUE / uePerCluster;
+    }
+
+    cout <<"Number of cluster:"<< nCluster << endl;
+
+    //double deviceDensity = 100.0 / 1000000.0; // ue/km^2
+    double deviceDensity = 9710.0 / 1000000.0; // ue/km^2
     double clusterArea = uePerCluster / deviceDensity;
     double clusterRadius = sqrt(clusterArea / M_PI);
     double cluster_x_pos[nCluster];
@@ -395,12 +412,14 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
             class1day++;
         }
 
-        _cbrInterval = 14400;
-        //_cbrInterval = 144;
+        //_cbrInterval = 14400;
+        _cbrInterval = 21600; // 6 ore
+
         cout << "CBR interval is " << _cbrInterval << endl;
         
         //CREATE UPLINK APPLICATION FOR THIS UE
-        std::uniform_real_distribution<> timeDis(0.0, (double) _cbrInterval); // intervallo all interno del quale l UE trasmette
+        //std::uniform_real_distribution<> timeDis(0.0, (double) _cbrInterval); // intervallo all interno del quale l UE trasmette
+        std::uniform_real_distribution<> timeDis(0.0, 60.0); // intervallo all interno del quale l UE trasmette
         double start_time = .001 + timeDis(gen); // 1 ms + un numero da 0 a CBR_interval
         
         // *** cbr application
@@ -413,7 +432,8 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
         //CBRApplication[cbrApplication].SetClassicCBR(false);
         CBRApplication[cbrApplication].SetClassicCBR(true);
         CBRApplication[cbrApplication].SetInterval (_cbrInterval);
-        CBRApplication[cbrApplication].SetSize (19);
+        //CBRApplication[cbrApplication].SetSize (19);
+        CBRApplication[cbrApplication].SetSize (28);
 
         //-------------------------------------------------------------------
         

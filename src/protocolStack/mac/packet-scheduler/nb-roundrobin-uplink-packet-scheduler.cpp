@@ -182,11 +182,13 @@ DEBUG_LOG_START_1(SIM_ENV_SCHEDULER_DEBUG_RR)
 DEBUG_LOG_END
 
                   int nru = GetMacEntity ()->GetNbAmcModule ()->GetNbOfRUsFromSize(mcs, dataToTransmit*8);
+
 				  //int nru = FrameManager::Init()->GetNRUNBIoTSat();
-                  if (nru > ruSlice)
-                    {
-                      nru = ruSlice;
-                    }
+
+                  //if (nru > ruSlice)
+                  //  {
+                  //    nru = ruSlice;
+                  //  }
 
                   int tbs = (GetMacEntity ()->GetNbAmcModule ()->GetTBSizeFromMCS (mcs, nru)) / 8;
 

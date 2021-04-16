@@ -190,7 +190,7 @@ SatelliteMovement::GetSatPosition (double time)
         // periodicità sat.        = 1 ogni 2838 secondi
 
         double mod =  GetTimeOrbitPeriod() / GetNumberOfSatellitePerOrbit();
-        double startOffset = 300000;
+        double startOffset = 700000;
         //double newPosition = -320000 - 309  +(7059.22 * (fmod(time,mod))) - start_offset;
 
         double newPosition = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (7059.22 * (fmod(time,mod))) - startOffset;
@@ -300,7 +300,7 @@ SatelliteMovement::GetTimeNeededForDestination(double satPosition)
 
     double gnbPosX = GetAbsolutePosition()->GetCoordinateX();
     double gnbPosXTarget = satPosition;
-    double startOffset = 300000;
+    double startOffset = 700000;
     double speed = 7059.22;
     
     double sMin = - GetSpotBeamRadius() - GetFixedAreaRadius() +  (speed * (fmod(0,mod))) - startOffset;

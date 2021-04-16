@@ -176,7 +176,7 @@ DEBUG_LOG_END
     	//int nTxDone = GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetHARQretx();
 
     	int TBS_ = GetDevice()->GetMacEntity()->GetNbAmcModule()->GetTBSizeFromMCS (MCS_, RU_);
-    	int requiredRx = GetMaxRequiredHARQretx(measuredSinr.at(channelsForRx.at(0)));
+    	int requiredRx = GetMaxRequiredHARQretx(measuredSinr.at(channelsForRx.at(0)),MCS_);
 
     	// se il ritardo è superiore ad una certa soglia considero la trasmissione relativa al precedente satellite, discorso azzerato
     	double delayHARQ = Simulator::Init()->Now() - GetDevice()->GetUserEquipmentRecord(p->GetPackets().front()->GetSourceID())->GetUE()->GetLastHARQTimestamp();
