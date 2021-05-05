@@ -88,7 +88,6 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     bool clustering = atoi(argv[13]); // 1 for clustering, 0 for uniform
     int NRU = 4;
     // parametrizzare EDT ed HARQ
-
     
     int seed;
     if (argc==15)
@@ -107,6 +106,13 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
     commonGen.seed(seed>=0 ? seed : time(NULL));
     
     cout << "Simulation with SEED = " << seed << endl;
+    cout << "### MCS = " << MCS << endl;
+    cout << "### NRep = " << NRep << endl;
+    cout << "### RAOPeriod = " << RAOPeriod << endl;
+    cout << "### backOffRACH = " << backOffRACH << endl;
+    cout << "### EDT = " << edtEnable << endl;
+    cout << "### HARQ = " << harqEnable << endl;
+    cout << "### CLUSTER = " << clustering << endl;
 
     
     int schedUL = 1; // RR
@@ -412,8 +418,8 @@ static void nbCell_Satellite_ESA(int argc, char *argv[])
             class1day++;
         }
 
-        //_cbrInterval = 14400;
-        _cbrInterval = 21600; // 6 ore
+        _cbrInterval = 14400; // 4 ore
+        //_cbrInterval = 21600; // 6 ore
 
         cout << "CBR interval is " << _cbrInterval << endl;
         
